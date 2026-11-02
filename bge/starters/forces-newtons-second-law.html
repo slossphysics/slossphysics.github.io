@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Force, mass and acceleration · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Fourth level starter (SCN 4-07b): Newton's second law, F = ma. Calculate force, acceleration and mass, set out the SQA way, and see how mass affects acceleration.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Fourth level · Forces, electricity and waves · SCN 4-07b</p>
+    <h1>Force, mass and acceleration</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning how the unbalanced force on an object, its mass and its acceleration are linked.</p>
+      <p><strong>SC:</strong> I can use <code>F = ma</code> · I can set out my working: relationship, substitution, answer with unit · I can explain why a bigger mass gives a smaller acceleration for the same force.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>Which relationship links unbalanced force, mass and acceleration?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="That would mean a bigger acceleration needs a smaller force. Does a bigger push give a smaller acceleration?">F = m / a</button>
+          <button type="button" class="option" data-correct>F = ma</button>
+          <button type="button" class="option" data-feedback="That would mean a heavier object needs less force for the same acceleration. Is it easier to speed up a lorry or a bike?">F = a / m</button>
+          <button type="button" class="option" data-feedback="You can't add a mass to an acceleration: they are different quantities with different units.">F = m + a</button>
+        </div>
+        <div class="q-explain">Unbalanced force = mass × acceleration: <strong>F = ma</strong>. This is Newton's second law.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">2.</span>Match each symbol in F = ma to its quantity and unit.</p>
+        <div class="match">
+          <p class="match-hint">Drag each symbol onto its quantity, or tap a symbol and then its quantity.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="a" data-label="Acceleration, m/s²">a</button>
+            <button type="button" class="match-item is-text" data-key="f" data-label="Unbalanced force, N">F</button>
+            <button type="button" class="match-item is-text" data-key="m" data-label="Mass, kg">m</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="m">Mass, in kilograms (kg)</button>
+            <button type="button" class="match-target" data-key="a">Acceleration, in metres per second per second (m/s²)</button>
+            <button type="button" class="match-target" data-key="f">Unbalanced force, in newtons (N)</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>F</strong> is the unbalanced force (N), <strong>m</strong> is the mass (kg) and <strong>a</strong> is the acceleration (m/s²).</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="15">
+        <p class="q-prompt"><span class="q-num">3.</span>A 5 kg trolley accelerates at 3 m/s². Calculate the unbalanced force on the trolley.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="fma-trolley">F =</label>
+          <input class="answer" id="fma-trolley" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">N</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="1.67">You've divided the mass by the acceleration. F = ma means mass <strong>times</strong> acceleration.</p>
+        <p class="mistake" data-value="0.6">You've divided the acceleration by the mass. F = ma means mass <strong>times</strong> acceleration.</p>
+        <p class="mistake" data-value="8">You've added. F = ma means mass <strong>times</strong> acceleration.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>F = ma</li>
+            <li>F = 5 × 3</li>
+            <li>F = 15 N</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">4.</span>The same unbalanced force of 10 N pulls two trolleys along a smooth bench. Which trolley has the bigger acceleration?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 210" role="img" aria-label="Two trolleys, each pulled to the right by a 10 newton force. Trolley A has a mass of 2 kilograms. Trolley B has a mass of 4 kilograms.">
+            <rect x="110" y="30" width="80" height="44" rx="4" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="128" cy="80" r="7" fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="2"/>
+            <circle cx="172" cy="80" r="7" fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="2"/>
+            <text class="label" x="150" y="58" text-anchor="middle">2 kg</text>
+            <path class="wire" d="M190 52H248"/>
+            <path d="M246 43L260 52L246 61Z" fill="currentColor"/>
+            <text class="label" x="225" y="38" text-anchor="middle">10 N</text>
+            <text class="label" x="90" y="58" text-anchor="end">A</text>
+            <rect x="110" y="130" width="80" height="44" rx="4" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="128" cy="180" r="7" fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="2"/>
+            <circle cx="172" cy="180" r="7" fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="2"/>
+            <text class="label" x="150" y="158" text-anchor="middle">4 kg</text>
+            <path class="wire" d="M190 152H248"/>
+            <path d="M246 143L260 152L246 161Z" fill="currentColor"/>
+            <text class="label" x="225" y="138" text-anchor="middle">10 N</text>
+            <text class="label" x="90" y="158" text-anchor="end">B</text>
+          </svg>
+        </figure>
+        <div class="options is-row">
+          <button type="button" class="option" data-correct>Trolley A</button>
+          <button type="button" class="option" data-feedback="Trolley B has more mass to get moving. Is it easier or harder to speed up something heavier with the same push?">Trolley B</button>
+          <button type="button" class="option" data-feedback="The force is the same, but the masses are different. Does mass make a difference to how quickly something speeds up?">Both the same</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Think about pushing an empty shopping trolley and a full one with the same force.</p></details>
+        <div class="q-explain">For the same force, a <strong>bigger mass gives a smaller acceleration</strong>. Using a = F / m: trolley A has 10 / 2 = 5 m/s² and trolley B has 10 / 4 = 2.5 m/s². <strong>Trolley A</strong> accelerates more.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Spot the mistake. A 4 kg box accelerates at 6 m/s². A pupil calculates the unbalanced force:</p>
+        <figure class="figure">
+          <ul class="working">
+            <li>F = ma</li>
+            <li>F = 4 × 6</li>
+            <li>F = 24 kg</li>
+          </ul>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="F = ma is the right relationship. Look at the last line.">The relationship is wrong</button>
+          <button type="button" class="option" data-feedback="The mass is 4 kg and the acceleration is 6 m/s², so 4 × 6 is right. Look at the last line.">The numbers are substituted wrongly</button>
+          <button type="button" class="option" data-correct>The unit is wrong: force is measured in newtons (N)</button>
+          <button type="button" class="option" data-feedback="Look closely at the unit on the answer line. What is being calculated?">There is no mistake</button>
+        </div>
+        <div class="q-explain">The working is right up to the unit. F is a force, so the answer is <strong>F = 24 N</strong>, not 24 kg. Kilograms are the unit of mass.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="4">
+        <p class="q-prompt"><span class="q-num">6.</span>A go-kart and its driver have a total mass of 50 kg. The unbalanced force on the go-kart is 200 N. Calculate its acceleration.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="fma-kart">a =</label>
+          <input class="answer" id="fma-kart" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m/s²</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.25">You've divided the mass by the force. Rearrange F = ma to get a on its own: a = F / m.</p>
+        <p class="mistake" data-value="10000">You've multiplied. That would be the force for an acceleration of 200 m/s². Rearrange F = ma to get a on its own.</p>
+        <details class="hint"><summary>Hint</summary><p>You know F and m. In <code>F = ma</code>, a is being multiplied by m. What do you do to both sides to get a on its own?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>F = ma</li>
+            <li>200 = 50 × a</li>
+            <li>a = 4 m/s²</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">7.</span>A 2 kg trolley pulled by an unbalanced force of 10 N has an acceleration of 5 m/s². Sort each trolley below: is its acceleration more or less than 5 m/s²?</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="less" data-label="Less than 5 m/s²">4 kg pulled by 10 N</button>
+            <button type="button" class="match-item is-text" data-key="more" data-label="More than 5 m/s²">1 kg pulled by 10 N</button>
+            <button type="button" class="match-item is-text" data-key="less" data-label="Less than 5 m/s²">5 kg pulled by 20 N</button>
+            <button type="button" class="match-item is-text" data-key="more" data-label="More than 5 m/s²">2 kg pulled by 20 N</button>
+            <button type="button" class="match-item is-text" data-key="less" data-label="Less than 5 m/s²">2 kg pulled by 6 N</button>
+            <button type="button" class="match-item is-text" data-key="more" data-label="More than 5 m/s²">1 kg pulled by 8 N</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="more">More than 5 m/s²</button>
+            <button type="button" class="match-target" data-key="less">Less than 5 m/s²</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>For each card, work out a = F / m. Or think: more force speeds it up more, more mass speeds it up less.</p></details>
+        <div class="q-explain">Using a = F / m: 1 kg and 10 N is 10 m/s², 2 kg and 20 N is 10 m/s², 1 kg and 8 N is 8 m/s² (all <strong>more than 5 m/s²</strong>). 4 kg and 10 N is 2.5 m/s², 5 kg and 20 N is 4 m/s², 2 kg and 6 N is 3 m/s² (all <strong>less than 5 m/s²</strong>).</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="300">
+        <p class="q-prompt"><span class="q-num">8.</span>An unbalanced force of 600 N gives a motorbike and its rider an acceleration of 2 m/s². Calculate the total mass of the motorbike and rider.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="fma-mass">m =</label>
+          <input class="answer" id="fma-mass" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">kg</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="1200">You've multiplied. Rearrange F = ma to get m on its own: m = F / a.</p>
+        <p class="mistake" data-value="0.00333">You've divided the acceleration by the force. Rearrange F = ma to get m on its own: m = F / a.</p>
+        <details class="hint"><summary>Hint</summary><p>You know F and a. In <code>F = ma</code>, m is being multiplied by a. What do you do to both sides to get m on its own?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>F = ma</li>
+            <li>600 = m × 2</li>
+            <li>m = 300 kg</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="3">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">9.</span>An 800 kg car has a forward engine force of 3000 N. Friction and air resistance together are 600 N. Calculate the car's acceleration.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 150" role="img" aria-label="An 800 kilogram car on a road. A 3000 newton forward force acts to the right. A 600 newton backwards force acts to the left.">
+            <path class="wire" d="M20 134H320"/>
+            <path d="M100 120V96H130L148 74H202L222 96H250V120Z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="125" cy="122" r="11" fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="2"/>
+            <circle cx="225" cy="122" r="11" fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="2"/>
+            <text class="label" x="175" y="112" text-anchor="middle" style="font-size:15px">800 kg</text>
+            <path class="wire" d="M250 104H308M100 104H82"/>
+            <path d="M306 95L320 104L306 113ZM84 95L70 104L84 113Z" fill="currentColor"/>
+            <text class="label" x="285" y="88" text-anchor="middle">3000 N</text>
+            <text class="label" x="82" y="80" text-anchor="middle">600 N</text>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="fma-car">a =</label>
+          <input class="answer" id="fma-car" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m/s²</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="3.75">You've used the engine force only. F in F = ma is the <strong>unbalanced</strong> force: take away the backwards force first.</p>
+        <p class="mistake" data-value="4.5">You've added the two forces. They act in opposite directions, so the unbalanced force is the difference.</p>
+        <p class="mistake" data-value="0.75">You've used only the backwards force. Find the unbalanced force first: forward force minus backwards force.</p>
+        <details class="hint"><summary>Hint</summary><p>F in <code>F = ma</code> is the unbalanced force. Work that out from the two arrows first.</p></details>
+        <div class="q-explain">
+          <p>Unbalanced force = 3000 − 600 = 2400 N.</p>
+          <ul class="working">
+            <li>F = ma</li>
+            <li>2400 = 800 × a</li>
+            <li>a = 3 m/s²</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

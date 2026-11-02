@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mass and weight · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Third level starter (SCN 3-08a): the difference between mass and weight, their units, and weight calculations on Earth with W = mg set out the SQA way.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Third level · Forces, electricity and waves · SCN 3-08a</p>
+    <h1>Mass and weight</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning the difference between mass and weight.</p>
+      <p><strong>SC:</strong> I can explain that weight is a force caused by gravity, measured in newtons · I can use <code>W = mg</code> · I can set out my working: relationship, substitution, answer with unit.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>The arrow shows the weight of a ball held above the Earth. What is weight?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 300 200" role="img" aria-label="A ball above the curved surface of the Earth, with an arrow labelled weight pointing down from the ball towards the Earth." style="max-width:320px">
+            <path d="M10 200Q150 130 290 200Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <text class="label" x="150" y="192" text-anchor="middle">Earth</text>
+            <circle cx="150" cy="50" r="16" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2.5"/>
+            <path class="wire" d="M150 66V120" style="stroke-width:4"/>
+            <path d="M150 134l-8-14h16z" fill="currentColor"/>
+            <text class="label" x="162" y="106">Weight</text>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="That's mass. Weight is something different: look at the arrow.">The amount of matter in the ball</button>
+          <button type="button" class="option" data-feedback="Size and weight aren't the same: a beach ball is big but has a small weight.">How big the ball is</button>
+          <button type="button" class="option" data-feedback="Air doesn't cause weight. The arrow points towards the Earth: what pulls things that way?">The force of the air pressing down on the ball</button>
+          <button type="button" class="option" data-correct>The force of the Earth's gravity pulling on the ball</button>
+        </div>
+        <div class="q-explain">Weight is a <strong>force</strong>: the pull of a planet's <strong>gravity</strong> on an object. Like all forces, it is measured in <strong>newtons (N)</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">2.</span>In <code>W = mg</code>, match each symbol to its quantity and unit.</p>
+        <div class="match">
+          <p class="match-hint">Drag each symbol onto its quantity, or tap a symbol and then its quantity.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="g" data-label="Gravitational field strength, N/kg">g</button>
+            <button type="button" class="match-item is-text" data-key="w" data-label="Weight, N">W</button>
+            <button type="button" class="match-item is-text" data-key="m" data-label="Mass, kg">m</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="w">Weight, in newtons (N)</button>
+            <button type="button" class="match-target" data-key="m">Mass, in kilograms (kg)</button>
+            <button type="button" class="match-target" data-key="g">Gravitational field strength, in newtons per kilogram (N/kg)</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>W</strong> is weight (N), <strong>m</strong> is mass (kg) and <strong>g</strong> is gravitational field strength (N/kg).</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">3.</span>Does each statement describe mass or weight? Sort them.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="mass" data-label="Mass">Measured in kilograms</button>
+            <button type="button" class="match-item is-text" data-key="weight" data-label="Weight">Measured in newtons</button>
+            <button type="button" class="match-item is-text" data-key="weight" data-label="Weight">It is a force</button>
+            <button type="button" class="match-item is-text" data-key="mass" data-label="Mass">The amount of matter in an object</button>
+            <button type="button" class="match-item is-text" data-key="weight" data-label="Weight">Measured with a newton meter</button>
+            <button type="button" class="match-item is-text" data-key="mass" data-label="Mass">Stays the same wherever you go</button>
+            <button type="button" class="match-item is-text" data-key="weight" data-label="Weight">Gets smaller if you go to the Moon</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="mass">Mass</button>
+            <button type="button" class="match-target" data-key="weight">Weight</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Mass is how much stuff is in an object. Weight is a pull from gravity.</p></details>
+        <div class="q-explain"><strong>Mass</strong> is the amount of matter, in kilograms, and stays the same everywhere. <strong>Weight</strong> is the force of gravity, in newtons, measured with a newton meter. It changes when gravity changes, for example on the Moon.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="49">
+        <p class="q-prompt"><span class="q-num">4.</span>A bag of potatoes has a mass of 5 kg. Calculate its weight on Earth, where g = 9.8 N/kg.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="mw-potatoes">W =</label>
+          <input class="answer" id="mw-potatoes" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">N</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.510">You've divided the mass by g. Weight is mass <strong>multiplied</strong> by g.</p>
+        <p class="mistake" data-value="1.96">You've divided g by the mass. Weight is mass <strong>multiplied</strong> by g.</p>
+        <p class="mistake" data-value="14.8">You've added. Weight is mass <strong>multiplied</strong> by g.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>W = mg</li>
+            <li>W = 5 × 9.8</li>
+            <li>W = 49 N</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Spot the mistake. A pupil works out the weight of a 60 kg person on Earth, where g = 9.8 N/kg:</p>
+        <figure class="figure">
+          <ul class="working">
+            <li>W = mg</li>
+            <li>W = 60 × 9.8</li>
+            <li>W = 588 kg</li>
+          </ul>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="60 kg and 9.8 N/kg are both in the right places. Look at the last line.">The substitution is wrong</button>
+          <button type="button" class="option" data-correct>The unit is wrong</button>
+          <button type="button" class="option" data-feedback="W = mg is the right relationship for weight. Look at the last line.">The relationship is wrong</button>
+          <button type="button" class="option" data-feedback="Check the last line. Weight is a force: what unit are forces measured in?">There is no mistake</button>
+        </div>
+        <div class="q-explain">Weight is a force, so its unit is the <strong>newton</strong>: W = <strong>588 N</strong>, not 588 kg.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">6.</span>True or false? "Mass and weight are the same thing. They are just two words for how heavy something is." Choose the answer with the right reason.</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>False: mass is the amount of matter (kg), weight is the pull of gravity (N)</button>
+          <button type="button" class="option" data-feedback="That's the wrong way round. Which one is a force?">False: mass is a force in newtons, weight is in kilograms</button>
+          <button type="button" class="option" data-feedback="In everyday life people say this, but in science they are different quantities with different units.">True: both tell you how heavy something is</button>
+          <button type="button" class="option" data-feedback="A 1 kg bag has a mass of 1 kg. Its weight is a force, measured in newtons.">True: a 1 kg bag weighs 1 kg</button>
+        </div>
+        <div class="q-explain"><strong>False.</strong> Mass is the amount of matter in an object, in <strong>kilograms</strong>. Weight is the force of gravity on it, in <strong>newtons</strong>. On Earth a 1 kg bag has a weight of 9.8 N.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.98">
+        <p class="q-prompt"><span class="q-num">7.</span>An apple has a mass of 0.1 kg. Calculate its weight on Earth, where g = 9.8 N/kg.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="mw-apple">W =</label>
+          <input class="answer" id="mw-apple" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">N</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.0102">You've divided the mass by g. Weight is mass <strong>multiplied</strong> by g.</p>
+        <p class="mistake" data-value="98">You've multiplied 9.8 by 10 instead of by 0.1. Multiplying by 0.1 makes a number smaller.</p>
+        <p class="mistake" data-value="9.9">You've added. Weight is mass <strong>multiplied</strong> by g.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>W = mg</li>
+            <li>W = 0.1 × 9.8</li>
+            <li>W = 0.98 N</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">8.</span>Which has the bigger weight on Earth: 2 kg of feathers or 2 kg of iron?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Iron feels heavier for its size, but here both masses are 2 kg. Weight depends on mass and g.">The iron</button>
+          <button type="button" class="option" data-feedback="The feathers take up more space, but both masses are 2 kg. Weight depends on mass and g.">The feathers</button>
+          <button type="button" class="option" data-correct>Both the same</button>
+          <button type="button" class="option" data-feedback="You know both masses and you know g on Earth. That's all you need.">You can't tell</button>
+        </div>
+        <div class="q-explain">Both have a mass of 2 kg and the same g, so <strong>both</strong> have the same weight: W = 2 × 9.8 = 19.6 N.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="20">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">9.</span>A suitcase hangs from a newton meter on Earth. The reading is 196 N. Calculate the mass of the suitcase. (g = 9.8 N/kg)</p>
+        <div class="answer-row">
+          <label class="answer-label" for="mw-suitcase">m =</label>
+          <input class="answer" id="mw-suitcase" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">kg</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="1921">You've multiplied. The reading is the weight: rearrange W = mg to get m on its own.</p>
+        <p class="mistake" data-value="0.05">You've divided g by the weight. Rearrange W = mg to get m on its own.</p>
+        <details class="hint"><summary>Hint</summary><p>A newton meter measures weight. In <code>W = mg</code>, m is being multiplied by g. What do you do to both sides to get m on its own?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>m = W / g</li>
+            <li>m = 196 / 9.8</li>
+            <li>m = 20 kg</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Friction and air resistance · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Second level starter (SCN 2-07a): friction as a force opposing motion, how air resistance depends on speed and surface area, and when friction is useful or a problem.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Second level · Forces, electricity and waves · SCN 2-07a</p>
+    <h1>Friction and air resistance</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning how friction and air resistance affect moving objects.</p>
+      <p><strong>SC:</strong> I can describe friction as a force that opposes motion · I can say how speed and surface area change air resistance · I can give examples of friction being useful and being a problem.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>What is friction?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Friction acts on moving things too. Think about what slows a sliding object down.">A force that only acts on things that are not moving</button>
+          <button type="button" class="option" data-correct>A force that opposes (works against) motion</button>
+          <button type="button" class="option" data-feedback="Friction doesn't speed things up. What happens to a toy car rolling across carpet?">A force that makes moving things speed up</button>
+          <button type="button" class="option" data-feedback="Friction is a force, a push or a pull. It can turn movement energy into heat, but it isn't energy itself.">A type of energy</button>
+        </div>
+        <div class="q-explain">Friction is a <strong>force that opposes motion</strong>. It acts when two surfaces rub together, or when something moves through air or water.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">2.</span>A box is sliding to the right along the floor. Which arrow shows the friction on the box?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 360 210" role="img" aria-label="A box on the floor, moving to the right. Arrow A points right from the box, arrow B points up from the top, arrow C points left along the floor at the bottom of the box, and arrow D points down into the floor.">
+            <path class="wire" d="M20 150H340"/>
+            <path class="wire" d="M40 150l-10 12M80 150l-10 12M120 150l-10 12M240 150l-10 12M280 150l-10 12M320 150l-10 12" style="stroke-width:1.5"/>
+            <rect x="140" y="90" width="80" height="60" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2.5"/>
+            <text class="label" x="20" y="70" style="font-size:15px">Moving</text>
+            <path class="wire" d="M20 85H98" style="stroke-dasharray:6 5"/>
+            <path d="M112 85l-14-8v16z" fill="currentColor"/>
+            <path class="wire" d="M220 120H282" style="stroke-width:4"/>
+            <path d="M296 120l-14-8v16z" fill="currentColor"/>
+            <text class="label" x="304" y="127">A</text>
+            <path class="wire" d="M180 90V42" style="stroke-width:4"/>
+            <path d="M180 28l-8 14h16z" fill="currentColor"/>
+            <text class="label" x="192" y="40">B</text>
+            <path class="wire" d="M140 140H78" style="stroke-width:4"/>
+            <path d="M64 140l14-8v16z" fill="currentColor"/>
+            <text class="label" x="44" y="128">C</text>
+            <path class="wire" d="M180 150V188" style="stroke-width:4"/>
+            <path d="M180 202l-8-14h16z" fill="currentColor"/>
+            <text class="label" x="192" y="200">D</text>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Arrow A points the same way the box is moving. Friction works against the motion.">A</button>
+          <button type="button" class="option" data-feedback="Arrow B points upwards, away from the floor. Friction acts along the surfaces that are rubbing.">B</button>
+          <button type="button" class="option" data-correct>C</button>
+          <button type="button" class="option" data-feedback="Arrow D points down, like the pull of gravity. Friction acts along the surfaces that are rubbing.">D</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Friction acts where the two surfaces rub, and it always works against the way the object is moving.</p></details>
+        <div class="q-explain">Friction acts along the floor, <strong>opposite to the motion</strong>. The box moves right, so friction points left: <strong>arrow C</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">3.</span>Which of these involve friction or a resistance force acting against the motion? Tap all that apply.</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>A sledge sliding over snow</button>
+          <button type="button" class="option" data-feedback="A magnet pulls a paper clip without rubbing against anything. That's a magnetic force, not friction.">A magnet pulling a paper clip towards it</button>
+          <button type="button" class="option" data-correct>A swimmer moving through water</button>
+          <button type="button" class="option" data-correct>A skydiver falling through the air</button>
+        </div>
+        <div class="q-explain">The <strong>sledge</strong> rubs on the snow (friction), the <strong>swimmer</strong> pushes through water (water resistance) and the <strong>skydiver</strong> pushes through air (air resistance). The magnet's pull is a magnetic force, not friction.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">4.</span>Is friction useful or a problem here? Sort each example.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="useful" data-label="Useful">Brakes slowing a bike down</button>
+            <button type="button" class="match-item is-text" data-key="problem" data-label="A problem">Parts inside an engine wearing away</button>
+            <button type="button" class="match-item is-text" data-key="useful" data-label="Useful">Shoes gripping the ground when you walk</button>
+            <button type="button" class="match-item is-text" data-key="problem" data-label="A problem">Air resistance slowing a racing cyclist</button>
+            <button type="button" class="match-item is-text" data-key="useful" data-label="Useful">A parachute slowing a skydiver</button>
+            <button type="button" class="match-item is-text" data-key="problem" data-label="A problem">A bike chain getting worn out</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="useful">Useful</button>
+            <button type="button" class="match-target" data-key="problem">A problem</button>
+          </div>
+        </div>
+        <div class="q-explain">Friction is <strong>useful</strong> when we want grip or want to slow down: brakes, shoe grip, parachutes. It is <strong>a problem</strong> when it wears moving parts away or slows down something we want to go fast: engine parts, bike chains, a racing cyclist.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Two identical sheets of paper are dropped from the same height at the same time. One is crumpled into a ball and one is left flat. Which falls more slowly?</p>
+        <div class="options is-pair">
+          <button type="button" class="option" aria-label="A: the crumpled ball" data-feedback="The crumpled ball has a small surface area, so there is less air resistance on it. It falls faster.">
+            <svg class="circuit" viewBox="0 0 220 130" aria-hidden="true">
+              <path d="M92 52L108 40L126 46L134 62L128 80L110 88L92 82L84 66Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+              <path class="wire" d="M98 56L112 64L124 54M112 64L104 80M112 64L128 70" style="stroke-width:1.5"/>
+              <text class="label" x="6" y="22">A</text>
+              <text class="label" x="110" y="118" text-anchor="middle" style="font-size:16px">Crumpled ball</text>
+            </svg>
+          </button>
+          <button type="button" class="option" data-correct aria-label="B: the flat sheet">
+            <svg class="circuit" viewBox="0 0 220 130" aria-hidden="true">
+              <path d="M40 66L150 56L184 70L74 80Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+              <text class="label" x="6" y="22">B</text>
+              <text class="label" x="110" y="118" text-anchor="middle" style="font-size:16px">Flat sheet</text>
+            </svg>
+          </button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Both sheets weigh the same. Which one has more surface pushing against the air as it falls?</p></details>
+        <div class="q-explain">The <strong>flat sheet (B)</strong> has a bigger surface area pushing against the air, so it has more air resistance and falls more slowly.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">6.</span>A cyclist pedals harder and goes faster. What happens to the air resistance on the cyclist?</p>
+        <div class="options is-row">
+          <button type="button" class="option" data-correct>It increases</button>
+          <button type="button" class="option" data-feedback="Think about sticking your hand out of a car window. Does the air push harder when the car goes slowly or fast?">It decreases</button>
+          <button type="button" class="option" data-feedback="Air resistance depends on how fast you go. Does it feel windier when you cycle slowly or fast?">It stays the same</button>
+        </div>
+        <div class="q-explain">The faster something moves through the air, the <strong>bigger</strong> the air resistance on it.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">7.</span>True or false? "A ball rolling across the grass stops because it runs out of force." Choose the answer with the right reason.</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="A kick doesn't put a force inside the ball that gets used up. Something must be acting on the ball to slow it down.">True: the force from the kick gets used up</button>
+          <button type="button" class="option" data-feedback="Moving things only slow down when a force acts against them. Without friction, the ball would keep rolling.">True: moving things always slow down by themselves</button>
+          <button type="button" class="option" data-feedback="Gravity pulls the ball down towards the ground, not backwards along it.">False: gravity pulls it backwards</button>
+          <button type="button" class="option" data-correct>False: friction from the grass and the air acts against its motion</button>
+        </div>
+        <div class="q-explain"><strong>False.</strong> The ball doesn't carry a force that runs out. <strong>Friction</strong> from the grass and <strong>air resistance</strong> act against its motion and slow it down. On a smooth, flat floor there is less friction, so it rolls much further.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">8.</span>Match each design to what it does.</p>
+        <div class="match">
+          <p class="match-hint">Drag each design onto what it does, or tap a design and then what it does.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="tread" data-label="Tyre tread">Tyre tread</button>
+            <button type="button" class="match-item is-text" data-key="chute" data-label="Parachute">Parachute</button>
+            <button type="button" class="match-item is-text" data-key="stream" data-label="Smooth, pointed shape of a racing car">Smooth, pointed shape of a racing car</button>
+            <button type="button" class="match-item is-text" data-key="brake" data-label="Brake pads">Brake pads</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="stream">Reduces air resistance so it can go faster</button>
+            <button type="button" class="match-target" data-key="tread">Increases grip on the road</button>
+            <button type="button" class="match-target" data-key="brake">Rubs on the wheel to slow it down</button>
+            <button type="button" class="match-target" data-key="chute">Increases air resistance to slow a fall</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>Tyre tread</strong> gives grip, <strong>brake pads</strong> rub to slow the wheel, a <strong>parachute</strong> has a big surface area to increase air resistance, and a <strong>streamlined</strong> racing car lets air flow past it easily.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq q-challenge">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">9.</span>A skydiver jumps from a plane. At first she falls faster and faster. After a while she stops speeding up, even before she opens her parachute. Why?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>Air resistance grows as she speeds up, until it is as big as the pull of gravity</button>
+          <button type="button" class="option" data-feedback="The pull of gravity on her stays about the same as she falls. Think about what changes as she gets faster.">Gravity gets weaker as she falls</button>
+          <button type="button" class="option" data-feedback="She doesn't need energy of her own to fall. Think about the force from the air as she gets faster.">She runs out of energy</button>
+          <button type="button" class="option" data-feedback="The air resistance on her changes as she speeds up. Does it get bigger or smaller when she goes faster?">Air resistance stays the same the whole way down</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Two forces act on her: gravity pulling down and air resistance pushing up. Which one changes as she gets faster?</p></details>
+        <div class="q-explain">Air resistance <strong>increases with speed</strong>. As she falls faster, the air pushes up harder, until it balances the pull of gravity. Then she stops speeding up and falls at a steady speed.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

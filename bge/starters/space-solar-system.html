@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Solar System · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Second level starter (SCN 2-06a): the order of the planets, rocky and giant planets, and how size, distance, day, year, temperature and moons compare.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Planet Earth</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Second level · Planet Earth · SCN 2-06a</p>
+    <h1>The Solar System</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning about the planets in our Solar System and how they compare.</p>
+      <p><strong>SC:</strong> I can put the eight planets in order from the Sun · I can sort them into rocky and giant planets · I can compare their size, year, day, temperature and moons.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>Which planet is closest to the Sun?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Venus is the second planet from the Sun. One planet is even closer.">Venus</button>
+          <button type="button" class="option" data-feedback="Earth is the third planet from the Sun. Two planets are closer than us.">Earth</button>
+          <button type="button" class="option" data-correct>Mercury</button>
+          <button type="button" class="option" data-feedback="Mars is the fourth planet, just beyond Earth.">Mars</button>
+        </div>
+        <div class="q-explain"><strong>Mercury</strong> is the closest planet to the Sun. It is also the smallest planet.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">2.</span>Which planet is the largest?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Saturn is huge, and its rings make it look even bigger, but it is the second largest.">Saturn</button>
+          <button type="button" class="option" data-feedback="Earth is one of the small, rocky planets. The giant planets are far bigger.">Earth</button>
+          <button type="button" class="option" data-feedback="Neptune is a giant planet, but it is much smaller than two of the others.">Neptune</button>
+          <button type="button" class="option" data-correct>Jupiter</button>
+        </div>
+        <div class="q-explain"><strong>Jupiter</strong> is the largest planet. More than 1000 Earths could fit inside it.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">3.</span>Put the planets in order from the Sun. One of these is not a planet.</p>
+        <div class="match is-order">
+          <p class="match-hint">Drag each name to its place, or tap a name and then its place.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="5" data-label="5th">Jupiter</button>
+            <button type="button" class="match-item is-text" data-key="3" data-label="3rd">Earth</button>
+            <button type="button" class="match-item is-text" data-key="8" data-label="8th (furthest)">Neptune</button>
+            <button type="button" class="match-item is-text" data-key="1" data-label="1st (closest)">Mercury</button>
+            <button type="button" class="match-item is-text" data-key="x" data-label="Not a planet">Pluto</button>
+            <button type="button" class="match-item is-text" data-key="6" data-label="6th">Saturn</button>
+            <button type="button" class="match-item is-text" data-key="4" data-label="4th">Mars</button>
+            <button type="button" class="match-item is-text" data-key="7" data-label="7th">Uranus</button>
+            <button type="button" class="match-item is-text" data-key="2" data-label="2nd">Venus</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="1">1st (closest)</button>
+            <button type="button" class="match-target" data-key="2">2nd</button>
+            <button type="button" class="match-target" data-key="3">3rd</button>
+            <button type="button" class="match-target" data-key="4">4th</button>
+            <button type="button" class="match-target" data-key="5">5th</button>
+            <button type="button" class="match-target" data-key="6">6th</button>
+            <button type="button" class="match-target" data-key="7">7th</button>
+            <button type="button" class="match-target" data-key="8">8th (furthest)</button>
+            <button type="button" class="match-target" data-key="x">Not a planet</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The four small, rocky planets are closest to the Sun. The four giant planets come after them.</p></details>
+        <div class="q-explain">Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. <strong>Pluto</strong> was called a planet until 2006. It is now called a <strong>dwarf planet</strong> because it is so small.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">4.</span>Sort the planets into rocky planets and giant planets.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each planet into its group, or tap a planet and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="giant" data-label="Giant planet">Saturn</button>
+            <button type="button" class="match-item is-text" data-key="rocky" data-label="Rocky planet">Mars</button>
+            <button type="button" class="match-item is-text" data-key="rocky" data-label="Rocky planet">Venus</button>
+            <button type="button" class="match-item is-text" data-key="giant" data-label="Giant planet">Neptune</button>
+            <button type="button" class="match-item is-text" data-key="giant" data-label="Giant planet">Jupiter</button>
+            <button type="button" class="match-item is-text" data-key="rocky" data-label="Rocky planet">Mercury</button>
+            <button type="button" class="match-item is-text" data-key="giant" data-label="Giant planet">Uranus</button>
+            <button type="button" class="match-item is-text" data-key="rocky" data-label="Rocky planet">Earth</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="rocky">Small, rocky planets</button>
+            <button type="button" class="match-target" data-key="giant">Giant planets, made mostly of gas</button>
+          </div>
+        </div>
+        <div class="q-explain">The four <strong>inner</strong> planets (Mercury, Venus, Earth, Mars) are small and <strong>rocky</strong>. The four <strong>outer</strong> planets (Jupiter, Saturn, Uranus, Neptune) are <strong>giants</strong> made mostly of gas, with no solid surface to stand on. Uranus and Neptune are sometimes called ice giants.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Planets P and Q both orbit the Sun. Which planet has the longer year?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 400 220" role="img" aria-label="The Sun in the middle. Planet P orbits close to the Sun. Planet Q orbits much further out.">
+            <ellipse cx="200" cy="110" rx="80" ry="45" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 6"/>
+            <ellipse cx="200" cy="110" rx="175" ry="95" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 6"/>
+            <circle cx="200" cy="110" r="20" fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-width="2.5"/>
+            <text class="label" x="200" y="146" text-anchor="middle">Sun</text>
+            <circle cx="280" cy="110" r="8" fill="currentColor" fill-opacity="0.6" stroke="currentColor" stroke-width="2"/>
+            <text class="label" x="296" y="102">P</text>
+            <circle cx="375" cy="110" r="10" fill="currentColor" fill-opacity="0.6" stroke="currentColor" stroke-width="2"/>
+            <text class="label" x="380" y="142">Q</text>
+          </svg>
+          <p class="figure-caption">Not to scale.</p>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="P is close to the Sun, so its orbit is short. Which planet has further to travel?">Planet P</button>
+          <button type="button" class="option" data-correct>Planet Q</button>
+          <button type="button" class="option" data-feedback="A year is the time for one orbit. Are the two orbits the same length?">Their years are the same length</button>
+          <button type="button" class="option" data-feedback="The diagram shows how far each planet is from the Sun. That is enough to decide.">You can't tell</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>A planet's year is the time it takes to go once around the Sun. Compare the two orbits.</p></details>
+        <div class="q-explain">A year is one orbit of the Sun. <strong>Q</strong> is further out, so it has further to travel and it moves more slowly: its year is <strong>longer</strong>. Earth's year is about 365 days; Neptune's is about 165 Earth years.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">6.</span>True or false? Venus is the hottest planet, even though Mercury is closer to the Sun.</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>True: Venus's thick atmosphere traps heat</button>
+          <button type="button" class="option" data-feedback="Venus is about the same size as Earth, and size doesn't make a planet hot. What is Venus wrapped in?">True: Venus is the largest planet</button>
+          <button type="button" class="option" data-feedback="It is a good guess that the closest planet is hottest, but Mercury has almost no atmosphere, so its heat escapes.">False: Mercury is hottest, because it is closest</button>
+          <button type="button" class="option" data-feedback="Earth has a comfortable temperature for life. Two planets are much hotter.">False: Earth is the hottest planet</button>
+        </div>
+        <div class="q-explain"><strong>True.</strong> Venus has a very thick atmosphere that traps heat, so its surface is about 460 °C, hotter than Mercury. Mercury has almost no atmosphere, so its heat escapes and its nights are freezing.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">7.</span>A day is the time a planet takes to spin once. Earth's day is 24 hours. Which of these is true?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="A day is about how fast the planet itself spins, not about the Sun.">Every planet has a 24-hour day, because the Sun sets the day</button>
+          <button type="button" class="option" data-feedback="It is easy to think that, but Jupiter is far out and spins faster than Earth: its day is only about 10 hours.">Planets further from the Sun always have longer days</button>
+          <button type="button" class="option" data-correct>Each planet spins at its own speed, so their days are different lengths</button>
+          <button type="button" class="option" data-feedback="All the planets spin. If a planet didn't spin, one side would always face the Sun.">Only Earth spins, so only Earth has days</button>
+        </div>
+        <div class="q-explain">Each planet <strong>spins at its own speed</strong>. Jupiter spins fastest (a day of about 10 hours), while Venus spins so slowly that its day is longer than its year. Day length does <strong>not</strong> follow the order from the Sun, but year length does.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">8.</span>Match each planet to its description.</p>
+        <div class="match">
+          <p class="match-hint">Drag each planet onto its description, or tap a planet and then its description.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="mars" data-label="Mars">Mars</button>
+            <button type="button" class="match-item is-text" data-key="mercury" data-label="Mercury">Mercury</button>
+            <button type="button" class="match-item is-text" data-key="saturn" data-label="Saturn">Saturn</button>
+            <button type="button" class="match-item is-text" data-key="earth" data-label="Earth">Earth</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="earth">Has one moon, and is the only planet known to have life</button>
+            <button type="button" class="match-target" data-key="saturn">A giant with bright rings and many moons</button>
+            <button type="button" class="match-target" data-key="mercury">The smallest planet, with no moons</button>
+            <button type="button" class="match-target" data-key="mars">Rocky and red, covered in rusty dust</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>Earth</strong> has one Moon and life. <strong>Saturn</strong> has bright rings and many moons (Jupiter has many moons too). <strong>Mercury</strong> is the smallest planet; it and Venus have no moons. <strong>Mars</strong> is red because of rusty (iron oxide) dust.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq q-challenge">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">9.</span>A space probe visits the planet that is further from the Sun than Mars, but closer than Saturn. Which of these are true about that planet? Tap all that apply.</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="The planets beyond Mars are the giant planets.">It is a small, rocky planet</button>
+          <button type="button" class="option" data-correct>It is the largest planet</button>
+          <button type="button" class="option" data-feedback="Only Mercury and Venus have no moons. The giant planets have many.">It has no moons</button>
+          <button type="button" class="option" data-correct>Its year is longer than Earth's year</button>
+          <button type="button" class="option" data-correct>It is a giant planet, made mostly of gas</button>
+          <button type="button" class="option" data-feedback="Neptune is much further from the Sun, so it is colder.">It is colder than Neptune</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>First work out which planet it is: list the planets in order and find the one between Mars and Saturn.</p></details>
+        <div class="q-explain">The planet is <strong>Jupiter</strong>, the fifth planet. It is the <strong>largest planet</strong>, a <strong>giant made mostly of gas</strong>, and it has many moons. It is further from the Sun than Earth, so its <strong>year is longer</strong> (about 12 Earth years). It is closer to the Sun than Neptune, so it is warmer.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speed–time graphs · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Fourth level starter (SCN 4-07a): describe motion from a speed–time graph, calculate acceleration from a graph, and find the distance travelled from the area under the graph.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Fourth level · Forces, electricity and waves · SCN 4-07a</p>
+    <h1>Speed–time graphs</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning to describe and analyse motion using speed–time graphs.</p>
+      <p><strong>SC:</strong> I can describe motion from the shape of a speed–time graph · I can calculate acceleration from a graph · I can find the distance travelled from the area under a graph.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>The speed–time graph shows the motion of a car. What is the car doing?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Speed–time graph. Speed in metres per second from 0 to 20, time in seconds from 0 to 10. A flat line at 12 metres per second from 0 to 10 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 168H300M50 136H300M50 104H300M50 72H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="172">4</text><text x="43" y="140">8</text><text x="43" y="108">12</text><text x="43" y="76">16</text><text x="43" y="44">20</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">speed (m/s)</text>
+            <path class="wire" d="M50 104H300" style="stroke-width:4"/>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="A stationary car has a speed of 0 m/s, so its line would sit along the time axis. Read the speed off this line.">It is stationary</button>
+          <button type="button" class="option" data-feedback="If it were speeding up, the line would slope upwards. Does the speed change as time goes on?">It is speeding up</button>
+          <button type="button" class="option" data-feedback="If it were slowing down, the line would slope downwards. Does the speed change as time goes on?">It is slowing down</button>
+          <button type="button" class="option" data-correct>It is moving at a constant speed of 12 m/s</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>On a speed–time graph, the height of the line tells you the speed. Does the height change?</p></details>
+        <div class="q-explain">A flat (horizontal) line means the speed stays the same. The line is at 12 m/s, so the car moves at a <strong>constant speed of 12 m/s</strong>. A flat line on a speed–time graph does not mean stopped.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">2.</span>Each small graph is a speed–time graph, with speed up the side and time along the bottom. Match each graph to the motion it shows.</p>
+        <div class="match">
+          <p class="match-hint">Drag each graph onto its description, or tap a graph and then its description.</p>
+          <div class="match-items">
+            <button type="button" class="match-item" data-key="slow" data-label="Slowing down" aria-label="Graph 1: a line sloping down to the time axis">
+              <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M14 6V70H114" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 14L104 66" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+            </button>
+            <button type="button" class="match-item" data-key="still" data-label="Stationary" aria-label="Graph 2: a line along the time axis, at zero speed">
+              <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M14 6V70H114" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 68H104" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>
+            </button>
+            <button type="button" class="match-item" data-key="up" data-label="Speeding up" aria-label="Graph 3: a line sloping up from zero">
+              <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M14 6V70H114" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 68L104 14" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+            </button>
+            <button type="button" class="match-item" data-key="steady" data-label="Constant speed" aria-label="Graph 4: a flat line above the time axis">
+              <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M14 6V70H114" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 32H104" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="still">Stationary</button>
+            <button type="button" class="match-target" data-key="steady">Constant speed</button>
+            <button type="button" class="match-target" data-key="up">Speeding up</button>
+            <button type="button" class="match-target" data-key="slow">Slowing down</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Follow each line from left to right. Is the speed getting bigger, getting smaller, staying the same, or zero the whole time?</p></details>
+        <div class="q-explain">Line sloping <strong>up</strong>: speeding up. Line sloping <strong>down</strong>: slowing down. <strong>Flat</strong> line above the axis: constant speed. Flat line <strong>along</strong> the time axis: speed is zero, so stationary.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">3.</span>The graph shows a bus travelling between two stops. In which section is the bus slowing down?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Speed–time graph. Speed in metres per second from 0 to 20, time in seconds from 0 to 10. Section A: the line rises from 0 to 12 metres per second between 0 and 4 seconds. Section B: flat at 12 metres per second from 4 to 8 seconds. Section C: the line falls from 12 to 0 metres per second between 8 and 10 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 168H300M50 136H300M50 104H300M50 72H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="172">4</text><text x="43" y="140">8</text><text x="43" y="108">12</text><text x="43" y="76">16</text><text x="43" y="44">20</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">speed (m/s)</text>
+            <path class="wire" d="M50 200L150 104H250L300 200" style="stroke-width:4"/>
+            <text class="label" x="88" y="145" text-anchor="middle">A</text>
+            <text class="label" x="200" y="94" text-anchor="middle">B</text>
+            <text class="label" x="290" y="128" text-anchor="middle">C</text>
+          </svg>
+        </figure>
+        <div class="options is-row">
+          <button type="button" class="option" data-feedback="In section A the line slopes upwards, so the speed is increasing.">A</button>
+          <button type="button" class="option" data-feedback="In section B the line is flat, so the speed is not changing.">B</button>
+          <button type="button" class="option" data-correct>C</button>
+        </div>
+        <div class="q-explain">In section <strong>C</strong> the line slopes down from 12 m/s to 0 m/s, so the bus is slowing down (until it stops at the next stop). In A it speeds up and in B it moves at a constant speed.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">4.</span>True or false? A pupil looks at this speed–time graph and says: "The line goes down, so the cyclist is going backwards."</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Speed–time graph. Speed in metres per second from 0 to 20, time in seconds from 0 to 10. The line falls steadily from 16 metres per second at 0 seconds to 4 metres per second at 8 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 168H300M50 136H300M50 104H300M50 72H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="172">4</text><text x="43" y="140">8</text><text x="43" y="108">12</text><text x="43" y="76">16</text><text x="43" y="44">20</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">speed (m/s)</text>
+            <path class="wire" d="M50 72L250 168" style="stroke-width:4"/>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-correct>False: the cyclist is still moving forwards, but slowing down</button>
+          <button type="button" class="option" data-feedback="On a speed–time graph, a line going down means the speed is getting smaller. The cyclist would only be stopped when the line reaches 0 m/s.">True: the cyclist is moving backwards</button>
+          <button type="button" class="option" data-feedback="Read the speed at 8 s. Is it zero?">False: the cyclist has stopped</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The height of the line is the speed. What happens to the speed between 0 s and 8 s?</p></details>
+        <div class="q-explain"><strong>False.</strong> The speed falls from 16 m/s to 4 m/s, so the cyclist is <strong>slowing down</strong> but still moving forwards the whole time. A speed–time graph shows how fast, not which way.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="2">
+        <p class="q-prompt"><span class="q-num">5.</span>The graph shows a car pulling away from traffic lights. Calculate the car's acceleration during the first 8 s.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Speed–time graph. Speed in metres per second from 0 to 20, time in seconds from 0 to 10. The line rises steadily from 0 metres per second at 0 seconds to 16 metres per second at 8 seconds, then stays flat at 16 metres per second until 10 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 168H300M50 136H300M50 104H300M50 72H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="172">4</text><text x="43" y="140">8</text><text x="43" y="108">12</text><text x="43" y="76">16</text><text x="43" y="44">20</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">speed (m/s)</text>
+            <path class="wire" d="M50 200L250 72H300" style="stroke-width:4"/>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="st-accel">a =</label>
+          <input class="answer" id="st-accel" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m/s²</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.5">You've divided the time by the change in speed. Acceleration is change in speed ÷ time.</p>
+        <p class="mistake" data-value="128">You've multiplied. Acceleration is change in speed <strong>divided by</strong> time.</p>
+        <p class="mistake" data-value="1.6">The car only speeds up for the first 8 s. After that the line is flat, so use t = 8 s.</p>
+        <p class="mistake" data-value="16">That's the final speed. Acceleration is how much the speed changes <strong>each second</strong>.</p>
+        <details class="hint"><summary>Hint</summary><p>Read the speed at the start and at 8 s. Acceleration = change in speed ÷ time taken.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>a = (v − u) / t</li>
+            <li>a = (16 − 0) / 8</li>
+            <li>a = 2 m/s²</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">6.</span>Spot the mistake. A pupil uses this graph to calculate a cyclist's acceleration during the first 6 s.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Speed–time graph. Speed in metres per second from 0 to 20, time in seconds from 0 to 10. The line rises steadily from 4 metres per second at 0 seconds to 16 metres per second at 6 seconds, then stays flat at 16 metres per second until 10 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 168H300M50 136H300M50 104H300M50 72H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="172">4</text><text x="43" y="140">8</text><text x="43" y="108">12</text><text x="43" y="76">16</text><text x="43" y="44">20</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">speed (m/s)</text>
+            <path class="wire" d="M50 168L200 72H300" style="stroke-width:4"/>
+          </svg>
+        </figure>
+        <figure class="figure">
+          <ul class="working">
+            <li>a = (v − u) / t</li>
+            <li>a = 16 / 6</li>
+            <li>a = 2.67 m/s²</li>
+          </ul>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="The cyclist stops speeding up at 6 s, so 6 s is the right time to use.">The time should be 10 s</button>
+          <button type="button" class="option" data-correct>The speed at the start was 4 m/s, not 0 m/s, so the change in speed is 16 − 4</button>
+          <button type="button" class="option" data-feedback="m/s² is the right unit for acceleration. Look at the speeds on the substitution line.">The unit should be m/s</button>
+          <button type="button" class="option" data-feedback="Look where the line starts. Is the speed 0 m/s at the beginning?">There is no mistake</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Where does the line start on the speed axis?</p></details>
+        <div class="q-explain">The cyclist was already moving at 4 m/s. The change in speed is 16 − 4 = 12 m/s, so a = (16 − 4) / 6 = <strong>2 m/s²</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="80">
+        <p class="q-prompt"><span class="q-num">7.</span>The graph shows a runner during a race. Calculate the distance the runner travels in the 10 s shown.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Speed–time graph. Speed in metres per second from 0 to 20, time in seconds from 0 to 10. A flat line at 8 metres per second from 0 to 10 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 168H300M50 136H300M50 104H300M50 72H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="172">4</text><text x="43" y="140">8</text><text x="43" y="108">12</text><text x="43" y="76">16</text><text x="43" y="44">20</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">speed (m/s)</text>
+            <path class="wire" d="M50 136H300" style="stroke-width:4"/>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="st-rect">distance =</label>
+          <input class="answer" id="st-rect" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.8">You've divided speed by time. Distance is the <strong>area</strong> under the graph: speed × time for a rectangle.</p>
+        <p class="mistake" data-value="1.25">You've divided time by speed. Distance is the <strong>area</strong> under the graph: speed × time for a rectangle.</p>
+        <p class="mistake" data-value="18">You've added. The area of a rectangle is length × height.</p>
+        <details class="hint"><summary>Hint</summary><p>The distance travelled is the area under the line on a speed–time graph. What shape is that area here?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>distance = area under graph</li>
+            <li>distance = 8 × 10</li>
+            <li>distance = 80 m</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="36">
+        <p class="q-prompt"><span class="q-num">8.</span>The graph shows a train leaving a station. Calculate the distance the train travels in the first 6 s.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Speed–time graph. Speed in metres per second from 0 to 20, time in seconds from 0 to 10. The line rises steadily from 0 metres per second at 0 seconds to 12 metres per second at 6 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 168H300M50 136H300M50 104H300M50 72H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="172">4</text><text x="43" y="140">8</text><text x="43" y="108">12</text><text x="43" y="76">16</text><text x="43" y="44">20</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">speed (m/s)</text>
+            <path class="wire" d="M50 200L200 104" style="stroke-width:4"/>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="st-tri">distance =</label>
+          <input class="answer" id="st-tri" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="72">That's the area of a whole rectangle. The area under this line is a triangle, which is half of that.</p>
+        <p class="mistake" data-value="2">That's the acceleration (12 ÷ 6). The distance is the <strong>area</strong> under the graph.</p>
+        <p class="mistake" data-value="18">You've added the base and the height. Use the area of a triangle.</p>
+        <details class="hint"><summary>Hint</summary><p>The area under this line is a triangle. Area of a triangle = ½ × base × height.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>distance = area under graph = ½ × base × height</li>
+            <li>distance = ½ × 6 × 12</li>
+            <li>distance = 36 m</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="96">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">9.</span>The graph shows a motorbike for the first 10 s of a journey. Calculate the total distance it travels in the 10 s.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Speed–time graph. Speed in metres per second from 0 to 20, time in seconds from 0 to 10. The line rises steadily from 0 metres per second at 0 seconds to 12 metres per second at 4 seconds, then stays flat at 12 metres per second until 10 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 168H300M50 136H300M50 104H300M50 72H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="172">4</text><text x="43" y="140">8</text><text x="43" y="108">12</text><text x="43" y="76">16</text><text x="43" y="44">20</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">speed (m/s)</text>
+            <path class="wire" d="M50 200L150 104H300" style="stroke-width:4"/>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="st-total">distance =</label>
+          <input class="answer" id="st-total" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="120">You've treated the whole area as a rectangle (12 × 10). For the first 4 s the area is a triangle, not a rectangle.</p>
+        <p class="mistake" data-value="72">That's only the rectangle from 4 s to 10 s. Add on the triangle from 0 s to 4 s.</p>
+        <p class="mistake" data-value="24">That's only the triangle from 0 s to 4 s. Add on the rectangle from 4 s to 10 s.</p>
+        <details class="hint"><summary>Hint</summary><p>Split the area under the line into a triangle and a rectangle. Work out each area, then add them.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>distance = area under graph = triangle + rectangle</li>
+            <li>distance = (½ × 4 × 12) + (6 × 12) = 24 + 72</li>
+            <li>distance = 96 m</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

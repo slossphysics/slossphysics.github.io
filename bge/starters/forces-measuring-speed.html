@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Measuring speed · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Fourth level starter (SCN 4-07a): calculate speed with v = d / t set out the SQA way, choose units, and compare ways of measuring speed with a stopwatch and with light gates.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Fourth level · Forces, electricity and waves · SCN 4-07a</p>
+    <h1>Measuring speed</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning to measure and calculate the speed of an object.</p>
+      <p><strong>SC:</strong> I can use <code>v = d / t</code> and set out my working · I can choose the right unit for a speed · I can compare ways of measuring speed and explain why light gates can be more accurate than a stopwatch.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">1.</span>In <code>v = d / t</code>, match each symbol to its quantity and unit.</p>
+        <div class="match">
+          <p class="match-hint">Drag each symbol onto its quantity, or tap a symbol and then its quantity.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="t" data-label="Time, s">t</button>
+            <button type="button" class="match-item is-text" data-key="v" data-label="Speed, m/s">v</button>
+            <button type="button" class="match-item is-text" data-key="d" data-label="Distance, m">d</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="v">Speed, in metres per second (m/s)</button>
+            <button type="button" class="match-target" data-key="d">Distance, in metres (m)</button>
+            <button type="button" class="match-target" data-key="t">Time, in seconds (s)</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Two of the symbols are the first letter of their quantity.</p></details>
+        <div class="q-explain"><strong>v</strong> is speed (m/s), <strong>d</strong> is distance (m) and <strong>t</strong> is time (s).</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">2.</span>Which relationship is used to calculate speed?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Multiplying distance by time doesn't give speed. Speed is how far you go in each second.">v = d × t</button>
+          <button type="button" class="option" data-feedback="That's upside down. Going further in the same time should give a bigger speed.">v = t / d</button>
+          <button type="button" class="option" data-feedback="This gives distance, not speed, and it's not right either. Speed is how far you go in each second.">d = v / t</button>
+          <button type="button" class="option" data-correct>v = d / t</button>
+        </div>
+        <div class="q-explain">Speed = distance ÷ time: <strong>v = d / t</strong>. It tells you how many metres are covered each second.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="5">
+        <p class="q-prompt"><span class="q-num">3.</span>A pupil runs 100 m in 20 s. Calculate their average speed.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="ms-runner">v =</label>
+          <input class="answer" id="ms-runner" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m/s</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.2">You've divided the time by the distance. It's distance divided by time.</p>
+        <p class="mistake" data-value="2000">You've multiplied. Speed is distance <strong>divided by</strong> time.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>v = d / t</li>
+            <li>v = 100 / 20</li>
+            <li>v = 5 m/s</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">4.</span>A trolley with a card on top rolls through a light gate. The light gate is connected to a timer. Which two measurements are needed to work out the trolley's speed?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 360 190" role="img" aria-label="A trolley on a track moving to the right towards a light gate. A card stands up on top of the trolley. The light gate is on a stand at the height of the card and is wired to a timer.">
+            <path class="wire" d="M10 150H350"/>
+            <rect x="60" y="115" width="90" height="23" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="80" cy="144" r="6" fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-width="2"/>
+            <circle cx="130" cy="144" r="6" fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-width="2"/>
+            <rect x="95" y="70" width="20" height="45" fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-width="2.5"/>
+            <text class="label" x="105" y="62" text-anchor="middle" style="font-size:15px">Card</text>
+            <path class="wire" d="M250 150V100"/>
+            <rect x="230" y="70" width="40" height="30" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2.5"/>
+            <text class="label" x="250" y="60" text-anchor="middle" style="font-size:15px">Light gate</text>
+            <path class="wire" d="M270 85H326V60" style="stroke-width:1.8"/>
+            <rect x="300" y="25" width="52" height="35" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2.5"/>
+            <text class="label" x="326" y="48" text-anchor="middle" style="font-size:15px">Timer</text>
+            <path class="wire" d="M60 175H130" style="stroke-dasharray:6 5"/>
+            <path d="M144 175l-14-8v16z" fill="currentColor"/>
+            <text class="label" x="152" y="181" style="font-size:15px">Moving</text>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Mass doesn't appear in v = d / t. Which distance does the light gate time?">The mass of the trolley and the time the card blocks the beam</button>
+          <button type="button" class="option" data-correct>The length of the card and the time the card blocks the beam</button>
+          <button type="button" class="option" data-feedback="You need a distance and a time. Neither of these is a time.">The height of the light gate and the length of the card</button>
+          <button type="button" class="option" data-feedback="The trolley's speed through the gate depends on a time as well as a distance.">The length of the track only</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Speed needs a distance and a time. While the card passes through, it blocks the light beam. What distance does the trolley move in that time?</p></details>
+        <div class="q-explain">The timer measures how long the card <strong>blocks the beam</strong>. In that time the trolley moves forward one <strong>card length</strong>. Then v = card length / time.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Pupils time a toy car between two marks 1 m apart using a stopwatch. Why can light gates give a more accurate time?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>A person takes time to react when starting and stopping a stopwatch</button>
+          <button type="button" class="option" data-feedback="Stopwatches do measure in seconds, often to 0.01 s. The problem is the person pressing the button.">Stopwatches can't measure in seconds</button>
+          <button type="button" class="option" data-feedback="Light gates measure time, not distance. Think about who starts and stops a stopwatch.">Light gates measure the distance as well</button>
+          <button type="button" class="option" data-feedback="The light gate doesn't change how fast the car moves. Think about who starts and stops a stopwatch.">Light gates make the car go faster</button>
+        </div>
+        <div class="q-explain">With a stopwatch, the person's <strong>reaction time</strong> adds an error at the start and the stop. A light gate starts and stops the timer automatically as the beam is blocked and unblocked, so there is no reaction time.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">6.</span>To measure speed you need a distance and a time. Sort the equipment by what it measures.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="d" data-label="Distance">Metre stick</button>
+            <button type="button" class="match-item is-text" data-key="t" data-label="Time">Stopwatch</button>
+            <button type="button" class="match-item is-text" data-key="d" data-label="Distance">Trundle wheel</button>
+            <button type="button" class="match-item is-text" data-key="t" data-label="Time">Light gate and timer</button>
+            <button type="button" class="match-item is-text" data-key="d" data-label="Distance">Measuring tape</button>
+            <button type="button" class="match-item is-text" data-key="t" data-label="Time">Timer app on a phone</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="d">Distance</button>
+            <button type="button" class="match-target" data-key="t">Time</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>Distance:</strong> metre stick, trundle wheel, measuring tape. <strong>Time:</strong> stopwatch, phone timer, and a light gate connected to a timer.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">7.</span>A car travels 90 km in 2 hours. Using v = d / t, a pupil gets the answer 45. What is the unit?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="The distance was in kilometres and the time in hours, not metres and seconds.">m/s</button>
+          <button type="button" class="option" data-feedback="The distance was in kilometres, but the time was in hours, not seconds.">km/s</button>
+          <button type="button" class="option" data-correct>km/h</button>
+          <button type="button" class="option" data-feedback="The time was in hours, but the distance was in kilometres, not metres.">m/h</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The unit of speed is the distance unit "per" the time unit. What units were used here?</p></details>
+        <div class="q-explain">Kilometres divided by hours gives <strong>kilometres per hour (km/h)</strong>. Use metres and seconds to get m/s.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">8.</span>Spot the mistake. A cyclist travels 600 m in 2 minutes. A pupil writes:</p>
+        <figure class="figure">
+          <ul class="working">
+            <li>v = d / t</li>
+            <li>v = 600 / 2</li>
+            <li>v = 300 m/s</li>
+          </ul>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="v = d / t is the right relationship. Look at the units of the numbers on the second line.">The relationship is wrong</button>
+          <button type="button" class="option" data-feedback="Metres are fine for the distance when the answer is in m/s. Look at the time.">The distance should be in kilometres</button>
+          <button type="button" class="option" data-correct>The time should be in seconds: 2 minutes is 120 s</button>
+          <button type="button" class="option" data-feedback="300 m/s is faster than a jet airliner. Check the units on the second line.">There is no mistake</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>For an answer in m/s, the distance must be in metres and the time in seconds.</p></details>
+        <div class="q-explain">The time must be in seconds: 2 minutes = 120 s, so v = 600 / 120 = <strong>5 m/s</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="0.2">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">9.</span>A card 5 cm long on a trolley blocks a light gate's beam for 0.25 s. Calculate the speed of the trolley in m/s.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="ms-card">v =</label>
+          <input class="answer" id="ms-card" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m/s</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="20">That's the speed in cm/s. Change 5 cm into metres first.</p>
+        <p class="mistake" data-value="1.25">You've multiplied, and the length is still in cm. Change 5 cm into metres, then divide by the time.</p>
+        <p class="mistake" data-value="0.0125">You've multiplied. Speed is distance <strong>divided by</strong> time.</p>
+        <details class="hint"><summary>Hint</summary><p>There are 100 cm in 1 m. Change the card length into metres before you substitute.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>d = 5 cm = 0.05 m</li>
+            <li>v = d / t</li>
+            <li>v = 0.05 / 0.25</li>
+            <li>v = 0.2 m/s</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

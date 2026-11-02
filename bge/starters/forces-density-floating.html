@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Floating, sinking and density · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Second and Fourth level starter (SCN 2-08b, 4-08b): explain floating and sinking using density, compare with the density of water, and calculate density with ρ = m / V.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Second and Fourth level · Forces, electricity and waves · SCN 2-08b, 4-08b</p>
+    <h1>Floating, sinking and density</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning to explain floating and sinking using density.</p>
+      <p><strong>SC:</strong> I can use density, not weight, to decide whether something floats in water · I can calculate density using <code>ρ = m / V</code> · I can explain why a steel ship floats.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>A huge tree trunk floats on a loch, but a small steel coin sinks. Why?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="The tree trunk is far heavier than the coin, yet it floats. So weight can't be what decides it.">The coin is heavier than the tree trunk</button>
+          <button type="button" class="option" data-correct>Wood is less dense than water, but steel is more dense than water</button>
+          <button type="button" class="option" data-feedback="Big ships float and tiny grains of sand sink. Size on its own doesn't decide it.">Small things sink and big things float</button>
+          <button type="button" class="option" data-feedback="Being wide doesn't decide it: a wide, solid block of steel would still sink. Think about the material each one is made of.">The tree trunk is wider, so the water can hold it up</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Is it how heavy something is, or how heavy it is for its size, that matters?</p></details>
+        <div class="q-explain">Floating depends on <strong>density</strong>, not weight. Wood is less dense than water, so it floats however big it is. Steel is more dense than water, so a steel coin sinks however small it is.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">2.</span>Each card gives a material and its density. Sort the materials: do solid blocks of them float or sink in water?</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="sink" data-label="Sinks">Glass, 2.5 g/cm³</button>
+            <button type="button" class="match-item is-text" data-key="float" data-label="Floats">Cork, 0.24 g/cm³</button>
+            <button type="button" class="match-item is-text" data-key="sink" data-label="Sinks">Iron, 7.9 g/cm³</button>
+            <button type="button" class="match-item is-text" data-key="float" data-label="Floats">Ice, 0.92 g/cm³</button>
+            <button type="button" class="match-item is-text" data-key="sink" data-label="Sinks">Brick, 1.9 g/cm³</button>
+            <button type="button" class="match-item is-text" data-key="float" data-label="Floats">Pine wood, 0.5 g/cm³</button>
+            <button type="button" class="match-item is-text" data-key="sink" data-label="Sinks">Aluminium, 2.7 g/cm³</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="float">Floats</button>
+            <button type="button" class="match-target" data-key="sink">Sinks</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The density of water is 1 g/cm³. Compare each material with that.</p></details>
+        <div class="q-explain">Water has a density of <strong>1 g/cm³</strong>. Anything less dense floats: <strong>cork, pine wood and ice</strong>. Anything more dense sinks: <strong>brick, glass, aluminium and iron</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">3.</span>Which relationship is used to calculate density?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="That would make a bigger object always denser. Density is how much mass is packed into each cm³.">ρ = m × V</button>
+          <button type="button" class="option" data-feedback="That's upside down. More mass in the same volume should give a bigger density.">ρ = V / m</button>
+          <button type="button" class="option" data-correct>ρ = m / V</button>
+          <button type="button" class="option" data-feedback="You can't add a mass to a volume: they are different quantities with different units.">ρ = m + V</button>
+        </div>
+        <div class="q-explain">Density = mass ÷ volume: <strong>ρ = m / V</strong>. With mass in g and volume in cm³, density is in g/cm³. With mass in kg and volume in m³, density is in kg/m³.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="3">
+        <p class="q-prompt"><span class="q-num">4.</span>A small block of stone has a mass of 60 g and a volume of 20 cm³. Calculate its density.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="df-stone">ρ =</label>
+          <input class="answer" id="df-stone" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">g/cm³</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.333">You've divided the volume by the mass. Density is mass divided by volume.</p>
+        <p class="mistake" data-value="1200">You've multiplied. Density is mass <strong>divided by</strong> volume.</p>
+        <p class="mistake" data-value="80">You've added. Density is mass <strong>divided by</strong> volume.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>ρ = m / V</li>
+            <li>ρ = 60 / 20</li>
+            <li>ρ = 3 g/cm³</li>
+          </ul>
+          <p>This is more than 1 g/cm³, so the stone sinks in water.</p>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="2.4">
+        <p class="q-prompt"><span class="q-num">5.</span>A metal block has the measurements shown. Its mass is 96 g. Calculate its density.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 320 170" role="img" aria-label="A cuboid block. It is 5 centimetres long, 4 centimetres deep and 2 centimetres high.">
+            <path d="M80 70L120 40H270L230 70Z" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M230 70L270 40V100L230 130Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="80" y="70" width="150" height="60" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.5"/>
+            <text class="label" x="155" y="155" text-anchor="middle">5 cm</text>
+            <text class="label" x="70" y="106" text-anchor="end">2 cm</text>
+            <text class="label" x="262" y="132">4 cm</text>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="df-block">ρ =</label>
+          <input class="answer" id="df-block" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">g/cm³</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.417">You've divided the volume by the mass. Density is mass divided by volume.</p>
+        <p class="mistake" data-value="8.73">You've added the three sides to get 11. Volume of a block = length × width × height.</p>
+        <p class="mistake" data-value="9.6">You've only multiplied two of the sides. Volume of a block = length × width × height.</p>
+        <p class="mistake" data-value="12">You've only multiplied two of the sides. Volume of a block = length × width × height.</p>
+        <p class="mistake" data-value="4.8">You've only multiplied two of the sides. Volume of a block = length × width × height.</p>
+        <details class="hint"><summary>Hint</summary><p>First find the volume: length × width × height. Then use ρ = m / V.</p></details>
+        <div class="q-explain">
+          <p>Volume = 5 × 4 × 2 = 40 cm³.</p>
+          <ul class="working">
+            <li>ρ = m / V</li>
+            <li>ρ = 96 / 40</li>
+            <li>ρ = 2.4 g/cm³</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">6.</span>True or false? A pupil says: "A big steel bolt sinks. But if you cut off a tiny piece of the steel, it will float, because it is so light."</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>False: the tiny piece is still steel, with the same density, so it still sinks</button>
+          <button type="button" class="option" data-feedback="It is lighter, but it also has a much smaller volume. Has its density changed?">True: lighter things float</button>
+          <button type="button" class="option" data-feedback="Some small things can sit on the surface of water for other reasons, but a solid piece of steel will sink. Think about its density.">True: anything small enough will float</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>When you cut the steel, both its mass and its volume get smaller. What happens to mass ÷ volume?</p></details>
+        <div class="q-explain"><strong>False.</strong> Cutting the steel makes both the mass and the volume smaller, so the density stays the same, about 7.9 g/cm³. That is more than water's 1 g/cm³, so the tiny piece <strong>still sinks</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">7.</span>Steel is about 8 times as dense as water, yet a huge steel ship floats. Why?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 180" role="img" aria-label="A ship floating on water. The ship has a thin steel hull. Inside the hull is air. The bottom of the hull is below the water line.">
+            <path d="M10 110H75L90 140H250L265 110H330V170H10Z" fill="currentColor" fill-opacity="0.1"/>
+            <path class="wire" d="M10 110H75M265 110H330"/>
+            <path d="M60 80H280L250 140H90Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+            <rect x="140" y="52" width="60" height="28" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.5"/>
+            <text class="label" x="170" y="106" text-anchor="middle">air</text>
+            <text class="label" x="320" y="160" text-anchor="end" style="font-size:15px">water</text>
+            <text class="label" x="290" y="74" style="font-size:15px">steel</text>
+            <path class="wire" d="M288 68L274 82" style="stroke-width:1.8"/>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="The question says steel is about 8 times as dense as water. A solid steel block would sink.">Steel is less dense than water</button>
+          <button type="button" class="option" data-feedback="It is ordinary steel. A solid lump of the same steel would sink.">Ships are made of a special steel that floats</button>
+          <button type="button" class="option" data-feedback="Engines push a ship along, not upwards. A ship floats even with its engines off.">The engines hold the ship up</button>
+          <button type="button" class="option" data-correct>The hollow hull is full of air, so the ship as a whole is less dense than water</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Think about the whole ship, including everything inside the hull. Is the inside solid steel?</p></details>
+        <div class="q-explain">The steel is shaped into a thin, hollow hull with lots of <strong>air</strong> inside. The total mass of the ship divided by its total volume is <strong>less than the density of water</strong>, so it floats. Shape matters: the same steel squashed into a solid lump would sink.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="2400">
+        <p class="q-prompt"><span class="q-num">8.</span>A concrete block has a volume of 2 m³ and a mass of 4800 kg. Calculate the density of concrete.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="df-concrete">ρ =</label>
+          <input class="answer" id="df-concrete" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">kg/m³</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.000417">You've divided the volume by the mass. Density is mass divided by volume.</p>
+        <p class="mistake" data-value="9600">You've multiplied. Density is mass <strong>divided by</strong> volume.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>ρ = m / V</li>
+            <li>ρ = 4800 / 2</li>
+            <li>ρ = 2400 kg/m³</li>
+          </ul>
+          <p>Water is 1000 kg/m³, so concrete sinks.</p>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="0.8">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">9.</span>A solid plastic toy has a mass of 0.12 kg and a volume of 150 cm³. Calculate its density in g/cm³. Will it float or sink in water?</p>
+        <div class="answer-row">
+          <label class="answer-label" for="df-toy">ρ =</label>
+          <input class="answer" id="df-toy" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">g/cm³</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.0008">You've used the mass in kilograms. The answer is wanted in g/cm³, so change the mass into grams first.</p>
+        <p class="mistake" data-value="1.25">You've divided the volume by the mass. Density is mass divided by volume.</p>
+        <p class="mistake" data-value="1250">You've divided the volume by the mass, and the mass is still in kilograms. Change kg to g, then do mass ÷ volume.</p>
+        <details class="hint"><summary>Hint</summary><p>The volume is in cm³, so the mass needs to be in grams. There are 1000 g in 1 kg.</p></details>
+        <div class="q-explain">
+          <p>Mass = 0.12 kg = 120 g.</p>
+          <ul class="working">
+            <li>ρ = m / V</li>
+            <li>ρ = 120 / 150</li>
+            <li>ρ = 0.8 g/cm³</li>
+          </ul>
+          <p>This is less than water's 1 g/cm³, so the toy <strong>floats</strong>.</p>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

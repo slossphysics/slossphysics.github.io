@@ -296,6 +296,20 @@
 .match.is-order .match-slot { flex-direction: column; gap: 8px; min-height: 60px; padding: 4px; }
 .match.is-order .match-slot .match-item { flex: none; min-height: 48px; text-align: left; align-items: flex-start; }
 
+/* Short words in order (.match.is-order.is-strip, with --steps set to the number of places): the places
+   sit side by side in one row, so every card and its place fit on an iPad screen together */
+.match.is-order.is-strip .match-items { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+.match.is-order.is-strip .match-item { justify-content: center; align-items: center; text-align: center; }
+.match.is-order.is-strip .match-targets { grid-template-columns: repeat(var(--steps, 6), minmax(0, 1fr)); gap: 6px; }
+.match.is-order.is-strip .match-col { grid-template-columns: minmax(0, 1fr); align-content: start; }
+.match.is-order.is-strip .match-target { min-height: 44px; padding: 6px 4px; font-size: 0.95rem; }
+.match.is-order.is-strip .match-slot { min-height: 64px; }
+.match.is-order.is-strip .match-slot .match-item { flex: 1; min-height: 56px; padding: 6px 4px; font-size: 0.9rem; overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .match.is-order.is-strip .match-items { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  .match.is-order.is-strip .match-targets { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 /* Type-in answers (.q-input) */
 .answer-row {
   display: flex;

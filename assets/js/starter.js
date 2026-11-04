@@ -14,6 +14,8 @@
 //                Add .is-order instead to put sentences in order: the targets are the places
 //                ("1", "2", …, and optionally "Not needed" for wrong sentences, which can share a key),
 //                listed down the page with each slot beside its number.
+//                For short words (a spectrum, a scale of sizes) add .is-strip too, with
+//                style="--steps: 7" for the number of places: the places sit side by side in a row.
 //   .q.q-input   type-in number: an <input class="answer"> and a .q-check button; the .q has
 //                data-answer and optional data-tol (fraction allowed either way, default 0.02).
 //                Optional hidden <p class="mistake" data-value="…"> elements give targeted

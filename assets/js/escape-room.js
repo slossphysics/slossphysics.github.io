@@ -9,8 +9,10 @@
 //   .room             one room, hidden until it's reached. data-name, data-short (for the map),
 //                     data-topic (for the final table) and data-letter (its part of the escape code).
 //                     Its questions sit in .room-body, followed by an empty .door.
-//   [data-end]        final screen: [data-end-code], [data-end-time], [data-end-overrides] and a
-//                     .topic-list [data-end-topics]. Its questions don't count towards anything.
+//   [data-end]        final screen, shown once the pod launches (a countdown over the last door, then
+//                     .is-launching plays the arrival): [data-end-code], [data-end-time],
+//                     [data-end-overrides], a .sparks box over the scene and a .topic-list
+//                     [data-end-topics]. Its questions don't count towards anything.
 //   [data-tools]      holds [data-restart] (tap twice to wipe progress) and a hidden [data-reset],
 //                     which starter.js uses to clear every question.
 //
@@ -40,7 +42,7 @@
   const questions = (room) => [...room.querySelectorAll('.room-body .q')];
 
   // ----- Saved progress (may not persist, for example inside Google's sandboxed frame) -----
-  const fresh = () => ({ started: 0, finished: 0, cleared: 0, penalty: 0, overrides: 0, results: [] });
+  const fresh = () => ({ started: 0, finished: 0, launched: 0, cleared: 0, penalty: 0, overrides: 0, results: [] });
   let state = load();
   function load() {
     try {
@@ -126,7 +128,7 @@
       room.querySelector('.door').classList.toggle('is-open', cleared);
       if (!cleared) room.classList.remove('is-collapsed');
     });
-    end.hidden = state.cleared < rooms.length;
+    end.hidden = !state.launched;
     if (!end.hidden) fillEnd();
     update();
     tick();
@@ -180,8 +182,12 @@
   }
   new MutationObserver(check).observe(root, { attributes: true, attributeFilter: ['class'], subtree: true });
 
-  // Go through a door: fold the room just finished away, then show the next one (or the end)
+  const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Go through a door: fold the room just finished away, then show the next one.
+  // The last door launches the pod instead.
   function enter(i) {
+    if (i === rooms.length && !state.launched) { launch(); return; }
     const target = rooms[i] || end;
     if (rooms[i - 1]) {
       rooms[i - 1].classList.add('is-collapsed');
@@ -234,9 +240,68 @@
     if (e.key === 'Enter' && e.target.matches('.answer')) afterCheck(e.target.closest('.q'));
   });
 
+  // ----- Launch: 3, 2, 1 over the last door, then the final screen plays its arrival -----
+  let countdown = null;
+  function launch() {
+    const door = rooms[rooms.length - 1].querySelector('.door');
+    if (countdown || reduceMotion()) { if (!countdown) blastOff(false); return; }
+    const box = document.createElement('div');
+    box.className = 'countdown';
+    door.append(box);
+    const steps = ['3', '2', '1', 'Launch!'];
+    let n = 0;
+    const show = () => {
+      box.classList.toggle('is-go', n === steps.length - 1);
+      box.innerHTML = '<span>' + steps[n] + '</span>';
+    };
+    show();
+    countdown = setInterval(() => {
+      n += 1;
+      if (n < steps.length) { show(); return; }
+      clearInterval(countdown);
+      countdown = null;
+      box.remove();
+      blastOff(true);
+    }, 750);
+  }
+  function blastOff(animate) {
+    state.launched = Date.now();
+    save();
+    render();
+    enter(rooms.length);
+    if (animate) play();
+  }
+
+  // The arrival: sparks burst from the pod and the escape time counts up
+  const SPARK_COLOURS = ['#fbbf24', '#5eead4', '#f68cc4', '#8fb0ff', '#ffffff'];
+  function play() {
+    const card = end.querySelector('.end-card');
+    const sparks = end.querySelector('.sparks');
+    card.classList.remove('is-launching');
+    void card.offsetWidth; // restart the animations
+    card.classList.add('is-launching');
+    sparks.innerHTML = Array.from({ length: 36 }, (_, k) => {
+      const angle = (k / 36) * Math.PI * 2 + Math.random() * 0.3;
+      const dist = 90 + Math.random() * 170;
+      const style = '--dx:' + Math.round(Math.cos(angle) * dist) + 'px;--dy:' + Math.round(Math.sin(angle) * dist * 0.7) + 'px;' +
+        '--r:' + Math.round(Math.random() * 540 - 270) + 'deg;--d:' + (Math.random() * 0.25).toFixed(2) + 's;' +
+        '--c:' + SPARK_COLOURS[k % SPARK_COLOURS.length];
+      return '<span class="spark' + (k % 3 ? '' : ' is-round') + '" style="' + style + '"></span>';
+    }).join('');
+    const timeBox = end.querySelector('[data-end-time]');
+    const total = elapsed();
+    const begin = performance.now() + 2900; // when the time line appears
+    const run = (now) => {
+      const f = Math.min(1, Math.max(0, (now - begin) / 1200));
+      timeBox.textContent = fmt(Math.round(total * (1 - Math.pow(1 - f, 3))));
+      if (f < 1) requestAnimationFrame(run);
+    };
+    requestAnimationFrame(run);
+  }
+
   // ----- Final screen -----
   function fillEnd() {
-    end.querySelector('[data-end-code]').innerHTML = rooms.map((r) => '<span>' + r.dataset.letter + '</span>').join('');
+    end.querySelector('[data-end-code]').innerHTML = rooms.map((r, i) => '<span style="--i:' + i + '">' + r.dataset.letter + '</span>').join('');
     end.querySelector('[data-end-time]').textContent = fmt(elapsed());
     end.querySelector('[data-end-overrides]').textContent = String(state.overrides);
     end.querySelector('[data-end-topics]').innerHTML = rooms.map((room, i) => {
@@ -278,6 +343,11 @@
     save();
     tries = new WeakMap();
     root.querySelectorAll('.is-overridden').forEach((q) => q.classList.remove('is-overridden'));
+    clearInterval(countdown);
+    countdown = null;
+    root.querySelectorAll('.countdown').forEach((box) => box.remove());
+    end.querySelector('.end-card').classList.remove('is-launching');
+    end.querySelector('.sparks').innerHTML = '';
     rooms.forEach((room) => {
       room.classList.remove('is-collapsed', 'is-entering');
       room.querySelector('[data-look]').textContent = 'Look back at this room';
@@ -286,7 +356,10 @@
     render();
   });
 
-  // Coming back to a mission in progress: rooms already cleared start folded away
-  rooms.forEach((room, i) => { if (i < state.cleared) room.classList.add('is-collapsed'); });
+  // Coming back to a mission in progress: rooms already cleared start folded away,
+  // except the last one if the pod hasn't launched yet, so its Launch button shows
+  rooms.forEach((room, i) => {
+    if (i < state.cleared && (state.launched || i < rooms.length - 1)) room.classList.add('is-collapsed');
+  });
   render();
 })();

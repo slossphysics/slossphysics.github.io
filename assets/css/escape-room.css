@@ -1,0 +1,413 @@
+/* Escape room tool (n5/escape-room.html). Load after main.css and starter.css.
+   Pairs with assets/js/escape-room.js. The station's consoles are dark in both themes;
+   the question cards inside them keep the normal starter look. */
+
+.escape {
+  --deck: #0d1336;
+  --deck-2: #182057;
+  --deck-line: #2c3a7a;
+  --deck-text: #eef1ff;
+  --deck-muted: #aab4e8;
+  --glow: #5eead4;
+  --warn: #fbbf24;
+  --mono: ui-monospace, Menlo, Consolas, monospace;
+}
+.escape [hidden] { display: none !important; }
+
+/* A dark console panel with a starfield behind its scene */
+.deck {
+  margin: 24px 0;
+  border: var(--edge-w) solid var(--edge);
+  border-radius: 20px;
+  background: var(--deck);
+  color: var(--deck-text);
+  box-shadow: var(--pop);
+  overflow: hidden;
+}
+.scene {
+  display: block;
+  width: 100%;
+  height: clamp(150px, 23vw, 240px);
+  background-color: #0b1030;
+  background-image:
+    radial-gradient(circle at 20px 30px, rgba(255, 255, 255, 0.9) 1px, transparent 2px),
+    radial-gradient(circle at 70px 80px, rgba(255, 255, 255, 0.6) 1px, transparent 2px),
+    radial-gradient(circle at 130px 20px, rgba(143, 176, 255, 0.8) 1.5px, transparent 2.5px),
+    linear-gradient(#0b1030, #1b1f52);
+  background-size: 110px 90px, 170px 130px, 230px 150px, 100% 100%;
+}
+.scene.is-tall { height: clamp(190px, 28vw, 280px); }
+.scene-status { font-family: var(--mono); font-size: 17px; font-weight: 700; letter-spacing: 0.1em; fill: var(--warn); }
+.scene-status.is-good { fill: var(--glow); }
+.scene-small { font-family: var(--mono); font-size: 14px; fill: var(--deck-muted); }
+
+.console-text { padding: 16px 22px 20px; }
+.console-text h2 { margin: 0 0 6px; color: #fff; font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.15; }
+.console-text p { margin: 0 0 10px; }
+.console-tag {
+  display: table;
+  margin-bottom: 10px !important;
+  padding: 2px 10px;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  color: var(--glow);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.console-tag.is-warn { color: var(--warn); }
+
+/* Briefing */
+.rules { margin: 4px 0 18px; padding: 0; list-style: none; }
+.rules li { position: relative; margin: 0 0 8px; padding-left: 26px; }
+.rules li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.45em;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--glow);
+  box-shadow: 0 0 8px var(--glow);
+}
+
+/* The big amber button: start, go through a door, launch */
+.launch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 10px 26px;
+  border: 3px solid #1d1442;
+  border-radius: 999px;
+  background: var(--warn);
+  box-shadow: 4px 4px 0 #05030d;
+  color: #1d1442;
+  font: inherit;
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.launch:active { transform: translate(4px, 4px); box-shadow: none; }
+
+/* Heads-up display: sticks to the top of the screen once the mission starts */
+.hud {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin: 16px 0 0;
+  padding: 8px 16px;
+  border: var(--edge-w) solid var(--edge);
+  border-radius: 16px;
+  background: var(--deck);
+  box-shadow: var(--pop-sm);
+  color: var(--deck-text);
+}
+.hud-item { display: flex; flex-direction: column; }
+.hud-label { color: var(--deck-muted); font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.hud-clock, .hud-doors { color: var(--glow); font-family: var(--mono); font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.hud-penalty { margin-left: 8px; color: var(--warn); font-family: var(--mono); font-size: 0.95rem; font-weight: 700; }
+.hud-code { display: flex; gap: 5px; }
+.code-slot {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 38px;
+  border: 2px dashed #5d6aa8;
+  border-radius: 8px;
+  color: var(--glow);
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+.code-slot.is-filled { border-style: solid; border-color: var(--glow); background: rgba(94, 234, 212, 0.14); }
+@media (max-width: 600px) {
+  .hud { padding: 6px 12px; gap: 6px 14px; }
+  .hud-clock, .hud-doors { font-size: 1.25rem; }
+  .code-slot { width: 28px; height: 34px; font-size: 1.1rem; }
+  .hud-item.is-doors { display: none; }
+}
+
+/* Station map: one button per room, joined by corridors */
+.station-map {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0 0;
+}
+.map-room {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 70px;
+  padding: 6px 4px;
+  border: var(--edge-w) solid var(--edge);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--pop-sm);
+  color: var(--text);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.map-room + .map-room::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(-10px - var(--edge-w));
+  width: 10px;
+  height: 4px;
+  margin-top: -2px;
+  background: var(--edge);
+}
+.map-num { font-family: var(--font-head); font-size: 1.15rem; font-weight: 800; line-height: 1; }
+.map-name { font-size: 0.9rem; font-weight: 700; line-height: 1.2; overflow-wrap: anywhere; }
+.map-state { color: var(--muted); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.map-room.is-locked { border-style: dashed; box-shadow: none; opacity: 0.6; cursor: default; }
+.map-room.is-current { border-color: var(--edge); background: var(--deck); color: #fff; }
+.map-room.is-current .map-state { color: var(--warn); }
+.map-room.is-cleared { border-color: var(--good); background: var(--good-bg); }
+.map-room.is-cleared .map-state { color: var(--good); }
+.map-room:not(:disabled):active { transform: translate(3px, 3px); box-shadow: none; }
+@media (max-width: 600px) {
+  .station-map { gap: 6px; }
+  .map-room + .map-room::before { left: calc(-6px - var(--edge-w)); width: 6px; }
+  .map-name { font-size: 0.72rem; }
+  .map-state { font-size: 0.62rem; }
+}
+
+/* Rooms */
+.room { scroll-margin-top: 90px; }
+.room-body { padding: 4px 18px 6px; }
+.room-body .q { box-shadow: 4px 4px 0 #05030d; }
+.room-body .figure .circuit { max-width: 520px; }
+.room:not(.is-cleared) .room-bar { display: none; }
+.room-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 0 22px 18px; }
+.room-bar p { margin: 0; color: var(--deck-muted); font-weight: 600; }
+.room-bar strong { color: var(--glow); }
+.room-bar .tool { border-color: var(--deck-muted); background: var(--deck-2); box-shadow: none; color: #fff; }
+.room.is-collapsed .scene { height: 90px; }
+.room.is-collapsed .room-story,
+.room.is-collapsed .room-body,
+.room.is-collapsed .door { display: none; }
+.room.is-entering { animation: er-enter 0.6s ease-out; }
+
+/* In each scene, some parts show only while the room is broken, others once it's fixed */
+.scene .when-done { display: none; }
+.room.is-cleared .scene .when-done { display: inline; }
+.room.is-cleared .scene .when-broken { display: none; }
+.room.is-cleared .scene .alarm { animation: none; opacity: 0.2; }
+.scene .charge rect { fill: var(--warn); transition: fill 0.6s 1.2s; }
+.scene .charge { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0.12); transition: transform 1.6s ease 0.6s; }
+.room.is-cleared .scene .charge { transform: none; }
+.room.is-cleared .scene .charge rect { fill: var(--glow); }
+.scene .orbit { transform-box: view-box; transform-origin: 300px 125px; }
+.scene .needle { transform-box: fill-box; transform-origin: 50% 100%; transform: rotate(-30deg); }
+.room.is-cleared .scene .needle { animation: none; transform: rotate(25deg); }
+
+/* Station manual (room 5): the new idea for today */
+.manual {
+  margin: 8px 0 18px;
+  padding: 18px 22px;
+  border: var(--edge-w) solid var(--edge);
+  border-left: 8px solid var(--warn);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 4px 4px 0 #05030d;
+  color: var(--text);
+}
+.manual h3 { margin: 0 0 8px; font-size: 1.6rem; }
+.manual p { margin: 0 0 10px; }
+.manual-tag {
+  display: table;
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: var(--warn);
+  color: #1d1442;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.manual-formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 6px 0 14px !important;
+  font-family: var(--font-head);
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+.frac { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.1; }
+.frac span + span { width: 100%; border-top: 3px solid currentColor; text-align: center; }
+.manual-key { margin: 0 0 10px; padding-left: 20px; }
+.manual-example { margin: 0 0 12px; padding: 12px 16px; border-left: 5px solid var(--accent); border-radius: 10px; background: var(--bg); }
+.manual-example p { margin-bottom: 6px; }
+
+/* Door at the end of each room: one light per question, then it slides open */
+.door {
+  position: relative;
+  height: 250px;
+  margin: 10px 18px 22px;
+  border: 3px solid var(--deck-line);
+  border-radius: 16px;
+  background: radial-gradient(circle at 50% 55%, #17606a, #0a1c2e 70%);
+  overflow: hidden;
+}
+.door-leaf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background:
+    linear-gradient(transparent 48%, rgba(0, 0, 0, 0.25) 48%, rgba(0, 0, 0, 0.25) 52%, transparent 52%),
+    linear-gradient(90deg, #444c88, #6c76b8 45%, #4a5390);
+  transition: transform 0.9s cubic-bezier(0.7, 0, 0.3, 1) 0.5s;
+}
+.door-leaf.is-left { left: 0; }
+.door-leaf.is-right { right: 0; }
+.door-leaf::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  background: repeating-linear-gradient(45deg, var(--warn) 0 12px, #1d1442 12px 24px);
+}
+.door-leaf.is-left::after { right: 0; }
+.door-leaf.is-right::after { left: 0; }
+.door.is-open .door-leaf.is-left { transform: translateX(-101%); }
+.door.is-open .door-leaf.is-right { transform: translateX(101%); }
+
+.door-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: min(280px, calc(100% - 40px));
+  padding: 14px 16px;
+  border: 3px solid #8fb0ff;
+  border-radius: 14px;
+  background: #0b1030;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s 0.35s, transform 0.4s 0.35s;
+}
+.door.is-open .door-panel { opacity: 0; transform: translate(-50%, -50%) scale(0.85); pointer-events: none; }
+.door-panel p { margin: 0; }
+.door-status { color: #fff; font-family: var(--mono); font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.door-progress { color: var(--deck-muted); font-size: 0.95rem; }
+.padlock { display: block; width: 40px; height: 48px; margin: 0 auto 6px; }
+.padlock .shackle { transition: transform 0.3s; }
+.door.is-open .padlock .shackle { transform: translateY(-8px); }
+.door.is-open .padlock .body { fill: var(--glow); }
+.door-lights { display: flex; justify-content: center; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+.door-lights li {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #8fb0ff;
+  border-radius: 50%;
+  background: #2c3a7a;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.door-lights li.is-on { border-color: var(--glow); background: var(--glow); box-shadow: 0 0 10px var(--glow); }
+
+.door-beyond {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s 1.1s;
+}
+.door.is-open .door-beyond { opacity: 1; }
+.door:not(.is-open) .door-beyond { visibility: hidden; }
+.door-beyond p { margin: 0; }
+.door-label { color: var(--deck-muted); font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.door-letter { color: var(--glow); font-family: var(--font-head); font-size: 4rem; font-weight: 800; line-height: 1; text-shadow: 0 0 18px rgba(94, 234, 212, 0.6); }
+.door-beyond .launch { margin-top: 8px; }
+
+/* Emergency override, offered after three wrong answers to a calculation */
+.override {
+  margin-top: 12px;
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+/* Final screen */
+.end-card { margin-top: 28px; }
+.end-label { margin: 8px 0 4px !important; color: var(--deck-muted); font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.end-code { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px !important; }
+.end-code span {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 68px;
+  border: 3px solid var(--glow);
+  border-radius: 12px;
+  background: rgba(94, 234, 212, 0.14);
+  color: var(--glow);
+  font-family: var(--font-head);
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-shadow: 0 0 14px rgba(94, 234, 212, 0.6);
+}
+.end-stats { display: flex; flex-wrap: wrap; gap: 12px 32px; margin: 0 0 14px; }
+.end-stats dt { color: var(--deck-muted); font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.end-stats dd { margin: 0; color: #fff; font-family: var(--mono); font-size: 1.8rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.end-topics { margin-bottom: 20px; }
+
+.escape-tools { margin-top: 8px; }
+.tool.is-armed { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); }
+
+/* Motion, for anyone who hasn't asked their device to reduce it */
+@media (prefers-reduced-motion: no-preference) {
+  .scene .pulse { animation: er-pulse 2.4s ease-in-out infinite; }
+  .scene .pulse.is-2 { animation-delay: 0.4s; }
+  .scene .pulse.is-3 { animation-delay: 0.8s; }
+  .scene .blink { animation: er-blink 1.2s steps(2, jump-none) infinite; }
+  .scene .scroll { animation: er-scroll 1.6s linear infinite; }
+  .scene .flicker { transform-box: fill-box; transform-origin: 100% 50%; animation: er-flicker 0.16s ease-in-out infinite alternate; }
+  .scene .flicker.is-2 { animation-duration: 0.11s; }
+  .scene .needle { animation: er-jitter 0.7s ease-in-out infinite alternate; }
+  .scene .needle.is-2 { animation-duration: 0.45s; }
+  .scene .orbit { animation: er-orbit 14s linear infinite; }
+  .scene .flow { stroke-dasharray: 6 10; animation: er-flow 0.8s linear infinite; }
+  .scene .bob { animation: er-bob 3.2s ease-in-out infinite; }
+  .code-slot.is-new { animation: er-pop 0.6s ease-out; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .door-leaf, .door-panel, .door-beyond, .scene .charge, .padlock .shackle { transition-duration: 0.01s; transition-delay: 0s; }
+}
+@keyframes er-pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes er-blink { 0% { opacity: 1; } 100% { opacity: 0.15; } }
+@keyframes er-scroll { to { transform: translateX(-60px); } }
+@keyframes er-flicker { from { transform: scaleX(0.86); } to { transform: scaleX(1.04); } }
+@keyframes er-jitter { from { transform: rotate(-50deg); } to { transform: rotate(40deg); } }
+@keyframes er-orbit { to { transform: rotate(360deg); } }
+@keyframes er-flow { to { stroke-dashoffset: -32; } }
+@keyframes er-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes er-pop { 0% { transform: scale(0.4); } 60% { transform: scale(1.25); } 100% { transform: scale(1); } }
+@keyframes er-enter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }

@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Escape room · National 5 Physics · Sloss Physics</title>
+  <meta name="description" content="N5 Physics prelim revision escape room: five sealed rooms on a failing space station, opened with Waves, Radiation, Dynamics and Space questions, ending with P = E/t.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/starter.css">
+  <link rel="stylesheet" href="../assets/css/escape-room.css">
+  <script src="../assets/js/starter.js" defer></script>
+  <script src="../assets/js/escape-room.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter escape" data-level="n5" data-escape data-key="n5-escape-room">
+    <ol class="crumbs">
+      <li><a href="../index.html">All levels</a></li>
+      <li><a href="index.html">National 5 Physics</a></li>
+      <li>Tools</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Prelim revision · Waves · Radiation · Dynamics · Space · Electrical power</p>
+    <h1>Escape from Station Clyde</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning to use my physics to solve problems from across the prelim topics.</p>
+      <p><strong>SC:</strong> I can answer questions on waves, radiation, dynamics and space · I can use P = E/t to calculate power, energy or time.</p>
+    </div>
+
+    <div class="hud" data-hud hidden>
+      <div class="hud-item">
+        <span class="hud-label">Mission clock</span>
+        <span><output class="hud-clock">0:00</output><span class="hud-penalty"></span></span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">Escape code</span>
+        <span class="hud-code"></span>
+      </div>
+      <div class="hud-item is-doors">
+        <span class="hud-label">Doors open</span>
+        <output class="hud-doors">0 of 5</output>
+      </div>
+    </div>
+
+    <nav class="station-map" aria-label="Station map" hidden></nav>
+
+    <section class="briefing deck" data-briefing>
+      <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <radialGradient id="er-earth" cx="0.45" cy="0.3" r="0.8"><stop offset="0" stop-color="#4fa3ff"/><stop offset="0.6" stop-color="#1f4fd1"/><stop offset="1" stop-color="#0b1a5c"/></radialGradient>
+        </defs>
+        <circle cx="130" cy="335" r="185" fill="url(#er-earth)"/>
+        <path d="M40 190Q80 172 120 186T220 180" fill="none" stroke="#5eead4" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="130" cy="335" r="191" fill="none" stroke="#8fb0ff" stroke-width="4" opacity="0.4"/>
+        <g class="bob">
+          <rect x="236" y="108" width="390" height="8" rx="4" fill="#8b93c9"/>
+          <g fill="#1f4fd1" stroke="#8fb0ff" stroke-width="2">
+            <rect x="246" y="42" width="44" height="60"/><rect x="246" y="122" width="44" height="60"/>
+            <rect x="572" y="42" width="44" height="60"/><rect x="572" y="122" width="44" height="60"/>
+          </g>
+          <path d="M268 42V102M246 72H290M268 122V182M246 152H290M594 42V102M572 72H616M594 122V182M572 152H616" stroke="#8fb0ff" stroke-width="2"/>
+          <path d="M268 102V108M268 116V122M594 102V108M594 116V122" stroke="#8b93c9" stroke-width="4"/>
+          <g fill="#d8dcef" stroke="#8fb0ff" stroke-width="3">
+            <rect x="306" y="94" width="42" height="36" rx="10"/><rect x="354" y="94" width="42" height="36" rx="10"/>
+            <rect x="402" y="94" width="42" height="36" rx="10"/><rect x="450" y="94" width="42" height="36" rx="10"/>
+            <rect x="498" y="94" width="42" height="36" rx="10"/>
+          </g>
+          <g fill="#1d1442"><circle cx="327" cy="112" r="6"/><circle cx="375" cy="112" r="6"/><circle cx="423" cy="112" r="6"/><circle cx="471" cy="112" r="6"/><circle cx="519" cy="112" r="6"/></g>
+          <circle class="blink" cx="423" cy="112" r="6" fill="#fbbf24"/>
+          <path d="M546 98L566 104V120L546 126Z" fill="#fbbf24" stroke="#1d1442" stroke-width="2"/>
+        </g>
+        <g stroke-linecap="round">
+          <path d="M720 22L650 70" stroke="#fbbf24" stroke-width="3" opacity="0.6"/><circle cx="650" cy="70" r="6" fill="#fbbf24"/>
+          <path d="M690 150L640 180" stroke="#f68cc4" stroke-width="3" opacity="0.6"/><circle cx="640" cy="180" r="4" fill="#f68cc4"/>
+        </g>
+      </svg>
+      <div class="console-text">
+        <p class="console-tag is-warn">Alert · Hull damage</p>
+        <h2>Mission briefing</h2>
+        <p>A meteoroid shower has hit Station Clyde. You're the last astronaut on board, and the escape pod is five rooms away. The computer has sealed every door, and it will only open them for someone who knows their physics.</p>
+        <ul class="rules">
+          <li><strong>Every question you get right opens one lock.</strong> Open all the locks in a room and its door slides open.</li>
+          <li><strong>Each door gives you one letter</strong> of the escape code. Collect all five to launch the pod.</li>
+          <li><strong>Stuck on a calculation?</strong> After three tries, an emergency override appears. It opens the lock and shows the working, but adds 2 minutes to your time.</li>
+          <li><strong>You need</strong> a calculator, the relationships sheet and the data sheet. Write your working in your jotter as you go.</li>
+        </ul>
+        <button type="button" class="launch" data-start>Start the mission</button>
+      </div>
+    </section>
+
+    <!-- ============ Room 1: Waves ============ -->
+    <section class="room deck" data-name="Comms deck" data-short="Comms" data-topic="Waves" data-letter="O" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><clipPath id="er-screen"><rect x="434" y="64" width="212" height="122" rx="8"/></clipPath></defs>
+          <rect x="226" y="128" width="8" height="78" fill="#8b93c9"/>
+          <rect x="196" y="202" width="68" height="10" rx="4" fill="#8b93c9"/>
+          <ellipse cx="226" cy="118" rx="54" ry="20" transform="rotate(-35 226 118)" fill="#d8dcef" stroke="#8fb0ff" stroke-width="3"/>
+          <path d="M226 118L262 88" stroke="#d8dcef" stroke-width="4"/>
+          <circle cx="262" cy="88" r="6" fill="#fbbf24"/>
+          <g fill="none" stroke="#5eead4" stroke-width="4" stroke-linecap="round">
+            <path class="pulse" d="M274.5 66.4A25 25 0 0 1 285.5 96.6"/>
+            <path class="pulse is-2" d="M284.5 49A45 45 0 0 1 304.3 103.4"/>
+            <path class="pulse is-3" d="M294.5 31.7A65 65 0 0 1 323.1 110.2"/>
+          </g>
+          <g transform="translate(0 -16)">
+          <rect x="430" y="60" width="220" height="130" rx="12" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <path d="M474 64V186M518 64V186M562 64V186M606 64V186M434 94H646M434 125H646M434 156H646" stroke="#1e3a6b" stroke-width="2"/>
+          <g clip-path="url(#er-screen)">
+            <path class="when-broken scroll" d="M380 125L388 118L396 131L404 121L412 136L420 112L428 127L436 120L444 133L452 115L460 126L468 122L476 138L484 117L492 129L500 119L508 134L516 114L524 127L532 121L540 135L548 116L556 128L564 120L572 132L580 113L588 126L596 123L604 137L612 118L620 128L628 121L636 133L644 115L652 126L660 120L668 135L676 117L684 129L692 122L700 134L708 116L716 127L720 122" fill="none" stroke="#fbbf24" stroke-width="3"/>
+            <path class="when-done scroll" d="M380 125L384 113.6L388 104.2L392 98.4L396 97.2L400 100.8L404 108.5L408 119.2L412 130.8L416 141.5L420 149.2L424 152.8L428 151.6L432 145.8L436 136.4L440 125L444 113.6L448 104.2L452 98.4L456 97.2L460 100.8L464 108.5L468 119.2L472 130.8L476 141.5L480 149.2L484 152.8L488 151.6L492 145.8L496 136.4L500 125L504 113.6L508 104.2L512 98.4L516 97.2L520 100.8L524 108.5L528 119.2L532 130.8L536 141.5L540 149.2L544 152.8L548 151.6L552 145.8L556 136.4L560 125L564 113.6L568 104.2L572 98.4L576 97.2L580 100.8L584 108.5L588 119.2L592 130.8L596 141.5L600 149.2L604 152.8L608 151.6L612 145.8L616 136.4L620 125L624 113.6L628 104.2L632 98.4L636 97.2L640 100.8L644 108.5L648 119.2L652 130.8L656 141.5L660 149.2L664 152.8L668 151.6L672 145.8L676 136.4L680 125L684 113.6L688 104.2L692 98.4L696 97.2L700 100.8L704 108.5L708 119.2L712 130.8L716 141.5L720 149.2" fill="none" stroke="#5eead4" stroke-width="3"/>
+          </g>
+          </g>
+          <text class="scene-status when-broken" x="540" y="200" text-anchor="middle">SIGNAL LOST</text>
+          <text class="scene-status is-good when-done" x="540" y="200" text-anchor="middle">SIGNAL FOUND</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 1 of 5 · Waves</p>
+          <h2>Comms deck</h2>
+          <p class="room-story">Mission Control can't hear you: the radio is down. Fix the signal settings to open the first door.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">1.</span>The radio's settings screen has scrambled its labels. Match each word to what it means.</p>
+          <div class="match">
+            <p class="match-hint">Drag each word onto its meaning, or tap a word and then its meaning.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="freq" data-label="Number of waves each second">Frequency</button>
+              <button type="button" class="match-item is-text" data-key="period" data-label="Time for one wave">Period</button>
+              <button type="button" class="match-item is-text" data-key="wavelength" data-label="Crest to crest">Wavelength</button>
+              <button type="button" class="match-item is-text" data-key="amp" data-label="Rest position to crest">Amplitude</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="wavelength">The distance from one crest to the next crest</button>
+              <button type="button" class="match-target" data-key="amp">The distance from the rest position to the top of a crest</button>
+              <button type="button" class="match-target" data-key="freq">The number of waves that pass a point each second</button>
+              <button type="button" class="match-target" data-key="period">The time it takes one complete wave to pass a point</button>
+            </div>
+          </div>
+          <div class="q-explain">These four words describe every wave, from ripples on a pond to radio signals from Mission Control.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">2.</span>The screen shows the radio signal. What is its wavelength?</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="-60 0 580 250" role="img" aria-label="A wave drawn along a distance axis from 0 to 12 metres. There are three complete waves. An arrow shows the height of a crest above the rest line is 0.5 metres.">
+              <path d="M115 40V190M190 40V190M265 40V190M340 40V190M415 40V190M490 40V190" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+              <path d="M10 100H490" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6" opacity="0.6"/>
+              <path class="wire" d="M40 100L45 89.6L50 79.7L55 70.6L60 62.8L65 56.7L70 52.4L75 50.3L80 50.3L85 52.4L90 56.7L95 62.8L100 70.6L105 79.7L110 89.6L115 100L120 110.4L125 120.3L130 129.4L135 137.2L140 143.3L145 147.6L150 149.7L155 149.7L160 147.6L165 143.3L170 137.2L175 129.4L180 120.3L185 110.4L190 100L195 89.6L200 79.7L205 70.6L210 62.8L215 56.7L220 52.4L225 50.3L230 50.3L235 52.4L240 56.7L245 62.8L250 70.6L255 79.7L260 89.6L265 100L270 110.4L275 120.3L280 129.4L285 137.2L290 143.3L295 147.6L300 149.7L305 149.7L310 147.6L315 143.3L320 137.2L325 129.4L330 120.3L335 110.4L340 100L345 89.6L350 79.7L355 70.6L360 62.8L365 56.7L370 52.4L375 50.3L380 50.3L385 52.4L390 56.7L395 62.8L400 70.6L405 79.7L410 89.6L415 100L420 110.4L425 120.3L430 129.4L435 137.2L440 143.3L445 147.6L450 149.7L455 149.7L460 147.6L465 143.3L470 137.2L475 129.4L480 120.3L485 110.4L490 100"/>
+              <path d="M10 50H75" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 5" opacity="0.6"/><path d="M20 96V56M20 50L13.5 62H26.5Z" fill="currentColor" stroke="currentColor" stroke-width="2.5"/>
+              <text class="label" x="8" y="82" text-anchor="end">0.5 m</text>
+              <path class="wire" d="M40 190H490M40 184V196M115 184V196M190 184V196M265 184V196M340 184V196M415 184V196M490 184V196"/>
+              <g class="label" text-anchor="middle"><text x="40" y="216">0</text><text x="115" y="216">2</text><text x="190" y="216">4</text><text x="265" y="216">6</text><text x="340" y="216">8</text><text x="415" y="216">10</text><text x="490" y="216">12</text></g>
+              <text class="label" x="265" y="242" text-anchor="middle">distance (m)</text>
+            </svg>
+          </figure>
+          <div class="options">
+            <button type="button" class="option" data-feedback="That's the amplitude: the height of a crest above the rest line. The wavelength is measured along the distance axis.">0.5 m</button>
+            <button type="button" class="option" data-feedback="That's how many waves there are, not the length of one of them.">3 m</button>
+            <button type="button" class="option" data-correct>4 m</button>
+            <button type="button" class="option" data-feedback="That's the length of all three waves together. Divide by the number of waves.">12 m</button>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>Find one crest, then follow the wave along to the next crest. How far along the distance axis have you moved?</p></details>
+          <div class="q-explain">Three complete waves fit into 12 m, so one wavelength is 12 ÷ 3 = 4 m. Crest to crest: 1 m to 5 m.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="200">
+          <p class="q-prompt"><span class="q-num">3.</span>Mission Control broadcasts on a frequency of 1.5 MHz. Radio waves travel at 3.0 × 10⁸ m s⁻¹. Calculate the wavelength the station's aerial must be tuned to.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-wavelength">λ =</label>
+            <input class="answer" id="er-wavelength" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">m</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="200000">Check the prefix: mega (M) means × 10⁶, so 1.5 MHz is 1 500 000 Hz.</p>
+          <p class="mistake" data-value="2">Check the powers of ten. 1.5 MHz is 1.5 × 10⁶ Hz.</p>
+          <p class="mistake" data-value="0.005">You've divided the frequency by the speed. Rearrange v = fλ to get λ on its own.</p>
+          <p class="mistake" data-value="4.5">You've multiplied. Rearrange v = fλ to get λ on its own.</p>
+          <details class="hint"><summary>Hint</summary><p>Write v = fλ, put in the numbers, then rearrange. 1.5 MHz is 1.5 × 10⁶ Hz.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>v = fλ</li>
+              <li>3.0 × 10⁸ = 1.5 × 10⁶ × λ</li>
+              <li>λ = 200 m</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">4.</span>Rebuild the frequency dial. Put the electromagnetic spectrum in order, from lowest frequency to highest.</p>
+          <div class="match is-order">
+            <p class="match-hint">Drag each one to its place, or tap it and then its place.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="6" data-label="6">X-rays</button>
+              <button type="button" class="match-item is-text" data-key="1" data-label="1">Radio waves</button>
+              <button type="button" class="match-item is-text" data-key="4" data-label="4">Visible light</button>
+              <button type="button" class="match-item is-text" data-key="7" data-label="7">Gamma rays</button>
+              <button type="button" class="match-item is-text" data-key="2" data-label="2">Microwaves</button>
+              <button type="button" class="match-item is-text" data-key="5" data-label="5">Ultraviolet</button>
+              <button type="button" class="match-item is-text" data-key="3" data-label="3">Infrared</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="1">1 Lowest</button>
+              <button type="button" class="match-target" data-key="2">2</button>
+              <button type="button" class="match-target" data-key="3">3</button>
+              <button type="button" class="match-target" data-key="4">4</button>
+              <button type="button" class="match-target" data-key="5">5</button>
+              <button type="button" class="match-target" data-key="6">6</button>
+              <button type="button" class="match-target" data-key="7">7 Highest</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>Radio waves have the lowest frequency. A saying can help you remember the rest: Raging Martians Invaded Venus Using X-ray Guns.</p></details>
+          <div class="q-explain">Radio waves have the lowest frequency and the longest wavelength; gamma rays have the highest frequency and the shortest wavelength. They all travel at 3.0 × 10⁸ m s⁻¹ in air.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">5.</span>A laser carries the signal from air into a glass window. Which angle is the angle of refraction?</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="40 0 300 260" role="img" aria-label="A ray of light in air hits the flat surface of a glass block and bends towards the dashed normal line. Angle A is between the ray in air and the surface. Angle B is between the ray in air and the normal. Angle C is between the ray in the glass and the normal. Angle D is between the ray in the glass and the surface.">
+              <rect x="40" y="130" width="300" height="130" fill="currentColor" opacity="0.1"/>
+              <path class="wire" d="M40 130H340"/>
+              <path d="M180 20V244" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="7 6"/>
+              <path class="wire" d="M90 23L180 130L235 248"/>
+              <path d="M126 79.2L139 87.4L130.5 74.7Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+              <path d="M210 194L213.5 208.5L203.2 197.4Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+              <g fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M180 90A40 40 0 0 0 154.3 99.4"/>
+                <path d="M144.6 87.9A55 55 0 0 0 125 130"/>
+                <path d="M180 170A40 40 0 0 0 196.9 166.2"/>
+                <path d="M203.3 179.8A55 55 0 0 0 235 130"/>
+              </g>
+              <g class="label" text-anchor="middle">
+                <text x="111" y="104">A</text>
+                <text x="161" y="72">B</text>
+                <text x="194" y="200">C</text>
+                <text x="250" y="178">D</text>
+              </g>
+              <text class="label" x="300" y="40" text-anchor="middle">Air</text>
+              <text class="label" x="300" y="236" text-anchor="middle">Glass</text>
+              <text class="label" x="186" y="16">normal</text>
+            </svg>
+          </figure>
+          <div class="options">
+            <button type="button" class="option" data-feedback="That one is measured from the surface. Angles in refraction are always measured from the normal.">A</button>
+            <button type="button" class="option" data-feedback="That's the angle of incidence: it's in the air, before the light enters the glass.">B</button>
+            <button type="button" class="option" data-correct>C</button>
+            <button type="button" class="option" data-feedback="That one is measured from the surface. Angles in refraction are always measured from the normal.">D</button>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>Refraction angles are measured between the ray and the normal (the dashed line). Which side of the surface is the refracted ray on?</p></details>
+          <div class="q-explain">The angle of refraction is between the refracted ray and the normal, inside the glass. The light slows down in glass, so it bends towards the normal: angle C is smaller than angle B.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 2: Radiation ============ -->
+    <section class="room deck" data-name="Reactor bay" data-short="Reactor" data-topic="Radiation" data-letter="R" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <radialGradient id="er-glow"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.55"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></radialGradient>
+            <pattern id="er-hazard" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="20" fill="#fbbf24"/><rect x="10" width="10" height="20" fill="#1d1442"/></pattern>
+          </defs>
+          <circle class="alarm pulse" cx="400" cy="118" r="120" fill="url(#er-glow)"/>
+          <rect x="330" y="45" width="140" height="150" rx="30" fill="#2a2f5e" stroke="#8b93c9" stroke-width="4"/>
+          <rect x="333" y="166" width="134" height="16" fill="url(#er-hazard)"/>
+          <circle cx="400" cy="118" r="44" fill="#fbbf24"/>
+          <path d="M395.5 110.2L383 88.6A34 34 0 0 1 417 88.6L404.5 110.2A9 9 0 0 0 395.5 110.2ZM409 118L434 118A34 34 0 0 1 417 147.4L404.5 125.8A9 9 0 0 0 409 118ZM395.5 125.8L383 147.4A34 34 0 0 1 366 118L391 118A9 9 0 0 0 395.5 125.8Z" fill="#1d1442"/>
+          <circle cx="400" cy="118" r="6" fill="#1d1442"/>
+          <path class="when-broken" d="M470 70L458 84L468 94L455 108" fill="none" stroke="#fbbf24" stroke-width="3"/>
+          <g stroke-width="4" stroke-linecap="round">
+            <path d="M478 80H556" stroke="#f68cc4"/>
+            <path d="M478 118H596" stroke="#8fb0ff"/>
+            <path d="M478 156H648" stroke="#5eead4"/>
+            <path d="M672 156H700" stroke="#5eead4" opacity="0.4"/>
+          </g>
+          <rect x="558" y="54" width="5" height="132" fill="#f3efff"/>
+          <rect x="598" y="54" width="12" height="132" fill="#b9c0d8"/>
+          <rect x="650" y="54" width="22" height="132" fill="#5d6278"/>
+          <g class="scene-small" text-anchor="middle"><text x="560" y="46">paper</text><text x="604" y="203">aluminium</text><text x="661" y="46">lead</text></g>
+          <rect x="140" y="62" width="160" height="112" rx="10" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
+          <g class="alarm blink" fill="#fbbf24"><rect x="160" y="118" width="16" height="20"/><rect x="184" y="108" width="16" height="30"/><rect x="208" y="96" width="16" height="42"/><rect x="232" y="86" width="16" height="52"/><rect x="256" y="76" width="16" height="62"/></g>
+          <g class="when-done" fill="#5eead4"><rect x="160" y="128" width="16" height="10"/><rect x="184" y="126" width="16" height="12"/><rect x="208" y="129" width="16" height="9"/><rect x="232" y="127" width="16" height="11"/><rect x="256" y="128" width="16" height="10"/></g>
+          <text class="scene-status when-broken" x="220" y="162" text-anchor="middle">LEAK DETECTED</text>
+          <text class="scene-status is-good when-done" x="220" y="162" text-anchor="middle">LEAK CONTAINED</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 2 of 5 · Radiation</p>
+          <h2>Reactor bay</h2>
+          <p class="room-story">A cracked radioactive source is leaking in the reactor bay. Work out what it's giving out and keep the crew safe.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">1.</span>What is an alpha particle?</p>
+          <div class="options">
+            <button type="button" class="option" data-correct>Two protons and two neutrons: the same as a helium nucleus</button>
+            <button type="button" class="option" data-feedback="That's a beta particle.">A fast-moving electron given out by a nucleus</button>
+            <button type="button" class="option" data-feedback="That's gamma radiation.">An electromagnetic wave given out by a nucleus</button>
+            <button type="button" class="option" data-feedback="Some nuclei do give out neutrons, but that isn't alpha radiation.">A single neutron</button>
+          </div>
+          <div class="q-explain">An alpha particle is two protons and two neutrons. It's big, slow and charged, which is why it ionises so strongly but can't get far.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">2.</span>Radiation from the leak can ionise atoms in the crew's bodies. What does ionisation mean?</p>
+          <div class="options">
+            <button type="button" class="option" data-feedback="That's fission. Ionisation is about the atom's electrons.">An atom splits into two smaller atoms</button>
+            <button type="button" class="option" data-feedback="Radiation doesn't make things radioactive. Think about what happens to the atom's electrons.">An atom becomes radioactive</button>
+            <button type="button" class="option" data-feedback="Ionisation doesn't change the nucleus. Think about the electrons around it.">An atom loses a proton from its nucleus</button>
+            <button type="button" class="option" data-correct>An atom gains or loses electrons, so it becomes charged</button>
+          </div>
+          <div class="q-explain">A neutral atom has as many electrons as protons. Knock an electron off (or add one) and it becomes a charged ion. This is how radiation damages living cells.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">3.</span>The bay's sensors fire three kinds of radiation at three absorbers. Match each kind of radiation to its ray.</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 0 520 200" role="img" aria-label="A source on the left gives out three rays towards a sheet of paper, then a few millimetres of aluminium, then thick lead. Ray 1 is stopped by the paper. Ray 2 passes through the paper and is stopped by the aluminium. Ray 3 passes through the paper and the aluminium, and only some of it gets through the lead.">
+              <rect x="20" y="40" width="50" height="120" rx="10" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <text class="label" x="45" y="186" text-anchor="middle">source</text>
+              <rect x="200" y="20" width="5" height="160" fill="currentColor" opacity="0.35"/>
+              <rect x="290" y="20" width="12" height="160" fill="currentColor" opacity="0.55"/>
+              <rect x="390" y="20" width="30" height="160" fill="currentColor" opacity="0.85"/>
+              <g class="label" text-anchor="middle"><text x="202" y="14">paper</text><text x="296" y="198">aluminium</text><text x="405" y="14">lead</text></g>
+              <path class="wire" d="M70 60H198M70 100H288M70 140H388"/>
+              <path d="M420 140H500" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="5 6"/>
+              <g class="label"><text x="88" y="52">Ray 1</text><text x="88" y="92">Ray 2</text><text x="88" y="132">Ray 3</text></g>
+            </svg>
+          </figure>
+          <div class="match">
+            <p class="match-hint">Drag each name onto its ray, or tap a name and then a ray.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="3" data-label="Ray 3">Gamma</button>
+              <button type="button" class="match-item is-text" data-key="1" data-label="Ray 1">Alpha</button>
+              <button type="button" class="match-item is-text" data-key="2" data-label="Ray 2">Beta</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="1">Ray 1</button>
+              <button type="button" class="match-target" data-key="2">Ray 2</button>
+              <button type="button" class="match-target" data-key="3">Ray 3</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>Which kind of radiation is the most penetrating? That one gets the furthest.</p></details>
+          <div class="q-explain">Alpha is stopped by paper (or a few centimetres of air). Beta is stopped by a few millimetres of aluminium. Gamma is only reduced by thick lead or concrete. The most penetrating, gamma, is the least ionising; alpha is the most ionising.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">4.</span>A spare gamma source has to be stored safely. Which container should it be kept in?</p>
+          <div class="options">
+            <button type="button" class="option" data-feedback="Paper only stops alpha. Gamma goes straight through it.">A sealed paper envelope</button>
+            <button type="button" class="option" data-feedback="A few millimetres of aluminium stops beta, but gamma gets through.">A thin aluminium tin</button>
+            <button type="button" class="option" data-correct>A box lined with thick lead</button>
+            <button type="button" class="option" data-feedback="Plastic would stop alpha and some beta, but not gamma.">A plastic lunch box</button>
+          </div>
+          <div class="q-explain">Gamma is the most penetrating radiation, so it needs thick lead (or concrete) to cut it down.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">5.</span>A detector next to the cracked source gives these readings. The background count is 20 counts per minute. What does the source give out?</p>
+          <table class="data-table">
+            <thead><tr><th>Absorber</th><th>Count rate (counts per minute)</th></tr></thead>
+            <tbody>
+              <tr><td>None</td><td>420</td></tr>
+              <tr><td>Paper</td><td>420</td></tr>
+              <tr><td>5 mm of aluminium</td><td>20</td></tr>
+            </tbody>
+          </table>
+          <div class="options">
+            <button type="button" class="option" data-feedback="If there was alpha, the paper would have cut the count. Paper made no difference.">Alpha only</button>
+            <button type="button" class="option" data-correct>Beta only</button>
+            <button type="button" class="option" data-feedback="Gamma would get through 5 mm of aluminium, so the count would stay well above background.">Gamma only</button>
+            <button type="button" class="option" data-feedback="Gamma would get through the aluminium, but the count fell all the way to background.">Beta and gamma</button>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>The background count is there all the time, even with no source. Which absorber made the count drop to background?</p></details>
+          <div class="q-explain">Paper made no difference, so there's no alpha. 5 mm of aluminium brought the count down to background, so everything from the source was stopped: there's no gamma either. The source gives out beta only.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 3: Dynamics ============ -->
+    <section class="room deck" data-name="Engine room" data-short="Engines" data-topic="Dynamics" data-letter="B" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="er-flame" x1="1" x2="0"><stop offset="0" stop-color="#fbbf24"/><stop offset="0.6" stop-color="#f68cc4"/><stop offset="1" stop-color="#f68cc4" stop-opacity="0"/></linearGradient>
+          </defs>
+          <path class="flicker" d="M362 80C300 92 236 112 160 120C236 128 300 148 362 160Z" fill="url(#er-flame)"/>
+          <path class="flicker is-2" d="M362 96C320 104 284 114 250 120C284 126 320 136 362 144Z" fill="#fff8e7" opacity="0.8"/>
+          <path d="M420 92L362 72V168L420 148Z" fill="#8b93c9" stroke="#d8dcef" stroke-width="3"/>
+          <rect x="420" y="78" width="210" height="84" rx="14" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
+          <path d="M470 78V40M520 78V30M590 78V48" stroke="#8b93c9" stroke-width="8"/>
+          <circle cx="478" cy="120" r="26" fill="#071126" stroke="#fbbf24" stroke-width="4"/>
+          <circle cx="570" cy="120" r="26" fill="#071126" stroke="#5eead4" stroke-width="4"/>
+          <path class="needle" d="M478 120V100" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+          <path class="needle is-2" d="M570 120V100" stroke="#5eead4" stroke-width="4" stroke-linecap="round"/>
+          <rect x="130" y="34" width="120" height="66" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
+          <path d="M146 44V88H238" fill="none" stroke="#8fb0ff" stroke-width="2"/>
+          <path class="when-broken" d="M146 80L164 54L178 76L194 50L208 80L224 58L236 70" fill="none" stroke="#fbbf24" stroke-width="3"/>
+          <path class="when-done" d="M146 88L184 56H236" fill="none" stroke="#5eead4" stroke-width="3"/>
+          <text class="scene-status when-broken" x="525" y="200" text-anchor="middle">ENGINES MISFIRING</text>
+          <text class="scene-status is-good when-done" x="525" y="200" text-anchor="middle">ENGINES STABLE</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 3 of 5 · Dynamics</p>
+          <h2>Engine room</h2>
+          <p class="room-story">The engines are misfiring and the station is drifting off course. Get them back under control.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">1.</span>The engine log shows four velocity–time graphs. Match each graph to the motion it shows.</p>
+          <div class="match">
+            <p class="match-hint">Drag each graph onto its description, or tap a graph and then its description.</p>
+            <div class="match-items">
+              <button type="button" class="match-item" data-key="decel" data-label="Constant deceleration" aria-label="Graph: a straight line sloping down to zero"><svg viewBox="0 0 96 64" aria-hidden="true"><path d="M10 6V56H90" fill="none" stroke="currentColor" stroke-width="2.5"/><text x="2" y="14" font-size="11" fill="currentColor">v</text><text x="84" y="64" font-size="11" fill="currentColor">t</text><path d="M10 12L86 56" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></button>
+              <button type="button" class="match-item" data-key="steady" data-label="Constant velocity" aria-label="Graph: a flat line above zero"><svg viewBox="0 0 96 64" aria-hidden="true"><path d="M10 6V56H90" fill="none" stroke="currentColor" stroke-width="2.5"/><text x="2" y="14" font-size="11" fill="currentColor">v</text><text x="84" y="64" font-size="11" fill="currentColor">t</text><path d="M10 28H86" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></button>
+              <button type="button" class="match-item" data-key="both" data-label="Accelerating, then constant velocity" aria-label="Graph: a line sloping up from zero, then flat"><svg viewBox="0 0 96 64" aria-hidden="true"><path d="M10 6V56H90" fill="none" stroke="currentColor" stroke-width="2.5"/><text x="2" y="14" font-size="11" fill="currentColor">v</text><text x="84" y="64" font-size="11" fill="currentColor">t</text><path d="M10 56L46 18H86" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button type="button" class="match-item" data-key="accel" data-label="Constant acceleration" aria-label="Graph: a straight line sloping up from zero"><svg viewBox="0 0 96 64" aria-hidden="true"><path d="M10 6V56H90" fill="none" stroke="currentColor" stroke-width="2.5"/><text x="2" y="14" font-size="11" fill="currentColor">v</text><text x="84" y="64" font-size="11" fill="currentColor">t</text><path d="M10 56L86 12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="steady">Constant velocity</button>
+              <button type="button" class="match-target" data-key="accel">Constant acceleration</button>
+              <button type="button" class="match-target" data-key="decel">Constant deceleration</button>
+              <button type="button" class="match-target" data-key="both">Accelerating, then constant velocity</button>
+            </div>
+          </div>
+          <div class="q-explain">On a velocity–time graph, the slope shows the acceleration: sloping up means speeding up, flat means constant velocity, and sloping down means slowing down.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="15">
+          <p class="q-prompt"><span class="q-num">2.</span>A repair drone flies 1.8 km around the outside of the station in 2.0 minutes. Calculate its average speed.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-speed">v̄ =</label>
+            <input class="answer" id="er-speed" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">m s⁻¹</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="0.9">That's in kilometres per minute. Change the distance to metres and the time to seconds first.</p>
+          <p class="mistake" data-value="900">The distance is in metres now, but the time is still in minutes. 2.0 minutes is 120 s.</p>
+          <p class="mistake" data-value="0.015">The time is in seconds now, but the distance is still in kilometres. 1.8 km is 1800 m.</p>
+          <p class="mistake" data-value="216000">You've multiplied. Rearrange d = v̄t to get v̄ on its own.</p>
+          <details class="hint"><summary>Hint</summary><p>Change the distance to metres and the time to seconds before you put them into d = v̄t.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>d = v̄t</li>
+              <li>1800 = v̄ × 120</li>
+              <li>v̄ = 15 m s⁻¹</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">3.</span>A thruster pushes exhaust gas backwards out of the station. What makes the station move forwards?</p>
+          <div class="options">
+            <button type="button" class="option" data-feedback="There's no air in space. Rockets and thrusters don't need anything to push against.">The exhaust gas pushes against the air behind the station</button>
+            <button type="button" class="option" data-correct>The gas pushes the thruster forwards with an equal and opposite force</button>
+            <button type="button" class="option" data-feedback="Weight acts towards the Earth, not in the direction the station is going.">The station's weight pulls it forwards</button>
+            <button type="button" class="option" data-feedback="Using fuel does make the station lighter, but that isn't what pushes it.">Burning fuel makes the station lighter, so it floats forwards</button>
+          </div>
+          <div class="q-explain">Newton's third law: if A pushes on B, then B pushes back on A with an equal force in the opposite direction. The thruster pushes the gas backwards, so the gas pushes the thruster, and the station, forwards.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="600">
+          <p class="q-prompt"><span class="q-num">4.</span>The station's cargo tug has a mass of 1500 kg. To dock safely, it must accelerate at 0.40 m s⁻². Calculate the unbalanced force its engine must provide.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-force">F =</label>
+            <input class="answer" id="er-force" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">N</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="3750">You've divided the mass by the acceleration. F = ma means multiply them.</p>
+          <p class="mistake" data-value="14700">That's the tug's weight on Earth (W = mg). Here you need the unbalanced force, F = ma.</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>F = ma</li>
+              <li>F = 1500 × 0.40</li>
+              <li>F = 600 N</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="25000">
+          <p class="q-prompt"><span class="q-num">5.</span>A fragment of meteoroid with a mass of 0.20 kg hits the hull at 500 m s⁻¹. Calculate its kinetic energy.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-ek">E<sub>k</sub> =</label>
+            <input class="answer" id="er-ek" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">J</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="50">You haven't squared the speed. In E<sub>k</sub> = ½mv², the v is squared.</p>
+          <p class="mistake" data-value="50000">You've left out the ½ in E<sub>k</sub> = ½mv².</p>
+          <p class="mistake" data-value="100">You've multiplied the mass by the speed. Use E<sub>k</sub> = ½mv², and square the speed.</p>
+          <details class="hint"><summary>Hint</summary><p>Square the speed first, then multiply by the mass and by ½.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>E<sub>k</sub> = ½mv²</li>
+              <li>E<sub>k</sub> = ½ × 0.20 × 500²</li>
+              <li>E<sub>k</sub> = 25 000 J</li>
+            </ul>
+            That's a lot of energy for something smaller than an apple, which is why spacecraft need shielding.
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 4: Space ============ -->
+    <section class="room deck" data-name="Navigation bridge" data-short="Bridge" data-topic="Space" data-letter="I" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <radialGradient id="er-planet" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#b49cfc"/><stop offset="1" stop-color="#3a22a0"/></radialGradient>
+          </defs>
+          <circle cx="300" cy="125" r="96" fill="none" stroke="#5d6aa8" stroke-width="2" stroke-dasharray="6 8"/>
+          <path d="M213 148A90 18 -15 0 1 387 102" fill="none" stroke="#f68cc4" stroke-width="5" opacity="0.7"/>
+          <circle cx="300" cy="125" r="52" fill="url(#er-planet)"/>
+          <path d="M213 148A90 18 -15 0 0 387 102" fill="none" stroke="#f68cc4" stroke-width="5"/>
+          <g class="orbit">
+            <rect x="384" y="116" width="24" height="18" rx="3" fill="#d8dcef"/>
+            <rect x="366" y="120" width="16" height="10" fill="#1f4fd1" stroke="#8fb0ff" stroke-width="1.5"/>
+            <rect x="410" y="120" width="16" height="10" fill="#1f4fd1" stroke="#8fb0ff" stroke-width="1.5"/>
+          </g>
+          <g class="when-broken" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4 8">
+            <path d="M480 70L530 95M575 80L620 120M600 170L540 160"/>
+          </g>
+          <path class="when-done" d="M480 70L530 95L575 80L620 120L600 170L540 160L530 95" fill="none" stroke="#5eead4" stroke-width="2.5"/>
+          <g fill="#f3efff"><circle cx="480" cy="70" r="5"/><circle cx="530" cy="95" r="4"/><circle cx="575" cy="80" r="5"/><circle cx="620" cy="120" r="6"/><circle cx="600" cy="170" r="4"/><circle cx="540" cy="160" r="5"/></g>
+          <text class="scene-status when-broken" x="560" y="204" text-anchor="middle">NAV OFFLINE</text>
+          <text class="scene-status is-good when-done" x="560" y="204" text-anchor="middle">COURSE PLOTTED</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 4 of 5 · Space</p>
+          <h2>Navigation bridge</h2>
+          <p class="room-story">The navigation computer has crashed. Rebuild its star charts so the escape pod can find its way home.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">1.</span>Rebuild the star chart's zoom levels. Put these in order of size, from smallest to largest.</p>
+          <div class="match is-order">
+            <p class="match-hint">Drag each one to its place, or tap it and then its place.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="5" data-label="5">Galaxy</button>
+              <button type="button" class="match-item is-text" data-key="2" data-label="2">Planet</button>
+              <button type="button" class="match-item is-text" data-key="6" data-label="6">Universe</button>
+              <button type="button" class="match-item is-text" data-key="1" data-label="1">Moon</button>
+              <button type="button" class="match-item is-text" data-key="4" data-label="4">Solar system</button>
+              <button type="button" class="match-item is-text" data-key="3" data-label="3">Star</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="1">1 Smallest</button>
+              <button type="button" class="match-target" data-key="2">2</button>
+              <button type="button" class="match-target" data-key="3">3</button>
+              <button type="button" class="match-target" data-key="4">4</button>
+              <button type="button" class="match-target" data-key="5">5</button>
+              <button type="button" class="match-target" data-key="6">6 Largest</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>A moon orbits a planet, and a planet orbits a star. A solar system is a star with everything that orbits it.</p></details>
+          <div class="q-explain">A moon orbits a planet, a planet orbits a star, and a star with everything that orbits it is a solar system. Billions of stars make a galaxy, and the Universe holds billions of galaxies.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="120">
+          <p class="q-prompt"><span class="q-num">2.</span>The escape pod will stop at the Moon base first. An astronaut has a mass of 75 kg. Use the data sheet to calculate their weight on the Moon.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-weight">W =</label>
+            <input class="answer" id="er-weight" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">N</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="735">That's their weight on Earth. Use g for the Moon from the data sheet.</p>
+          <p class="mistake" data-value="46.9">You've divided the mass by g. W = mg means multiply them.</p>
+          <p class="mistake" data-value="75">That's the astronaut's mass. Mass stays the same everywhere, but weight depends on g.</p>
+          <details class="hint"><summary>Hint</summary><p>Find the gravitational field strength (g) on the Moon in the data sheet, then use W = mg.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>W = mg</li>
+              <li>W = 75 × 1.6</li>
+              <li>W = 120 N</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">3.</span>A satellite is moved from a low orbit to a higher orbit. What happens to its period (the time it takes to go round once)?</p>
+          <div class="options is-row">
+            <button type="button" class="option" data-correct>It increases</button>
+            <button type="button" class="option" data-feedback="The higher the orbit, the longer it takes to go round once.">It decreases</button>
+            <button type="button" class="option" data-feedback="The period depends on how high the orbit is.">It stays the same</button>
+          </div>
+          <div class="q-explain">Higher orbits have longer periods. Low satellites like the ISS go round in about 90 minutes; geostationary satellites, 36 000 km up, take 24 hours.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">4.</span>The star chart gives distances in light-years. What is a light-year?</p>
+          <div class="options">
+            <button type="button" class="option" data-feedback="It sounds like a time, but a light-year is a distance.">The time it takes light to cross the galaxy</button>
+            <button type="button" class="option" data-feedback="The speed of light is 3.0 × 10⁸ m s⁻¹. A light-year is something else.">The speed of light in space</button>
+            <button type="button" class="option" data-feedback="It has nothing to do with how old a star is.">The age of a star, in years</button>
+            <button type="button" class="option" data-correct>The distance light travels in one year</button>
+          </div>
+          <div class="q-explain">A light-year is a distance: about 9.5 × 10¹⁵ m. Astronomers use it because the distances between stars are so huge.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">5.</span>As the escape pod comes back through Earth's atmosphere, its outside gets extremely hot. Why?</p>
+          <div class="options">
+            <button type="button" class="option" data-feedback="The pod is not getting noticeably closer to the Sun. Think about what it's moving through.">The Sun heats it more as it gets closer</button>
+            <button type="button" class="option" data-feedback="Re-entry heating happens even with the engines off. Think about what the pod is moving through.">Its engines fire to slow it down</button>
+            <button type="button" class="option" data-correct>Friction with the atmosphere changes its kinetic energy into heat</button>
+            <button type="button" class="option" data-feedback="Space doesn't cool things by itself, and the heating happens once the pod is in the air. Think about what it's moving through.">There's no air in space to keep it cool</button>
+          </div>
+          <div class="q-explain">The pod rubs against the air as it falls, which slows it down. Its kinetic energy is changed into heat, so it needs a heat shield to protect the crew.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 5: Power (new today) ============ -->
+    <section class="room deck" data-name="Escape pod" data-short="Pod" data-topic="Power, energy and time" data-letter="T" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="#071126" stroke="#8fb0ff" stroke-width="4">
+            <rect x="160" y="60" width="52" height="110" rx="8"/><rect x="230" y="60" width="52" height="110" rx="8"/>
+            <rect x="300" y="60" width="52" height="110" rx="8"/><rect x="370" y="60" width="52" height="110" rx="8"/>
+          </g>
+          <g fill="#8fb0ff"><rect x="176" y="50" width="20" height="10" rx="2"/><rect x="246" y="50" width="20" height="10" rx="2"/><rect x="316" y="50" width="20" height="10" rx="2"/><rect x="386" y="50" width="20" height="10" rx="2"/></g>
+          <g class="charge"><rect x="167" y="68" width="38" height="94" rx="4"/><rect x="237" y="68" width="38" height="94" rx="4"/><rect x="307" y="68" width="38" height="94" rx="4"/><rect x="377" y="68" width="38" height="94" rx="4"/></g>
+          <path class="flow" d="M422 115C470 115 470 140 518 140" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+          <path class="bob" d="M518 100Q518 70 560 70H612Q662 78 676 120Q662 162 612 170H560Q518 170 518 140Z" fill="#d8dcef" stroke="#8fb0ff" stroke-width="4"/>
+          <circle class="bob" cx="582" cy="120" r="20" fill="#1f4fd1" stroke="#071126" stroke-width="6"/>
+          <text class="scene-status when-broken" x="291" y="204" text-anchor="middle">BATTERY 3%</text>
+          <text class="scene-status is-good when-done" x="291" y="204" text-anchor="middle">FULLY CHARGED</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 5 of 5 · Power, energy and time</p>
+          <h2>Escape pod</h2>
+          <p class="room-story">The escape pod is right here, but its battery is flat. Power is new today, so read the station manual first, then charge the pod.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <section class="manual" aria-label="Station manual: power">
+          <p class="manual-tag">New today · Station manual</p>
+          <h3>Power</h3>
+          <p><strong>Power</strong> is how much energy is transferred <strong>every second</strong>.</p>
+          <p class="manual-formula">P = <span class="frac"><span>E</span><span>t</span></span></p>
+          <ul class="manual-key">
+            <li><strong>P</strong> is power, in watts (W)</li>
+            <li><strong>E</strong> is energy, in joules (J)</li>
+            <li><strong>t</strong> is time, in seconds (s)</li>
+          </ul>
+          <p>A power of 1 W means 1 J of energy is transferred every second. So a 60 W lamp transfers 60 J of energy every second.</p>
+          <div class="manual-example">
+            <p><strong>Worked example.</strong> A 50 W heater is switched on for 20 s. Calculate the energy it transfers.</p>
+            <ul class="working">
+              <li>P = E / t</li>
+              <li>50 = E / 20</li>
+              <li>E = 50 × 20 = 1000 J</li>
+            </ul>
+          </div>
+          <p><strong>Watch out:</strong> time must be in seconds (1 minute = 60 s) and power in watts (1 kW = 1000 W).</p>
+        </section>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">1.</span>The pod's cabin light has a power rating of 40 W. What does this mean?</p>
+          <div class="options">
+            <button type="button" class="option" data-feedback="Power is the energy transferred each second, not the total.">It transfers 40 J of energy in total</button>
+            <button type="button" class="option" data-correct>It transfers 40 J of energy every second</button>
+            <button type="button" class="option" data-feedback="Power isn't a time. Look at the station manual again.">It takes 40 s to switch on</button>
+            <button type="button" class="option" data-feedback="Energy is measured in joules, not watts, and power is per second, not per hour.">It transfers 40 W of energy every hour</button>
+          </div>
+          <div class="q-explain">40 W means 40 joules every second. In one minute (60 s) it transfers 40 × 60 = 2400 J.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">2.</span>Match each quantity to its unit.</p>
+          <div class="match">
+            <p class="match-hint">Drag each quantity onto its unit, or tap a quantity and then its unit.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="E" data-label="joules (J)">Energy, E</button>
+              <button type="button" class="match-item is-text" data-key="P" data-label="watts (W)">Power, P</button>
+              <button type="button" class="match-item is-text" data-key="t" data-label="seconds (s)">Time, t</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="t">seconds (s)</button>
+              <button type="button" class="match-target" data-key="P">watts (W)</button>
+              <button type="button" class="match-target" data-key="E">joules (J)</button>
+            </div>
+          </div>
+          <div class="q-explain">Power in watts, energy in joules, time in seconds. A watt is one joule per second.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="50">
+          <p class="q-prompt"><span class="q-num">3.</span>A charger transfers 3000 J of energy to the pod's battery in 60 s. Calculate the power of the charger.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-power">P =</label>
+            <input class="answer" id="er-power" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">W</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="180000">You've multiplied. P = E / t means divide the energy by the time.</p>
+          <p class="mistake" data-value="0.02">You've divided the time by the energy. It's the other way round: P = E / t.</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>P = E / t</li>
+              <li>P = 3000 / 60</li>
+              <li>P = 50 W</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="60000">
+          <p class="q-prompt"><span class="q-num">4.</span>The pod's heater has a power of 2000 W. It is switched on for 30 s. Calculate the energy it transfers.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-energy">E =</label>
+            <input class="answer" id="er-energy" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">J</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="66.7">You've divided the power by the time. To find the energy, multiply them: like the worked example in the station manual.</p>
+          <p class="mistake" data-value="0.015">You've divided. To find the energy, multiply the power by the time.</p>
+          <details class="hint"><summary>Hint</summary><p>Put the numbers into P = E / t, then multiply both sides by the time, just like the worked example.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>P = E / t</li>
+              <li>2000 = E / 30</li>
+              <li>E = 60 000 J</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="360000">
+          <p class="q-prompt"><span class="q-num">5.</span>The pod's life-support system has a power of 1.2 kW. It runs for 5 minutes. Calculate the energy it uses.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-energy2">E =</label>
+            <input class="answer" id="er-energy2" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">J</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="6000">The power is in watts now, but the time is still in minutes. 5 minutes is 300 s.</p>
+          <p class="mistake" data-value="360">The time is in seconds now, but the power is still in kilowatts. 1.2 kW is 1200 W.</p>
+          <p class="mistake" data-value="6">Change both values first: 1.2 kW is 1200 W, and 5 minutes is 300 s.</p>
+          <details class="hint"><summary>Hint</summary><p>Change kilowatts to watts, and minutes to seconds, before you start.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>P = E / t</li>
+              <li>1200 = E / 300</li>
+              <li>E = 360 000 J</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="60">
+          <p class="q-prompt"><span class="q-num">6.</span>Launching the pod needs 90 000 J of energy from its battery. The battery charger has a power of 1500 W. Calculate how long the charger takes to give the battery this much energy.</p>
+          <div class="answer-row">
+            <label class="answer-label" for="er-time">t =</label>
+            <input class="answer" id="er-time" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">s</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <p class="mistake" data-value="135000000">You've multiplied. Rearrange P = E / t to get t on its own.</p>
+          <p class="mistake" data-value="0.0167">You've divided the power by the energy. It's the other way round: t = E / P.</p>
+          <details class="hint"><summary>Hint</summary><p>Put the numbers into P = E / t first. Then rearrange: t = E ÷ P.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>P = E / t</li>
+              <li>1500 = 90 000 / t</li>
+              <li>t = 60 s</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ The end ============ -->
+    <section class="escape-end" data-end hidden>
+      <div class="deck end-card">
+        <svg class="scene is-tall" viewBox="0 0 800 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <radialGradient id="er-earth2" cx="0.4" cy="0.25" r="0.75"><stop offset="0" stop-color="#4fa3ff"/><stop offset="0.6" stop-color="#1f4fd1"/><stop offset="1" stop-color="#0b1a5c"/></radialGradient>
+            <linearGradient id="er-trail" x1="1" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#f68cc4" stop-opacity="0"/></linearGradient>
+          </defs>
+          <circle cx="560" cy="430" r="250" fill="url(#er-earth2)"/>
+          <circle cx="560" cy="430" r="257" fill="none" stroke="#8fb0ff" stroke-width="6" opacity="0.35"/>
+          <path d="M360 260Q440 220 520 240T700 228" fill="none" stroke="#5eead4" stroke-width="14" stroke-linecap="round" opacity="0.4"/>
+          <g transform="translate(150 60) scale(0.45)">
+            <rect x="0" y="40" width="300" height="8" rx="4" fill="#8b93c9"/>
+            <rect x="10" y="-20" width="44" height="54" fill="#1f4fd1" stroke="#8fb0ff" stroke-width="3"/><rect x="10" y="54" width="44" height="54" fill="#1f4fd1" stroke="#8fb0ff" stroke-width="3"/>
+            <rect x="246" y="-20" width="44" height="54" fill="#1f4fd1" stroke="#8fb0ff" stroke-width="3"/><rect x="246" y="54" width="44" height="54" fill="#1f4fd1" stroke="#8fb0ff" stroke-width="3"/>
+            <rect x="80" y="26" width="140" height="36" rx="10" fill="#d8dcef" stroke="#8fb0ff" stroke-width="3"/>
+          </g>
+          <path d="M290 100L440 150" stroke="url(#er-trail)" stroke-width="10" stroke-linecap="round"/>
+          <g class="bob">
+            <path d="M436 136L470 148L462 172L428 160Z" fill="#fbbf24"/>
+            <path d="M440 150Q448 128 478 136L504 146Q520 164 494 176L470 172Q444 168 440 150Z" fill="#d8dcef" stroke="#8fb0ff" stroke-width="3"/>
+            <circle cx="482" cy="156" r="8" fill="#1f4fd1" stroke="#071126" stroke-width="3"/>
+          </g>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag is-good">Mission complete</p>
+          <h2>Pod launched. You escaped!</h2>
+          <p class="end-label">Escape code</p>
+          <p class="end-code" data-end-code></p>
+          <dl class="end-stats">
+            <div><dt>Escape time</dt><dd data-end-time></dd></div>
+            <div><dt>Overrides used</dt><dd data-end-overrides></dd></div>
+          </dl>
+          <p>Show this screen to your teacher. Then copy the escape code, your time and the table below into your jotter.</p>
+        </div>
+      </div>
+
+      <section class="topic-check end-topics">
+        <h2>What to revise</h2>
+        <p>How many locks you opened first time in each room. Anything marked <strong>Work on this</strong> or <strong>Nearly there</strong> is what to revise before your prelim.</p>
+        <ul class="topic-list" data-end-topics></ul>
+      </section>
+
+      <div class="q q-input q-challenge" data-answer="8">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">Bonus.</span>On the way down, the pod's solar panels supply a power of 150 W. How many minutes do they take to store 72 kJ of energy?</p>
+        <div class="answer-row">
+          <label class="answer-label" for="er-bonus">t =</label>
+          <input class="answer" id="er-bonus" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">minutes</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="480">That's the time in seconds. The question asks for minutes.</p>
+        <p class="mistake" data-value="0.48">Check the prefix: 72 kJ is 72 000 J.</p>
+        <p class="mistake" data-value="0.008">Check the prefix and the units: 72 kJ is 72 000 J, and the answer is wanted in minutes.</p>
+        <details class="hint"><summary>Hint</summary><p>Change 72 kJ to joules, find the time in seconds, then change it to minutes.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>P = E / t</li>
+            <li>150 = 72 000 / t</li>
+            <li>t = 480 s = 8 minutes</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <div class="toolbar escape-tools" data-tools hidden>
+      <button type="button" class="tool" data-restart>Start again</button>
+      <button type="button" data-reset hidden>Reset</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

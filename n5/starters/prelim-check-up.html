@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prelim check-up · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 prelim revision starter: Waves, Radiation, power, energy and time, Dynamics and Space, with a topic check-up at the end showing what to revise.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Prelim revision</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Prelim revision · Waves · Radiation · Electrical power · Dynamics · Space</p>
+    <h1>Prelim check-up</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning which prelim topics I need to revise.</p>
+      <p><strong>SC:</strong> I can answer questions from each prelim topic · I can use the relationships sheet and data sheet · I can name the topics I need to work on.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5">5 min</option>
+          <option value="10">10 min</option>
+          <option value="15" selected>15 min</option>
+          <option value="20">20 min</option>
+        </select>
+        <output class="timer-display">15:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+    <h2 class="q-section">Waves</h2>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">1.</span>Sort each wave into transverse or longitudinal.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="trans" data-label="Transverse">Light</button>
+            <button type="button" class="match-item is-text" data-key="long" data-label="Longitudinal">Sound</button>
+            <button type="button" class="match-item is-text" data-key="trans" data-label="Transverse">Water waves</button>
+            <button type="button" class="match-item is-text" data-key="long" data-label="Longitudinal">Ultrasound</button>
+            <button type="button" class="match-item is-text" data-key="trans" data-label="Transverse">Microwaves</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="trans">Transverse</button>
+            <button type="button" class="match-target" data-key="long">Longitudinal</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Ultrasound is a kind of sound, just too high-pitched for us to hear. Which group does sound go in?</p></details>
+        <div class="q-explain"><strong>Longitudinal:</strong> sound and ultrasound (the particles vibrate along the direction the wave travels). <strong>Transverse:</strong> water waves and every electromagnetic wave, such as light and microwaves (vibrations at right angles to the direction of travel).</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.68">
+        <p class="q-prompt"><span class="q-num">2.</span>A loudspeaker makes a sound of frequency 500 Hz in air. The speed of sound in air is 340 m s⁻¹. Calculate the wavelength of the sound.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-wavelength">λ =</label>
+          <input class="answer" id="pc-wavelength" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="170000">You've multiplied. Rearrange v = fλ to get λ on its own.</p>
+        <p class="mistake" data-value="1.47">You've divided the frequency by the speed. Rearrange v = fλ to get λ on its own.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>v = fλ</li>
+            <li>340 = 500 × λ</li>
+            <li>λ = 0.68 m</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">3.</span>Which part of the electromagnetic spectrum has a longer wavelength than visible light, but a shorter wavelength than microwaves?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Ultraviolet is on the other side of visible light: its wavelength is shorter than light's.">Ultraviolet</button>
+          <button type="button" class="option" data-correct>Infrared</button>
+          <button type="button" class="option" data-feedback="X-rays have a much shorter wavelength than visible light.">X-rays</button>
+          <button type="button" class="option" data-feedback="Radio waves have the longest wavelength of all, even longer than microwaves.">Radio waves</button>
+        </div>
+        <div class="q-explain">In order of <strong>decreasing wavelength</strong> (increasing frequency): radio, microwaves, <strong>infrared</strong>, visible light, ultraviolet, X-rays, gamma rays.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">4.</span>A ray of light passes from air into a glass block at an angle. What happens to the light as it enters the glass?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>Its speed decreases, its wavelength decreases and its frequency stays the same</button>
+          <button type="button" class="option" data-feedback="The frequency never changes when a wave refracts: the source sets it. Something else gets smaller.">Its speed decreases, its wavelength stays the same and its frequency decreases</button>
+          <button type="button" class="option" data-feedback="Check the data sheet: light travels at 3.0 × 10⁸ m s⁻¹ in air but only 2.0 × 10⁸ m s⁻¹ in glass.">Its speed increases and it bends away from the normal</button>
+          <button type="button" class="option" data-feedback="Refraction happens <strong>because</strong> the speed changes. No change in speed, no change in direction.">Its speed stays the same, but it changes direction</button>
+        </div>
+        <div class="q-explain">Light <strong>slows down</strong> in glass, so its <strong>wavelength gets shorter</strong> and it bends <strong>towards the normal</strong>. The <strong>frequency stays the same</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>A house in a hilly area gets good long-wave radio reception but poor TV reception from the same transmitter. Why?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="All electromagnetic waves travel at the same speed, 3.0 × 10⁸ m s⁻¹ in air.">Radio waves travel faster than TV signals</button>
+          <button type="button" class="option" data-feedback="Radio waves are electromagnetic waves, not sound. The radio turns the signal into sound.">Radio waves are sound waves, so they travel through hills</button>
+          <button type="button" class="option" data-feedback="TV signals have a higher frequency than long-wave radio, so their wavelength is shorter, not longer.">TV signals have a longer wavelength, so they diffract less around hills</button>
+          <button type="button" class="option" data-correct>TV signals have a shorter wavelength, so they diffract less around hills</button>
+        </div>
+        <div class="q-explain"><strong>Long waves diffract more</strong> than short waves. Long-wave radio bends round the hills into the valley; the shorter-wavelength TV signals do not bend as much.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+    <h2 class="q-section">Radiation</h2>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">6.</span>Sort each fact into alpha, beta or gamma.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="beta" data-label="Beta">A fast-moving electron from the nucleus</button>
+            <button type="button" class="match-item is-text" data-key="gamma" data-label="Gamma">An electromagnetic wave</button>
+            <button type="button" class="match-item is-text" data-key="alpha" data-label="Alpha">Two protons and two neutrons</button>
+            <button type="button" class="match-item is-text" data-key="alpha" data-label="Alpha">Stopped by a sheet of paper</button>
+            <button type="button" class="match-item is-text" data-key="gamma" data-label="Gamma">Least ionising</button>
+            <button type="button" class="match-item is-text" data-key="beta" data-label="Beta">Stopped by a few mm of aluminium</button>
+            <button type="button" class="match-item is-text" data-key="alpha" data-label="Alpha">Most ionising</button>
+            <button type="button" class="match-item is-text" data-key="gamma" data-label="Gamma">Only reduced by thick lead or concrete</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="alpha">Alpha (α)</button>
+            <button type="button" class="match-target" data-key="beta">Beta (β)</button>
+            <button type="button" class="match-target" data-key="gamma">Gamma (γ)</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>Alpha</strong> is a helium nucleus: big, slow and the most ionising, so it is stopped by paper. <strong>Beta</strong> is a fast electron, stopped by a few mm of aluminium. <strong>Gamma</strong> is an EM wave: the least ionising, so it is the most penetrating.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="4">
+        <p class="q-prompt"><span class="q-num">7.</span>A worker's hand absorbs a dose of 0.40 mGy from fast neutrons. The radiation weighting factor for fast neutrons is 10. Calculate the equivalent dose.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-dose">H =</label>
+          <input class="answer" id="pc-dose" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">mSv</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.04">You've divided. Equivalent dose is absorbed dose <strong>multiplied</strong> by the weighting factor.</p>
+        <p class="mistake" data-value="0.004">That's the answer in Sv. The unit box says mSv.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>H = Dw<sub>R</sub></li>
+            <li>H = 0.40 × 10</li>
+            <li>H = 4.0 mSv</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="12">
+        <p class="q-prompt"><span class="q-num">8.</span>The activity of a radioactive source falls from 800 kBq to 100 kBq in 36 hours. What is its half-life?</p>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-half-life">half-life =</label>
+          <input class="answer" id="pc-half-life" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">hours</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="4.5">You've divided 36 by 8. Count how many times the activity <strong>halves</strong> to get from 800 down to 100.</p>
+        <p class="mistake" data-value="18">That's just half of 36 hours. Count how many times the activity <strong>halves</strong> to get from 800 down to 100.</p>
+        <p class="mistake" data-value="9">The activity doesn't halve four times. Write it out: 800, then half of that, and so on, until you reach 100.</p>
+        <details class="hint"><summary>Hint</summary><p>Half-life is the time for the activity to halve. Start at 800 and keep halving. How many halvings to reach 100?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>800 → 400 → 200 → 100 kBq is 3 half-lives</li>
+            <li>half-life = 36 ÷ 3</li>
+            <li>half-life = 12 hours</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+    <h2 class="q-section">Power, energy and time</h2>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">9.</span>Spot the mistake. A 2.0 kW kettle is switched on for 3 minutes. A pupil calculates the energy it transfers:</p>
+        <figure class="figure">
+          <ul class="working">
+            <li>E = Pt</li>
+            <li>E = 2.0 × 3</li>
+            <li>E = 6.0 J</li>
+          </ul>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="P = E / t rearranges to E = Pt, so the relationship is right. Look at the numbers that went in.">The relationship should be E = P / t</button>
+          <button type="button" class="option" data-feedback="Energy is measured in joules (J). Watts (W) are the unit of power.">The answer should be in W, not J</button>
+          <button type="button" class="option" data-correct>The power should be in W and the time in s</button>
+          <button type="button" class="option" data-feedback="6 J would barely warm a drop of water. Look at the units of the numbers that went in.">Nothing: it's correct</button>
+        </div>
+        <div class="q-explain">Change to SI units first: 2.0 kW = 2000 W and 3 minutes = 180 s.
+          <ul class="working">
+            <li>E = Pt</li>
+            <li>E = 2000 × 180</li>
+            <li>E = 360 000 J</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="3600">
+        <p class="q-prompt"><span class="q-num">10.</span>A 60 W lamp transfers 216 kJ of energy. Calculate how long it was switched on for.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-time">t =</label>
+          <input class="answer" id="pc-time" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">s</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="3.6">Change kJ to J first: 216 kJ = 216 000 J.</p>
+        <p class="mistake" data-value="12960">You've multiplied. Rearrange P = E / t to get t on its own.</p>
+        <p class="mistake" data-value="12960000">You've multiplied. Rearrange P = E / t to get t on its own.</p>
+        <p class="mistake" data-value="0.000278">You've divided the power by the energy. Rearrange P = E / t to get t on its own.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>P = E / t</li>
+            <li>60 = 216 000 / t</li>
+            <li>t = 3600 s</li>
+          </ul>
+          That's exactly 1 hour.
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+    <h2 class="q-section">Dynamics</h2>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">11.</span>Sort each quantity into vector or scalar.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="scalar" data-label="Scalar">Speed</button>
+            <button type="button" class="match-item is-text" data-key="vector" data-label="Vector">Displacement</button>
+            <button type="button" class="match-item is-text" data-key="scalar" data-label="Scalar">Mass</button>
+            <button type="button" class="match-item is-text" data-key="vector" data-label="Vector">Force</button>
+            <button type="button" class="match-item is-text" data-key="scalar" data-label="Scalar">Distance</button>
+            <button type="button" class="match-item is-text" data-key="vector" data-label="Vector">Acceleration</button>
+            <button type="button" class="match-item is-text" data-key="scalar" data-label="Scalar">Energy</button>
+            <button type="button" class="match-item is-text" data-key="vector" data-label="Vector">Velocity</button>
+            <button type="button" class="match-item is-text" data-key="scalar" data-label="Scalar">Time</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="vector">Vector (size and direction)</button>
+            <button type="button" class="match-target" data-key="scalar">Scalar (size only)</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>Vectors:</strong> displacement, velocity, acceleration and force. <strong>Scalars:</strong> distance, speed, mass, time and energy. Speed and distance are the scalar partners of velocity and displacement.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">12.</span>A pupil walks 40 m north, then 30 m east. What is the size of their displacement?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="-50 0 340 200" role="img" aria-label="A path going 40 metres north, then turning a right angle and going 30 metres east. A dashed line joins the start to the finish.">
+            <path class="wire" d="M60 180V40H180"/>
+            <path d="M60 180L180 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="7 6"/>
+            <path d="M51 54L60 40L69 54ZM166 31L180 40L166 49Z" fill="currentColor"/>
+            <circle class="dot" cx="60" cy="180" r="5"/>
+            <text class="label" x="48" y="115" text-anchor="end">40 m</text>
+            <text class="label" x="120" y="28" text-anchor="middle">30 m</text>
+            <text class="label" x="72" y="194">start</text>
+            <text class="label" x="190" y="46">finish</text>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="You've subtracted. The two walks are at right angles, so they don't simply add or take away.">10 m</button>
+          <button type="button" class="option" data-correct>50 m</button>
+          <button type="button" class="option" data-feedback="70 m is the <strong>distance</strong> walked. Displacement is the straight line from start to finish.">70 m</button>
+          <button type="button" class="option" data-feedback="Nearly: 40² + 30² = 2500. Now take the square root.">2500 m</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The two walks make a right angle. Displacement is the dashed line from start to finish: which rule finds the long side of a right-angled triangle?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>s² = 40² + 30²</li>
+            <li>s² = 2500</li>
+            <li>s = 50 m</li>
+          </ul>
+          Displacement is a vector, so in the exam give its direction too: tan θ = 30 / 40, so θ = 37°, a bearing of <strong>037</strong>.
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="96">
+        <p class="q-prompt"><span class="q-num">13.</span>The velocity–time graph shows a car's motion. Calculate its displacement in the 10 s shown.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 250" role="img" aria-label="Velocity–time graph. Velocity in metres per second from 0 to 16, time in seconds from 0 to 10. The line rises steadily from 0 at 0 seconds to 12 metres per second at 4 seconds, then stays flat at 12 metres per second until 10 seconds.">
+            <path d="M100 40V200M150 40V200M200 40V200M250 40V200M300 40V200M50 160H300M50 120H300M50 80H300M50 40H300" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <path class="wire" d="M50 30V200H312"/>
+            <g fill="currentColor" font-size="13" text-anchor="middle"><text x="50" y="217">0</text><text x="100" y="217">2</text><text x="150" y="217">4</text><text x="200" y="217">6</text><text x="250" y="217">8</text><text x="300" y="217">10</text></g>
+            <g fill="currentColor" font-size="13" text-anchor="end"><text x="43" y="204">0</text><text x="43" y="164">4</text><text x="43" y="124">8</text><text x="43" y="84">12</text><text x="43" y="44">16</text></g>
+            <text class="label" x="175" y="242" text-anchor="middle" style="font-size:15px">time (s)</text>
+            <text class="label" transform="rotate(-90)" x="-120" y="16" text-anchor="middle" style="font-size:15px">velocity (m s⁻¹)</text>
+            <path class="wire" d="M50 200L150 80H300" style="stroke-width:4"/>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-area">s =</label>
+          <input class="answer" id="pc-area" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="120">That's 12 × 10, as if the car did 12 m s⁻¹ the whole time. Split the area into a triangle and a rectangle.</p>
+        <p class="mistake" data-value="72">That's only the rectangle, from 4 s to 10 s. Add on the triangle for the first 4 s.</p>
+        <p class="mistake" data-value="24">That's only the triangle, for the first 4 s. Add on the rectangle from 4 s to 10 s.</p>
+        <p class="mistake" data-value="3">That's the acceleration in the first 4 s (the gradient). Displacement is the <strong>area</strong> under the line.</p>
+        <details class="hint"><summary>Hint</summary><p>Displacement is the <strong>area under</strong> a velocity–time graph. Split it into shapes you can find the area of.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>s = area under the graph</li>
+            <li>s = (½ × 4 × 12) + (6 × 12)</li>
+            <li>s = 24 + 72 = 96 m</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="-1.5">
+        <p class="q-prompt"><span class="q-num">14.</span>A cyclist slows down from 9.0 m s⁻¹ to 3.0 m s⁻¹ in 4.0 s. Calculate the cyclist's acceleration.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-accel">a =</label>
+          <input class="answer" id="pc-accel" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m s⁻²</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="1.5">Nearly. v is the <strong>final</strong> velocity, so v − u = 3.0 − 9.0. The cyclist is slowing down, so the answer is negative: type a minus sign.</p>
+        <p class="mistake" data-value="3">You've added the velocities. Acceleration is the <strong>change</strong> in velocity, v − u, divided by time.</p>
+        <p class="mistake" data-value="0.75">That's just the final velocity divided by the time. Use the <strong>change</strong> in velocity, v − u.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>a = (v − u) / t</li>
+            <li>a = (3.0 − 9.0) / 4.0</li>
+            <li>a = −1.5 m s⁻²</li>
+          </ul>
+          The minus sign shows the cyclist is slowing down (decelerating).
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="2">
+        <p class="q-prompt"><span class="q-num">15.</span>A car of mass 1200 kg has the forces shown acting on it. Calculate its acceleration.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 360 150" role="img" aria-label="A car. A driving force of 3000 newtons acts to the right. Friction and air resistance of 600 newtons act to the left.">
+            <path class="wire" d="M20 130H340"/>
+            <path d="M130 112V82L148 62H210L232 82H250V112Z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="155" cy="117" r="12" fill="currentColor"/>
+            <circle cx="225" cy="117" r="12" fill="currentColor"/>
+            <path class="wire" d="M250 92H318M130 92H92"/>
+            <path d="M316 83L330 92L316 101ZM94 83L80 92L94 101Z" fill="currentColor"/>
+            <text class="label" x="290" y="76" text-anchor="middle">3000 N</text>
+            <text class="label" x="92" y="76" text-anchor="middle">600 N</text>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-fma">a =</label>
+          <input class="answer" id="pc-fma" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m s⁻²</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="2.5">You've only used the driving force. Find the <strong>unbalanced</strong> force first.</p>
+        <p class="mistake" data-value="3">You've added the forces. They act in opposite directions, so find the difference.</p>
+        <p class="mistake" data-value="0.5">That's only the 600 N force divided by the mass. Find the <strong>unbalanced</strong> force first.</p>
+        <details class="hint"><summary>Hint</summary><p>In F = ma, F is the <strong>unbalanced</strong> force. The two forces push in opposite directions.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>F = 3000 − 600 = 2400 N</li>
+            <li>F = ma</li>
+            <li>2400 = 1200 × a</li>
+            <li>a = 2.0 m s⁻²</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="9.9">
+        <p class="q-prompt"><span class="q-num">16.</span>A ball of mass 0.50 kg is dropped from a height of 5.0 m. Assuming no energy is lost, calculate its speed just before it hits the ground.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-energy">v =</label>
+          <input class="answer" id="pc-energy" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m s⁻¹</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="24.5">That's the potential energy it loses, in J. Now use E<sub>k</sub> = ½mv² to find its speed.</p>
+        <p class="mistake" data-value="98">That's v². Take the square root.</p>
+        <p class="mistake" data-value="7">Don't forget the ½ in E<sub>k</sub> = ½mv².</p>
+        <p class="mistake" data-value="49">Don't forget the ½ in E<sub>k</sub> = ½mv², and take the square root at the end.</p>
+        <details class="hint"><summary>Hint</summary><p>The E<sub>p</sub> it loses on the way down all becomes E<sub>k</sub>. Find E<sub>p</sub> first.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>E<sub>p</sub> = mgh = 0.50 × 9.8 × 5.0 = 24.5 J</li>
+            <li>E<sub>k</sub> = ½mv²</li>
+            <li>24.5 = ½ × 0.50 × v²</li>
+            <li>v = 9.9 m s⁻¹</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">17.</span>Ball A is dropped from a table. At the same moment, ball B is pushed horizontally off the same table. Ignore air resistance. Which ball lands first?</p>
+        <div class="options is-row">
+          <button type="button" class="option" data-feedback="Both balls start with no vertical velocity, and both accelerate downwards at 9.8 m s⁻².">Ball A</button>
+          <button type="button" class="option" data-feedback="Ball B's horizontal speed doesn't change how quickly it falls.">Ball B</button>
+          <button type="button" class="option" data-correct>They land at the same time</button>
+        </div>
+        <div class="q-explain">Horizontal and vertical motion are <strong>independent</strong>. Both balls have the same <strong>constant vertical acceleration</strong>, so they take the same time to fall. Ball B also has a <strong>constant horizontal velocity</strong>, so it lands further away.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+    <h2 class="q-section">Space</h2>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">18.</span>Which statement about a geostationary satellite is true?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>It orbits once every 24 hours, at an altitude of about 36 000 km</button>
+          <button type="button" class="option" data-feedback="400 km is about the height of the ISS, which orbits every 90 minutes or so. A geostationary satellite is much higher: higher orbits take longer.">It orbits once every 24 hours, at an altitude of about 400 km</button>
+          <button type="button" class="option" data-feedback="It's a projectile: its horizontal velocity carries it forward while its weight pulls it round the Earth. No engine is needed.">It needs its engines on all the time to stay in orbit</button>
+          <button type="button" class="option" data-feedback="Gravity still acts on it. Its weight is what keeps pulling it round in a curve.">It has no weight, because there is no gravity that high up</button>
+        </div>
+        <div class="q-explain">A geostationary satellite has a <strong>period of 24 hours</strong> at an <strong>altitude of 36 000 km</strong>, so it stays above the same point on the Earth. A satellite in a higher orbit has a longer period.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">19.</span>Proxima Centauri is 4.2 light-years from Earth. What is this distance in metres?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="You've divided. A light-year is a <strong>distance</strong>: how far light goes in a year. Use d = vt.">4.4 × 10⁻¹⁶ m</button>
+          <button type="button" class="option" data-feedback="That's how far light goes in 4.2 <strong>seconds</strong>. Change 4.2 years into seconds first.">1.3 × 10⁹ m</button>
+          <button type="button" class="option" data-feedback="That's how far light goes in 4.2 × 365 seconds. Time must be in seconds: multiply by 24 × 60 × 60 as well.">4.6 × 10¹¹ m</button>
+          <button type="button" class="option" data-correct>4.0 × 10¹⁶ m</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>A light-year is the distance light travels in one year. Use d = vt, with v = 3.0 × 10⁸ m s⁻¹ and t in <strong>seconds</strong>.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>t = 4.2 × 365.25 × 24 × 60 × 60 = 1.33 × 10⁸ s</li>
+            <li>d = vt</li>
+            <li>d = 3.0 × 10⁸ × 1.33 × 10⁸</li>
+            <li>d = 4.0 × 10¹⁶ m</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">20.</span>The line spectrum from a star is shown with the line spectra of four elements. Which elements are in the star? Tap all that apply.</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 420 260" role="img" aria-label="Five line spectra. Star: five lines. Element A: three lines, all matching star lines. Element B: three lines, only one matching a star line. Element C: two lines, both matching star lines. Element D: four lines, none matching star lines.">
+            <g fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="2">
+              <rect x="110" y="15" width="300" height="32" rx="3"/>
+              <rect x="110" y="75" width="300" height="32" rx="3"/>
+              <rect x="110" y="120" width="300" height="32" rx="3"/>
+              <rect x="110" y="165" width="300" height="32" rx="3"/>
+              <rect x="110" y="210" width="300" height="32" rx="3"/>
+            </g>
+            <path d="M150 15V47M205 15V47M230 15V47M295 15V47M320 15V47
+                     M150 75V107M230 75V107M320 75V107
+                     M150 120V152M260 120V152M360 120V152
+                     M205 165V197M295 165V197
+                     M165 210V242M250 210V242M340 210V242M380 210V242" fill="none" stroke="currentColor" stroke-width="4"/>
+            <path d="M10 61H410" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5"/>
+            <text class="label" x="10" y="37">Star</text>
+            <text class="label" x="10" y="97">Element A</text>
+            <text class="label" x="10" y="142">Element B</text>
+            <text class="label" x="10" y="187">Element C</text>
+            <text class="label" x="10" y="232">Element D</text>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-correct>Element A</button>
+          <button type="button" class="option" data-feedback="Only one of B's lines is in the star's spectrum. If B were there, <strong>all</strong> of its lines would be.">Element B</button>
+          <button type="button" class="option" data-correct>Element C</button>
+          <button type="button" class="option" data-feedback="None of D's lines appear in the star's spectrum.">Element D</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Run your finger straight up from each of an element's lines. Is there a line in the same place in the star's spectrum?</p></details>
+        <div class="q-explain">An element is in the star only if <strong>every one</strong> of its lines appears in the star's spectrum. Every line of <strong>A</strong> and <strong>C</strong> matches; B has only one matching line.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="1.3">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">21.</span>A space probe of mass 800 kg is landing on Mars, where g = 3.7 N kg⁻¹. Its engine pushes upwards with a force of 4000 N. Calculate the size of the probe's acceleration.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="pc-mars">a =</label>
+          <input class="answer" id="pc-mars" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">m s⁻²</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="5">That's the engine force divided by the mass. The probe's weight acts downwards too.</p>
+        <p class="mistake" data-value="8.7">You've added the weight to the engine force. They act in opposite directions.</p>
+        <p class="mistake" data-value="-4.8">You've used g on Earth (9.8 N kg⁻¹). The probe is on Mars.</p>
+        <p class="mistake" data-value="4.8">You've used g on Earth (9.8 N kg⁻¹). The probe is on Mars.</p>
+        <details class="hint"><summary>Hint</summary><p>Two forces act on the probe: the engine force up and its weight down. Find its weight first.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>W = mg = 800 × 3.7 = 2960 N</li>
+            <li>F = 4000 − 2960 = 1040 N (upwards)</li>
+            <li>F = ma</li>
+            <li>1040 = 800 × a</li>
+            <li>a = 1.3 m s⁻²</li>
+          </ul>
+          The unbalanced force is upwards, so if the probe is falling it slows down for a gentle landing.
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <section class="topic-check" data-topic-check aria-live="polite">
+        <h2>Your topic check-up</h2>
+        <p>This fills in as you answer. Copy each topic and its result into your jotter: anything marked <strong>Work on this</strong> or <strong>Nearly there</strong> is what to revise before your prelim.</p>
+        <ul class="topic-list"></ul>
+      </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

@@ -25,6 +25,11 @@
 //   .q-feedback  empty element inside each .q where feedback is written (aria-live).
 //   .hint        optional <details class="hint"><summary>Hint</summary><p>…</p></details> inside a .q.
 //                Needs no script; Reset closes it again.
+//   .q-section   optional heading (<h2 class="q-section">Waves</h2>) that starts a group of questions,
+//                for revision starters that cover several topics.
+//   [data-topic-check]  box holding an empty <ul class="topic-list">: one row per .q-section, saying
+//                how many of its questions were right first time, so pupils see what to revise.
+//                The Challenge question is left out of the counts.
 //   [data-show-answers]  button that toggles answers for the whole page. Used by the circuit
 //                        tools only: starters leave it out, since pupils could tap it.
 //   [data-reset]         button that clears every answer on the page.
@@ -93,6 +98,35 @@
   function solve(q) {
     q.classList.add('is-solved');
     q.querySelectorAll('button, input').forEach((b) => { b.disabled = true; });
+    updateTopicCheck();
+  }
+
+  // A wrong answer: the topic check no longer counts this question as right first time
+  function slip(q) { q.dataset.slipped = ''; }
+
+  const topicCheck = document.querySelector('[data-topic-check] .topic-list');
+  function updateTopicCheck() {
+    if (!topicCheck) return;
+    const groups = [];
+    document.querySelectorAll('.q-section, .q').forEach((el) => {
+      if (el.classList.contains('q-section')) groups.push({ name: el.textContent, qs: [] });
+      else if (groups.length && !el.classList.contains('q-challenge')) groups[groups.length - 1].qs.push(el);
+    });
+    topicCheck.innerHTML = groups.map((g) => {
+      const total = g.qs.length;
+      const done = g.qs.filter((q) => q.classList.contains('is-solved')).length;
+      const first = g.qs.filter((q) => q.classList.contains('is-solved') && !('slipped' in q.dataset)).length;
+      let kind = 'todo';
+      let status = done + ' of ' + total + ' done';
+      if (done === total) {
+        if (first === total) { kind = 'good'; status = 'Secure'; }
+        else if (first * 2 >= total) { kind = 'ok'; status = 'Nearly there'; }
+        else { kind = 'bad'; status = 'Work on this'; }
+      }
+      return '<li class="topic is-' + kind + '"><span class="topic-name">' + g.name + '</span>' +
+        '<span class="topic-score">' + first + ' of ' + total + ' right first time</span>' +
+        '<span class="topic-status">' + status + '</span></li>';
+    }).join('');
   }
 
   function initMcq(q) {
@@ -113,6 +147,7 @@
         } else {
           btn.classList.add('is-wrong');
           btn.disabled = true;
+          slip(q);
           say(q, 'bad', 'Not quite.', btn.dataset.feedback || 'Have another go.');
         }
       });
@@ -181,6 +216,7 @@
     // Shared by tapping and dragging: true if the item belongs with the target
     function tryMatch(item, target) {
       if (item.dataset.key !== target.dataset.key) {
+        slip(q);
         say(q, 'bad', sorting ? 'Not in that group.' : ordering ? 'Not in that place.' : 'Not a match.', 'Try again.');
         return false;
       }
@@ -326,6 +362,7 @@
         return;
       }
       const mistake = [...q.querySelectorAll('.mistake')].find((p) => near(x, Number(p.dataset.value)));
+      slip(q);
       input.classList.remove('is-wrong');
       void input.offsetWidth; // restart the nudge animation
       input.classList.add('is-wrong');
@@ -362,6 +399,7 @@
         solve(q);
         say(q, 'good', 'Correct!', explain ? explain.innerHTML : '');
       } else {
+        slip(q);
         say(q, 'bad', 'Not quite.', (wrong.length === 1 ? '1 ' + one + ' is' : wrong.length + ' ' + many + ' are') +
           ' wrong, marked "Check". Tap ' + (wrong.length === 1 ? 'it' : 'them') + ' to change.');
       }
@@ -424,6 +462,7 @@
     originals.set(q, q.innerHTML);
     init(q);
   });
+  updateTopicCheck();
 
   document.querySelectorAll('[data-timer]').forEach(initTimer);
 
@@ -442,8 +481,10 @@
       originals.forEach((html, q) => {
         q.innerHTML = html;
         q.classList.remove('is-solved');
+        delete q.dataset.slipped;
         init(q);
       });
+      updateTopicCheck();
       document.body.classList.remove('show-answers');
       if (answersBtn) {
         answersBtn.setAttribute('aria-pressed', 'false');

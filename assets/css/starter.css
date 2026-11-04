@@ -393,6 +393,52 @@
 .figure-caption { margin: 6px 0 0; text-align: center; font-weight: 700; }
 .option .circuit { width: 100%; max-width: none; }
 
+/* Revision starters: a heading per topic (.q-section) and a topic check at the end */
+.q-section {
+  margin: 36px 0 14px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--level-colour, var(--accent));
+  font-size: 1.6rem;
+}
+.toolbar + .q-section { margin-top: 28px; }
+.topic-check {
+  margin: 32px 0 16px;
+  padding: 20px 22px;
+  background: var(--surface);
+  border: 2px solid var(--level-colour, var(--accent));
+  border-radius: var(--radius);
+  box-shadow: var(--pop);
+}
+.topic-check h2 { margin: 0 0 6px; font-size: 1.5rem; }
+.topic-check > p { margin: 0 0 12px; }
+.topic-list { margin: 0; padding: 0; list-style: none; }
+.topic {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 4px 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+.topic-name { font-size: 1.15rem; font-weight: 700; }
+.topic-score { color: var(--muted); font-variant-numeric: tabular-nums; }
+.topic-status {
+  min-width: 9.5em;
+  padding: 4px 12px;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+}
+.topic.is-todo .topic-status { border-style: dashed; color: var(--muted); }
+.topic.is-good .topic-status { color: var(--good); background: var(--good-bg); }
+.topic.is-ok .topic-status   { color: var(--text); background: var(--bg); }
+.topic.is-bad .topic-status  { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 600px) {
+  .topic { grid-template-columns: 1fr auto; }
+  .topic-score { grid-column: 1 / -1; grid-row: 2; }
+}
+
 /* Show answers (teacher): reveal without marking anything as attempted */
 .show-answers .option[data-correct] { border-color: var(--good); border-style: dashed; }
 .show-answers .option[data-correct]::after {

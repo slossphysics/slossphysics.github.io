@@ -195,7 +195,8 @@
 /* Rooms */
 .room { scroll-margin-top: 90px; }
 .room-body { padding: 4px 18px 6px; }
-.room-body .q { box-shadow: 4px 4px 0 #05030d; }
+/* The cards keep the page's own text colour, not the console's pale one */
+.room-body .q { box-shadow: 4px 4px 0 #05030d; color: var(--text); }
 .room-body .figure .circuit { max-width: 520px; }
 .room:not(.is-cleared) .room-bar { display: none; }
 .room-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 0 22px 18px; }

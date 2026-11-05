@@ -699,6 +699,24 @@
     const warning = root.querySelector('.cb-warning');
     const tasks = [...root.querySelectorAll('.cb-task')];
     const taskNav = root.querySelector('.cb-task-nav');
+
+    // Nothing above the grid may change height while pupils build, or the grid jumps about.
+    // So the status line and the warnings share one slot (a warning covers the status), and the
+    // tasks share one box. Each is kept as tall as the tallest thing it can show.
+    let msgBox = null;
+    if (status && warning) {
+      msgBox = document.createElement('div');
+      msgBox.className = 'cb-msg';
+      status.before(msgBox);
+      msgBox.append(status, warning);
+    }
+    let taskBox = null;
+    if (tasks.length) {
+      taskBox = document.createElement('div');
+      taskBox.className = 'cb-tasks';
+      tasks[0].before(taskBox);
+      taskBox.append(...tasks);
+    }
     const ghost = document.createElement('div');
     ghost.className = 'cb-ghost';
     ghost.hidden = true;
@@ -729,9 +747,9 @@
     ENV.forEach((s) => {
       const label = document.createElement('label');
       label.className = 'cb-env-item';
-      label.hidden = true;
       label.innerHTML = `<span>${s.label}</span><input type="range" min="0" max="100" step="1"><output></output>`;
       const input = label.querySelector('input');
+      s.input = input;
       const out = label.querySelector('output');
       s.sync = () => { input.value = env[s.key]; out.textContent = s.show(env[s.key]); };
       input.addEventListener('input', () => {
@@ -747,7 +765,52 @@
     if (ENV.length) root.querySelector('.cb-bar').after(envBox);
 
     const DEFAULT_MSG = 'Drag a component onto the grid. To add a wire, drag from the end of a component.';
-    function say(msg) { if (status) status.textContent = msg || DEFAULT_MSG; }
+    function say(msg) {
+      if (!status) return;
+      status.textContent = msg || DEFAULT_MSG;
+      holdMsg();
+    }
+
+    const NOTES = {
+      short: '<strong>Short circuit!</strong> The current has a path with almost no resistance, so it is far' +
+        ' too big. A real cell would get hot and go flat quickly.',
+      ohm: '<strong>The ohmmeter can’t measure.</strong> An ohmmeter only works with no supply connected.' +
+        ' Take the cell or battery out of that part of the circuit.',
+      fuse: '<strong>Fuse blown.</strong> The current was bigger than the fuse rating, so the wire inside it' +
+        ' melted and broke the circuit. Fix the fault, then tap the fuse to replace it.',
+    };
+    // The longest status lines, measured up front so the slot never has to grow while in use
+    const LONG_MSGS = [DEFAULT_MSG,
+      'The fuse has blown: the current was more than its rating, so its wire melted and broke the circuit.',
+      'Variable resistor selected. Choose its value, drag it to move it, or use Turn or Delete.',
+      'Wire selected. Tap a component to join it into this wire, or use Delete.',
+      'Example circuit for task 1. Undo brings back what was there before.',
+      'Well done: you have finished task 1 and the Challenge.'];
+
+    // Fix the message slot's height to fit the longest status line or any one warning at this width
+    let msgH = 0;
+    const hOf = (el) => Math.ceil(el.getBoundingClientRect().height);
+    function sizeMsg() {
+      if (!msgBox) return;
+      const text = status.textContent, html = warning.innerHTML, hid = warning.hidden;
+      msgBox.style.minHeight = '';
+      let h = 0;
+      LONG_MSGS.forEach((m) => { status.textContent = m; h = Math.max(h, hOf(msgBox)); });
+      warning.hidden = false;
+      Object.values(NOTES).forEach((n) => { warning.innerHTML = `<span>${n}</span>`; h = Math.max(h, hOf(msgBox)); });
+      status.textContent = text;
+      warning.innerHTML = html;
+      warning.hidden = hid;
+      msgH = h;
+      msgBox.style.minHeight = h + 'px';
+      holdMsg();
+    }
+    // Something taller than measured (two warnings at once): grow to fit, then stay that tall
+    function holdMsg() {
+      if (!msgBox || !msgH) return;
+      const h = hOf(msgBox);
+      if (h > msgH) { msgH = h; msgBox.style.minHeight = h + 'px'; }
+    }
 
     // ---------- Drawing ----------
     const K = S / 30;   // symbol units to SVG units
@@ -941,25 +1004,23 @@
 
       // Warnings, changed only when they change (the box is read out by screen readers)
       const notes = [];
-      if (shorted.length) {
-        notes.push('<strong>Short circuit!</strong> The current has a path with almost no resistance, so it is far' +
-          ' too big. A real cell would get hot and go flat quickly.');
-      }
-      if ([...res.ohm.values()].some((o) => o.error)) {
-        notes.push('<strong>The ohmmeter can’t measure.</strong> An ohmmeter only works with no supply connected.' +
-          ' Take the cell or battery out of that part of the circuit.');
-      }
-      if (st.comps.some((c) => c.type === 'fuse' && c.blown)) {
-        notes.push('<strong>Fuse blown.</strong> The current was bigger than the fuse rating, so the wire inside it' +
-          ' melted and broke the circuit. Fix the fault, then tap the fuse to replace it.');
-      }
+      if (shorted.length) notes.push(NOTES.short);
+      if ([...res.ohm.values()].some((o) => o.error)) notes.push(NOTES.ohm);
+      if (st.comps.some((c) => c.type === 'fuse' && c.blown)) notes.push(NOTES.fuse);
       const html = notes.map((t) => `<span>${t}</span>`).join(' ');
       if (html !== shownNotes && warning) {
         shownNotes = html;
         warning.innerHTML = html;
         warning.hidden = !notes.length;
+        if (msgBox) msgBox.classList.toggle('has-warning', notes.length > 0);
+        holdMsg();
       }
-      ENV.forEach((s) => { s.item.hidden =!st.comps.some((c) => s.types.includes(c.type)); });
+      // The sliders stay in place (so nothing moves), greyed out until something on the grid senses them
+      ENV.forEach((s) => {
+        const on = st.comps.some((c) => s.types.includes(c.type));
+        s.item.classList.toggle('is-off', !on);
+        s.input.disabled = !on;
+      });
 
       placePop();
       if (wantsTick(res)) startTick();
@@ -1462,22 +1523,55 @@
         b.setAttribute('aria-label', (b.textContent === 'Challenge' ? 'Challenge' : 'Task ' + (i + 1)) +
           (solved.has(i) ? ', done' : ''));
       });
-      tasks.forEach((t, i) => {
-        const box = t.querySelector('.q-feedback');
-        if (!box) return;
-        t.classList.toggle('is-solved', solved.has(i));
-        if (solved.has(i)) {
-          const explain = t.querySelector('.q-explain');
-          const last = i === tasks.length - 1;
-          box.className = 'q-feedback is-good';
-          box.innerHTML = '<strong>Correct!</strong> ' + (explain ? explain.innerHTML : '') +
-            (last ? '' : ' <button type="button" class="tool cb-next">Next task</button>');
-        } else {
-          box.className = 'q-feedback';
-          box.innerHTML = '';
-        }
-      });
+      tasks.forEach((t, i) => feedback(t, i, solved.has(i)));
     }
+
+    function feedback(t, i, done) {
+      const box = t.querySelector('.q-feedback');
+      if (!box) return;
+      t.classList.toggle('is-solved', done);
+      if (done) {
+        const explain = t.querySelector('.q-explain');
+        const last = i === tasks.length - 1;
+        box.className = 'q-feedback is-good';
+        box.innerHTML = '<strong>Correct!</strong> ' + (explain ? explain.innerHTML : '') +
+          (last ? '' : ' <button type="button" class="tool cb-next">Next task</button>');
+      } else {
+        box.className = 'q-feedback';
+        box.innerHTML = '';
+      }
+    }
+
+    // Fix the task box's height to fit the tallest task with its "Correct!" message showing, so
+    // finishing a task or moving to the next one doesn't move the grid. (An opened hint still can:
+    // the pupil asked for that.)
+    function sizeTasks() {
+      if (!taskBox) return;
+      taskBox.style.minHeight = '';
+      const open = [...taskBox.querySelectorAll('details[open]')];
+      open.forEach((d) => { d.open = false; });
+      let h = 0;
+      tasks.forEach((t, i) => {
+        tasks.forEach((o) => { o.hidden = o !== t; });
+        feedback(t, i, true);
+        h = Math.max(h, hOf(taskBox));
+      });
+      open.forEach((d) => { d.open = true; });
+      showTask();
+      taskBox.style.minHeight = h + 'px';
+      // The chips get wider as they are marked done, and may wrap onto another row.
+      // (Show answers adds a button here too; this runs again when it is pressed.)
+      if (taskNav) {
+        taskNav.style.minHeight = '';
+        const done = nav.map((b) => b.classList.contains('is-done'));
+        nav.forEach((b) => b.classList.add('is-done'));
+        const nh = hOf(taskNav);
+        nav.forEach((b, i) => b.classList.toggle('is-done', done[i]));
+        taskNav.style.minHeight = nh + 'px';
+      }
+    }
+
+    function sizeAll() { sizeMsg(); sizeTasks(); }
 
     root.addEventListener('click', (e) => {
       if (e.target.closest('.cb-next')) {
@@ -1562,6 +1656,18 @@
 
     window.addEventListener('resize', () => placePop());
 
+    // Measure again whenever the width changes (turning the iPad, or an embed sizing itself)
+    let sizedW = -1;
+    const resize = () => {
+      const w = root.clientWidth;
+      if (w && w !== sizedW) { sizedW = w; sizeAll(); }
+    };
+    if (window.ResizeObserver) new ResizeObserver(() => setTimeout(resize)).observe(root);
+    else window.addEventListener('resize', resize);
+    // Show answers puts the explanations on unfinished tasks
+    const answersBtn = document.querySelector('[data-show-answers]');
+    if (answersBtn && taskBox) answersBtn.addEventListener('click', () => setTimeout(sizeTasks));
+
     // ---------- Walkthrough controls (circuit-walkthroughs.js drives a data-guided board) ----------
     // A circuit is { comps: [{ id, type, x, y, rot, value, closed }], wires: [edge keys], view: [x0, y0, x1, y1] },
     // where view is the part of the grid to show, in grid steps.
@@ -1599,5 +1705,6 @@
     say();
     showTask();
     update();
+    resize();
   }
 })();

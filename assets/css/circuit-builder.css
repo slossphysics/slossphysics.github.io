@@ -17,6 +17,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  align-content: flex-start;   /* rows stay at the top of the room kept for them */
   gap: 8px;
   margin-bottom: 10px;
 }
@@ -44,6 +45,8 @@
 .cb-example { display: none; }
 .show-answers .cb-example { display: inline-flex; margin-left: auto; }
 
+/* Holds the tasks; the script fixes its height (see sizeTasks). flow-root keeps the margin inside. */
+.cb-tasks { display: flow-root; }
 .cb-task { margin-bottom: 12px; }
 .cb-task[hidden] { display: none; }
 .cb-task .q-prompt { margin-bottom: 0; }
@@ -103,15 +106,21 @@
   gap: 8px;
   margin: 10px 0;
 }
-.cb-status {
+/* The status line and any warning share this slot; the script fixes its height (see sizeMsg) */
+.cb-msg {
   flex: 1 1 260px;
+  display: grid;
+  align-items: center;
+}
+.cb-msg > * { grid-area: 1 / 1; }
+.cb-msg.has-warning .cb-status { visibility: hidden; }
+.cb-status {
   margin: 0;
   color: var(--muted);
   font-size: 1rem;
 }
 .cb-bar .tool { padding: 6px 14px; }
 .cb-warning {
-  flex: 1 1 100%;
   margin: 0;
   padding: 10px 14px;
   border-left: 5px solid var(--bad);
@@ -124,21 +133,23 @@
 .cb-warning span + span { margin-top: 6px; }
 
 /* Light, Temperature and Sound sliders (only shown when a component that senses them is on the grid) */
+/* Always shown, so nothing moves: greyed out until there is something on the grid that senses them.
+   Name and setting on one line, slider underneath, so all three fit side by side on an iPad. */
 .cb-env {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4px 24px;
   margin: -2px 0 10px;
 }
 .cb-env-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 10px;
-  min-height: var(--tap);
+  gap: 0 10px;
   font-weight: 700;
 }
-.cb-env-item[hidden] { display: none; }
-.cb-env-item output { min-width: 6.5em; color: var(--muted); font-weight: 600; }
+.cb-env-item.is-off { opacity: 0.4; }
+.cb-env-item output { grid-row: 1; grid-column: 2; color: var(--muted); font-weight: 600; text-align: right; }
 .cb-env input, .cb-slide {
   width: 180px;
   height: var(--tap);
@@ -146,6 +157,7 @@
   accent-color: var(--level-colour, var(--accent));
   touch-action: manipulation;
 }
+.cb-env input { grid-row: 2; grid-column: 1 / -1; width: 100%; }
 .cb-pick {
   min-height: var(--tap);
   padding: 4px 10px;

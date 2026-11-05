@@ -16,6 +16,11 @@
 //                listed down the page with each slot beside its number.
 //                For short words (a spectrum, a scale of sizes) add .is-strip too, with
 //                style="--steps: 7" for the number of places: the places sit side by side in a row.
+//                Add .is-blanks for fill in the blanks: .match-targets holds the sentences, with an
+//                empty .match-target button (give it an aria-label) for each gap; a correct word drops
+//                into its gap. Each gap takes one word, gaps can share a data-key, and spare words
+//                (data-key="spare") can stay in the pool: the question is solved once every gap is full.
+//                Any .match-item can have data-feedback, shown when it is put in the wrong place.
 //   .q.q-input   type-in number: an <input class="answer"> and a .q-check button; the .q has
 //                data-answer and optional data-tol (fraction allowed either way, default 0.02).
 //                Optional hidden <p class="mistake" data-value="…"> elements give targeted
@@ -163,6 +168,7 @@
     const pool = q.querySelector('.match-items');
     const sorting = !!q.querySelector('.match.is-sort');
     const ordering = !!q.querySelector('.match.is-order');
+    const blanks = !!q.querySelector('.match.is-blanks');
 
     // Give every target an empty slot above it; a correctly matched item moves into that slot
     q.querySelectorAll('.match-target').forEach((target) => {
@@ -219,13 +225,15 @@
     function tryMatch(item, target) {
       if (item.dataset.key !== target.dataset.key) {
         slip(q);
-        say(q, 'bad', sorting ? 'Not in that group.' : ordering ? 'Not in that place.' : 'Not a match.', 'Try again.');
+        say(q, 'bad', sorting ? 'Not in that group.' : ordering ? 'Not in that place.' : blanks ? 'Not in that gap.' : 'Not a match.',
+          item.dataset.feedback || 'Try again.');
         return false;
       }
       // When sorting, a group stays open for the rest of its items
       item.classList.add('is-matched');
       item.disabled = true;
-      const groupDone = ![...items].some((b) => !b.disabled && b.dataset.key === target.dataset.key);
+      // A gap takes one word; otherwise a group stays open until all its items are in
+      const groupDone = blanks || ![...items].some((b) => !b.disabled && b.dataset.key === target.dataset.key);
       if (groupDone) {
         target.classList.add('is-matched');
         target.disabled = true;
@@ -245,12 +253,14 @@
         });
       });
       if (pool && !pool.querySelector('.match-item')) foldPool();
-      const left = [...items].filter((b) => !b.disabled).length;
+      // Fill in the blanks is done once every gap is filled, even with spare words left over
+      const left = blanks ? q.querySelectorAll('.match-target:not(.is-matched)').length
+        : [...items].filter((b) => !b.disabled).length;
       if (left === 0) {
         solve(q);
-        say(q, 'good', sorting ? 'All sorted!' : ordering ? 'All in order!' : 'All matched!', explain ? explain.innerHTML : '');
+        say(q, 'good', sorting ? 'All sorted!' : ordering ? 'All in order!' : blanks ? 'All filled in!' : 'All matched!', explain ? explain.innerHTML : '');
       } else {
-        say(q, 'good', sorting || ordering ? 'Correct!' : 'Match!', left + ' to go.');
+        say(q, 'good', sorting || ordering || blanks ? 'Correct!' : 'Match!', left + ' to go.');
       }
       return true;
     }

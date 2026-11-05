@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ready for resistance · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Third and Fourth level starter (SCN 3-09a, 4-09a): a recap of current and voltage in series and parallel circuits, then a guess at why wires get warm and how heating appliances use resistance.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/circuit-symbols.js" defer></script>
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Third and Fourth level · Forces, electricity and waves · SCN 3-09a, 4-09a</p>
+    <h1>Ready for resistance</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am recalling how current and voltage behave in series and parallel circuits, ready to learn about resistance.</p>
+      <p><strong>SC:</strong> I can complete the rules for series and parallel circuits · I can work out a missing voltage or current · I can suggest why wires get warm.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5">5 min</option>
+          <option value="8" selected>8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">8:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+    <h2 class="q-section">Recap: series and parallel</h2>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">1.</span>Fill in the blanks about a <strong>series</strong> circuit. Two of the words are not needed.</p>
+        <div class="match is-blanks">
+          <p class="match-hint">Drag each word into its gap, or tap a word and then the gap.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="smaller" data-label="Gap 4">smaller</button>
+            <button type="button" class="match-item is-text" data-key="used" data-label="Gap 2">used up</button>
+            <button type="button" class="match-item is-text" data-key="spare" data-feedback="Adding a lamp makes it harder for the current to get round the loop. Does that make the current bigger?">bigger</button>
+            <button type="button" class="match-item is-text" data-key="same" data-label="Gap 1">the same</button>
+            <button type="button" class="match-item is-text" data-key="shared" data-label="Gap 3">shared</button>
+            <button type="button" class="match-item is-text" data-key="spare" data-feedback="A series circuit has only one path, so all the current goes through every part of it.">different</button>
+          </div>
+          <div class="match-targets">
+            <p>The current is <button type="button" class="match-target" data-key="same" aria-label="Gap 1"></button> at every point in the loop, because current is never <button type="button" class="match-target" data-key="used" aria-label="Gap 2"></button> by the components.</p>
+            <p>The supply voltage is <button type="button" class="match-target" data-key="shared" aria-label="Gap 3"></button> between the components.</p>
+            <p>Adding another lamp in series makes the current <button type="button" class="match-target" data-key="smaller" aria-label="Gap 4"></button>.</p>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Picture a series circuit with two ammeters, one before the lamp and one after it. What do they read?</p></details>
+        <div class="q-explain">In series there is only one path: the current is <strong>the same</strong> everywhere and is never <strong>used up</strong>. The supply voltage is <strong>shared</strong> between the components, and each extra lamp makes the current <strong>smaller</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">2.</span>Fill in the blanks about a <strong>parallel</strong> circuit. Two of the words are not needed.</p>
+        <div class="match is-blanks">
+          <p class="match-hint">Drag each word into its gap, or tap a word and then the gap.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="full" data-label="Gap 3">the full</button>
+            <button type="button" class="match-item is-text" data-key="spare" data-feedback="Each branch is joined straight across the supply. Do the branches share the voltage?">half the</button>
+            <button type="button" class="match-item is-text" data-key="splits" data-label="Gap 1">splits</button>
+            <button type="button" class="match-item is-text" data-key="brighter" data-label="Gap 4">brighter</button>
+            <button type="button" class="match-item is-text" data-key="spare" data-feedback="In series two lamps share the voltage. How much voltage does each lamp get in parallel?">dimmer</button>
+            <button type="button" class="match-item is-text" data-key="add" data-label="Gap 2">add up to</button>
+          </div>
+          <div class="match-targets">
+            <p>The current from the supply <button type="button" class="match-target" data-key="splits" aria-label="Gap 1"></button> between the branches.</p>
+            <p>The currents in the branches <button type="button" class="match-target" data-key="add" aria-label="Gap 2"></button> the current from the supply.</p>
+            <p>Each branch gets <button type="button" class="match-target" data-key="full" aria-label="Gap 3"></button> supply voltage, so lamps in parallel are <button type="button" class="match-target" data-key="brighter" aria-label="Gap 4"></button> than the same lamps in series.</p>
+          </div>
+        </div>
+        <div class="q-explain">In parallel the current <strong>splits</strong> between the branches, and the branch currents <strong>add up to</strong> the supply current. Each branch gets <strong>the full</strong> supply voltage, so the lamps are <strong>brighter</strong> than in series.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="3.0">
+        <p class="q-prompt"><span class="q-num">3.</span>The battery supplies 12 V. Voltmeter P reads 5.0 V across the lamp and voltmeter Q reads 4.0 V across the motor. What does voltmeter R read across the resistor?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 400 220" role="img" aria-label="A 12 volt battery with a lamp, a motor and a resistor in series. Voltmeter P is across the lamp, Q across the motor and R across the resistor.">
+            <path class="wire" d="M170 190H20V100H50M110 100H170M230 100H290M350 100H380V190H230M35 100V45H50M110 45H130V100M150 100V45H170M230 45H250V100M270 100V45H290M350 45H365V100"/>
+            <use href="#sym-lamp" x="50" y="80" width="60" height="40"/>
+            <use href="#sym-motor" x="170" y="80" width="60" height="40"/>
+            <use href="#sym-resistor" x="290" y="80" width="60" height="40"/>
+            <use href="#sym-voltmeter" x="50" y="25" width="60" height="40"/>
+            <use href="#sym-voltmeter" x="170" y="25" width="60" height="40"/>
+            <use href="#sym-voltmeter" x="290" y="25" width="60" height="40"/>
+            <use href="#sym-battery" x="170" y="170" width="60" height="40"/>
+            <circle class="dot" cx="35" cy="100" r="5"/>
+            <circle class="dot" cx="130" cy="100" r="5"/>
+            <circle class="dot" cx="150" cy="100" r="5"/>
+            <circle class="dot" cx="250" cy="100" r="5"/>
+            <circle class="dot" cx="270" cy="100" r="5"/>
+            <circle class="dot" cx="365" cy="100" r="5"/>
+            <text class="label" x="80" y="18" text-anchor="middle">P</text>
+            <text class="label" x="200" y="18" text-anchor="middle">Q</text>
+            <text class="label" x="320" y="18" text-anchor="middle">R</text>
+            <text class="label" x="200" y="164" text-anchor="middle">12 V</text>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="rdy-q3">R =</label>
+          <input class="answer" id="rdy-q3" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">V</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="12">That’s the battery voltage. In series it is <strong>shared</strong> between the three components.</p>
+        <p class="mistake" data-value="9">That’s P and Q added together. How much of the 12 V is left for the resistor?</p>
+        <p class="mistake" data-value="21">The voltages across the components add up to 12 V, so R must be less than 12 V.</p>
+        <p class="mistake" data-value="4">The three components are different, so they don’t share the 12 V equally. Use P and Q.</p>
+        <p class="mistake" data-value="1">R isn’t the difference between P and Q. All three voltages add up to the battery voltage.</p>
+        <details class="hint"><summary>Hint</summary><p>In a series circuit, what must P, Q and R add up to?</p></details>
+        <div class="q-explain">In series the voltages <strong>add up</strong> to the supply: 5.0 V + 4.0 V + R = 12 V, so R = 12 − 9.0 = <strong>3.0 V</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.50">
+        <p class="q-prompt"><span class="q-num">4.</span>The two lamps are different. Ammeter Z, next to the cell, reads 0.90 A. Ammeter X reads 0.40 A. What does ammeter Y read?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 380 220" role="img" aria-label="Two lamps on separate parallel branches. Ammeter X is on the top branch, ammeter Y on the bottom branch, and ammeter Z next to the cell.">
+            <path class="wire" d="M30 40V180H90M150 180H210M270 180H350V40H270M210 40H150M90 40H30M30 110H90M150 110H210M270 110H350"/>
+            <use href="#sym-ammeter" x="90" y="20" width="60" height="40"/>
+            <use href="#sym-lamp" x="210" y="20" width="60" height="40"/>
+            <use href="#sym-ammeter" x="90" y="90" width="60" height="40"/>
+            <use href="#sym-lamp" x="210" y="90" width="60" height="40"/>
+            <use href="#sym-cell" x="90" y="160" width="60" height="40"/>
+            <use href="#sym-ammeter" x="210" y="160" width="60" height="40"/>
+            <circle class="dot" cx="30" cy="110" r="5"/>
+            <circle class="dot" cx="350" cy="110" r="5"/>
+            <text class="label" x="120" y="18" text-anchor="middle">X</text>
+            <text class="label" x="120" y="88" text-anchor="middle">Y</text>
+            <text class="label" x="240" y="214" text-anchor="middle">Z</text>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="rdy-q4">Y =</label>
+          <input class="answer" id="rdy-q4" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">A</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.9">The current is only the same everywhere in a <strong>series</strong> circuit. Here the current from the cell splits between two branches.</p>
+        <p class="mistake" data-value="1.3">The branch currents add up to Z, so Y must be less than 0.90 A.</p>
+        <p class="mistake" data-value="0.45">The lamps are different, so the current doesn’t split equally. Use X’s reading.</p>
+        <p class="mistake" data-value="0.4">The lamps are different, so the two branches don’t carry the same current.</p>
+        <details class="hint"><summary>Hint</summary><p>The current from the cell splits between the two branches. What do X and Y add up to?</p></details>
+        <div class="q-explain">In parallel the branch currents <strong>add up</strong> to the current from the cell: 0.40 A + Y = 0.90 A, so Y = <strong>0.50 A</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+    <h2 class="q-section">Looking ahead: have a guess</h2>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Four groups build the same series circuit with a battery, a lamp and an ammeter, using kit that looks identical. Their ammeters read 0.29 A, 0.31 A, 0.27 A and 0.30 A. Have a guess: tap the <strong>2</strong> most likely reasons the readings are not all the same.</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>Every wire and connection makes it a little harder for the current to flow, and not by exactly the same amount in each group’s circuit</button>
+          <button type="button" class="option" data-feedback="Current is never used up or lost. All of it comes back to the battery.">Some of the current leaks out of the wires on the way round</button>
+          <button type="button" class="option" data-feedback="In a series circuit the current is the same at every point in the loop, so where the ammeter goes doesn’t matter.">Some groups put the ammeter in a different place in the loop</button>
+          <button type="button" class="option" data-correct>The batteries are not all exactly the same: some have been used more than others</button>
+        </div>
+        <div class="q-explain">Wires, connections, lamps and even ammeters all <strong>resist</strong> the current a little. This is called <strong>resistance</strong>, and it is never exactly the same in two circuits. Batteries vary too. So real results come out slightly different, even when they “should” be the same.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">6.</span>A wire carrying a big current gets warm. Have a guess: where does the heat come from?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Current is never used up: the same current comes back to the supply. Something else changes into heat.">Some of the current is used up in the wire and turns into heat</button>
+          <button type="button" class="option" data-feedback="The wire gets warmer than the room around it, so the energy must come from the circuit.">The plastic coating traps heat from the room</button>
+          <button type="button" class="option" data-correct>The wire resists the current, so some electrical energy changes into heat</button>
+          <button type="button" class="option" data-feedback="The supply gives the charges electrical energy, not heat. Something in the wire changes that energy into heat.">The supply sends heat along the wire as well as electricity</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Current is never used up. What else does the supply give the charges, which can change from one form into another?</p></details>
+        <div class="q-explain">As the charges flow, they bump into the particles of the wire. The wire <strong>resists</strong> the current, and some <strong>electrical energy</strong> changes into <strong>heat</strong>. The current itself is not used up.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">7.</span>Resistance changes some electrical energy into heat. Sometimes that heat is the whole point. Sort each one: is the heat the useful job, or wasted?</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each card into its group, or tap a card and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="wasted" data-label="Wasted">A phone charger getting warm</button>
+            <button type="button" class="match-item is-text" data-key="useful" data-label="Useful">A kettle boiling water</button>
+            <button type="button" class="match-item is-text" data-key="wasted" data-label="Wasted">A laptop getting hot underneath</button>
+            <button type="button" class="match-item is-text" data-key="useful" data-label="Useful">An electric radiator warming a room</button>
+            <button type="button" class="match-item is-text" data-key="useful" data-label="Useful">A toaster browning bread</button>
+            <button type="button" class="match-item is-text" data-key="wasted" data-label="Wasted">A cable behind the TV getting warm</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="useful">Heat is the useful job</button>
+            <button type="button" class="match-target" data-key="wasted">Heat is wasted</button>
+          </div>
+        </div>
+        <div class="q-explain">Kettles, radiators and toasters have a <strong>heating element</strong>: a wire designed to resist the current and turn electrical energy into heat <strong>on purpose</strong>. In chargers, laptops and cables the heat is <strong>wasted</strong> energy.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="0.40">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">8.</span>All three lamps are identical. Ammeter Z, next to the battery, reads 0.60 A. Ammeter Y, on the branch with two lamps, reads 0.20 A. What is the current through the top lamp?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 380 250" role="img" aria-label="A battery and ammeter Z in the main loop. The top branch has one lamp. The middle branch has ammeter Y and two lamps in series.">
+            <path class="wire" d="M30 40H160M220 40H350M30 120H60M120 120H160M220 120H260M320 120H350M30 40V210H100M160 210H220M280 210H350V40"/>
+            <use href="#sym-lamp" x="160" y="20" width="60" height="40"/>
+            <use href="#sym-ammeter" x="60" y="100" width="60" height="40"/>
+            <use href="#sym-lamp" x="160" y="100" width="60" height="40"/>
+            <use href="#sym-lamp" x="260" y="100" width="60" height="40"/>
+            <use href="#sym-battery" x="100" y="190" width="60" height="40"/>
+            <use href="#sym-ammeter" x="220" y="190" width="60" height="40"/>
+            <circle class="dot" cx="30" cy="120" r="5"/>
+            <circle class="dot" cx="350" cy="120" r="5"/>
+            <text class="label" x="90" y="94" text-anchor="middle">Y</text>
+            <text class="label" x="250" y="246" text-anchor="middle">Z</text>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="rdy-q8">I =</label>
+          <input class="answer" id="rdy-q8" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">A</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.6">That’s the current from the battery. It splits between the two branches.</p>
+        <p class="mistake" data-value="0.8">The branch currents add up to Z, so the top lamp’s current must be less than 0.60 A.</p>
+        <p class="mistake" data-value="0.3">The branches are different (one lamp and two lamps), so the current doesn’t split equally. Use Y’s reading.</p>
+        <p class="mistake" data-value="0.2">The top branch has only one lamp, so it doesn’t carry the same current as the branch with two lamps.</p>
+        <p class="mistake" data-value="0.1">The two lamps in Y’s branch are in series, so they each carry Y’s current. The question asks about the top lamp.</p>
+        <details class="hint"><summary>Hint</summary><p>The current from the battery splits between the two branches. What must the top branch and Y add up to?</p></details>
+        <div class="q-explain">The branch currents add up to Z: I + 0.20 A = 0.60 A, so I = <strong>0.40 A</strong>. The top branch has only one lamp, so it is easier for the current to flow there: it carries twice as much as the branch with two lamps.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

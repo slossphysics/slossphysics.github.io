@@ -310,6 +310,28 @@
   .match.is-order.is-strip .match-targets { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+/* Fill in the blanks (.match.is-blanks): the gaps sit inside the sentences, and a correct word
+   drops into its gap in place of the dashed box. Spare words stay in the pool. */
+.match.is-blanks .match-items { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.match.is-blanks .match-item { min-height: 48px; padding: 8px 12px; }
+.match.is-blanks .match-targets { display: block; font-size: 1.2rem; line-height: 1.5; }
+.match.is-blanks .match-targets > * { margin: 0 0 12px; }
+.match.is-blanks .match-targets > :last-child { margin-bottom: 0; }
+.match.is-blanks .match-col { display: inline-grid; vertical-align: middle; margin: 3px 2px; }
+.match.is-blanks .match-col > * { grid-area: 1 / 1; }
+.match.is-blanks .match-slot { min-height: 0; border: 0; }
+.match.is-blanks .match-slot:empty { display: none; }
+.match.is-blanks .match-target {
+  min-width: 7em;
+  min-height: 48px;
+  padding: 4px 12px;
+  border-style: dashed;
+  box-shadow: none;
+}
+.match.is-blanks .match-col:has(.match-slot .match-item) .match-target { display: none; }
+.match.is-blanks .match-slot .match-item { min-height: 48px; padding: 4px 14px; box-shadow: none; font-weight: 700; }
+.q.is-solved .match.is-blanks .match-items .match-item:not(.is-matched) { opacity: 0.45; }
+
 /* Type-in answers (.q-input) */
 .answer-row {
   display: flex;

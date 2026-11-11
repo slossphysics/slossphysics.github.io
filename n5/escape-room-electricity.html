@@ -101,22 +101,58 @@
     <section class="room deck" data-name="Staff entrance" data-short="Entrance" data-topic="Input and output devices" data-letter="S" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="800" height="240" fill="#0d1230"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
-          <rect x="330" y="60" width="140" height="146" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
-          <path d="M400 60V206" stroke="#8b93c9" stroke-width="3"/>
-          <rect x="350" y="84" width="34" height="40" rx="4" fill="#071126"/><rect x="416" y="84" width="34" height="40" rx="4" fill="#071126"/>
-          <rect x="510" y="104" width="62" height="84" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
-          <g fill="#5d6aa8"><circle cx="528" cy="140" r="5"/><circle cx="541" cy="140" r="5"/><circle cx="554" cy="140" r="5"/><circle cx="528" cy="155" r="5"/><circle cx="541" cy="155" r="5"/><circle cx="554" cy="155" r="5"/><circle cx="528" cy="170" r="5"/><circle cx="541" cy="170" r="5"/><circle cx="554" cy="170" r="5"/></g>
-          <rect class="when-broken blink" x="520" y="113" width="42" height="14" rx="3" fill="#fbbf24"/>
-          <rect class="when-done" x="520" y="113" width="42" height="14" rx="3" fill="#5eead4"/>
-          <path d="M214 76H250L262 92H232Z" fill="#8b93c9"/><path d="M232 92V112" stroke="#8b93c9" stroke-width="4"/>
-          <circle class="pulse" cx="252" cy="84" r="5" fill="#fbbf24"/>
-          <path d="M190 206V150a14 14 0 0 1 28 0V206" fill="none" stroke="#8b93c9" stroke-width="4"/>
-          <g class="alarm blink" fill="#fbbf24"><circle cx="400" cy="42" r="9"/></g>
-          <g class="when-done" fill="#5eead4"><circle cx="400" cy="42" r="9"/></g>
-          <text class="scene-status when-broken" x="548" y="72" text-anchor="middle">ACCESS DENIED</text>
-          <text class="scene-status is-good when-done" x="548" y="72" text-anchor="middle">ACCESS GRANTED</text>
+          <defs>
+            <linearGradient id="eb-wall1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080c24"/><stop offset="1" stop-color="#141c4c"/></linearGradient>
+            <linearGradient id="eb-warm1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+            <linearGradient id="eb-cool1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ecff" stop-opacity="0.38"/><stop offset="1" stop-color="#d6ecff" stop-opacity="0.04"/></linearGradient>
+            <pattern id="eb-hazard-c" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="20" fill="#fbbf24"/><rect x="10" width="10" height="20" fill="#1d1442"/></pattern>
+            <linearGradient id="eb-hall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c2a3a"/><stop offset="1" stop-color="#1f7a78"/></linearGradient>
+          </defs>
+          <rect width="800" height="240" fill="url(#eb-wall1)"/>
+          <path d="M100 26V206M200 26V206M300 26V206M400 26V206M500 26V206M600 26V206M700 26V206" stroke="#1a2356" stroke-width="2"/>
+          <rect y="8" width="800" height="12" fill="#1c2558"/><path d="M0 20H800" stroke="#2c3a7a" stroke-width="2"/>
+          <path d="M0 206H800V240H0Z" fill="#171f52"/>
+          <path d="M40 206L-140 240M160 206L40 240M280 206L220 240M400 206V240M520 206L580 240M640 206L760 240M760 206L940 240" stroke="#222c66" stroke-width="2"/>
+          <path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <path class="when-broken pulse" d="M138 34L162 34L228 206L72 206Z" fill="url(#eb-warm1)"/><path class="when-done" d="M138 34L162 34L228 206L72 206Z" fill="url(#eb-cool1)"/>
+          <path d="M150 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M134 26H166L161 35H139Z" fill="#8b93c9"/><rect class="when-broken" x="141" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="141" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <path class="when-broken pulse" d="M638 34L662 34L728 206L572 206Z" fill="url(#eb-warm1)"/><path class="when-done" d="M638 34L662 34L728 206L572 206Z" fill="url(#eb-cool1)"/>
+          <path d="M650 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M634 26H666L661 35H639Z" fill="#8b93c9"/><rect class="when-broken" x="641" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="641" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <rect x="318" y="70" width="164" height="136" fill="#2a2f5e" stroke="#8b93c9" stroke-width="4"/>
+          <g class="when-broken">
+            <rect x="324" y="76" width="75" height="130" fill="#3a3f75"/><rect x="401" y="76" width="75" height="130" fill="#3a3f75"/>
+            <rect x="324" y="76" width="75" height="8" fill="#4a5390"/><rect x="401" y="76" width="75" height="8" fill="#4a5390"/>
+            <rect x="342" y="94" width="40" height="34" rx="4" fill="#071126" stroke="#5d6aa8" stroke-width="3"/><rect x="418" y="94" width="40" height="34" rx="4" fill="#071126" stroke="#5d6aa8" stroke-width="3"/>
+            <rect x="386" y="134" width="6" height="26" rx="3" fill="#8b93c9"/><rect x="408" y="134" width="6" height="26" rx="3" fill="#8b93c9"/>
+            <rect x="324" y="186" width="152" height="20" fill="url(#eb-hazard-c)"/>
+            <path d="M400 76V206" stroke="#1d1442" stroke-width="3"/>
+          </g>
+          <g class="when-done">
+            <rect x="324" y="76" width="152" height="130" fill="url(#eb-hall)"/>
+            <path d="M324 206L372 150H428L476 206M372 150V104H428V150" fill="none" stroke="#5eead4" stroke-width="2" opacity="0.6"/>
+            <rect x="384" y="112" width="32" height="6" rx="3" fill="#eaf6ff"/>
+            <rect x="324" y="76" width="18" height="130" fill="#3a3f75"/><rect x="458" y="76" width="18" height="130" fill="#3a3f75"/>
+          </g>
+          <rect x="302" y="36" width="196" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="400" y="56" text-anchor="middle">ACCESS DENIED</text>
+          <text class="scene-status is-good when-done" x="400" y="56" text-anchor="middle">ACCESS GRANTED</text>
+          <rect x="196" y="58" width="9" height="26" rx="2" fill="#8b93c9"/><path d="M205 71H232" stroke="#8b93c9" stroke-width="5"/>
+          <g transform="rotate(16 258 72)">
+            <rect x="226" y="56" width="66" height="6" rx="3" fill="#8b93c9"/>
+            <rect x="230" y="62" width="54" height="24" rx="5" fill="#4a5390" stroke="#8b93c9" stroke-width="3"/>
+            <rect x="284" y="65" width="12" height="18" rx="2" fill="#071126" stroke="#8b93c9" stroke-width="2.5"/>
+            <circle class="when-broken blink" cx="241" cy="74" r="3.5" fill="#fbbf24"/><circle class="when-done" cx="241" cy="74" r="3.5" fill="#5eead4"/>
+          </g>
+          <rect x="170" y="124" width="30" height="34" rx="5" fill="#3a3f75" stroke="#8b93c9" stroke-width="3"/>
+          <path d="M200 132L228 120V162L200 150Z" fill="#4a5390" stroke="#8b93c9" stroke-width="3" stroke-linejoin="round"/>
+          <g class="when-broken blink" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"><path d="M238 128Q248 141 238 154M250 120Q266 141 250 162"/></g>
+          <rect x="522" y="92" width="64" height="92" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
+          <rect class="when-broken blink" x="531" y="101" width="46" height="15" rx="3" fill="#fbbf24"/><rect class="when-done" x="531" y="101" width="46" height="15" rx="3" fill="#5eead4"/>
+          <g fill="#5d6aa8"><circle cx="540" cy="130" r="5"/><circle cx="554" cy="130" r="5"/><circle cx="568" cy="130" r="5"/><circle cx="540" cy="145" r="5"/><circle cx="554" cy="145" r="5"/><circle cx="568" cy="145" r="5"/><circle cx="540" cy="160" r="5"/><circle cx="554" cy="160" r="5"/><circle cx="568" cy="160" r="5"/></g>
+          <rect x="538" y="171" width="32" height="5" rx="2" fill="#5d6aa8"/>
+          <rect x="606" y="100" width="44" height="64" rx="7" fill="#3a3f75" stroke="#8b93c9" stroke-width="3"/>
+          <path d="M616 112H640M616 121H640M616 130H640" stroke="#071126" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="628" cy="149" r="6" fill="#071126" stroke="#8b93c9" stroke-width="2"/>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 1 of 9 · Input and output devices</p>
@@ -191,21 +227,39 @@
     <section class="room deck" data-name="Control room" data-short="Control" data-topic="Circuits and meters" data-letter="W" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="800" height="240" fill="#0d1230"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
-          <rect x="150" y="44" width="230" height="120" rx="12" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
-          <path d="M196 48V160M242 48V160M288 48V160M334 48V160M154 84H376M154 124H376" stroke="#1e3a6b" stroke-width="2"/>
-          <path class="when-broken blink" d="M160 104H370" fill="none" stroke="#fbbf24" stroke-width="3"/>
-          <path class="when-done" d="M160 104Q171.5 60 183 104T206 104T229 104T252 104T275 104T298 104T321 104T344 104T367 104" fill="none" stroke="#5eead4" stroke-width="3"/>
-          <circle cx="470" cy="112" r="34" fill="#071126" stroke="#fbbf24" stroke-width="4"/>
-          <circle cx="570" cy="112" r="34" fill="#071126" stroke="#5eead4" stroke-width="4"/>
-          <path class="needle" d="M470 112V86" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
-          <path class="needle is-2" d="M570 112V86" stroke="#5eead4" stroke-width="4" stroke-linecap="round"/>
-          <path d="M130 206L165 176H635L670 206Z" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
-          <g class="alarm blink" fill="#fbbf24"><circle cx="230" cy="191" r="6"/><circle cx="270" cy="191" r="6"/><circle cx="310" cy="191" r="6"/><circle cx="490" cy="191" r="6"/><circle cx="530" cy="191" r="6"/><circle cx="570" cy="191" r="6"/></g>
-          <g class="when-done" fill="#5eead4"><circle cx="230" cy="191" r="6"/><circle cx="270" cy="191" r="6"/><circle cx="310" cy="191" r="6"/><circle cx="490" cy="191" r="6"/><circle cx="530" cy="191" r="6"/><circle cx="570" cy="191" r="6"/></g>
-          <text class="scene-status when-broken" x="520" y="58" text-anchor="middle">PANEL OFFLINE</text>
-          <text class="scene-status is-good when-done" x="520" y="58" text-anchor="middle">PANEL ONLINE</text>
+          <defs>
+            <linearGradient id="eb-wall2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080c24"/><stop offset="1" stop-color="#141c4c"/></linearGradient>
+            <linearGradient id="eb-warm2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+            <linearGradient id="eb-cool2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ecff" stop-opacity="0.38"/><stop offset="1" stop-color="#d6ecff" stop-opacity="0.04"/></linearGradient>
+          </defs>
+          <rect width="800" height="240" fill="url(#eb-wall2)"/>
+          <path d="M100 26V206M200 26V206M300 26V206M400 26V206M500 26V206M600 26V206M700 26V206" stroke="#1a2356" stroke-width="2"/>
+          <rect y="8" width="800" height="12" fill="#1c2558"/><path d="M0 20H800" stroke="#2c3a7a" stroke-width="2"/>
+          <path d="M0 206H800V240H0Z" fill="#171f52"/>
+          <path d="M40 206L-140 240M160 206L40 240M280 206L220 240M400 206V240M520 206L580 240M640 206L760 240M760 206L940 240" stroke="#222c66" stroke-width="2"/>
+          <path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <path class="when-broken pulse" d="M98 34L122 34L188 206L32 206Z" fill="url(#eb-warm2)"/><path class="when-done" d="M98 34L122 34L188 206L32 206Z" fill="url(#eb-cool2)"/>
+          <path d="M110 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M94 26H126L121 35H99Z" fill="#8b93c9"/><rect class="when-broken" x="101" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="101" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <path class="when-broken pulse" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-warm2)"/><path class="when-done" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-cool2)"/>
+          <path d="M690 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M674 26H706L701 35H679Z" fill="#8b93c9"/><rect class="when-broken" x="681" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="681" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <rect x="150" y="44" width="230" height="122" rx="12" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <path d="M196 48V162M242 48V162M288 48V162M334 48V162M154 85H376M154 125H376" stroke="#1e3a6b" stroke-width="2"/>
+          <path class="when-broken blink" d="M160 105H370" fill="none" stroke="#fbbf24" stroke-width="3"/>
+          <path class="when-done" d="M160 105Q171.5 61 183 105T206 105T229 105T252 105T275 105T298 105T321 105T344 105T367 105" fill="none" stroke="#5eead4" stroke-width="3"/>
+          <rect x="427" y="36" width="186" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="520" y="56" text-anchor="middle">PANEL OFFLINE</text>
+          <text class="scene-status is-good when-done" x="520" y="56" text-anchor="middle">PANEL ONLINE</text>
+          <circle cx="470" cy="116" r="36" fill="#071126" stroke="#fbbf24" stroke-width="4"/><circle cx="570" cy="116" r="36" fill="#071126" stroke="#5eead4" stroke-width="4"/>
+          <circle cx="470" cy="116" r="27" fill="none" stroke="#5d6aa8" stroke-width="5" stroke-dasharray="2 10.1"/><circle cx="570" cy="116" r="27" fill="none" stroke="#5d6aa8" stroke-width="5" stroke-dasharray="2 10.1"/>
+          <path class="needle" d="M470 116V90" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+          <path class="needle is-2" d="M570 116V90" stroke="#5eead4" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="470" cy="116" r="5" fill="#d8dcef"/><circle cx="570" cy="116" r="5" fill="#d8dcef"/>
+          <path d="M120 206L162 174H638L680 206Z" fill="#3a3f75" stroke="#8b93c9" stroke-width="3" stroke-linejoin="round"/>
+          <rect x="120" y="206" width="560" height="14" fill="#2a2f5e"/><path d="M120 220H680" stroke="#1d1442" stroke-width="3"/>
+          <g fill="#071126"><rect x="222" y="183" width="116" height="14" rx="4"/><rect x="462" y="183" width="116" height="14" rx="4"/></g>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="240" cy="190" r="5"/><circle cx="280" cy="190" r="5"/><circle cx="320" cy="190" r="5"/><circle cx="480" cy="190" r="5"/><circle cx="520" cy="190" r="5"/><circle cx="560" cy="190" r="5"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="240" cy="190" r="5"/><circle cx="280" cy="190" r="5"/><circle cx="320" cy="190" r="5"/><circle cx="480" cy="190" r="5"/><circle cx="520" cy="190" r="5"/><circle cx="560" cy="190" r="5"/></g>
+          <path d="M392 180V192M408 180V192" stroke="#8b93c9" stroke-width="4" stroke-linecap="round"/><circle cx="392" cy="180" r="4" fill="#d8dcef"/><circle cx="408" cy="180" r="4" fill="#d8dcef"/>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 2 of 9 · Circuits and meters</p>
@@ -301,20 +355,44 @@
     <section class="room deck" data-name="Battery room" data-short="Batteries" data-topic="Current and voltage rules" data-letter="I" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="800" height="240" fill="#0d1230"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
-          <path d="M150 196H650" stroke="#8b93c9" stroke-width="6"/>
-          <g fill="#071126" stroke="#8fb0ff" stroke-width="4">
-            <rect x="190" y="96" width="80" height="100" rx="8"/><rect x="310" y="96" width="80" height="100" rx="8"/><rect x="430" y="96" width="80" height="100" rx="8"/><rect x="550" y="96" width="80" height="100" rx="8"/>
-          </g>
-          <g fill="#8b93c9"><rect x="218" y="84" width="24" height="12"/><rect x="338" y="84" width="24" height="12"/><rect x="458" y="84" width="24" height="12"/><rect x="578" y="84" width="24" height="12"/></g>
-          <g class="charge"><rect x="198" y="104" width="64" height="84" rx="4"/></g>
-          <g class="charge"><rect x="318" y="104" width="64" height="84" rx="4"/></g>
-          <g class="charge"><rect x="438" y="104" width="64" height="84" rx="4"/></g>
-          <g class="charge"><rect x="558" y="104" width="64" height="84" rx="4"/></g>
-          <path d="M242 84V66H338V84M362 84V66H458V84M482 84V66H578V84" fill="none" stroke="#8b93c9" stroke-width="3"/>
-          <text class="scene-status when-broken" x="400" y="50" text-anchor="middle">BACKUP FLAT</text>
-          <text class="scene-status is-good when-done" x="400" y="50" text-anchor="middle">BACKUP CHARGED</text>
+          <defs>
+            <linearGradient id="eb-wall3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080c24"/><stop offset="1" stop-color="#141c4c"/></linearGradient>
+            <linearGradient id="eb-warm3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+            <linearGradient id="eb-cool3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ecff" stop-opacity="0.38"/><stop offset="1" stop-color="#d6ecff" stop-opacity="0.04"/></linearGradient>
+          </defs>
+          <rect width="800" height="240" fill="url(#eb-wall3)"/>
+          <path d="M100 26V206M200 26V206M300 26V206M400 26V206M500 26V206M600 26V206M700 26V206" stroke="#1a2356" stroke-width="2"/>
+          <rect y="8" width="800" height="12" fill="#1c2558"/><path d="M0 20H800" stroke="#2c3a7a" stroke-width="2"/>
+          <path d="M0 206H800V240H0Z" fill="#171f52"/>
+          <path d="M40 206L-140 240M160 206L40 240M280 206L220 240M400 206V240M520 206L580 240M640 206L760 240M760 206L940 240" stroke="#222c66" stroke-width="2"/>
+          <path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <path class="when-broken pulse" d="M98 34L122 34L188 206L32 206Z" fill="url(#eb-warm3)"/><path class="when-done" d="M98 34L122 34L188 206L32 206Z" fill="url(#eb-cool3)"/>
+          <path d="M110 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M94 26H126L121 35H99Z" fill="#8b93c9"/><rect class="when-broken" x="101" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="101" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <path class="when-broken pulse" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-warm3)"/><path class="when-done" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-cool3)"/>
+          <path d="M690 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M674 26H706L701 35H679Z" fill="#8b93c9"/><rect class="when-broken" x="681" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="681" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <rect x="302" y="36" width="196" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="400" y="56" text-anchor="middle">BACKUP FLAT</text>
+          <text class="scene-status is-good when-done" x="400" y="56" text-anchor="middle">BACKUP CHARGED</text>
+          <path d="M172 192V206M648 192V206" stroke="#8b93c9" stroke-width="8"/>
+          <rect x="150" y="186" width="520" height="8" rx="2" fill="#8b93c9"/>
+          <path d="M246 84V70H334V84M366 84V70H454V84M486 84V70H574V84" fill="none" stroke="#8b93c9" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M214 84V70H160V186M606 84V70H660V186" fill="none" stroke="#5d6aa8" stroke-width="4" stroke-linejoin="round"/>
+          <rect x="206" y="78" width="16" height="12" rx="2" fill="#8b93c9"/><rect x="238" y="78" width="16" height="12" rx="2" fill="#8b93c9"/>
+          <rect x="190" y="90" width="80" height="96" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <g class="charge"><rect x="198" y="98" width="64" height="80" rx="4"/></g>
+          <path d="M198 118H210M198 138H210M198 158H210" stroke="#071126" stroke-width="3" opacity="0.55"/>
+          <rect x="326" y="78" width="16" height="12" rx="2" fill="#8b93c9"/><rect x="358" y="78" width="16" height="12" rx="2" fill="#8b93c9"/>
+          <rect x="310" y="90" width="80" height="96" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <g class="charge"><rect x="318" y="98" width="64" height="80" rx="4"/></g>
+          <path d="M318 118H330M318 138H330M318 158H330" stroke="#071126" stroke-width="3" opacity="0.55"/>
+          <rect x="446" y="78" width="16" height="12" rx="2" fill="#8b93c9"/><rect x="478" y="78" width="16" height="12" rx="2" fill="#8b93c9"/>
+          <rect x="430" y="90" width="80" height="96" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <g class="charge"><rect x="438" y="98" width="64" height="80" rx="4"/></g>
+          <path d="M438 118H450M438 138H450M438 158H450" stroke="#071126" stroke-width="3" opacity="0.55"/>
+          <rect x="566" y="78" width="16" height="12" rx="2" fill="#8b93c9"/><rect x="598" y="78" width="16" height="12" rx="2" fill="#8b93c9"/>
+          <rect x="550" y="90" width="80" height="96" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <g class="charge"><rect x="558" y="98" width="64" height="80" rx="4"/></g>
+          <path d="M558 118H570M558 138H570M558 158H570" stroke="#071126" stroke-width="3" opacity="0.55"/>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 3 of 9 · Current and voltage rules</p>
@@ -426,19 +504,40 @@
     <section class="room deck" data-name="Turbine hall" data-short="Turbines" data-topic="Ohm's law" data-letter="T" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="800" height="240" fill="#0d1230"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
-          <circle cx="300" cy="125" r="78" fill="#182057" stroke="#8b93c9" stroke-width="4"/>
-          <g class="when-broken" fill="#5d6aa8"><path d="M300 125V55Q332 72 318 112ZM300 125H370Q353 157 313 143ZM300 125V195Q268 178 282 138ZM300 125H230Q247 93 287 107Z"/></g>
-          <g class="when-done orbit" fill="#8fb0ff"><path d="M300 125V55Q332 72 318 112ZM300 125H370Q353 157 313 143ZM300 125V195Q268 178 282 138ZM300 125H230Q247 93 287 107Z"/></g>
+          <defs>
+            <linearGradient id="eb-wall4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080c24"/><stop offset="1" stop-color="#141c4c"/></linearGradient>
+            <linearGradient id="eb-warm4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+            <linearGradient id="eb-cool4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ecff" stop-opacity="0.38"/><stop offset="1" stop-color="#d6ecff" stop-opacity="0.04"/></linearGradient>
+          </defs>
+          <rect width="800" height="240" fill="url(#eb-wall4)"/>
+          <path d="M100 26V206M200 26V206M300 26V206M400 26V206M500 26V206M600 26V206M700 26V206" stroke="#1a2356" stroke-width="2"/>
+          <rect y="8" width="800" height="12" fill="#1c2558"/><path d="M0 20H800" stroke="#2c3a7a" stroke-width="2"/>
+          <path d="M0 206H800V240H0Z" fill="#171f52"/>
+          <path d="M40 206L-140 240M160 206L40 240M280 206L220 240M400 206V240M520 206L580 240M640 206L760 240M760 206L940 240" stroke="#222c66" stroke-width="2"/>
+          <path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <path class="when-broken pulse" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-warm4)"/><path class="when-done" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-cool4)"/>
+          <path d="M690 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M674 26H706L701 35H679Z" fill="#8b93c9"/><rect class="when-broken" x="681" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="681" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <path d="M150 20V70Q150 125 205 125H232" fill="none" stroke="#8b93c9" stroke-width="40"/>
+          <path d="M150 20V70Q150 125 205 125H232" fill="none" stroke="#3a3f75" stroke-width="32"/>
+          <path d="M131 52H169M131 84H171" stroke="#8b93c9" stroke-width="5"/>
+          <path class="when-done flow" d="M150 24V70Q150 125 205 125H228" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/>
+          <path d="M244 196H356L372 206H228Z" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3" stroke-linejoin="round"/>
+          <rect x="462" y="174" width="30" height="32" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/><rect x="576" y="174" width="30" height="32" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+          <circle cx="300" cy="125" r="78" fill="#182057" stroke="#8b93c9" stroke-width="5"/>
+          <circle cx="300" cy="125" r="68" fill="none" stroke="#2c3a7a" stroke-width="3"/>
+          <g class="when-broken" fill="#5d6aa8"><path d="M300 125V57Q332 74 318 112ZM300 125H368Q351 157 313 143ZM300 125V193Q268 176 282 138ZM300 125H232Q249 93 287 107Z"/></g>
+          <g class="when-done orbit" fill="#8fb0ff"><path d="M300 125V57Q332 74 318 112ZM300 125H368Q351 157 313 143ZM300 125V193Q268 176 282 138ZM300 125H232Q249 93 287 107Z"/></g>
           <circle cx="300" cy="125" r="13" fill="#d8dcef" stroke="#1d1442" stroke-width="3"/>
-          <rect x="378" y="117" width="72" height="16" fill="#8b93c9"/>
+          <g fill="#8b93c9"><circle cx="300" cy="52" r="3"/><circle cx="373" cy="125" r="3"/><circle cx="300" cy="198" r="3"/><circle cx="227" cy="125" r="3"/></g>
+          <rect x="378" y="116" width="72" height="18" fill="#8b93c9"/><rect x="404" y="110" width="20" height="30" rx="3" fill="#4a5390" stroke="#8b93c9" stroke-width="3"/>
           <rect x="450" y="76" width="168" height="98" rx="14" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
           <path d="M482 80V170M512 80V170M542 80V170M572 80V170M602 80V170" stroke="#5d6aa8" stroke-width="4"/>
-          <path class="when-done flow" d="M618 125H690" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/>
-          <path class="when-broken" d="M618 125H690" fill="none" stroke="#5d6aa8" stroke-width="5" stroke-linecap="round"/>
-          <text class="scene-status when-broken" x="534" y="200" text-anchor="middle">TURBINE STOPPED</text>
-          <text class="scene-status is-good when-done" x="534" y="200" text-anchor="middle">TURBINE RUNNING</text>
+          <rect x="452" y="78" width="164" height="10" rx="5" fill="#4a5390"/>
+          <path class="when-broken" d="M618 125H660V206" fill="none" stroke="#5d6aa8" stroke-width="5" stroke-linejoin="round"/>
+          <path class="when-done flow" d="M618 125H660V206" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="432" y="36" width="204" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="534" y="56" text-anchor="middle">TURBINE STOPPED</text>
+          <text class="scene-status is-good when-done" x="534" y="56" text-anchor="middle">TURBINE RUNNING</text>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 4 of 9 · Ohm's law</p>
@@ -599,20 +698,39 @@
     <section class="room deck" data-name="Cable gallery" data-short="Cables" data-topic="Resistors in series and parallel" data-letter="C" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="800" height="240" fill="#0d1230"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
-          <g fill="none" stroke="#8b93c9" stroke-width="9" stroke-linecap="round">
-            <path d="M110 72H340M460 72H690M110 114H340M460 114H690M110 156H340M460 156H690"/>
-          </g>
-          <g class="when-done" fill="none" stroke="#8b93c9" stroke-width="9"><path d="M340 72H460M340 114H460M340 156H460"/></g>
-          <g class="when-done" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round"><path class="flow" d="M110 72H690"/><path class="flow" d="M110 114H690"/><path class="flow" d="M110 156H690"/></g>
+          <defs>
+            <linearGradient id="eb-wall5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080c24"/><stop offset="1" stop-color="#141c4c"/></linearGradient>
+            <linearGradient id="eb-warm5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+            <linearGradient id="eb-cool5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ecff" stop-opacity="0.38"/><stop offset="1" stop-color="#d6ecff" stop-opacity="0.04"/></linearGradient>
+          </defs>
+          <rect width="800" height="240" fill="url(#eb-wall5)"/>
+          <path d="M100 26V206M200 26V206M300 26V206M400 26V206M500 26V206M600 26V206M700 26V206" stroke="#1a2356" stroke-width="2"/>
+          <rect y="8" width="800" height="12" fill="#1c2558"/><path d="M0 20H800" stroke="#2c3a7a" stroke-width="2"/>
+          <path d="M0 206H800V240H0Z" fill="#171f52"/>
+          <path d="M40 206L-140 240M160 206L40 240M280 206L220 240M400 206V240M520 206L580 240M640 206L760 240M760 206L940 240" stroke="#222c66" stroke-width="2"/>
+          <path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <path class="when-broken pulse" d="M98 34L122 34L188 206L32 206Z" fill="url(#eb-warm5)"/><path class="when-done" d="M98 34L122 34L188 206L32 206Z" fill="url(#eb-cool5)"/>
+          <path d="M110 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M94 26H126L121 35H99Z" fill="#8b93c9"/><rect class="when-broken" x="101" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="101" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <path class="when-broken pulse" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-warm5)"/><path class="when-done" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-cool5)"/>
+          <path d="M690 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M674 26H706L701 35H679Z" fill="#8b93c9"/><rect class="when-broken" x="681" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="681" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <rect x="320" y="34" width="160" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="400" y="54" text-anchor="middle">CABLE FAULT</text>
+          <text class="scene-status is-good when-done" x="400" y="54" text-anchor="middle">CABLES LIVE</text>
+          <path d="M199 20V56M601 20V56" stroke="#8b93c9" stroke-width="5"/>
+          <g fill="none" stroke="#1d1442" stroke-width="13" stroke-linecap="round"><path d="M96 76H350M450 76H704M96 116H350M450 116H704M96 156H350M450 156H704"/></g>
+          <g fill="none" stroke="#8b93c9" stroke-width="9" stroke-linecap="round"><path d="M96 76H350M450 76H704M96 116H350M450 116H704M96 156H350M450 156H704"/></g>
+          <g fill="none" stroke="#c3c9ea" stroke-width="2" stroke-linecap="round" opacity="0.5"><path d="M96 74H350M450 74H704M96 114H350M450 114H704M96 154H350M450 154H704"/></g>
+          <g class="when-broken" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"><path d="M350 76l9 -4M350 76l10 1M350 76l8 5M450 76l-9 -4M450 76l-10 1M450 76l-8 5M350 116l9 -4M350 116l10 1M350 116l8 5M450 116l-9 -4M450 116l-10 1M450 116l-8 5M350 156l9 -4M350 156l10 1M350 156l8 5M450 156l-9 -4M450 156l-10 1M450 156l-8 5"/></g>
           <g class="when-broken blink" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M352 62L366 74L358 80L374 92M446 104L430 114L440 122L424 132M356 148L372 156L362 164L380 172"/>
+            <path d="M376 64L390 76L382 82L398 94M424 106L408 116L418 124L402 134M380 148L396 156L386 164L404 172"/>
           </g>
-          <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"><rect x="180" y="54" width="38" height="120" rx="6"/><rect x="582" y="54" width="38" height="120" rx="6"/></g>
-          <g fill="#8fb0ff"><circle cx="199" cy="72" r="5"/><circle cx="199" cy="114" r="5"/><circle cx="199" cy="156" r="5"/><circle cx="601" cy="72" r="5"/><circle cx="601" cy="114" r="5"/><circle cx="601" cy="156" r="5"/></g>
-          <text class="scene-status when-broken" x="400" y="198" text-anchor="middle">CABLE FAULT</text>
-          <text class="scene-status is-good when-done" x="400" y="198" text-anchor="middle">CABLES LIVE</text>
+          <g class="when-done">
+            <path d="M350 76H450M350 116H450M350 156H450" fill="none" stroke="#8b93c9" stroke-width="9"/>
+            <rect x="372" y="67" width="56" height="18" rx="6" fill="#4a5390" stroke="#5eead4" stroke-width="2.5"/><rect x="372" y="107" width="56" height="18" rx="6" fill="#4a5390" stroke="#5eead4" stroke-width="2.5"/><rect x="372" y="147" width="56" height="18" rx="6" fill="#4a5390" stroke="#5eead4" stroke-width="2.5"/>
+            <g fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round"><path class="flow" d="M96 76H704"/><path class="flow" d="M96 116H704"/><path class="flow" d="M96 156H704"/></g>
+          </g>
+          <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"><rect x="180" y="56" width="38" height="120" rx="6"/><rect x="582" y="56" width="38" height="120" rx="6"/></g>
+          <g fill="#8fb0ff"><circle cx="199" cy="76" r="5"/><circle cx="601" cy="76" r="5"/><circle cx="199" cy="116" r="5"/><circle cx="601" cy="116" r="5"/><circle cx="199" cy="156" r="5"/><circle cx="601" cy="156" r="5"/></g>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 5 of 9 · Resistors in series and parallel</p>
@@ -744,18 +862,38 @@
     <section class="room deck" data-name="Sensor bay" data-short="Sensors" data-topic="Potential dividers" data-letter="H" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="800" height="240" fill="#0d1230"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
-          <rect x="150" y="62" width="180" height="112" rx="10" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
-          <text class="scene-status when-broken" x="240" y="126" text-anchor="middle">- - -</text>
-          <g class="when-done" fill="#5eead4"><rect x="176" y="126" width="22" height="30"/><rect x="210" y="104" width="22" height="52"/><rect x="244" y="116" width="22" height="40"/><rect x="278" y="88" width="22" height="68"/></g>
-          <g stroke="#8b93c9" stroke-width="6" stroke-linecap="round"><path d="M430 126V190M520 126V190M610 126V190M410 190H450M500 190H540M590 190H630"/></g>
-          <g fill="none" stroke="#fbbf24" stroke-width="3"><circle class="alarm pulse" cx="430" cy="104" r="32"/><circle class="alarm pulse is-2" cx="520" cy="104" r="32"/><circle class="alarm pulse is-3" cx="610" cy="104" r="32"/></g>
-          <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="4"><circle cx="430" cy="104" r="22"/><circle cx="520" cy="104" r="22"/><circle cx="610" cy="104" r="22"/></g>
-          <g class="when-broken" fill="#fbbf24"><circle cx="430" cy="104" r="8"/><circle cx="520" cy="104" r="8"/><circle cx="610" cy="104" r="8"/></g>
-          <g class="when-done" fill="#5eead4"><circle cx="430" cy="104" r="8"/><circle cx="520" cy="104" r="8"/><circle cx="610" cy="104" r="8"/></g>
-          <text class="scene-status when-broken" x="520" y="54" text-anchor="middle">NO READINGS</text>
-          <text class="scene-status is-good when-done" x="520" y="54" text-anchor="middle">SENSORS LIVE</text>
+          <defs>
+            <linearGradient id="eb-wall6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080c24"/><stop offset="1" stop-color="#141c4c"/></linearGradient>
+            <linearGradient id="eb-warm6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+            <linearGradient id="eb-cool6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ecff" stop-opacity="0.38"/><stop offset="1" stop-color="#d6ecff" stop-opacity="0.04"/></linearGradient>
+          </defs>
+          <rect width="800" height="240" fill="url(#eb-wall6)"/>
+          <path d="M100 26V206M200 26V206M300 26V206M400 26V206M500 26V206M600 26V206M700 26V206" stroke="#1a2356" stroke-width="2"/>
+          <rect y="8" width="800" height="12" fill="#1c2558"/><path d="M0 20H800" stroke="#2c3a7a" stroke-width="2"/>
+          <path d="M0 206H800V240H0Z" fill="#171f52"/>
+          <path d="M40 206L-140 240M160 206L40 240M280 206L220 240M400 206V240M520 206L580 240M640 206L760 240M760 206L940 240" stroke="#222c66" stroke-width="2"/>
+          <path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <path class="when-broken pulse" d="M98 34L122 34L188 206L32 206Z" fill="url(#eb-warm6)"/><path class="when-done" d="M98 34L122 34L188 206L32 206Z" fill="url(#eb-cool6)"/>
+          <path d="M110 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M94 26H126L121 35H99Z" fill="#8b93c9"/><rect class="when-broken" x="101" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="101" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <path class="when-broken pulse" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-warm6)"/><path class="when-done" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-cool6)"/>
+          <path d="M690 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M674 26H706L701 35H679Z" fill="#8b93c9"/><rect class="when-broken" x="681" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="681" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <rect x="442" y="36" width="176" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="530" y="56" text-anchor="middle">NO READINGS</text>
+          <text class="scene-status is-good when-done" x="530" y="56" text-anchor="middle">SENSORS LIVE</text>
+          <rect x="140" y="176" width="200" height="10" rx="3" fill="#8b93c9"/><path d="M156 186V206M324 186V206" stroke="#8b93c9" stroke-width="7"/>
+          <path d="M228 160H252L258 176H222Z" fill="#4a5390" stroke="#8b93c9" stroke-width="3" stroke-linejoin="round"/>
+          <rect x="150" y="52" width="180" height="110" rx="10" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <path d="M166 146H314" stroke="#1e3a6b" stroke-width="2"/>
+          <text class="scene-status when-broken" x="240" y="114" text-anchor="middle">- - -</text>
+          <g class="when-done" fill="#5eead4"><rect x="176" y="116" width="22" height="30"/><rect x="210" y="94" width="22" height="52"/><rect x="244" y="106" width="22" height="40"/><rect x="278" y="78" width="22" height="68"/></g>
+          <g stroke="#8b93c9" stroke-width="6" stroke-linecap="round"><path d="M440 132V198"/><path d="M530 132V198"/><path d="M620 132V198"/></g>
+          <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="3" stroke-linejoin="round"><path d="M418 206L428 194H452L462 206Z"/><path d="M508 206L518 194H542L552 206Z"/><path d="M598 206L608 194H632L642 206Z"/></g>
+          <path d="M330 150H620" fill="none" stroke="#5d6aa8" stroke-width="3" stroke-dasharray="3 6"/>
+          <g fill="none" stroke="#fbbf24" stroke-width="3"><circle class="alarm pulse" cx="440" cy="108" r="32"/><circle class="alarm pulse is-2" cx="530" cy="108" r="32"/><circle class="alarm pulse is-3" cx="620" cy="108" r="32"/></g>
+          <g class="when-done" fill="none" stroke="#5eead4" stroke-width="2" opacity="0.6"><circle cx="440" cy="108" r="32"/><circle cx="530" cy="108" r="32"/><circle cx="620" cy="108" r="32"/></g>
+          <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="4"><circle cx="440" cy="108" r="22"/><circle cx="530" cy="108" r="22"/><circle cx="620" cy="108" r="22"/></g>
+          <g class="when-broken" fill="#fbbf24"><circle cx="440" cy="108" r="8"/><circle cx="530" cy="108" r="8"/><circle cx="620" cy="108" r="8"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="440" cy="108" r="8"/><circle cx="530" cy="108" r="8"/><circle cx="620" cy="108" r="8"/></g>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 6 of 9 · Potential dividers</p>
@@ -914,23 +1052,45 @@
     <section class="room deck" data-name="Generator hall" data-short="Power" data-topic="Power and energy" data-letter="I" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="800" height="240" fill="#0d1230"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
-          <rect x="200" y="96" width="250" height="100" rx="50" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
-          <path d="M260 100V192M300 98V194M340 98V194M380 98V194M420 104V188" stroke="#5d6aa8" stroke-width="4"/>
-          <rect x="230" y="196" width="40" height="10" fill="#8b93c9"/><rect x="380" y="196" width="40" height="10" fill="#8b93c9"/>
-          <rect x="450" y="138" width="50" height="16" fill="#8b93c9"/>
-          <rect x="520" y="70" width="130" height="110" rx="10" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
-          <path d="M540 150A45 45 0 0 1 630 150" fill="none" stroke="#5d6aa8" stroke-width="5"/>
-          <path class="needle" d="M585 150V112" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="585" cy="150" r="6" fill="#d8dcef"/>
-          <text class="scene-small" x="585" y="100" text-anchor="middle">kW</text>
-          <path class="when-broken" d="M500 146H520" stroke="#5d6aa8" stroke-width="5"/>
-          <path class="when-done flow" d="M500 146H520" fill="none" stroke="#5eead4" stroke-width="5"/>
-          <g class="alarm blink" fill="#fbbf24"><circle cx="325" cy="76" r="8"/></g>
-          <g class="when-done" fill="#5eead4"><circle cx="325" cy="76" r="8"/></g>
-          <text class="scene-status when-broken" x="325" y="52" text-anchor="middle">OUTPUT 0 W</text>
-          <text class="scene-status is-good when-done" x="325" y="52" text-anchor="middle">OUTPUT RESTORED</text>
+          <defs>
+            <linearGradient id="eb-wall7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080c24"/><stop offset="1" stop-color="#141c4c"/></linearGradient>
+            <linearGradient id="eb-warm7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+            <linearGradient id="eb-cool7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ecff" stop-opacity="0.38"/><stop offset="1" stop-color="#d6ecff" stop-opacity="0.04"/></linearGradient>
+          </defs>
+          <rect width="800" height="240" fill="url(#eb-wall7)"/>
+          <path d="M100 26V206M200 26V206M300 26V206M400 26V206M500 26V206M600 26V206M700 26V206" stroke="#1a2356" stroke-width="2"/>
+          <rect y="8" width="800" height="12" fill="#1c2558"/><path d="M0 20H800" stroke="#2c3a7a" stroke-width="2"/>
+          <path d="M0 206H800V240H0Z" fill="#171f52"/>
+          <path d="M40 206L-140 240M160 206L40 240M280 206L220 240M400 206V240M520 206L580 240M640 206L760 240M760 206L940 240" stroke="#222c66" stroke-width="2"/>
+          <path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <path class="when-broken pulse" d="M118 34L142 34L208 206L52 206Z" fill="url(#eb-warm7)"/><path class="when-done" d="M118 34L142 34L208 206L52 206Z" fill="url(#eb-cool7)"/>
+          <path d="M130 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M114 26H146L141 35H119Z" fill="#8b93c9"/><rect class="when-broken" x="121" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="121" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <path class="when-broken pulse" d="M688 34L712 34L778 206L622 206Z" fill="url(#eb-warm7)"/><path class="when-done" d="M688 34L712 34L778 206L622 206Z" fill="url(#eb-cool7)"/>
+          <path d="M700 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M684 26H716L711 35H689Z" fill="#8b93c9"/><rect class="when-broken" x="691" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="691" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <rect x="223" y="34" width="204" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="325" y="54" text-anchor="middle">OUTPUT 0 W</text>
+          <text class="scene-status is-good when-done" x="325" y="54" text-anchor="middle">OUTPUT RESTORED</text>
+          <rect x="216" y="186" width="218" height="20" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+          <rect x="236" y="176" width="40" height="12" fill="#8b93c9"/><rect x="374" y="176" width="40" height="12" fill="#8b93c9"/>
+          <rect x="160" y="112" width="44" height="48" rx="8" fill="#4a5390" stroke="#8b93c9" stroke-width="3"/>
+          <rect x="200" y="84" width="250" height="94" rx="47" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
+          <path d="M250 90V172M290 86V176M330 86V176M370 86V176M410 90V172" stroke="#5d6aa8" stroke-width="4"/>
+          <path d="M236 96H414" stroke="#4a5390" stroke-width="8" stroke-linecap="round"/>
+          <rect x="304" y="70" width="42" height="16" rx="4" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="325" cy="78" r="5"/></g><g class="when-done" fill="#5eead4"><circle cx="325" cy="78" r="5"/></g>
+          <rect x="450" y="122" width="34" height="16" fill="#8b93c9"/>
+          <path class="when-broken" d="M484 130H526" stroke="#5d6aa8" stroke-width="5"/>
+          <path class="when-done flow" d="M484 130H526" fill="none" stroke="#5eead4" stroke-width="5"/>
+          <rect x="526" y="58" width="130" height="148" rx="8" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
+          <rect x="538" y="70" width="106" height="78" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
+          <path d="M553 136A38 38 0 0 1 629 136" fill="none" stroke="#5d6aa8" stroke-width="5"/>
+          <path d="M620 112A38 38 0 0 1 629 136" fill="none" stroke="#5eead4" stroke-width="5"/>
+          <path class="needle" d="M591 136V104" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="591" cy="136" r="6" fill="#d8dcef"/>
+          <text class="scene-small" x="591" y="90" text-anchor="middle">kW</text>
+          <g fill="#071126" stroke="#8b93c9" stroke-width="2"><rect x="542" y="160" width="28" height="30" rx="4"/><rect x="577" y="160" width="28" height="30" rx="4"/><rect x="612" y="160" width="28" height="30" rx="4"/></g>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="556" cy="175" r="5"/><circle cx="591" cy="175" r="5"/><circle cx="626" cy="175" r="5"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="556" cy="175" r="5"/><circle cx="591" cy="175" r="5"/><circle cx="626" cy="175" r="5"/></g>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 7 of 9 · Power and energy</p>
@@ -1073,32 +1233,48 @@
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
+            <linearGradient id="eb-wall8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#080c24"/><stop offset="1" stop-color="#141c4c"/></linearGradient>
+            <linearGradient id="eb-warm8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+            <linearGradient id="eb-cool8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6ecff" stop-opacity="0.38"/><stop offset="1" stop-color="#d6ecff" stop-opacity="0.04"/></linearGradient>
             <pattern id="eb-hazard-b" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="20" fill="#fbbf24"/><rect x="10" width="10" height="20" fill="#1d1442"/></pattern>
           </defs>
-          <rect width="800" height="240" fill="#0d1230"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <rect width="800" height="240" fill="url(#eb-wall8)"/>
+          <path d="M100 26V206M200 26V206M300 26V206M400 26V206M500 26V206M600 26V206M700 26V206" stroke="#1a2356" stroke-width="2"/>
+          <rect y="8" width="800" height="12" fill="#1c2558"/><path d="M0 20H800" stroke="#2c3a7a" stroke-width="2"/>
+          <path d="M0 206H800V240H0Z" fill="#171f52"/>
+          <path d="M40 206L-140 240M160 206L40 240M280 206L220 240M400 206V240M520 206L580 240M640 206L760 240M760 206L940 240" stroke="#222c66" stroke-width="2"/>
+          <path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <path class="when-broken pulse" d="M118 34L142 34L208 206L52 206Z" fill="url(#eb-warm8)"/><path class="when-done" d="M118 34L142 34L208 206L52 206Z" fill="url(#eb-cool8)"/>
+          <path d="M130 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M114 26H146L141 35H119Z" fill="#8b93c9"/><rect class="when-broken" x="121" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="121" y="35" width="18" height="3" fill="#eaf6ff"/>
+          <path class="when-broken pulse" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-warm8)"/><path class="when-done" d="M678 34L702 34L768 206L612 206Z" fill="url(#eb-cool8)"/>
+          <path d="M690 20V26" stroke="#8b93c9" stroke-width="3"/><path d="M674 26H706L701 35H679Z" fill="#8b93c9"/><rect class="when-broken" x="681" y="35" width="18" height="3" fill="#fbbf24"/><rect class="when-done" x="681" y="35" width="18" height="3" fill="#eaf6ff"/>
           <rect x="300" y="54" width="200" height="152" fill="#060920"/>
-          <circle cx="452" cy="96" r="16" fill="#cfd3e6"/>
+          <circle cx="452" cy="96" r="16" fill="#cfd3e6"/><g fill="#aab0cc"><circle cx="447" cy="92" r="4"/><circle cx="458" cy="102" r="3"/></g>
           <g fill="#fff"><circle cx="330" cy="84" r="1.6"/><circle cx="372" cy="118" r="1.3"/><circle cx="398" cy="76" r="1.8"/><circle cx="350" cy="150" r="1.2"/><circle cx="474" cy="146" r="1.5"/><circle cx="420" cy="132" r="1.2"/></g>
           <path d="M300 206L360 168L410 190L450 160L500 196V206Z" fill="#182057"/>
           <g class="when-broken">
             <rect x="300" y="54" width="200" height="152" fill="#4a5390"/>
-            <path d="M300 84H500M300 114H500M300 144H500M300 174H500" stroke="#2c3a7a" stroke-width="3"/>
+            <path d="M300 70H500M300 86H500M300 102H500M300 118H500M300 134H500M300 150H500M300 166H500M300 182H500" stroke="#2c3a7a" stroke-width="3"/>
             <rect x="300" y="188" width="200" height="18" fill="url(#eb-hazard-b)"/>
           </g>
           <g class="when-done">
-            <rect x="300" y="54" width="200" height="22" fill="#4a5390"/>
-            <rect x="300" y="76" width="200" height="10" fill="url(#eb-hazard-b)"/>
+            <rect x="300" y="54" width="200" height="24" fill="#4a5390"/><path d="M300 66H500" stroke="#2c3a7a" stroke-width="3"/>
+            <rect x="300" y="78" width="200" height="10" fill="url(#eb-hazard-b)"/>
           </g>
           <rect x="294" y="48" width="212" height="158" fill="none" stroke="#8b93c9" stroke-width="8"/>
-          <g class="alarm blink" fill="#fbbf24"><circle cx="258" cy="84" r="10"/><circle cx="542" cy="84" r="10"/></g>
-          <g class="when-done" fill="#5eead4"><circle cx="258" cy="84" r="10"/><circle cx="542" cy="84" r="10"/></g>
-          <rect x="566" y="122" width="96" height="64" rx="8" fill="#3a3f75" stroke="#8b93c9" stroke-width="3"/>
-          <circle cx="614" cy="154" r="20" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
-          <text class="scene-status" x="614" y="160" text-anchor="middle">M</text>
-          <path class="when-done flow" d="M566 154H510" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/>
-          <text class="scene-status when-broken" x="200" y="150" text-anchor="middle">GATE LOCKED</text>
-          <text class="scene-status is-good when-done" x="200" y="150" text-anchor="middle">GATE OPEN</text>
+          <rect x="286" y="40" width="228" height="12" rx="3" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="262" cy="64" r="9"/><circle cx="538" cy="64" r="9"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="262" cy="64" r="9"/><circle cx="538" cy="64" r="9"/></g>
+          <path d="M262 73V82M538 73V82" stroke="#8b93c9" stroke-width="4"/>
+          <rect x="566" y="142" width="96" height="64" rx="8" fill="#3a3f75" stroke="#8b93c9" stroke-width="3"/>
+          <circle cx="614" cy="174" r="20" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
+          <text class="scene-status" x="614" y="180" text-anchor="middle">M</text>
+          <path class="when-broken" d="M566 174H556V46H514" fill="none" stroke="#5d6aa8" stroke-width="4" stroke-linejoin="round"/>
+          <path class="when-done flow" d="M566 174H556V46H514" fill="none" stroke="#5eead4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M220 148V206" stroke="#8b93c9" stroke-width="6"/>
+          <rect x="132" y="122" width="160" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="212" y="142" text-anchor="middle">GATE LOCKED</text>
+          <text class="scene-status is-good when-done" x="212" y="142" text-anchor="middle">GATE OPEN</text>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 8 of 9 · Transistor switching and power</p>
@@ -1226,27 +1402,35 @@
     <section class="room deck" data-name="Switchyard" data-short="Yard" data-topic="Building circuits" data-letter="G" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="800" height="240" fill="#060920"/>
-          <g fill="#fff"><circle cx="160" cy="52" r="1.5"/><circle cx="236" cy="84" r="1.2"/><circle cx="318" cy="46" r="1.7"/><circle cx="402" cy="70" r="1.2"/><circle cx="486" cy="44" r="1.5"/><circle cx="560" cy="88" r="1.3"/><circle cx="640" cy="56" r="1.6"/></g>
-          <path d="M0 206L140 150L260 190L380 128L520 186L640 146L800 206Z" fill="#141a4a"/>
-          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
-          <g fill="none" stroke="#8b93c9" stroke-width="3" stroke-linecap="round">
-            <path d="M196 206L220 92L244 206M204 168H236M210 138H230M186 112H254M220 92V80"/>
-            <path d="M556 206L580 92L604 206M564 168H596M570 138H590M546 112H614M580 92V80"/>
-          </g>
+          <defs>
+            <linearGradient id="eb-night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050818"/><stop offset="1" stop-color="#1b1a55"/></linearGradient>
+            <radialGradient id="eb-moon"><stop offset="0" stop-color="#cfd3e6" stop-opacity="0.35"/><stop offset="1" stop-color="#cfd3e6" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="800" height="240" fill="url(#eb-night)"/>
+          <g fill="#fff"><circle cx="60" cy="40" r="1.3"/><circle cx="140" cy="62" r="1.5"/><circle cx="236" cy="38" r="1.2"/><circle cx="300" cy="96" r="1.1"/><circle cx="468" cy="92" r="1.2"/><circle cx="520" cy="34" r="1.5"/><circle cx="700" cy="84" r="1.3"/><circle cx="760" cy="36" r="1.5"/><circle cx="96" cy="110" r="1.1"/></g>
+          <circle cx="664" cy="56" r="44" fill="url(#eb-moon)"/><circle cx="664" cy="56" r="18" fill="#cfd3e6"/><g fill="#aab0cc"><circle cx="658" cy="51" r="4"/><circle cx="671" cy="62" r="3"/></g>
+          <path d="M0 206L90 150L170 186L290 120L400 180L500 140L600 190L700 150L800 196V206Z" fill="#11163f"/>
+          <path d="M0 206L140 168L260 196L380 150L520 192L640 166L800 206Z" fill="#171d4f"/>
+          <path d="M0 206H800V240H0Z" fill="#0d1236"/><path d="M0 206H800" stroke="#3a4a94" stroke-width="3"/>
+          <g stroke="#2c3a7a" stroke-width="2"><path d="M0 188H800M0 196H800"/><path d="M40 184V206M120 184V206M680 184V206M760 184V206" stroke-width="4"/></g>
+          <g fill="none" stroke="#8b93c9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M170 206L200 70L230 206M175 182H225M181 156H219M187 128H213M175 182L219 156M225 182L181 156M181 156L213 128M219 156L187 128M156 104H244M170 86H230M200 70V58"/><path d="M156 104V114M244 104V114M170 86V94M230 86V94" stroke-width="5"/><path d="M570 206L600 70L630 206M575 182H625M581 156H619M587 128H613M575 182L619 156M625 182L581 156M581 156L613 128M619 156L587 128M556 104H644M570 86H630M600 70V58"/><path d="M556 104V114M644 104V114M570 86V94M630 86V94" stroke-width="5"/></g>
           <g class="when-broken" fill="none" stroke="#5d6aa8" stroke-width="3" stroke-dasharray="5 7">
-            <path d="M254 112Q400 170 546 112"/><path d="M130 130Q160 124 186 112"/><path d="M614 112Q644 126 672 132"/>
+            <path d="M244 114Q400 176 556 114M230 94Q400 150 570 94M156 114Q90 140 0 126M644 114Q720 140 800 128M556 114Q470 122 436 144M244 114Q330 122 364 144"/>
           </g>
           <g class="when-done" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round">
-            <path class="flow" d="M254 112Q400 170 546 112"/><path class="flow" d="M130 130Q160 124 186 112"/><path class="flow" d="M614 112Q644 126 672 132"/>
+            <path class="flow" d="M244 114Q400 176 556 114"/><path class="flow" d="M230 94Q400 150 570 94"/><path class="flow" d="M156 114Q90 140 0 126"/><path class="flow" d="M644 114Q720 140 800 128"/><path class="flow" d="M436 144Q470 122 556 114"/><path class="flow" d="M364 144Q330 122 244 114"/>
           </g>
-          <rect x="340" y="150" width="120" height="56" rx="6" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
-          <path d="M360 150V134M400 150V130M440 150V134" stroke="#8b93c9" stroke-width="5" stroke-linecap="round"/>
-          <path d="M352 168H448M352 182H448" stroke="#1d1442" stroke-width="3"/>
-          <g class="alarm blink" fill="#fbbf24"><circle cx="360" cy="128" r="6"/><circle cx="400" cy="124" r="6"/><circle cx="440" cy="128" r="6"/></g>
-          <g class="when-done" fill="#5eead4"><circle cx="360" cy="128" r="6"/><circle cx="400" cy="124" r="6"/><circle cx="440" cy="128" r="6"/></g>
-          <text class="scene-status when-broken" x="400" y="60" text-anchor="middle">GRID DISCONNECTED</text>
-          <text class="scene-status is-good when-done" x="400" y="60" text-anchor="middle">GRID CONNECTED</text>
+          <rect x="330" y="196" width="140" height="10" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+          <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="2"><rect x="318" y="164" width="8" height="30"/><rect x="328" y="164" width="8" height="30"/><rect x="464" y="164" width="8" height="30"/><rect x="474" y="164" width="8" height="30"/></g>
+          <rect x="340" y="156" width="120" height="40" rx="6" fill="#3a3f75" stroke="#8b93c9" stroke-width="3"/>
+          <path d="M352 170H448M352 182H448" stroke="#1d1442" stroke-width="3"/>
+          <g stroke="#8b93c9" stroke-width="6" stroke-linecap="round"><path d="M364 156V146M400 156V142M436 156V146"/></g>
+          <g stroke="#d8dcef" stroke-width="2"><path d="M359 150H369M395 148H405M431 150H441"/></g>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="364" cy="142" r="5"/><circle cx="400" cy="138" r="5"/><circle cx="436" cy="142" r="5"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="364" cy="142" r="5"/><circle cx="400" cy="138" r="5"/><circle cx="436" cy="142" r="5"/></g>
+          <rect x="285" y="36" width="230" height="28" rx="6" fill="#04071a" stroke="#8fb0ff" stroke-width="2.5"/>
+          <text class="scene-status when-broken" x="400" y="56" text-anchor="middle">GRID DISCONNECTED</text>
+          <text class="scene-status is-good when-done" x="400" y="56" text-anchor="middle">GRID CONNECTED</text>
         </svg>
         <div class="console-text">
           <p class="console-tag">Room 9 of 9 · Building circuits</p>

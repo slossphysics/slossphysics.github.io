@@ -76,7 +76,7 @@
         '<p class="door-status">Door sealed</p><p class="door-progress"></p>' +
         '<ul class="door-lights">' + questions(room).map(() => '<li></li>').join('') + '</ul>' +
       '</div>';
-    room.querySelector('[data-next]').addEventListener('click', () => enter(i + 1));
+    room.querySelector('.door [data-next]').addEventListener('click', () => enter(i + 1));
 
     const bar = document.createElement('div');
     bar.className = 'room-bar';

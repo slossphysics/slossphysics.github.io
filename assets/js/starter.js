@@ -28,7 +28,7 @@
 //                Optional working steps: an <ol class="steps"> of <li class="step">, each with a
 //                .step-name ("Formula", "Substitute", "Solve"). The first steps hold .option buttons
 //                (one data-correct, data-feedback on the others); the last holds the .answer-row.
-//                Each step appears once the one before it is right. data-next on a .step replaces
+//                Each step appears once the one before it is right. data-then on a .step replaces
 //                the message shown when it is done.
 //   .q.q-truth   truth table: .truth-cell buttons with data-answer="0" or "1". Tapping a cell
 //                cycles ? → 0 → 1; the .q-check button marks the whole table.
@@ -386,7 +386,7 @@
           options.forEach((b) => { b.disabled = true; });
           step.classList.add('is-done');
           if (steps[i + 1]) steps[i + 1].hidden = false;
-          say(q, 'good', 'Correct!', step.dataset.next || 'Write that line in your jotter, then do the next step.');
+          say(q, 'good', 'Correct!', step.dataset.then || 'Write that line in your jotter, then do the next step.');
         });
       });
     });

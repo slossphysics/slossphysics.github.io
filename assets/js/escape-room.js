@@ -20,6 +20,8 @@
 //
 // After three wrong answers to a calculation (.q-input in a room), an emergency override fills in
 // the answer, which shows the working, and adds PENALTY seconds to the clock.
+// A room can also hold circuit boards (circuit-builder.js with data-preset): each board's .q.cb-task
+// counts as one lock, and its override builds the answer circuit after three wrong circuits.
 (function () {
   'use strict';
 
@@ -240,6 +242,31 @@
   });
   root.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && e.target.matches('.answer')) afterCheck(e.target.closest('.q'));
+  });
+
+  // A circuit board in a room (circuit-builder.js, data-preset) fires "cb:stuck" after three wrong
+  // circuits. Its override builds the answer on the board, which shows what was needed.
+  root.addEventListener('cb:stuck', (e) => {
+    const q = e.detail.task;
+    const board = e.target;
+    if (!state.started || rooms.indexOf(q.closest('.room')) !== state.cleared) return;
+    if (q.classList.contains('is-solved') || q.querySelector('.override')) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tool override';
+    btn.textContent = 'Emergency override (adds 2 minutes)';
+    btn.addEventListener('click', () => {
+      state.penalty += PENALTY;
+      state.overrides += 1;
+      save();
+      q.classList.add('is-overridden');
+      btn.remove();
+      board.cbApi.example();
+      const title = q.querySelector('.q-feedback strong');
+      if (title) title.textContent = 'Override used.';
+      tick();
+    });
+    q.append(btn);
   });
 
   // ----- Launch: 3, 2, 1 over the last door, then the final screen plays its arrival -----

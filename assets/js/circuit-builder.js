@@ -12,6 +12,12 @@
 //     .cb-palette button[data-type]   one button per component; optional data-value sets its starting value
 //     .cb-board              the <svg> grid
 // The Light, Temperature and Sound sliders are added here, for pages whose palette needs them.
+// A builder with data-preset="name" starts from a part-built circuit (PRESETS below) whose own parts
+// are fixed in place: pupils add to it. Used for the "add a voltmeter across the lamp" boards in
+// n5/escape-room-electricity.html. Such a board usually has one task and no .cb-task-nav, a smaller
+// grid (data-grid="13x9") and a [data-cb="restart"] button that puts the starting circuit back.
+// While its task is unsolved, HINTS gives a message for each predictable wrong circuit; after three
+// of them the board fires "cb:stuck", and root.cbApi.example() builds the answer (the escape room's override).
 // A builder with data-guided (and no palette or tasks) is a locked walkthrough board: nothing is
 // saved, a tap on a part fires a "cb:tap" event, and circuit-walkthroughs.js drives it through
 // root.cbApi (load a circuit, set sliders and values, pick out parts, add labels, read the results).
@@ -26,8 +32,8 @@
 
     // ---------- Grid ----------
     const S = 40;                       // grid spacing in SVG units
-    const COLS = 19;                    // grid points across (x = 0 … 18)
-    const ROWS = 11;                    // grid points down (y = 0 … 10)
+    // Grid points across and down: 19 × 11 unless the page asks for another size (data-grid="13x9")
+    const [COLS, ROWS] = (root.dataset.grid || '19x11').split('x').map(Number);
     const at = (i) => S / 2 + i * S;    // grid index to SVG coordinate
     const pk = (x, y) => x + ',' + y;
     const unpk = (k) => k.split(',').map(Number);
@@ -151,21 +157,13 @@
     let annotate = null;    // walkthrough: function giving extra labels to draw
     const listeners = [];   // walkthrough: told after every change
 
-    if (!GUIDED) try {
-      const saved = JSON.parse(localStorage.getItem(KEY));
-      if (saved && saved.state) {
-        state = saved.state;
-        // Drop any component this page doesn't know (saved by an older version)
-        state.comps = state.comps.filter((c) => TYPES[c.type]);
-        solved = new Set(saved.solved || []);
-        task = saved.task || 0;
-        if (saved.env) env = Object.assign(env, saved.env);
-      }
-    } catch (e) { /* storage blocked: start empty */ }
+    let slipped = new Set(); // tasks that have had a "Not quite." message (so not right first time)
 
     function save() {
       if (GUIDED) return;
-      try { localStorage.setItem(KEY, JSON.stringify({ state, solved: [...solved], task, env })); } catch (e) { /* ignore */ }
+      try {
+        localStorage.setItem(KEY, JSON.stringify({ state, solved: [...solved], slipped: [...slipped], task, env }));
+      } catch (e) { /* ignore */ }
     }
 
     const clone = (st) => JSON.parse(JSON.stringify(st));
@@ -176,6 +174,76 @@
       save();
       update();
     }
+
+    // ---------- Starting circuits (data-preset) ----------
+    // Edges of a wire through the points given, and a component. Also used by the examples further down.
+    const W = (...pts) => pts.slice(1).flatMap((q, i) => route(pts[i], q, pts[i][1] === q[1]));
+    const C = (type, x, y, extra) => Object.assign({ type, x, y, rot: 0, closed: false }, extra);
+    const fixed = (type, x, y, id, extra) => C(type, x, y, Object.assign({ id, lock: true }, extra));
+    // One loop: supply at the bottom, side wires at x = 2 and x = 10, `top` along row 2
+    const frame = (supply, top) => ({
+      comps: [supply].concat(top.comps),
+      wires: W([5, 7], [2, 7], [2, 2]).concat(W([7, 7], [10, 7], [10, 2]), top.wires),
+    });
+    // `more` is what a pupil has to add: the answers (EXAMPLES) are the same circuits with it filled in
+    const PRESETS = {
+      // Lamps P and Q in parallel on one cell. To do: an ammeter in lamp Q's branch.
+      'ammeter-branch': (more) => {
+        const f = frame(fixed('cell', 6, 7, 'cell'), {
+          comps: [fixed('lamp', 6, 2, 'P'), fixed('lamp', 6, 4, 'Q')],
+          wires: W([2, 2], [5, 2]).concat(W([7, 2], [10, 2]), W([7, 4], [10, 4]),
+            more ? W([2, 4], [3, 4]) : W([2, 4], [5, 4])),
+        });
+        if (more) f.comps.push(C('ammeter', 4, 4));
+        f.notes = [{ x: 6, y: 1.15, text: 'P' }, { x: 6, y: 3.15, text: 'Q' }];
+        return f;
+      },
+      // A lamp and a resistor in series on a 3 V battery. To do: a voltmeter across the lamp.
+      'voltmeter-lamp': (more) => {
+        const f = frame(fixed('battery', 6, 7, 'B', { value: 3 }), {
+          comps: [fixed('lamp', 4, 2, 'L'), fixed('resistor', 8, 2, 'R', { value: 5 })],
+          wires: W([2, 2], [3, 2]).concat(W([5, 2], [7, 2]), W([9, 2], [10, 2])),
+        });
+        if (more) {
+          f.comps.push(C('voltmeter', 4, 4));
+          f.wires = f.wires.concat(W([3, 4], [3, 2]), W([5, 4], [5, 2]));
+        }
+        return f;
+      },
+      // One lamp on one cell. To do: a second lamp in parallel, with a switch of its own.
+      'parallel-switch': (more) => {
+        const f = frame(fixed('cell', 6, 7, 'cell'), {
+          comps: [fixed('lamp', 6, 2, 'X')],
+          wires: W([2, 2], [5, 2]).concat(W([7, 2], [10, 2])),
+        });
+        if (more) {
+          f.comps.push(C('lamp', 4, 4), C('switch', 8, 4, { closed: true }));
+          f.wires = f.wires.concat(W([2, 4], [3, 4]), W([5, 4], [7, 4]), W([9, 4], [10, 4]));
+        }
+        return f;
+      },
+    };
+    const PRESET = PRESETS[root.dataset.preset];
+    function startState() {
+      if (!PRESET) return { comps: [], wires: [], next: 1 };
+      const p = PRESET(false);
+      return { comps: p.comps, wires: p.wires, next: 1 };
+    }
+    if (PRESET) annotate = () => PRESET(false).notes || [];
+    state = startState();
+
+    if (!GUIDED) try {
+      const saved = JSON.parse(localStorage.getItem(KEY));
+      if (saved && saved.state) {
+        state = saved.state;
+        // Drop any component this page doesn't know (saved by an older version)
+        state.comps = state.comps.filter((c) => TYPES[c.type]);
+        solved = new Set(saved.solved || []);
+        slipped = new Set(saved.slipped || []);
+        task = saved.task || 0;
+        if (saved.env) env = Object.assign(env, saved.env);
+      }
+    } catch (e) { /* storage blocked: start empty */ }
 
     // ---------- Layout rules ----------
     const inGrid = ([x, y]) => x >= 0 && y >= 0 && x < COLS && y < ROWS;
@@ -227,6 +295,10 @@
       return s ? { comp: s.comp, cut: s.cut, bad: false } : { comp: c, bad: true };
     }
     const SPLICE_MSG = 'Let go to join it into the wire.';
+    // A component that was joined into a wire leaves no gap when it is taken out again:
+    // the two bits of wire it replaced go back
+    const heal = (c) => (c.spliced ? pinsOf(c).map(([x, y]) => ek(x, y, c.x, c.y)) : []);
+    const unsplice = (c) => { state.wires = [...new Set(state.wires.concat(heal(c)))]; };
 
     // Edges along a path that goes straight, or turns one right-angled corner
     function route(p, q, horizontalFirst) {
@@ -607,11 +679,74 @@
         (ofType(st, 'npn').length > 0 || ofType(st, 'mosfet').length > 0) &&
         st.comps.some((o) => (o.type === 'led' || o.type === 'lamp') && working(res, o.id) &&
           !working(solve(st, { capZero: true }), o.id)),
+
+      // ----- Boards that start from a preset: its fixed parts have ids of their own -----
+      // An ammeter that only lamp Q's current goes through
+      'ammeter-branch': (st, res) => working(res, 'P') && working(res, 'Q') &&
+        liveAmmeters(st, res).some((m) => stops(st, m.id) === 2),
+
+      // A voltmeter joined across the lamp, with the lamp still lit
+      'voltmeter-lamp': (st, res) => working(res, 'L') && ofType(st, 'voltmeter').some((v) => across(res, v, { id: 'L' })),
+
+      // A second lamp as bright as the first, and a closed switch that turns off the new lamp only
+      'parallel-switch': (st, res) => ofType(st, 'switch').some((s) => s.closed && added(st).some((n) => {
+        const open = solve(st, { switches: new Map([[s.id, false]]) });
+        return full(res, 'X') && full(res, n.id) && full(open, 'X') && !working(open, n.id);
+      })),
+    };
+
+    // Which of lamps P and Q go out when this part is taken out: 0 neither, 1 P, 2 Q, 3 both
+    const stops = (st, id) => {
+      const r = without(st, [id]);
+      return (working(r, 'P') ? 0 : 1) + (working(r, 'Q') ? 0 : 2);
+    };
+    const liveAmmeters = (st, res) => ofType(st, 'ammeter').filter((m) => current(res, m.id) > WORKING);
+    const full = (res, id) => close(current(res, id), 0.3, 0.1);   // a lamp at normal brightness
+    const added = (st) => ofType(st, 'lamp').filter((l) => l.id !== 'X');
+    const reads = (res, v) => Math.abs(res.byId.get(v.id).V);
+    // What opening one closed switch does to lamp X and the added lamps
+    const opened = (st, res, test) => full(res, 'X') && added(st).some((n) => full(res, n.id) &&
+      ofType(st, 'switch').some((s) => s.closed && test(solve(st, { switches: new Map([[s.id, false]]) }), n)));
+
+    // Messages for predictable wrong circuits, tried in order while the task is unsolved.
+    // slip: true is a wrong answer ("Not quite."); without it the message is a nudge ("Nearly there.").
+    const HINTS = {
+      'ammeter-branch': [
+        { slip: true, when: (st, res) => ofType(st, 'ammeter').some((m) => current(res, m.id) > 2),
+          msg: 'That ammeter is joined <strong>across</strong> part of the circuit. An ammeter has almost no resistance, so the current rushes through it instead: a short circuit. An ammeter goes <strong>in series</strong>, in the same wire as the lamp.' },
+        { slip: true, when: (st) => ofType(st, 'voltmeter').length > 0,
+          msg: 'A voltmeter measures voltage. To measure a current you need an <strong>ammeter</strong>. Tap the voltmeter, then Delete.' },
+        { slip: true, when: (st, res) => liveAmmeters(st, res).some((m) => stops(st, m.id) === 3),
+          msg: 'That ammeter is in a part of the circuit that both lamps share, so it reads the <strong>total</strong> current from the cell. Follow the wires from lamp Q: find a wire that only lamp Q’s current goes through.' },
+        { slip: true, when: (st, res) => liveAmmeters(st, res).some((m) => stops(st, m.id) === 1),
+          msg: 'That ammeter is in lamp <strong>P</strong>’s branch, so it reads the current in lamp P. Move it to the branch with lamp Q in it.' },
+      ],
+      'voltmeter-lamp': [
+        { slip: true, when: (st) => ofType(st, 'ammeter').length > 0,
+          msg: 'An ammeter measures current. To measure a voltage you need a <strong>voltmeter</strong>. Tap the ammeter, then Delete.' },
+        { slip: true, when: (st, res) => !working(res, 'L') && ofType(st, 'voltmeter').some((v) => reads(res, v) > 0.5),
+          msg: 'The lamp has gone out. A voltmeter has a very high resistance, so <strong>in series</strong> it stops almost all the current. Use Undo, then join the voltmeter <strong>in parallel</strong>: one lead to each side of the lamp.' },
+        { slip: true, when: (st, res) => ofType(st, 'voltmeter').some((v) => across(res, v, { id: 'R' })),
+          msg: 'That voltmeter is across the <strong>resistor</strong>, so it reads the voltage across the resistor. Its two leads need to go to the two sides of the lamp.' },
+        { slip: true, when: (st, res) => ofType(st, 'voltmeter').some((v) => across(res, v, { id: 'B' })),
+          msg: 'That voltmeter is across the lamp <strong>and</strong> the resistor together, so it reads the whole supply voltage. Both leads must join right beside the lamp, one on each side.' },
+      ],
+      'parallel-switch': [
+        { slip: true, when: (st, res) => working(res, 'X') && added(st).some((n) => working(res, n.id) && !working(without(st, [n.id]), 'X')),
+          msg: 'Those lamps are <strong>in series</strong>: they have to share the cell’s voltage, so both are dimmer. Use Undo, then give the new lamp a branch of its own, with a wire from each end of it to the circuit.' },
+        { slip: true, when: (st, res) => opened(st, res, (open, n) => !working(open, 'X') && !working(open, n.id)),
+          msg: 'That switch is in a part of the circuit both lamps share, so opening it turns off <strong>both</strong> lamps. Put the switch in the new lamp’s own branch.' },
+        { slip: true, when: (st, res) => opened(st, res, (open, n) => !working(open, 'X') && working(open, n.id)),
+          msg: 'That switch turns off the <strong>first</strong> lamp, not the new one. Put the switch in the new lamp’s own branch.' },
+        { when: (st, res) => full(res, 'X') && ofType(st, 'switch').some((s) => !s.closed && added(st).some((n) =>
+            full(solve(st, { switches: new Map([[s.id, true]]) }), n.id))),
+          msg: 'Tap the switch to close it, and check that both lamps light.' },
+        { when: (st, res) => full(res, 'X') && added(st).some((n) => full(res, n.id)) && !ofType(st, 'switch').length,
+          msg: 'Both lamps are at full brightness, so they are in parallel. Now add a switch that turns off only the new lamp.' },
+      ],
     };
 
     // Example circuits for each task (teacher only, under Show answers)
-    const W = (...pts) => pts.slice(1).flatMap((q, i) => route(pts[i], q, pts[i][1] === q[1]));
-    const C = (type, x, y, extra) => Object.assign({ type, x, y, rot: 0, closed: false }, extra);
     const loop = [W([8, 8], [5, 8], [5, 3], [8, 3]), W([10, 8], [13, 8], [13, 3], [10, 3])].flat();
     const seriesWires = [W([8, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([10, 8], [14, 8], [14, 3], [12, 3])].flat();
     const parallelWires = [W([8, 9], [5, 9], [5, 2], [8, 2]), W([5, 5], [8, 5]), W([10, 9], [13, 9], [13, 2], [10, 2]),
@@ -674,6 +809,7 @@
           wires: W([2, 2], [2, 1]).concat(W([2, 4], [2, 6]), W([2, 8], [2, 9])),
         }),
     };
+    Object.keys(PRESETS).forEach((k) => { EXAMPLES[k] = PRESETS[k](true); });
 
     // ---------- Elements ----------
     const NS = 'http://www.w3.org/2000/svg';
@@ -859,7 +995,8 @@
       if (unit === 'Ω' && v >= 1000) return v / 1000 + ' kΩ';
       return v + ' ' + unit;
     }
-    const labelled = (c) => c.type === 'resistor' || c.type === 'variable-resistor' || ADJUST.has(c.type);
+    const labelled = (c) => c.type === 'resistor' || c.type === 'variable-resistor' || ADJUST.has(c.type) ||
+      !!(c.lock && TYPES[c.type].unit);   // a preset's battery shows its voltage
 
     // A rounded box around a component, lined up with it
     function outline(c, cls) {
@@ -967,7 +1104,7 @@
 
         // Readings
         const vertical = c.rot % 2 === 1;
-        const lx = vertical ? x + S * 1.2 : x;
+        const lx = vertical ? x + S * 1.4 : x;   // clear of the meter's own circle
         const ly = vertical ? y : y - S * 0.95;
         const pill = (text, cls2) =>
           `<g class="cb-reading ${cls2 || ''}"><rect x="${lx - 44}" y="${ly - 15}" width="88" height="30" rx="8"/>` +
@@ -1114,8 +1251,10 @@
       const p = svgPoint(target.x, target.y).matrixTransform(m);
       const scale = m.a;
       const w = pop.offsetWidth, h = pop.offsetHeight;
+      // Above the part, or below it if there is no room or a meter's reading is in the way
+      const reading = c && t.letter && c.type !== 'motor' && c.rot % 2 === 0;
       let top = p.y - box.top - target.r * scale - h - 8;
-      if (top < 4) top = p.y - box.top + target.r * scale + 8;
+      if (top < 4 || reading) top = p.y - box.top + target.r * scale + 8;
       const left = Math.max(4, Math.min(box.width - w - 4, p.x - box.left - w / 2));
       pop.style.left = left + 'px';
       pop.style.top = top + 'px';
@@ -1127,7 +1266,10 @@
       const btn = e.target.closest('[data-act]');
       if (!btn || !sel) return;
       if (btn.dataset.act === 'delete') {
-        if (sel.comp) commit(() => { state.comps = state.comps.filter((c) => c.id !== sel.comp); });
+        if (sel.comp) commit(() => {
+          unsplice(selected());
+          state.comps = state.comps.filter((c) => c.id !== sel.comp);
+        });
         else commit(() => { state.wires = state.wires.filter((w) => !sel.wire.has(w)); });
         sel = null;
         say();
@@ -1138,7 +1280,9 @@
         const tries = geom(c).flips ? [{ flip: !c.flip }] : [1, 2, 3].map((k) => ({ rot: (c.rot + k) % 4 }));
         for (const change of tries) {
           const t = Object.assign({}, c, change);
-          if (canPlace(state, t)) { commit(() => { Object.assign(c, change); }); return; }
+          // Turned a quarter turn, it no longer lines up with the wire it was joined into
+          const inLine = !!c.spliced && change.rot != null && (change.rot - c.rot) % 2 === 0;
+          if (canPlace(state, t)) { commit(() => { Object.assign(c, change, { spliced: inLine }); }); return; }
         }
         say('There is no room to turn it here. Move it somewhere with more space first.');
       }
@@ -1219,6 +1363,7 @@
       commit(() => { state.wires = [...new Set(state.wires.concat(edges))]; });
     }
 
+    const LOCK_MSG = 'That part of the circuit is fixed in place. Add your own parts and wires to it.';
     function selectMsg(c) {
       const name = TYPES[c.type].name;
       if (TYPES[c.type].slider) return name + ' selected. Use the slider to change its resistance.';
@@ -1231,9 +1376,12 @@
       const c = compAt(g.x, g.y);
       if (c) {
         pending = null;
-        if (c.type === 'switch') {
+        if (c.lock && c.type !== 'switch') {
+          sel = null;
+          say(LOCK_MSG);
+        } else if (c.type === 'switch') {
           commit(() => { c.closed = !c.closed; });
-          sel = { comp: c.id };
+          sel = c.lock ? null : { comp: c.id };
           say(c.closed ? 'Switch closed: the gap is joined, so current can flow.' : 'Switch open: there is a gap, so no current can flow through it.');
         } else if (c.type === 'fuse' && c.blown) {
           sel = { comp: c.id };
@@ -1301,6 +1449,7 @@
         pop.hidden = true;
       }
       const g = gridAt(e);
+      if (drag.comp && drag.comp.lock) { say(LOCK_MSG); return; }
       if (drag.comp) {
         // Move the component with the finger; off the board means "remove"
         const c = drag.comp;
@@ -1340,12 +1489,16 @@
       if (e.type === 'pointercancel' || !pv) { draw(); return; }
       if (pv.comp) {
         if (d.off) {
-          commit(() => { state.comps = state.comps.filter((c) => c.id !== d.comp.id); });
+          commit(() => {
+            unsplice(d.comp);
+            state.comps = state.comps.filter((c) => c.id !== d.comp.id);
+          });
           sel = null;
           say('Removed.');
         } else if (!pv.bad) {
           commit(() => {
-            Object.assign(d.comp, { x: pv.comp.x, y: pv.comp.y, rot: pv.comp.rot });
+            unsplice(d.comp);
+            Object.assign(d.comp, { x: pv.comp.x, y: pv.comp.y, rot: pv.comp.rot, spliced: !!pv.cut });
             if (pv.cut) state.wires = state.wires.filter((e) => !pv.cut.includes(e));
           });
           sel = { comp: d.comp.id };
@@ -1369,7 +1522,8 @@
     function freeSpot(type) {
       const spots = [];
       for (let y = 1; y < ROWS - 1; y++) for (let x = 1; x < COLS - 1; x++) spots.push([x, y]);
-      spots.sort((a, b) => Math.hypot(a[0] - 9, (a[1] - 5) * 1.6) - Math.hypot(b[0] - 9, (b[1] - 5) * 1.6));
+      const mx = (COLS - 1) / 2, my = (ROWS - 1) / 2;
+      spots.sort((a, b) => Math.hypot(a[0] - mx, (a[1] - my) * 1.6) - Math.hypot(b[0] - mx, (b[1] - my) * 1.6));
       for (const [x, y] of spots) {
         const c = newComp(type, x, y);
         // Leave a gap round it so it doesn't touch anything by accident
@@ -1389,7 +1543,7 @@
       const id = state.next;
       commit(() => {
         state.next += 1;
-        state.comps.push(Object.assign({}, c, { id }));
+        state.comps.push(Object.assign({}, c, { id, spliced: !!cut }));
         if (cut) state.wires = state.wires.filter((e) => !cut.includes(e));
       });
       sel = { comp: id };
@@ -1497,6 +1651,15 @@
       say('Grid cleared. Undo brings it back.');
       draw();
     });
+    const restartBtn = root.querySelector('[data-cb="restart"]');
+    if (restartBtn) restartBtn.addEventListener('click', () => {
+      commit(() => { state = startState(); });
+      capV.clear();
+      sel = null;
+      pending = null;
+      say('The circuit is back to how it started. Undo brings your changes back.');
+      draw();
+    });
     const flowBtn = root.querySelector('[data-cb="flow"]');
     if (flowBtn) flowBtn.addEventListener('click', () => {
       showFlow = !showFlow;
@@ -1505,7 +1668,7 @@
     });
 
     // ---------- Tasks ----------
-    const nav = tasks.map((t, i) => {
+    const nav = !taskNav ? [] : tasks.map((t, i) => {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'cb-chip';
@@ -1536,11 +1699,18 @@
         box.className = 'q-feedback is-good';
         box.innerHTML = '<strong>Correct!</strong> ' + (explain ? explain.innerHTML : '') +
           (last ? '' : ' <button type="button" class="tool cb-next">Next task</button>');
+      } else if (hintNow.has(i)) {
+        const h = hintNow.get(i);
+        box.className = 'q-feedback' + (h.slip ? ' is-bad' : '');
+        box.innerHTML = '<strong>' + (h.slip ? 'Not quite.' : 'Nearly there.') + '</strong> ' + h.msg;
       } else {
         box.className = 'q-feedback';
         box.innerHTML = '';
       }
+      if (slipped.has(i)) t.dataset.slipped = ''; else delete t.dataset.slipped;
     }
+    const hintNow = new Map();   // task number → the HINTS entry showing on it
+    const slips = new Map();     // task number → how many "Not quite." messages it has had
 
     // Fix the task box's height to fit the tallest task with its "Correct!" message showing, so
     // finishing a task or moving to the next one doesn't move the grid. (An opened hint still can:
@@ -1551,11 +1721,20 @@
       const open = [...taskBox.querySelectorAll('details[open]')];
       open.forEach((d) => { d.open = false; });
       let h = 0;
+      const shown = new Map(hintNow);
       tasks.forEach((t, i) => {
         tasks.forEach((o) => { o.hidden = o !== t; });
         feedback(t, i, true);
         h = Math.max(h, hOf(taskBox));
+        // …and with each of its "Not quite." messages
+        (HINTS[t.dataset.check] || []).forEach((hint) => {
+          hintNow.set(i, hint);
+          feedback(t, i, false);
+          h = Math.max(h, hOf(taskBox));
+        });
+        hintNow.delete(i);
       });
+      shown.forEach((hint, i) => hintNow.set(i, hint));
       open.forEach((d) => { d.open = true; });
       showTask();
       taskBox.style.minHeight = h + 'px';
@@ -1579,19 +1758,20 @@
         save();
         showTask();
       }
-      if (e.target.closest('[data-cb="example"]')) {
-        const ex = EXAMPLES[tasks[task].dataset.check];
-        if (!ex) return;
-        commit(() => {
-          state.comps = ex.comps.map((c) => Object.assign({}, c, { id: state.next++ }));
-          state.wires = ex.wires.slice();
-        });
-        sel = null;
-        pending = null;
-        say('Example circuit for task ' + (task + 1) + '. Undo brings back what was there before.');
-        draw();
-      }
+      if (e.target.closest('[data-cb="example"]')) loadExample();
     });
+    function loadExample() {
+      const ex = EXAMPLES[tasks[task].dataset.check];
+      if (!ex) return;
+      commit(() => {
+        state.comps = ex.comps.map((c) => Object.assign({}, c, { id: c.id != null ? c.id : state.next++ }));
+        state.wires = ex.wires.slice();
+      });
+      sel = null;
+      pending = null;
+      say('Example circuit for task ' + (task + 1) + '. Undo brings back what was there before.');
+      draw();
+    }
 
     function checkTasks(res) {
       let fresh = [];
@@ -1600,11 +1780,25 @@
         const check = CHECKS[t.dataset.check];
         if (check && check(state, res)) { solved.add(i); fresh.push(i); }
       });
+      // Unsolved tasks: say what is wrong with a predictable wrong circuit
+      let changed = false;
+      tasks.forEach((t, i) => {
+        const hint = solved.has(i) ? null : (HINTS[t.dataset.check] || []).find((h) => h.when(state, res)) || null;
+        if (hint === (hintNow.get(i) || null)) return;
+        changed = true;
+        if (!hint) { hintNow.delete(i); return; }
+        hintNow.set(i, hint);
+        if (!hint.slip) return;
+        slipped.add(i);
+        slips.set(i, (slips.get(i) || 0) + 1);
+        if (slips.get(i) === 3) root.dispatchEvent(new CustomEvent('cb:stuck', { bubbles: true, detail: { task: t } }));
+      });
+      if (changed && !fresh.length) { save(); showTask(); }
       if (!fresh.length) return;
       save();
       showTask();
       const names = fresh.map((i) => (i === tasks.length - 1 ? 'the Challenge' : 'task ' + (i + 1)));
-      say('Well done: you have finished ' + names.join(' and ') + '.');
+      say(tasks.length === 1 ? 'Well done: that circuit does the job.' : 'Well done: you have finished ' + names.join(' and ') + '.');
     }
 
     // A fuse carrying more than its rating melts. The one most over its rating goes first.
@@ -1639,7 +1833,10 @@
     if (resetBtn && !GUIDED) {
       resetBtn.addEventListener('click', () => {
         history = [];
-        state = { comps: [], wires: [], next: 1 };
+        state = startState();
+        slipped = new Set();
+        hintNow.clear();
+        slips.clear();
         env = Object.assign({}, ENV_START);
         ENV.forEach((s) => s.sync());
         capV.clear();
@@ -1699,6 +1896,7 @@
       // Readings now, or for other slider settings: read({ temp: 30 })
       read(opts) { return reader(opts ? solve(state, opts) : solve(state), opts); },
       onUpdate(fn) { listeners.push(fn); },
+      example: loadExample,
       name: (type) => TYPES[type].name,
     };
 

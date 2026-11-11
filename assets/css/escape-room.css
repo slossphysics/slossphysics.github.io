@@ -425,3 +425,31 @@
 }
 @keyframes er-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes er-letter { from { opacity: 0; transform: translateY(-30px) scale(0.3) rotate(-25deg); } to { opacity: 1; transform: none; } }
+
+/* ---------- Circuit boards in a room (circuit-builder.js with data-preset) ---------- */
+.board-how {
+  margin: 14px 0 4px;
+  padding: 12px 16px;
+  border: 2px dashed var(--deck-muted);
+  border-radius: 12px;
+  color: #fff;
+}
+.board-how p { margin: 0 0 6px; }
+.board-how ul { margin: 0; padding-left: 1.2em; }
+.board-how li + li { margin-top: 4px; }
+.room-body .cb { margin-top: 20px; }
+.room-body .cb-task { margin-bottom: 10px; }
+.room-body .cb-workspace { box-shadow: 4px 4px 0 #05030d; color: var(--text); }
+/* Only two or three parts to choose from: keep their boxes button-sized */
+.room-body .cb-palette { grid-template-columns: repeat(auto-fit, minmax(74px, 140px)); }
+/* Small enough for the question, the parts and the whole circuit to fit on an iPad screen together */
+.room-body .cb-stage { max-width: 700px; margin: 0 auto; }
+.q.is-solved > .override { display: none; }
+/* The builder keeps room under a question for its longest message, so the circuit never moves.
+   Here that would be a big empty gap, and a message only appears when a part is let go, so the
+   room isn't kept. */
+.room-body .cb-tasks { min-height: 0 !important; }
+/* iPad landscape and wider: the question sits beside its circuit, so both are on screen at once */
+@media (min-width: 900px) {
+  .room-body .cb { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr); gap: 14px; align-items: start; }
+}

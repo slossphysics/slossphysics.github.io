@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electricity escape room · National 5 Physics · Sloss Physics</title>
-  <meta name="description" content="N5 Physics prelim revision escape room for Electricity: five sealed rooms in a blacked-out hydro power station, opened with circuit symbols, Ohm's law, resistors, potential dividers and transistor switching questions.">
+  <meta name="description" content="N5 Physics prelim revision escape room for Electricity: six sealed rooms in a blacked-out hydro power station, opened with circuit symbols, Ohm's law, resistors, potential dividers and transistor switching questions, then live circuits to finish.">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/starter.css">
+  <link rel="stylesheet" href="../assets/css/circuit-builder.css">
   <link rel="stylesheet" href="../assets/css/escape-room.css">
   <script src="../assets/js/circuit-symbols.js" defer></script>
   <script src="../assets/js/starter.js" defer></script>
   <script src="../assets/js/escape-room.js" defer></script>
+  <script src="../assets/js/circuit-builder.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -39,7 +41,7 @@
     <h1>Blackout at Glen Lochan</h1>
     <div class="lisc">
       <p><strong>LI:</strong> I am learning to answer exam questions from the Electricity topic.</p>
-      <p><strong>SC:</strong> I can set out a calculation as formula, substitution and answer · I can find total resistance and the voltages in a potential divider · I can explain how a transistor switching circuit works.</p>
+      <p><strong>SC:</strong> I can set out a calculation as formula, substitution and answer · I can find total resistance and the voltages in a potential divider · I can explain how a transistor switching circuit works · I can add meters, lamps and switches to a circuit in the right place.</p>
     </div>
 
     <div class="hud" data-hud hidden>
@@ -53,7 +55,7 @@
       </div>
       <div class="hud-item is-doors">
         <span class="hud-label">Doors open</span>
-        <output class="hud-doors">0 of 5</output>
+        <output class="hud-doors">0 of 6</output>
       </div>
     </div>
 
@@ -85,9 +87,10 @@
         <p>Lightning has hit Glen Lochan hydro power station, deep inside the mountain. The whole glen is in darkness, and you're the only engineer on shift. The safety system has sealed every door, and it will only open them for someone who knows their electricity.</p>
         <ul class="rules">
           <li><strong>Every question you get right opens one lock.</strong> Open all three locks in a room and its door slides open.</li>
-          <li><strong>Each door gives you one letter</strong> of the restart code. Collect all five to switch the power back on.</li>
+          <li><strong>Each door gives you one letter</strong> of the restart code. Collect all six to switch the power back on.</li>
           <li><strong>Calculations open in three steps:</strong> formula, substitute, solve. Write each line in your jotter as you go. In the exam, each of those lines earns a mark.</li>
           <li><strong>Stuck on a final answer?</strong> After three tries, an emergency override appears. It opens the lock and shows the working, but adds 2 minutes to your time.</li>
+          <li><strong>In the last room you build circuits.</strong> Three wrong circuits bring up the override there too.</li>
           <li><strong>You need</strong> a calculator, the relationships sheet and your jotter.</li>
         </ul>
         <button type="button" class="launch" data-start>Start the shift</button>
@@ -95,7 +98,7 @@
     </section>
 
     <!-- ============ Room 1: Circuits and meters ============ -->
-    <section class="room deck" data-name="Control room" data-short="Control" data-topic="Circuits and meters" data-letter="V" hidden>
+    <section class="room deck" data-name="Control room" data-short="Control" data-topic="Circuits and meters" data-letter="S" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="800" height="240" fill="#0d1230"/>
@@ -115,7 +118,7 @@
           <text class="scene-status is-good when-done" x="520" y="58" text-anchor="middle">PANEL ONLINE</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 1 of 5 · Circuits and meters</p>
+          <p class="console-tag">Room 1 of 6 · Circuits and meters</p>
           <h2>Control room</h2>
           <p class="room-story">The lightning has wiped the control panel. Sort out its symbols, signals and meters to bring it back to life.</p>
         </div>
@@ -205,7 +208,7 @@
     </section>
 
     <!-- ============ Room 2: Ohm's law ============ -->
-    <section class="room deck" data-name="Turbine hall" data-short="Turbines" data-topic="Ohm's law" data-letter="O" hidden>
+    <section class="room deck" data-name="Turbine hall" data-short="Turbines" data-topic="Ohm's law" data-letter="W" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="800" height="240" fill="#0d1230"/>
@@ -223,7 +226,7 @@
           <text class="scene-status is-good when-done" x="534" y="200" text-anchor="middle">TURBINE RUNNING</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 2 of 5 · Ohm's law</p>
+          <p class="console-tag">Room 2 of 6 · Ohm's law</p>
           <h2>Turbine hall</h2>
           <p class="room-story">The turbine has stopped and its control circuits need checking before it can spin again. Time for some Ohm's law.</p>
         </div>
@@ -378,7 +381,7 @@
     </section>
 
     <!-- ============ Room 3: Resistors in series and parallel ============ -->
-    <section class="room deck" data-name="Cable gallery" data-short="Cables" data-topic="Resistors in series and parallel" data-letter="L" hidden>
+    <section class="room deck" data-name="Cable gallery" data-short="Cables" data-topic="Resistors in series and parallel" data-letter="I" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="800" height="240" fill="#0d1230"/>
@@ -397,7 +400,7 @@
           <text class="scene-status is-good when-done" x="400" y="198" text-anchor="middle">CABLES LIVE</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 3 of 5 · Resistors in series and parallel</p>
+          <p class="console-tag">Room 3 of 6 · Resistors in series and parallel</p>
           <h2>Cable gallery</h2>
           <p class="room-story">The cables that carry power out of the mountain have tripped. Work out the resistances to reconnect them safely.</p>
         </div>
@@ -540,7 +543,7 @@
           <text class="scene-status is-good when-done" x="520" y="54" text-anchor="middle">SENSORS LIVE</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 4 of 5 · Potential dividers</p>
+          <p class="console-tag">Room 4 of 6 · Potential dividers</p>
           <h2>Sensor bay</h2>
           <p class="room-story">The station's temperature and light sensors are giving no readings. Each one is a potential divider: get them working again.</p>
         </div>
@@ -693,7 +696,7 @@
     </section>
 
     <!-- ============ Room 5: Transistor switching and power ============ -->
-    <section class="room deck" data-name="Tunnel gate" data-short="Gate" data-topic="Transistor switching and power" data-letter="S" hidden>
+    <section class="room deck" data-name="Tunnel gate" data-short="Gate" data-topic="Transistor switching and power" data-letter="C" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
@@ -725,9 +728,9 @@
           <text class="scene-status is-good when-done" x="200" y="150" text-anchor="middle">GATE OPEN</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 5 of 5 · Transistor switching and power</p>
+          <p class="console-tag">Room 5 of 6 · Transistor switching and power</p>
           <h2>Tunnel gate</h2>
-          <p class="room-story">Only the tunnel gate stands between you and the way out. Its motor is controlled by a transistor switching circuit: get it working and switch the power back on.</p>
+          <p class="room-story">The tunnel gate is the only way out to the switchyard. Its motor is controlled by a transistor switching circuit: get it working to open the gate.</p>
         </div>
       </div>
       <div class="room-body">
@@ -840,6 +843,137 @@
             </ul>
           </div>
           <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 6: Building circuits (live boards from circuit-builder.js) ============ -->
+    <section class="room deck" data-name="Switchyard" data-short="Yard" data-topic="Building circuits" data-letter="H" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="240" fill="#060920"/>
+          <g fill="#fff"><circle cx="160" cy="52" r="1.5"/><circle cx="236" cy="84" r="1.2"/><circle cx="318" cy="46" r="1.7"/><circle cx="402" cy="70" r="1.2"/><circle cx="486" cy="44" r="1.5"/><circle cx="560" cy="88" r="1.3"/><circle cx="640" cy="56" r="1.6"/></g>
+          <path d="M0 206L140 150L260 190L380 128L520 186L640 146L800 206Z" fill="#141a4a"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <g fill="none" stroke="#8b93c9" stroke-width="3" stroke-linecap="round">
+            <path d="M196 206L220 92L244 206M204 168H236M210 138H230M186 112H254M220 92V80"/>
+            <path d="M556 206L580 92L604 206M564 168H596M570 138H590M546 112H614M580 92V80"/>
+          </g>
+          <g class="when-broken" fill="none" stroke="#5d6aa8" stroke-width="3" stroke-dasharray="5 7">
+            <path d="M254 112Q400 170 546 112"/><path d="M130 130Q160 124 186 112"/><path d="M614 112Q644 126 672 132"/>
+          </g>
+          <g class="when-done" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round">
+            <path class="flow" d="M254 112Q400 170 546 112"/><path class="flow" d="M130 130Q160 124 186 112"/><path class="flow" d="M614 112Q644 126 672 132"/>
+          </g>
+          <rect x="340" y="150" width="120" height="56" rx="6" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+          <path d="M360 150V134M400 150V130M440 150V134" stroke="#8b93c9" stroke-width="5" stroke-linecap="round"/>
+          <path d="M352 168H448M352 182H448" stroke="#1d1442" stroke-width="3"/>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="360" cy="128" r="6"/><circle cx="400" cy="124" r="6"/><circle cx="440" cy="128" r="6"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="360" cy="128" r="6"/><circle cx="400" cy="124" r="6"/><circle cx="440" cy="128" r="6"/></g>
+          <text class="scene-status when-broken" x="400" y="60" text-anchor="middle">GRID DISCONNECTED</text>
+          <text class="scene-status is-good when-done" x="400" y="60" text-anchor="middle">GRID CONNECTED</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 6 of 6 · Building circuits</p>
+          <h2>Switchyard</h2>
+          <p class="room-story">You're outside, in the switchyard where the power leaves for the glen. The lightning burned parts out of three test circuits. Finish each circuit to reconnect the grid.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="board-how">
+          <p><strong>These circuits are live: build on them with your finger.</strong></p>
+          <ul>
+            <li><strong>Add a part:</strong> drag it from its box onto the circuit. Dropped onto a wire, it joins into that wire.</li>
+            <li><strong>Add a wire:</strong> drag from the end of a part to where the wire should go. Or tap the end, then tap where it should go.</li>
+            <li><strong>Change your mind:</strong> tap a part or wire you added for Turn and Delete, or use Undo.</li>
+          </ul>
+        </div>
+
+        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-board-1" data-preset="ammeter-branch" data-grid="13x9">
+          <div class="q cb-task" data-check="ammeter-branch">
+            <p class="q-prompt"><span class="q-num">1.</span>The switchyard's two warning lamps, P and Q, are connected in parallel. Add an ammeter to measure the current in lamp <strong>Q only</strong>.</p>
+            <details class="hint"><summary>Hint</summary><p>An ammeter only measures the current that goes through it. Trace lamp Q's path round the circuit with your finger. Which wires carry lamp Q's current and nothing else?</p></details>
+            <div class="q-feedback" aria-live="polite"></div>
+            <div class="q-explain">The ammeter is <strong>in series</strong> with lamp Q, in Q's own branch, so only Q's current goes through it: 0.30 A. In a wire that both lamps share, it would read the total current, 0.60 A.</div>
+          </div>
+          <div class="cb-workspace">
+            <ul class="cb-palette" aria-label="Components">
+              <li><button type="button" data-type="voltmeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-voltmeter"/></svg>Voltmeter</button></li>
+              <li><button type="button" data-type="ammeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ammeter"/></svg>Ammeter</button></li>
+            </ul>
+            <div class="cb-bar">
+              <p class="cb-status" aria-live="polite"></p>
+              <button type="button" class="tool" data-cb="undo">Undo</button>
+              <button type="button" class="tool" data-cb="restart">Start this circuit again</button>
+              <p class="cb-warning" role="alert" hidden></p>
+            </div>
+            <div class="cb-stage">
+              <svg class="cb-board" role="img" aria-label="Circuit: a cell with lamps P and Q in parallel"></svg>
+              <div class="cb-pop" hidden>
+                <button type="button" class="tool" data-act="turn">Turn</button>
+                <button type="button" class="tool" data-act="delete">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-board-2" data-preset="voltmeter-lamp" data-grid="13x9">
+          <div class="q cb-task" data-check="voltmeter-lamp">
+            <p class="q-prompt"><span class="q-num">2.</span>A lamp and a 5 Ω resistor are connected in series with a 3 V battery. Add a voltmeter to measure the voltage <strong>across the lamp</strong>.</p>
+            <details class="hint"><summary>Hint</summary><p>Leave the circuit as it is. Put the voltmeter in an empty space near the lamp, then draw a wire from each end of the voltmeter to the circuit.</p></details>
+            <div class="q-feedback" aria-live="polite"></div>
+            <div class="q-explain">The voltmeter is <strong>in parallel</strong> with the lamp: one lead joined to each side of it. It reads 1.50 V, the lamp's share of the 3 V supply. Ammeters go in series; voltmeters go in parallel.</div>
+          </div>
+          <div class="cb-workspace">
+            <ul class="cb-palette" aria-label="Components">
+              <li><button type="button" data-type="ammeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ammeter"/></svg>Ammeter</button></li>
+              <li><button type="button" data-type="voltmeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-voltmeter"/></svg>Voltmeter</button></li>
+            </ul>
+            <div class="cb-bar">
+              <p class="cb-status" aria-live="polite"></p>
+              <button type="button" class="tool" data-cb="undo">Undo</button>
+              <button type="button" class="tool" data-cb="restart">Start this circuit again</button>
+              <p class="cb-warning" role="alert" hidden></p>
+            </div>
+            <div class="cb-stage">
+              <svg class="cb-board" role="img" aria-label="Circuit: a battery with a lamp and a resistor in series"></svg>
+              <div class="cb-pop" hidden>
+                <button type="button" class="tool" data-act="turn">Turn</button>
+                <button type="button" class="tool" data-act="delete">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-board-3" data-preset="parallel-switch" data-grid="13x9">
+          <div class="q cb-task" data-check="parallel-switch">
+            <p class="q-prompt"><span class="q-num">3.</span>The yard's floodlight circuit has one lamp left. Add a second lamp so that <strong>both</strong> lamps are as bright as the first lamp is now. Then add a switch that turns off <strong>the new lamp only</strong>.</p>
+            <details class="hint"><summary>Hint</summary><p>Two lamps in series have to share the cell's voltage. Put the new lamp in an empty space, then draw a wire from each end of it to the circuit, so it has a path of its own from one side of the cell to the other.</p></details>
+            <div class="q-feedback" aria-live="polite"></div>
+            <div class="q-explain">The lamps are <strong>in parallel</strong>. Each has the cell's full voltage across it, so each is as bright as one lamp on its own. The switch is in the new lamp's branch, so opening it breaks that branch only.</div>
+          </div>
+          <div class="cb-workspace">
+            <ul class="cb-palette" aria-label="Components">
+              <li><button type="button" data-type="lamp"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-lamp"/></svg>Lamp</button></li>
+              <li><button type="button" data-type="switch"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-switch-open"/></svg>Switch</button></li>
+            </ul>
+            <div class="cb-bar">
+              <p class="cb-status" aria-live="polite"></p>
+              <button type="button" class="tool" data-cb="undo">Undo</button>
+              <button type="button" class="tool" data-cb="restart">Start this circuit again</button>
+              <p class="cb-warning" role="alert" hidden></p>
+            </div>
+            <div class="cb-stage">
+              <svg class="cb-board" role="img" aria-label="Circuit: a cell and one lamp"></svg>
+              <div class="cb-pop" hidden>
+                <button type="button" class="tool" data-act="turn">Turn</button>
+                <button type="button" class="tool" data-act="delete">Delete</button>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

@@ -506,3 +506,6 @@
 
 /* On the builder page: a pointer to the walkthroughs */
 .cb-see-also { margin: 0 0 16px; }
+
+/* Messages about a wrong circuit have bold words inside the sentence: only the first one is a title */
+.cb-task .q-feedback strong ~ strong { margin-right: 0; }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electricity escape room · National 5 Physics · Sloss Physics</title>
-  <meta name="description" content="N5 Physics prelim revision escape room for Electricity: six sealed rooms in a blacked-out hydro power station, opened with circuit symbols, Ohm's law, resistors, potential dividers and transistor switching questions, then live circuits to finish.">
+  <meta name="description" content="N5 Physics prelim revision escape room for Electricity: nine sealed rooms in a blacked-out hydro power station, opened with input and output devices, circuit symbols, current and voltage rules, Ohm's law, resistors, potential dividers, power and transistor switching questions, then live circuits to finish.">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/starter.css">
   <link rel="stylesheet" href="../assets/css/circuit-builder.css">
@@ -30,7 +30,7 @@
     </div>
   </header>
 
-  <main class="wrap starter escape" data-level="n5" data-escape data-key="n5-escape-room-electricity" data-finish="Switch the power back on" data-go="Power on!">
+  <main class="wrap starter escape" data-level="n5" data-escape data-key="n5-escape-room-electricity-2" data-finish="Switch the power back on" data-go="Power on!">
     <ol class="crumbs">
       <li><a href="../index.html">All levels</a></li>
       <li><a href="index.html">National 5 Physics</a></li>
@@ -55,7 +55,7 @@
       </div>
       <div class="hud-item is-doors">
         <span class="hud-label">Doors open</span>
-        <output class="hud-doors">0 of 6</output>
+        <output class="hud-doors">0 of 9</output>
       </div>
     </div>
 
@@ -86,8 +86,8 @@
         <h2>Night shift briefing</h2>
         <p>Lightning has hit Glen Lochan hydro power station, deep inside the mountain. The whole glen is in darkness, and you're the only engineer on shift. The safety system has sealed every door, and it will only open them for someone who knows their electricity.</p>
         <ul class="rules">
-          <li><strong>Every question you get right opens one lock.</strong> Open all three locks in a room and its door slides open.</li>
-          <li><strong>Each door gives you one letter</strong> of the restart code. Collect all six to switch the power back on.</li>
+          <li><strong>Every question you get right opens one lock.</strong> Open every lock in a room and its door slides open.</li>
+          <li><strong>Each door gives you one letter</strong> of the restart code. Collect all nine to switch the power back on.</li>
           <li><strong>Calculations open in three steps:</strong> formula, substitute, solve. Write each line in your jotter as you go. In the exam, each of those lines earns a mark.</li>
           <li><strong>Stuck on a final answer?</strong> After three tries, an emergency override appears. It opens the lock and shows the working, but adds 2 minutes to your time.</li>
           <li><strong>In the last room you build circuits.</strong> Three wrong circuits bring up the override there too.</li>
@@ -97,8 +97,98 @@
       </div>
     </section>
 
-    <!-- ============ Room 1: Circuits and meters ============ -->
-    <section class="room deck" data-name="Control room" data-short="Control" data-topic="Circuits and meters" data-letter="S" hidden>
+    <!-- ============ Room 1: Input and output devices (National 4 level, an easy start) ============ -->
+    <section class="room deck" data-name="Staff entrance" data-short="Entrance" data-topic="Input and output devices" data-letter="S" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="240" fill="#0d1230"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <rect x="330" y="60" width="140" height="146" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
+          <path d="M400 60V206" stroke="#8b93c9" stroke-width="3"/>
+          <rect x="350" y="84" width="34" height="40" rx="4" fill="#071126"/><rect x="416" y="84" width="34" height="40" rx="4" fill="#071126"/>
+          <rect x="510" y="104" width="62" height="84" rx="8" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
+          <g fill="#5d6aa8"><circle cx="528" cy="140" r="5"/><circle cx="541" cy="140" r="5"/><circle cx="554" cy="140" r="5"/><circle cx="528" cy="155" r="5"/><circle cx="541" cy="155" r="5"/><circle cx="554" cy="155" r="5"/><circle cx="528" cy="170" r="5"/><circle cx="541" cy="170" r="5"/><circle cx="554" cy="170" r="5"/></g>
+          <rect class="when-broken blink" x="520" y="113" width="42" height="14" rx="3" fill="#fbbf24"/>
+          <rect class="when-done" x="520" y="113" width="42" height="14" rx="3" fill="#5eead4"/>
+          <path d="M214 76H250L262 92H232Z" fill="#8b93c9"/><path d="M232 92V112" stroke="#8b93c9" stroke-width="4"/>
+          <circle class="pulse" cx="252" cy="84" r="5" fill="#fbbf24"/>
+          <path d="M190 206V150a14 14 0 0 1 28 0V206" fill="none" stroke="#8b93c9" stroke-width="4"/>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="400" cy="42" r="9"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="400" cy="42" r="9"/></g>
+          <text class="scene-status when-broken" x="548" y="72" text-anchor="middle">ACCESS DENIED</text>
+          <text class="scene-status is-good when-done" x="548" y="72" text-anchor="middle">ACCESS GRANTED</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 1 of 9 · Input and output devices</p>
+          <h2>Staff entrance</h2>
+          <p class="room-story">The entrance to the station is locked down. Its security system is built from input and output devices: show it you know which is which.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">1.</span>An input device sends a signal into a circuit. An output device changes electrical energy from the circuit into another kind of energy. Sort these devices.</p>
+          <div class="match is-sort">
+            <p class="match-hint">Drag each one into its group, or tap it and then the group.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="out" data-label="Output" data-feedback="A loudspeaker makes sound. Is energy going into the circuit or coming out of it?">Loudspeaker</button>
+              <button type="button" class="match-item is-text" data-key="in" data-label="Input" data-feedback="A microphone picks up sound and sends a signal into the circuit.">Microphone</button>
+              <button type="button" class="match-item is-text" data-key="in" data-label="Input" data-feedback="A solar cell takes in light. Is that energy going into the circuit or coming out of it?">Solar cell</button>
+              <button type="button" class="match-item is-text" data-key="out" data-label="Output" data-feedback="A motor makes something move. Is energy going into the circuit or coming out of it?">Motor</button>
+              <button type="button" class="match-item is-text" data-key="out" data-label="Output" data-feedback="An LED gives out light, so think about which way the energy is going.">LED</button>
+              <button type="button" class="match-item is-text" data-key="in" data-label="Input" data-feedback="A thermistor senses temperature, so it tells the circuit something.">Thermistor</button>
+              <button type="button" class="match-item is-text" data-key="out" data-label="Output" data-feedback="A buzzer makes sound. Is energy going into the circuit or coming out of it?">Buzzer</button>
+              <button type="button" class="match-item is-text" data-key="in" data-label="Input" data-feedback="An LDR senses the light level, so it tells the circuit something.">LDR</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="in">Input device</button>
+              <button type="button" class="match-target" data-key="out">Output device</button>
+            </div>
+          </div>
+          <div class="q-explain">Input devices (microphone, solar cell, thermistor, LDR) sense something and send a signal <strong>into</strong> the circuit. Output devices (loudspeaker, motor, LED, buzzer) take electrical energy <strong>out</strong> of the circuit and do something with it.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">2.</span>Match each device to its main energy change.</p>
+          <div class="match">
+            <p class="match-hint">Drag each device onto its energy change, or tap a device and then the energy change.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="motor" data-label="Motor">Motor</button>
+              <button type="button" class="match-item is-text" data-key="mic" data-label="Microphone">Microphone</button>
+              <button type="button" class="match-item is-text" data-key="led" data-label="LED">LED</button>
+              <button type="button" class="match-item is-text" data-key="solar" data-label="Solar cell">Solar cell</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="solar">Light to electrical</button>
+              <button type="button" class="match-target" data-key="motor">Electrical to kinetic</button>
+              <button type="button" class="match-target" data-key="mic">Sound to electrical</button>
+              <button type="button" class="match-target" data-key="led">Electrical to light</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>For an input device, electrical energy comes last. For an output device, electrical energy comes first.</p></details>
+          <div class="q-explain">The two input devices end with electrical energy: microphone (sound to electrical) and solar cell (light to electrical). The two output devices start with it: motor (electrical to kinetic) and LED (electrical to light).</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">3.</span>The station needs a warning system that makes a loud sound when the tunnel gets too hot. Which input device and which output device should it use?</p>
+          <div class="options">
+            <button type="button" class="option" data-feedback="An LDR senses light. Which device senses temperature?">Input: LDR. Output: buzzer.</button>
+            <button type="button" class="option" data-feedback="A microphone is an input device: it picks up sound, it doesn't make it.">Input: thermistor. Output: microphone.</button>
+            <button type="button" class="option" data-correct>Input: thermistor. Output: buzzer.</button>
+            <button type="button" class="option" data-feedback="The thermistor is right for temperature, but an LED gives out light. The system has to make a sound.">Input: thermistor. Output: LED.</button>
+          </div>
+          <div class="q-explain">A <strong>thermistor</strong> senses temperature: its resistance changes as it heats up. A <strong>buzzer</strong> changes electrical energy into sound. Later rooms use the same idea with a transistor in between to do the switching.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 2: Circuits and meters ============ -->
+    <section class="room deck" data-name="Control room" data-short="Control" data-topic="Circuits and meters" data-letter="W" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="800" height="240" fill="#0d1230"/>
@@ -118,9 +208,9 @@
           <text class="scene-status is-good when-done" x="520" y="58" text-anchor="middle">PANEL ONLINE</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 1 of 6 · Circuits and meters</p>
+          <p class="console-tag">Room 2 of 9 · Circuits and meters</p>
           <h2>Control room</h2>
-          <p class="room-story">The lightning has wiped the control panel. Sort out its symbols, signals and meters to bring it back to life.</p>
+          <p class="room-story">You are in. The lightning has wiped the control panel. Sort out its symbols, signals and meters to bring it back to life.</p>
         </div>
       </div>
       <div class="room-body">
@@ -207,8 +297,133 @@
       <div class="door"></div>
     </section>
 
-    <!-- ============ Room 2: Ohm's law ============ -->
-    <section class="room deck" data-name="Turbine hall" data-short="Turbines" data-topic="Ohm's law" data-letter="W" hidden>
+    <!-- ============ Room 3: Current and voltage in series and parallel ============ -->
+    <section class="room deck" data-name="Battery room" data-short="Batteries" data-topic="Current and voltage rules" data-letter="I" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="240" fill="#0d1230"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <path d="M150 196H650" stroke="#8b93c9" stroke-width="6"/>
+          <g fill="#071126" stroke="#8fb0ff" stroke-width="4">
+            <rect x="190" y="96" width="80" height="100" rx="8"/><rect x="310" y="96" width="80" height="100" rx="8"/><rect x="430" y="96" width="80" height="100" rx="8"/><rect x="550" y="96" width="80" height="100" rx="8"/>
+          </g>
+          <g fill="#8b93c9"><rect x="218" y="84" width="24" height="12"/><rect x="338" y="84" width="24" height="12"/><rect x="458" y="84" width="24" height="12"/><rect x="578" y="84" width="24" height="12"/></g>
+          <g class="charge"><rect x="198" y="104" width="64" height="84" rx="4"/></g>
+          <g class="charge"><rect x="318" y="104" width="64" height="84" rx="4"/></g>
+          <g class="charge"><rect x="438" y="104" width="64" height="84" rx="4"/></g>
+          <g class="charge"><rect x="558" y="104" width="64" height="84" rx="4"/></g>
+          <path d="M242 84V66H338V84M362 84V66H458V84M482 84V66H578V84" fill="none" stroke="#8b93c9" stroke-width="3"/>
+          <text class="scene-status when-broken" x="400" y="50" text-anchor="middle">BACKUP FLAT</text>
+          <text class="scene-status is-good when-done" x="400" y="50" text-anchor="middle">BACKUP CHARGED</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 3 of 9 · Current and voltage rules</p>
+          <h2>Battery room</h2>
+          <p class="room-story">The backup batteries are flat. Before you reconnect them, check their test circuits using the rules for current and voltage in series and in parallel.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">1.</span>Sort each rule into the kind of circuit it describes.</p>
+          <div class="match is-sort">
+            <p class="match-hint">Drag each rule into its group, or tap it and then the group.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="s" data-label="Series" data-feedback="Think about how many paths the current has in each kind of circuit.">The current is the same at every point</button>
+              <button type="button" class="match-item is-text" data-key="p" data-label="Parallel" data-feedback="Each branch is joined straight across the supply. Which kind of circuit has branches?">The voltage across each branch equals the supply voltage</button>
+              <button type="button" class="match-item is-text" data-key="p" data-label="Parallel" data-feedback="The current can only split up where there is a junction. Which kind of circuit has junctions?">The currents in the branches add up to the supply current</button>
+              <button type="button" class="match-item is-text" data-key="s" data-label="Series" data-feedback="Components in one loop have to share the supply voltage between them.">The voltages across the components add up to the supply voltage</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="s">Series circuit</button>
+              <button type="button" class="match-target" data-key="p">Parallel circuit</button>
+            </div>
+          </div>
+          <div class="q-explain"><strong>Series</strong> (one path): the current is the same everywhere, and the voltages add up to the supply voltage. <strong>Parallel</strong> (branches): the branch currents add up to the supply current, and every branch has the supply voltage across it. These rules are on the relationships sheet.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="7.5">
+          <p class="q-prompt"><span class="q-num">2.</span>Two lamps are connected in series with a 12 V battery. The voltmeter across the first lamp reads 4.5 V. What is the reading on the voltmeter across the second lamp?</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 -26 320 250" role="img" aria-label="A 12 volt battery and two lamps in one loop, in series. A voltmeter across the first lamp reads 4.5 volts. A voltmeter across the second lamp is marked with a question mark.">
+              <path class="wire" d="M30 90V80H70M130 80H190M250 80H290V200H30V150M55 80V20H70M130 20H145V80M175 80V20H190M250 20H265V80"/>
+              <use href="#sym-battery" x="0" y="100" width="60" height="40" transform="rotate(90 30 120)"/>
+              <use href="#sym-lamp" x="70" y="60" width="60" height="40"/>
+              <use href="#sym-lamp" x="190" y="60" width="60" height="40"/>
+              <use href="#sym-voltmeter" x="70" y="0" width="60" height="40"/>
+              <use href="#sym-voltmeter" x="190" y="0" width="60" height="40"/>
+              <circle class="dot" cx="55" cy="80" r="5"/><circle class="dot" cx="145" cy="80" r="5"/><circle class="dot" cx="175" cy="80" r="5"/><circle class="dot" cx="265" cy="80" r="5"/>
+              <text class="label" x="100" y="-8" text-anchor="middle">4.5 V</text>
+              <text class="label" x="220" y="-8" text-anchor="middle">?</text>
+              <text class="label" x="58" y="126">12 V</text>
+            </svg>
+          </figure>
+          <div class="answer-row">
+            <label class="answer-label" for="eb-series-v">Reading =</label>
+            <input class="answer" id="eb-series-v" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">V</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>In a series circuit the lamps share the supply voltage between them.</p></details>
+          <p class="mistake" data-value="16.5">You've added the two numbers. The lamps share the 12 V between them, so the two voltmeter readings add up to 12 V.</p>
+          <p class="mistake" data-value="4.5">The lamps don't have to get equal shares. The two readings must add up to the supply voltage.</p>
+          <p class="mistake" data-value="12">That's the supply voltage. In series, the lamps share it between them.</p>
+          <p class="mistake" data-value="6">The lamps aren't sharing equally here: the first one has 4.5 V. What is left for the second?</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>V<sub>s</sub> = V<sub>1</sub> + V<sub>2</sub></li>
+              <li>12 = 4.5 + V<sub>2</sub></li>
+              <li>V<sub>2</sub> = 7.5 V</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="0.5">
+          <p class="q-prompt"><span class="q-num">3.</span>Two lamps are connected in parallel with a battery. The ammeter beside the battery reads 0.9 A. The ammeter in the top branch reads 0.4 A. What is the reading on the ammeter in the bottom branch?</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 0 360 230" role="img" aria-label="A battery with an ammeter beside it reading 0.9 amps. The circuit then splits into two branches, each with an ammeter and a lamp. The top branch ammeter reads 0.4 amps. The bottom branch ammeter is marked with a question mark.">
+              <path class="wire" d="M30 90V40H60M120 40H165M225 40H240M300 40H330V200H30V150M150 40V120H165M225 120H240M300 120H330"/>
+              <use href="#sym-battery" x="0" y="100" width="60" height="40" transform="rotate(90 30 120)"/>
+              <use href="#sym-ammeter" x="60" y="20" width="60" height="40"/>
+              <use href="#sym-ammeter" x="165" y="20" width="60" height="40"/>
+              <use href="#sym-lamp" x="240" y="20" width="60" height="40"/>
+              <use href="#sym-ammeter" x="165" y="100" width="60" height="40"/>
+              <use href="#sym-lamp" x="240" y="100" width="60" height="40"/>
+              <circle class="dot" cx="150" cy="40" r="5"/><circle class="dot" cx="330" cy="120" r="5"/>
+              <text class="label" x="90" y="16" text-anchor="middle">0.9 A</text>
+              <text class="label" x="195" y="16" text-anchor="middle">0.4 A</text>
+              <text class="label" x="195" y="96" text-anchor="middle">?</text>
+            </svg>
+          </figure>
+          <div class="answer-row">
+            <label class="answer-label" for="eb-parallel-i">Reading =</label>
+            <input class="answer" id="eb-parallel-i" type="text" inputmode="decimal" autocomplete="off">
+            <span class="answer-unit">A</span>
+            <button type="button" class="tool q-check">Check</button>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>The current from the battery splits at the junction. Whatever doesn't go along the top branch goes along the bottom one.</p></details>
+          <p class="mistake" data-value="1.3">You've added the two readings. The 0.9 A from the battery splits between the branches, so the two branch currents add up to 0.9 A.</p>
+          <p class="mistake" data-value="0.9">That would be true in a series circuit. Here the 0.9 A splits at the junction.</p>
+          <p class="mistake" data-value="0.4">The branches don't have to carry the same current. The two branch currents must add up to 0.9 A.</p>
+          <p class="mistake" data-value="0.45">The current isn't splitting equally here: 0.4 A goes along the top branch. What is left for the bottom one?</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>I<sub>p</sub> = I<sub>1</sub> + I<sub>2</sub></li>
+              <li>0.9 = 0.4 + I<sub>2</sub></li>
+              <li>I<sub>2</sub> = 0.5 A</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 4: Ohm's law ============ -->
+    <section class="room deck" data-name="Turbine hall" data-short="Turbines" data-topic="Ohm's law" data-letter="T" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="800" height="240" fill="#0d1230"/>
@@ -226,7 +441,7 @@
           <text class="scene-status is-good when-done" x="534" y="200" text-anchor="middle">TURBINE RUNNING</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 2 of 6 · Ohm's law</p>
+          <p class="console-tag">Room 4 of 9 · Ohm's law</p>
           <h2>Turbine hall</h2>
           <p class="room-story">The turbine has stopped and its control circuits need checking before it can spin again. Time for some Ohm's law.</p>
         </div>
@@ -380,8 +595,8 @@
       <div class="door"></div>
     </section>
 
-    <!-- ============ Room 3: Resistors in series and parallel ============ -->
-    <section class="room deck" data-name="Cable gallery" data-short="Cables" data-topic="Resistors in series and parallel" data-letter="I" hidden>
+    <!-- ============ Room 5: Resistors in series and parallel ============ -->
+    <section class="room deck" data-name="Cable gallery" data-short="Cables" data-topic="Resistors in series and parallel" data-letter="C" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="800" height="240" fill="#0d1230"/>
@@ -400,7 +615,7 @@
           <text class="scene-status is-good when-done" x="400" y="198" text-anchor="middle">CABLES LIVE</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 3 of 6 · Resistors in series and parallel</p>
+          <p class="console-tag">Room 5 of 9 · Resistors in series and parallel</p>
           <h2>Cable gallery</h2>
           <p class="room-story">The cables that carry power out of the mountain have tripped. Work out the resistances to reconnect them safely.</p>
         </div>
@@ -525,8 +740,8 @@
       <div class="door"></div>
     </section>
 
-    <!-- ============ Room 4: Potential dividers ============ -->
-    <section class="room deck" data-name="Sensor bay" data-short="Sensors" data-topic="Potential dividers" data-letter="T" hidden>
+    <!-- ============ Room 6: Potential dividers ============ -->
+    <section class="room deck" data-name="Sensor bay" data-short="Sensors" data-topic="Potential dividers" data-letter="H" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="800" height="240" fill="#0d1230"/>
@@ -543,7 +758,7 @@
           <text class="scene-status is-good when-done" x="520" y="54" text-anchor="middle">SENSORS LIVE</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 4 of 6 · Potential dividers</p>
+          <p class="console-tag">Room 6 of 9 · Potential dividers</p>
           <h2>Sensor bay</h2>
           <p class="room-story">The station's temperature and light sensors are giving no readings. Each one is a potential divider: get them working again.</p>
         </div>
@@ -695,8 +910,166 @@
       <div class="door"></div>
     </section>
 
-    <!-- ============ Room 5: Transistor switching and power ============ -->
-    <section class="room deck" data-name="Tunnel gate" data-short="Gate" data-topic="Transistor switching and power" data-letter="C" hidden>
+    <!-- ============ Room 7: Power and energy ============ -->
+    <section class="room deck" data-name="Generator hall" data-short="Power" data-topic="Power and energy" data-letter="I" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="240" fill="#0d1230"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <rect x="200" y="96" width="250" height="100" rx="50" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
+          <path d="M260 100V192M300 98V194M340 98V194M380 98V194M420 104V188" stroke="#5d6aa8" stroke-width="4"/>
+          <rect x="230" y="196" width="40" height="10" fill="#8b93c9"/><rect x="380" y="196" width="40" height="10" fill="#8b93c9"/>
+          <rect x="450" y="138" width="50" height="16" fill="#8b93c9"/>
+          <rect x="520" y="70" width="130" height="110" rx="10" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <path d="M540 150A45 45 0 0 1 630 150" fill="none" stroke="#5d6aa8" stroke-width="5"/>
+          <path class="needle" d="M585 150V112" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="585" cy="150" r="6" fill="#d8dcef"/>
+          <text class="scene-small" x="585" y="100" text-anchor="middle">kW</text>
+          <path class="when-broken" d="M500 146H520" stroke="#5d6aa8" stroke-width="5"/>
+          <path class="when-done flow" d="M500 146H520" fill="none" stroke="#5eead4" stroke-width="5"/>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="325" cy="76" r="8"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="325" cy="76" r="8"/></g>
+          <text class="scene-status when-broken" x="325" y="52" text-anchor="middle">OUTPUT 0 W</text>
+          <text class="scene-status is-good when-done" x="325" y="52" text-anchor="middle">OUTPUT RESTORED</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 7 of 9 · Power and energy</p>
+          <h2>Generator hall</h2>
+          <p class="room-story">The generator is ready, but the station's own equipment has to be checked first. Work out the power, energy and time for each piece of kit.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">1.</span>The rating plate on a heater in the generator hall says 2000 W. What does this tell you?</p>
+          <div class="options">
+            <button type="button" class="option" data-feedback="A power rating doesn't give a total. It says how quickly energy is transferred.">The heater transfers 2000 J of energy in total</button>
+            <button type="button" class="option" data-feedback="Watts measure power, not voltage. Voltage is measured in volts.">The heater needs a 2000 V supply</button>
+            <button type="button" class="option" data-feedback="Right idea, wrong time. One watt is one joule every second.">The heater transfers 2000 J of energy every hour</button>
+            <button type="button" class="option" data-correct>The heater transfers 2000 J of energy every second</button>
+          </div>
+          <div class="q-explain">Power is the energy transferred <strong>every second</strong>. One watt is one joule per second, so a 2000 W heater transfers 2000 J of energy each second it is switched on.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">2.</span>Sort these appliances from the station's staff room by their power rating.</p>
+          <div class="match is-sort">
+            <p class="match-hint">Drag each appliance into its group, or tap it and then the group.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="high" data-label="High" data-feedback="Think about what each appliance is for. Is its main job to heat something?">Kettle</button>
+              <button type="button" class="match-item is-text" data-key="low" data-label="Low" data-feedback="Think about what each appliance is for. Is its main job to heat something?">LED lamp</button>
+              <button type="button" class="match-item is-text" data-key="low" data-label="Low" data-feedback="Think about what each appliance is for. Is its main job to heat something?">Phone charger</button>
+              <button type="button" class="match-item is-text" data-key="high" data-label="High" data-feedback="Think about what each appliance is for. Is its main job to heat something?">Electric heater</button>
+              <button type="button" class="match-item is-text" data-key="high" data-label="High" data-feedback="Think about what each appliance is for. Is its main job to heat something?">Toaster</button>
+              <button type="button" class="match-item is-text" data-key="low" data-label="Low" data-feedback="Think about what each appliance is for. Is its main job to heat something?">Radio</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="high">High power rating (about 1000 W or more)</button>
+              <button type="button" class="match-target" data-key="low">Low power rating (under 100 W)</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>Heating takes a lot of energy every second.</p></details>
+          <div class="q-explain">Appliances whose job is to <strong>produce heat</strong> (kettle, heater, toaster) have high power ratings: they transfer a lot of energy every second. Appliances that produce light or sound, or charge a small battery, need far less.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="300">
+          <p class="q-prompt"><span class="q-num">3.</span>A cooling pump transfers 54 000 J of energy in 3 minutes. Calculate the power of the pump.</p>
+          <ol class="steps">
+            <li class="step" data-then="Write it in your jotter, then put the numbers in. Check the units first.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="That links voltage, current and resistance. You need the one with power, energy and time."><span class="eq">V = IR</span></button>
+                <button type="button" class="option" data-correct><span class="eq">P = <span class="frac"><span>E</span><span>t</span></span></span></button>
+                <button type="button" class="option" data-feedback="That adds up resistors in series. You need the one with power, energy and time."><span class="eq">R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub></span></button>
+              </div>
+            </li>
+            <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="The time has to be in seconds. How many seconds are in 3 minutes?"><span class="eq">P = <span class="frac"><span>54 000</span><span>3</span></span></span></button>
+                <button type="button" class="option" data-feedback="E is the energy and t is the time. Check which number goes on top."><span class="eq">P = <span class="frac"><span>180</span><span>54 000</span></span></span></button>
+                <button type="button" class="option" data-correct><span class="eq">P = <span class="frac"><span>54 000</span><span>180</span></span></span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-pump">P =</label>
+                <input class="answer" id="eb-pump" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">W</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="18000">You've used the time in minutes. It has to be in seconds: 3 minutes is 180 s.</p>
+          <p class="mistake" data-value="9720000">You've multiplied. Power is the energy divided by the time.</p>
+          <p class="mistake" data-value="162000">You've multiplied, and the time is still in minutes. Power is the energy divided by the time in seconds.</p>
+          <p class="mistake" data-value="0.00333">You've divided the time by the energy. It's the other way round.</p>
+          <p class="mistake" data-value="0.0033">You've divided the time by the energy. It's the other way round.</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>P = <span class="frac"><span>E</span><span>t</span></span></li>
+              <li>P = <span class="frac"><span>54 000</span><span>180</span></span></li>
+              <li>P = 300 W</li>
+            </ul>
+            <p>The time must be in seconds: 3 × 60 = 180 s.</p>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="180">
+          <p class="q-prompt"><span class="q-num">4.</span>A 2.5 kW heater dries out the generator's windings. It has to transfer 450 000 J of energy. Calculate the time this takes.</p>
+          <ol class="steps">
+            <li class="step" data-then="Write it in your jotter, then put the numbers in. Check the units first.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-correct><span class="eq">P = <span class="frac"><span>E</span><span>t</span></span></span></button>
+                <button type="button" class="option" data-feedback="That is for a potential divider. You need the one with power, energy and time."><span class="eq">V<sub>2</sub> = <span class="frac"><span>R<sub>2</sub></span><span>R<sub>1</sub> + R<sub>2</sub></span></span> × V<sub>s</sub></span></button>
+                <button type="button" class="option" data-feedback="That links voltage, current and resistance. You need the one with power, energy and time."><span class="eq">V = IR</span></button>
+              </div>
+            </li>
+            <li class="step" data-then="Write that line underneath, then rearrange it to find t. Don't forget the unit.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-correct><span class="eq">2500 = <span class="frac"><span>450 000</span><span>t</span></span></span></button>
+                <button type="button" class="option" data-feedback="Check the prefix: k means × 1000, so 2.5 kW is not 2.5 W."><span class="eq">2.5 = <span class="frac"><span>450 000</span><span>t</span></span></span></button>
+                <button type="button" class="option" data-feedback="P is the power and E is the energy. Check which number is which."><span class="eq">450 000 = <span class="frac"><span>2500</span><span>t</span></span></span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-heater">t =</label>
+                <input class="answer" id="eb-heater" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">s</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="180000">Check the prefix: 2.5 kW is 2500 W.</p>
+          <p class="mistake" data-value="1125000000">You've multiplied. Rearrange 2500 = 450 000 ÷ t to get t on its own.</p>
+          <p class="mistake" data-value="1125000">You've multiplied, and the power is still in kW. Rearrange to get t on its own, with the power in watts.</p>
+          <p class="mistake" data-value="0.00556">You've divided the power by the energy. It's the other way round.</p>
+          <p class="mistake" data-value="0.0056">You've divided the power by the energy. It's the other way round.</p>
+          <p class="mistake" data-value="3">That's the time in minutes. The answer box asks for seconds.</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>P = <span class="frac"><span>E</span><span>t</span></span></li>
+              <li>2500 = <span class="frac"><span>450 000</span><span>t</span></span></li>
+              <li>t = 180 s</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 8: Transistor switching and power ============ -->
+    <section class="room deck" data-name="Tunnel gate" data-short="Gate" data-topic="Transistor switching and power" data-letter="N" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
@@ -728,7 +1101,7 @@
           <text class="scene-status is-good when-done" x="200" y="150" text-anchor="middle">GATE OPEN</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 5 of 6 · Transistor switching and power</p>
+          <p class="console-tag">Room 8 of 9 · Transistor switching and power</p>
           <h2>Tunnel gate</h2>
           <p class="room-story">The tunnel gate is the only way out to the switchyard. Its motor is controlled by a transistor switching circuit: get it working to open the gate.</p>
         </div>
@@ -849,8 +1222,8 @@
       <div class="door"></div>
     </section>
 
-    <!-- ============ Room 6: Building circuits (live boards from circuit-builder.js) ============ -->
-    <section class="room deck" data-name="Switchyard" data-short="Yard" data-topic="Building circuits" data-letter="H" hidden>
+    <!-- ============ Room 9: Building circuits (live boards from circuit-builder.js) ============ -->
+    <section class="room deck" data-name="Switchyard" data-short="Yard" data-topic="Building circuits" data-letter="G" hidden>
       <div class="room-head">
         <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="800" height="240" fill="#060920"/>
@@ -876,7 +1249,7 @@
           <text class="scene-status is-good when-done" x="400" y="60" text-anchor="middle">GRID CONNECTED</text>
         </svg>
         <div class="console-text">
-          <p class="console-tag">Room 6 of 6 · Building circuits</p>
+          <p class="console-tag">Room 9 of 9 · Building circuits</p>
           <h2>Switchyard</h2>
           <p class="room-story">You're outside, in the switchyard where the power leaves for the glen. The lightning burned parts out of three test circuits. Finish each circuit to reconnect the grid.</p>
         </div>
@@ -892,7 +1265,7 @@
           </ul>
         </div>
 
-        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-board-1" data-preset="ammeter-branch" data-grid="13x9">
+        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-2-board-1" data-preset="ammeter-branch" data-grid="13x9">
           <div class="q cb-task" data-check="ammeter-branch">
             <p class="q-prompt"><span class="q-num">1.</span>The switchyard's two warning lamps, P and Q, are connected in parallel. Add an ammeter to measure the current in lamp <strong>Q only</strong>.</p>
             <details class="hint"><summary>Hint</summary><p>An ammeter only measures the current that goes through it. Trace lamp Q's path round the circuit with your finger. Which wires carry lamp Q's current and nothing else?</p></details>
@@ -920,7 +1293,7 @@
           </div>
         </div>
 
-        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-board-2" data-preset="voltmeter-lamp" data-grid="13x9">
+        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-2-board-2" data-preset="voltmeter-lamp" data-grid="13x9">
           <div class="q cb-task" data-check="voltmeter-lamp">
             <p class="q-prompt"><span class="q-num">2.</span>A lamp and a 5 Ω resistor are connected in series with a 3 V battery. Add a voltmeter to measure the voltage <strong>across the lamp</strong>.</p>
             <details class="hint"><summary>Hint</summary><p>Leave the circuit as it is. Put the voltmeter in an empty space near the lamp, then draw a wire from each end of the voltmeter to the circuit.</p></details>
@@ -948,7 +1321,7 @@
           </div>
         </div>
 
-        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-board-3" data-preset="parallel-switch" data-grid="13x9">
+        <div class="cb" data-circuit-builder data-key="n5-escape-room-electricity-2-board-3" data-preset="parallel-switch" data-grid="13x9">
           <div class="q cb-task" data-check="parallel-switch">
             <p class="q-prompt"><span class="q-num">3.</span>The yard's floodlight circuit has one lamp left. Add a second lamp so that <strong>both</strong> lamps are as bright as the first lamp is now. Then add a switch that turns off <strong>the new lamp only</strong>.</p>
             <details class="hint"><summary>Hint</summary><p>Two lamps in series have to share the cell's voltage. Put the new lamp in an empty space, then draw a wire from each end of it to the circuit, so it has a path of its own from one side of the cell to the other.</p></details>

@@ -2,7 +2,9 @@
 // only adds the game around them: a briefing, rooms that unlock one at a time, a door at the end of
 // each room with one light per question, a mission clock, a code letter per room and a final screen.
 //
-//   [data-escape]     wrapper; data-key names its saved progress in localStorage
+//   [data-escape]     wrapper; data-key names its saved progress in localStorage. Optional
+//                     data-finish (the last door's button, default "Launch the escape pod") and
+//                     data-go (the last word of the countdown, default "Launch!")
 //   [data-briefing]   start screen, with a [data-start] button
 //   [data-hud]        sticky bar: .hud-clock, .hud-penalty, .hud-code (filled in here), .hud-doors
 //   .station-map      empty <nav>, filled in here with one button per room
@@ -63,7 +65,7 @@
 
   rooms.forEach((room, i) => {
     const next = rooms[i + 1];
-    const go = next ? 'Enter Room ' + (i + 2) + ': ' + next.dataset.name : 'Launch the escape pod';
+    const go = next ? 'Enter Room ' + (i + 2) + ': ' + next.dataset.name : (root.dataset.finish || 'Launch the escape pod');
     room.querySelector('.door').innerHTML =
       '<div class="door-beyond">' +
         '<p class="door-label">Code letter</p><p class="door-letter">' + room.dataset.letter + '</p>' +
@@ -248,7 +250,7 @@
     const box = document.createElement('div');
     box.className = 'countdown';
     door.append(box);
-    const steps = ['3', '2', '1', 'Launch!'];
+    const steps = ['3', '2', '1', root.dataset.go || 'Launch!'];
     let n = 0;
     const show = () => {
       box.classList.toggle('is-go', n === steps.length - 1);

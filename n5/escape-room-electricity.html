@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electricity escape room · National 5 Physics · Sloss Physics</title>
+  <meta name="description" content="N5 Physics prelim revision escape room for Electricity: five sealed rooms in a blacked-out hydro power station, opened with circuit symbols, Ohm's law, resistors, potential dividers and transistor switching questions.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/starter.css">
+  <link rel="stylesheet" href="../assets/css/escape-room.css">
+  <script src="../assets/js/circuit-symbols.js" defer></script>
+  <script src="../assets/js/starter.js" defer></script>
+  <script src="../assets/js/escape-room.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter escape" data-level="n5" data-escape data-key="n5-escape-room-electricity" data-finish="Switch the power back on" data-go="Power on!">
+    <ol class="crumbs">
+      <li><a href="../index.html">All levels</a></li>
+      <li><a href="index.html">National 5 Physics</a></li>
+      <li>Tools</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Prelim revision · Electricity</p>
+    <h1>Blackout at Glen Lochan</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning to answer exam questions from the Electricity topic.</p>
+      <p><strong>SC:</strong> I can set out a calculation as formula, substitution and answer · I can find total resistance and the voltages in a potential divider · I can explain how a transistor switching circuit works.</p>
+    </div>
+
+    <div class="hud" data-hud hidden>
+      <div class="hud-item">
+        <span class="hud-label">Clock</span>
+        <span><output class="hud-clock">0:00</output><span class="hud-penalty"></span></span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">Restart code</span>
+        <span class="hud-code"></span>
+      </div>
+      <div class="hud-item is-doors">
+        <span class="hud-label">Doors open</span>
+        <output class="hud-doors">0 of 5</output>
+      </div>
+    </div>
+
+    <nav class="station-map" aria-label="Power station map" hidden></nav>
+
+    <section class="briefing deck" data-briefing>
+      <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="eb-hazard-a" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="20" fill="#fbbf24"/><rect x="10" width="10" height="20" fill="#1d1442"/></pattern>
+        </defs>
+        <path d="M0 240L150 120L250 190L360 62L470 150L540 100L720 240Z" fill="#182057" stroke="#2c3a7a" stroke-width="3"/>
+        <path d="M360 62L334 96L352 90L366 104L384 92Z" fill="#d8dcef" opacity="0.5"/>
+        <rect x="170" y="176" width="120" height="64" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+        <g fill="#071126"><rect x="184" y="190" width="20" height="16"/><rect x="220" y="190" width="20" height="16"/><rect x="256" y="190" width="20" height="16"/></g>
+        <rect class="blink" x="220" y="190" width="20" height="16" fill="#fbbf24"/>
+        <path d="M352 240V200a34 34 0 0 1 68 0V240Z" fill="#05030d" stroke="#8b93c9" stroke-width="4"/>
+        <rect x="356" y="206" width="60" height="12" fill="url(#eb-hazard-a)"/>
+        <g fill="none" stroke="#8b93c9" stroke-width="3" stroke-linecap="round">
+          <path d="M560 240L582 120L604 240M568 196H596M573 166H591M552 140H612M582 120V108"/>
+          <path d="M552 140Q450 176 290 180" stroke="#5d6aa8" stroke-dasharray="5 7"/>
+          <path d="M612 140Q650 160 690 150" stroke="#5d6aa8" stroke-dasharray="5 7"/>
+        </g>
+        <path class="blink" d="M610 28L584 74H602L576 108" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle class="pulse" cx="582" cy="108" r="14" fill="#fbbf24" opacity="0.6"/>
+      </svg>
+      <div class="console-text">
+        <p class="console-tag is-warn">Alert · Power failure</p>
+        <h2>Night shift briefing</h2>
+        <p>Lightning has hit Glen Lochan hydro power station, deep inside the mountain. The whole glen is in darkness, and you're the only engineer on shift. The safety system has sealed every door, and it will only open them for someone who knows their electricity.</p>
+        <ul class="rules">
+          <li><strong>Every question you get right opens one lock.</strong> Open all three locks in a room and its door slides open.</li>
+          <li><strong>Each door gives you one letter</strong> of the restart code. Collect all five to switch the power back on.</li>
+          <li><strong>Calculations open in three steps:</strong> formula, substitute, solve. Write each line in your jotter as you go. In the exam, each of those lines earns a mark.</li>
+          <li><strong>Stuck on a final answer?</strong> After three tries, an emergency override appears. It opens the lock and shows the working, but adds 2 minutes to your time.</li>
+          <li><strong>You need</strong> a calculator, the relationships sheet and your jotter.</li>
+        </ul>
+        <button type="button" class="launch" data-start>Start the shift</button>
+      </div>
+    </section>
+
+    <!-- ============ Room 1: Circuits and meters ============ -->
+    <section class="room deck" data-name="Control room" data-short="Control" data-topic="Circuits and meters" data-letter="V" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="240" fill="#0d1230"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <rect x="150" y="44" width="230" height="120" rx="12" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <path d="M196 48V160M242 48V160M288 48V160M334 48V160M154 84H376M154 124H376" stroke="#1e3a6b" stroke-width="2"/>
+          <path class="when-broken blink" d="M160 104H370" fill="none" stroke="#fbbf24" stroke-width="3"/>
+          <path class="when-done" d="M160 104Q171.5 60 183 104T206 104T229 104T252 104T275 104T298 104T321 104T344 104T367 104" fill="none" stroke="#5eead4" stroke-width="3"/>
+          <circle cx="470" cy="112" r="34" fill="#071126" stroke="#fbbf24" stroke-width="4"/>
+          <circle cx="570" cy="112" r="34" fill="#071126" stroke="#5eead4" stroke-width="4"/>
+          <path class="needle" d="M470 112V86" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+          <path class="needle is-2" d="M570 112V86" stroke="#5eead4" stroke-width="4" stroke-linecap="round"/>
+          <path d="M130 206L165 176H635L670 206Z" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="230" cy="191" r="6"/><circle cx="270" cy="191" r="6"/><circle cx="310" cy="191" r="6"/><circle cx="490" cy="191" r="6"/><circle cx="530" cy="191" r="6"/><circle cx="570" cy="191" r="6"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="230" cy="191" r="6"/><circle cx="270" cy="191" r="6"/><circle cx="310" cy="191" r="6"/><circle cx="490" cy="191" r="6"/><circle cx="530" cy="191" r="6"/><circle cx="570" cy="191" r="6"/></g>
+          <text class="scene-status when-broken" x="520" y="58" text-anchor="middle">PANEL OFFLINE</text>
+          <text class="scene-status is-good when-done" x="520" y="58" text-anchor="middle">PANEL ONLINE</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 1 of 5 · Circuits and meters</p>
+          <h2>Control room</h2>
+          <p class="room-story">The lightning has wiped the control panel. Sort out its symbols, signals and meters to bring it back to life.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">1.</span>The labels on the control panel have burned off. Match each symbol to its name.</p>
+          <div class="match">
+            <p class="match-hint">Drag each symbol onto its name, or tap a symbol and then its name.</p>
+            <div class="match-items">
+              <button type="button" class="match-item" data-key="ldr" data-label="LDR" aria-label="Symbol 1">
+                <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ldr"/></svg>
+              </button>
+              <button type="button" class="match-item" data-key="var" data-label="Variable resistor" aria-label="Symbol 2">
+                <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-variable-resistor"/></svg>
+              </button>
+              <button type="button" class="match-item" data-key="led" data-label="LED" aria-label="Symbol 3">
+                <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-led"/></svg>
+              </button>
+              <button type="button" class="match-item" data-key="therm" data-label="Thermistor" aria-label="Symbol 4">
+                <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-thermistor"/></svg>
+              </button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="therm">Thermistor</button>
+              <button type="button" class="match-target" data-key="led">LED</button>
+              <button type="button" class="match-target" data-key="ldr">LDR</button>
+              <button type="button" class="match-target" data-key="var">Variable resistor</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>Arrows pointing in mean light going in. Arrows pointing out mean light coming out. A thermistor's line has a short flat foot.</p></details>
+          <div class="q-explain">An LDR's resistance changes with light level, and a thermistor's changes with temperature. Both turn up in almost every switching circuit in the exam.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">2.</span>An oscilloscope is used to test four power supplies. The dashed line on each screen is zero volts. Sort the traces into a.c. and d.c.</p>
+          <div class="match is-sort">
+            <p class="match-hint">Drag each trace into its group, or tap a trace and then the group.</p>
+            <div class="match-items">
+              <button type="button" class="match-item" data-key="ac" data-label="a.c." data-feedback="Look at whether the trace crosses the dashed zero line." aria-label="Trace: a smooth wave that goes above and below the zero line"><svg viewBox="0 0 96 64" aria-hidden="true"><rect x="2" y="2" width="92" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 32H92" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/><path d="M4 32Q15 2 26 32T48 32T70 32T92 32" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></button>
+              <button type="button" class="match-item" data-key="dc" data-label="d.c." data-feedback="Look at whether the trace crosses the dashed zero line." aria-label="Trace: a flat line above the zero line"><svg viewBox="0 0 96 64" aria-hidden="true"><rect x="2" y="2" width="92" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 32H92" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/><path d="M6 16H90" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></button>
+              <button type="button" class="match-item" data-key="ac" data-label="a.c." data-feedback="Look at whether the trace crosses the dashed zero line." aria-label="Trace: a square wave that jumps above and below the zero line"><svg viewBox="0 0 96 64" aria-hidden="true"><rect x="2" y="2" width="92" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 32H92" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/><path d="M6 16H26V48H48V16H70V48H90" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button type="button" class="match-item" data-key="dc" data-label="d.c." data-feedback="Look at whether the trace crosses the dashed zero line." aria-label="Trace: a flat line below the zero line"><svg viewBox="0 0 96 64" aria-hidden="true"><rect x="2" y="2" width="92" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 32H92" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/><path d="M6 48H90" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="ac">a.c. (alternating current)</button>
+              <button type="button" class="match-target" data-key="dc">d.c. (direct current)</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>In d.c. the electrons only ever move one way round the circuit. In a.c. they keep changing direction.</p></details>
+          <div class="q-explain">In <strong>d.c.</strong> the electrons move in one direction only, so the trace stays on one side of zero. In <strong>a.c.</strong> they change direction again and again, so the trace goes above and below zero. A wave doesn't have to be smooth to be a.c.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">3.</span>An engineer wants to measure the current in resistor R and the voltage across resistor R. Two meters, X and Y, are connected as shown. What must each meter be?</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 0 320 230" role="img" aria-label="A circuit with a 6 volt battery, meter X, resistor R and a variable resistor all in one loop, in series. Meter Y is connected across resistor R, in parallel with it.">
+              <path class="wire" d="M30 90V40H70M130 40H180M240 40H290V200H200M140 200H30V150M165 40V110H180M240 110H255V40"/>
+              <use href="#sym-battery" x="0" y="100" width="60" height="40" transform="rotate(90 30 120)"/>
+              <use href="#sym-ring" x="70" y="20" width="60" height="40"/>
+              <use href="#sym-resistor" x="180" y="20" width="60" height="40"/>
+              <use href="#sym-ring" x="180" y="90" width="60" height="40"/>
+              <use href="#sym-variable-resistor" x="140" y="180" width="60" height="40"/>
+              <circle class="dot" cx="165" cy="40" r="5"/>
+              <circle class="dot" cx="255" cy="40" r="5"/>
+              <text class="label" x="100" y="46" text-anchor="middle" style="font-size:16px">X</text>
+              <text class="label" x="210" y="116" text-anchor="middle" style="font-size:16px">Y</text>
+              <text class="label" x="210" y="16" text-anchor="middle">R</text>
+              <text class="label" x="58" y="126">6.0 V</text>
+            </svg>
+          </figure>
+          <div class="options">
+            <button type="button" class="option" data-feedback="Check which is which. A voltmeter is connected across a component, not in the loop with it.">X is a voltmeter and Y is an ammeter</button>
+            <button type="button" class="option" data-feedback="Y is connected across R, in parallel. What does a meter across a component measure?">X and Y are both ammeters</button>
+            <button type="button" class="option" data-correct>X is an ammeter and Y is a voltmeter</button>
+            <button type="button" class="option" data-feedback="X is in the loop, in series with R, so the current goes through it. What does that kind of meter measure?">X and Y are both voltmeters</button>
+          </div>
+          <div class="q-explain">An ammeter goes <strong>in series</strong> with the component, so the same current passes through both. A voltmeter goes <strong>in parallel</strong>, across the component. When you draw this circuit in the exam, that's one mark for each meter. The variable resistor lets the engineer change the voltage across R.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 2: Ohm's law ============ -->
+    <section class="room deck" data-name="Turbine hall" data-short="Turbines" data-topic="Ohm's law" data-letter="O" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="240" fill="#0d1230"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <circle cx="300" cy="125" r="78" fill="#182057" stroke="#8b93c9" stroke-width="4"/>
+          <g class="when-broken" fill="#5d6aa8"><path d="M300 125V55Q332 72 318 112ZM300 125H370Q353 157 313 143ZM300 125V195Q268 178 282 138ZM300 125H230Q247 93 287 107Z"/></g>
+          <g class="when-done orbit" fill="#8fb0ff"><path d="M300 125V55Q332 72 318 112ZM300 125H370Q353 157 313 143ZM300 125V195Q268 178 282 138ZM300 125H230Q247 93 287 107Z"/></g>
+          <circle cx="300" cy="125" r="13" fill="#d8dcef" stroke="#1d1442" stroke-width="3"/>
+          <rect x="378" y="117" width="72" height="16" fill="#8b93c9"/>
+          <rect x="450" y="76" width="168" height="98" rx="14" fill="#3a3f75" stroke="#8b93c9" stroke-width="4"/>
+          <path d="M482 80V170M512 80V170M542 80V170M572 80V170M602 80V170" stroke="#5d6aa8" stroke-width="4"/>
+          <path class="when-done flow" d="M618 125H690" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/>
+          <path class="when-broken" d="M618 125H690" fill="none" stroke="#5d6aa8" stroke-width="5" stroke-linecap="round"/>
+          <text class="scene-status when-broken" x="534" y="200" text-anchor="middle">TURBINE STOPPED</text>
+          <text class="scene-status is-good when-done" x="534" y="200" text-anchor="middle">TURBINE RUNNING</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 2 of 5 · Ohm's law</p>
+          <h2>Turbine hall</h2>
+          <p class="room-story">The turbine has stopped and its control circuits need checking before it can spin again. Time for some Ohm's law.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-input" data-answer="48">
+          <p class="q-prompt"><span class="q-num">1.</span>A warning lamp on the turbine has a voltage of 12 V across it. The current in the lamp is 0.25 A. Calculate the resistance of the lamp.</p>
+          <ol class="steps">
+            <li class="step" data-next="Write it in your jotter, then put the numbers in.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="That links power, energy and time. You need the one with voltage, current and resistance."><span class="eq">P = <span class="frac"><span>E</span><span>t</span></span></span></button>
+                <button type="button" class="option" data-correct><span class="eq">V = IR</span></button>
+                <button type="button" class="option" data-feedback="That adds up resistors in series. Here there is one lamp, with a voltage and a current."><span class="eq">R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub></span></button>
+              </div>
+            </li>
+            <li class="step" data-next="Write that line underneath, then solve it. Don't forget the unit.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="V is the voltage and I is the current. Check which number is which."><span class="eq">0.25 = 12 × R</span></button>
+                <button type="button" class="option" data-feedback="Don't rearrange yet. Swap each letter in V = IR for its number, in the same places."><span class="eq">R = 12 × 0.25</span></button>
+                <button type="button" class="option" data-correct><span class="eq">12 = 0.25 × R</span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-lamp">R =</label>
+                <input class="answer" id="eb-lamp" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">Ω</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="3">You've multiplied. Rearrange 12 = 0.25 × R to get R on its own.</p>
+          <p class="mistake" data-value="0.0208">You've divided the current by the voltage. It's the other way round.</p>
+          <p class="mistake" data-value="0.02">You've divided the current by the voltage. It's the other way round.</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>V = IR</li>
+              <li>12 = 0.25 × R</li>
+              <li>R = 48 Ω</li>
+            </ul>
+            In the exam that's 3 marks: one for the formula, one for the substitution, and one for the answer with its unit.
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="50">
+          <p class="q-prompt"><span class="q-num">2.</span>An engineer tests a resistor from the turbine's control circuit and draws this graph. Using the gradient of the graph, determine the resistance of the resistor.</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="-72 0 462 312" role="img" aria-label="A graph of voltage across the resistor, in volts, against current in the resistor, in amps. It is a straight line from the origin to the point where the current is 0.08 amps and the voltage is 4.0 volts.">
+              <path d="M90 10V260M180 10V260M270 10V260M360 10V260M0 210H360M0 160H360M0 110H360M0 60H360M0 10H360" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+              <path class="wire" d="M0 10V260H360"/>
+              <path d="M0 260L360 60" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <g class="label" text-anchor="end" style="font-size:16px"><text x="-8" y="265">0</text><text x="-8" y="215">1.0</text><text x="-8" y="165">2.0</text><text x="-8" y="115">3.0</text><text x="-8" y="65">4.0</text><text x="-8" y="16">5.0</text></g>
+              <g class="label" text-anchor="middle" style="font-size:16px"><text x="0" y="282">0</text><text x="90" y="282">0.02</text><text x="180" y="282">0.04</text><text x="270" y="282">0.06</text><text x="360" y="282">0.08</text></g>
+              <text class="label" x="180" y="306" text-anchor="middle" style="font-size:16px">current in resistor (A)</text>
+              <text class="label" x="-52" y="135" text-anchor="middle" transform="rotate(-90 -52 135)" style="font-size:16px">voltage across resistor (V)</text>
+            </svg>
+          </figure>
+          <ol class="steps">
+            <li class="step" data-next="Now pick two points on the line, far apart, and put them in.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-correct><span class="eq">gradient = <span class="frac"><span>y<sub>2</sub> − y<sub>1</sub></span><span>x<sub>2</sub> − x<sub>1</sub></span></span></span></button>
+                <button type="button" class="option" data-feedback="Gradient is the change up the way divided by the change along the way."><span class="eq">gradient = <span class="frac"><span>x<sub>2</sub> − x<sub>1</sub></span><span>y<sub>2</sub> − y<sub>1</sub></span></span></span></button>
+                <button type="button" class="option" data-feedback="A gradient is one change divided by another, not two readings multiplied."><span class="eq">gradient = y<sub>2</sub> × x<sub>2</sub></span></button>
+              </div>
+            </li>
+            <li class="step" data-next="Write that line in your jotter, then work it out. The gradient of this graph is the resistance.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="Voltage is on the vertical axis, so the voltages go on top."><span class="eq">gradient = <span class="frac"><span>0.08 − 0</span><span>4.0 − 0</span></span></span></button>
+                <button type="button" class="option" data-feedback="Check the scale along the bottom: the line ends at 0.08 A, not 8 A."><span class="eq">gradient = <span class="frac"><span>4.0 − 0</span><span>8 − 0</span></span></span></button>
+                <button type="button" class="option" data-correct><span class="eq">gradient = <span class="frac"><span>4.0 − 0</span><span>0.08 − 0</span></span></span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-gradient">R =</label>
+                <input class="answer" id="eb-gradient" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">Ω</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="0.02">You've divided the current by the voltage. The voltages go on top.</p>
+          <p class="mistake" data-value="0.32">You've multiplied. A gradient is one change divided by the other.</p>
+          <p class="mistake" data-value="0.5">Check the scale along the bottom: the line ends at 0.08 A, not 8 A.</p>
+          <details class="hint"><summary>Hint</summary><p>Use two points that the line goes right through, as far apart as you can: the origin and the top end of the line work well.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>gradient = <span class="frac"><span>y<sub>2</sub> − y<sub>1</sub></span><span>x<sub>2</sub> − x<sub>1</sub></span></span></li>
+              <li>gradient = <span class="frac"><span>4.0 − 0</span><span>0.08 − 0</span></span></li>
+              <li>R = 50 Ω</li>
+            </ul>
+            When a question says "using the gradient", show two points from the line in your working. A resistance worked out from a single point gets no marks.
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="0.005">
+          <p class="q-prompt"><span class="q-num">3.</span>The turbine's speed sensor has a resistance of 2.2 kΩ. The voltage across it is 11 V. Calculate the current in the sensor.</p>
+          <ol class="steps">
+            <li class="step" data-next="Write it in your jotter, then put the numbers in. Watch the units.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-correct><span class="eq">V = IR</span></button>
+                <button type="button" class="option" data-feedback="That one is for the total resistance of resistors in parallel. Here there is one sensor."><span class="eq"><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>R<sub>1</sub></span></span> + <span class="frac"><span>1</span><span>R<sub>2</sub></span></span></span></button>
+                <button type="button" class="option" data-feedback="That links power, energy and time. You need the one with voltage, current and resistance."><span class="eq">P = <span class="frac"><span>E</span><span>t</span></span></span></button>
+              </div>
+            </li>
+            <li class="step" data-next="Write that line underneath, then solve it. Don't forget the unit.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="Check the prefix: kilo (k) means × 1000."><span class="eq">11 = I × 2.2</span></button>
+                <button type="button" class="option" data-correct><span class="eq">11 = I × 2200</span></button>
+                <button type="button" class="option" data-feedback="V is the voltage and R is the resistance. Check which number is which."><span class="eq">2200 = I × 11</span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-sensor">I =</label>
+                <input class="answer" id="eb-sensor" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">A</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="5">That would be right in milliamps, but the box is in amps. Use 2200 Ω, not 2.2.</p>
+          <p class="mistake" data-value="24200">You've multiplied. Rearrange 11 = I × 2200 to get I on its own.</p>
+          <p class="mistake" data-value="24.2">You've multiplied, and the resistance is still in kΩ. Rearrange 11 = I × 2200 to get I on its own.</p>
+          <p class="mistake" data-value="200">You've divided the resistance by the voltage. It's the other way round.</p>
+          <p class="mistake" data-value="0.2">You've divided the resistance by the voltage, and the resistance is still in kΩ.</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>V = IR</li>
+              <li>11 = I × 2200</li>
+              <li>I = 0.0050 A</li>
+            </ul>
+            Changing kΩ into Ω before you substitute is the step most often missed in the exam.
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 3: Resistors in series and parallel ============ -->
+    <section class="room deck" data-name="Cable gallery" data-short="Cables" data-topic="Resistors in series and parallel" data-letter="L" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="240" fill="#0d1230"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <g fill="none" stroke="#8b93c9" stroke-width="9" stroke-linecap="round">
+            <path d="M110 72H340M460 72H690M110 114H340M460 114H690M110 156H340M460 156H690"/>
+          </g>
+          <g class="when-done" fill="none" stroke="#8b93c9" stroke-width="9"><path d="M340 72H460M340 114H460M340 156H460"/></g>
+          <g class="when-done" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round"><path class="flow" d="M110 72H690"/><path class="flow" d="M110 114H690"/><path class="flow" d="M110 156H690"/></g>
+          <g class="when-broken blink" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M352 62L366 74L358 80L374 92M446 104L430 114L440 122L424 132M356 148L372 156L362 164L380 172"/>
+          </g>
+          <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"><rect x="180" y="54" width="38" height="120" rx="6"/><rect x="582" y="54" width="38" height="120" rx="6"/></g>
+          <g fill="#8fb0ff"><circle cx="199" cy="72" r="5"/><circle cx="199" cy="114" r="5"/><circle cx="199" cy="156" r="5"/><circle cx="601" cy="72" r="5"/><circle cx="601" cy="114" r="5"/><circle cx="601" cy="156" r="5"/></g>
+          <text class="scene-status when-broken" x="400" y="198" text-anchor="middle">CABLE FAULT</text>
+          <text class="scene-status is-good when-done" x="400" y="198" text-anchor="middle">CABLES LIVE</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 3 of 5 · Resistors in series and parallel</p>
+          <h2>Cable gallery</h2>
+          <p class="room-story">The cables that carry power out of the mountain have tripped. Work out the resistances to reconnect them safely.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">1.</span>Two heaters keep the cable gallery dry. They are connected in parallel. An engineer connects a third heater in parallel with them. What happens to the total resistance of the circuit?</p>
+          <div class="options is-row">
+            <button type="button" class="option" data-feedback="That's what happens in series. In parallel, each new branch gives the current another path.">It increases</button>
+            <button type="button" class="option" data-correct>It decreases</button>
+            <button type="button" class="option" data-feedback="Adding a resistor always changes the total. Think about the extra path the current now has.">It stays the same</button>
+          </div>
+          <div class="q-explain">Adding a resistor in <strong>parallel</strong> always <strong>decreases</strong> the total resistance: there is another path for the current. Adding one in <strong>series</strong> always <strong>increases</strong> it.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="20">
+          <p class="q-prompt"><span class="q-num">2.</span>Two of the heaters are connected in parallel. Their resistances are 30 Ω and 60 Ω. Calculate their total resistance.</p>
+          <ol class="steps">
+            <li class="step" data-next="Write it in your jotter, then put the numbers in.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="That's for resistors in series. These two are in parallel."><span class="eq">R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub></span></button>
+                <button type="button" class="option" data-feedback="Nearly. Check the left-hand side against your relationships sheet."><span class="eq">R<sub>T</sub> = <span class="frac"><span>1</span><span>R<sub>1</sub></span></span> + <span class="frac"><span>1</span><span>R<sub>2</sub></span></span></span></button>
+                <button type="button" class="option" data-correct><span class="eq"><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>R<sub>1</sub></span></span> + <span class="frac"><span>1</span><span>R<sub>2</sub></span></span></span></button>
+              </div>
+            </li>
+            <li class="step" data-next="Write that line underneath, then solve it. Don't forget the unit.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-correct><span class="eq"><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>30</span></span> + <span class="frac"><span>1</span><span>60</span></span></span></button>
+                <button type="button" class="option" data-feedback="Each resistance goes underneath its own 1, just like on the left-hand side."><span class="eq"><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = 30 + 60</span></button>
+                <button type="button" class="option" data-feedback="Each resistance gets a fraction of its own: one over the first, plus one over the second."><span class="eq"><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>30 + 60</span></span></span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-parallel">R<sub>T</sub> =</label>
+                <input class="answer" id="eb-parallel" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">Ω</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="90">You've added them as if they were in series. Use the line you just chose.</p>
+          <p class="mistake" data-value="0.05">That's 1/R<sub>T</sub>. Turn it upside down to get R<sub>T</sub>.</p>
+          <p class="mistake" data-value="0.0111">You've added the resistances and then turned the total upside down. Work out 1 ÷ 30 and 1 ÷ 60 first, then add.</p>
+          <p class="mistake" data-value="45">That's the average of the two. In parallel, the total is always less than the smallest resistor.</p>
+          <details class="hint"><summary>Hint</summary><p>On your calculator: 1 ÷ 30 + 1 ÷ 60 =. That gives 1/R<sub>T</sub>, so finish by pressing the x⁻¹ (or 1/x) button.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>R<sub>1</sub></span></span> + <span class="frac"><span>1</span><span>R<sub>2</sub></span></span></li>
+              <li><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>30</span></span> + <span class="frac"><span>1</span><span>60</span></span></li>
+              <li>R<sub>T</sub> = 20 Ω</li>
+            </ul>
+            A quick check: the total in parallel is always smaller than the smallest resistor. 20 Ω is less than 30 Ω.
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="20">
+          <p class="q-prompt"><span class="q-num">3.</span>Three resistors in the cable alarm are connected as shown. Calculate the total resistance between X and Y.</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 0 400 180" role="img" aria-label="Between terminals X and Y there is an 8 ohm resistor in series with a pair of 24 ohm resistors. The two 24 ohm resistors are in parallel with each other.">
+              <path class="wire" d="M25 70H50M110 70H210M270 70H375M170 70V140H210M270 140H310V70"/>
+              <use href="#sym-resistor" x="50" y="50" width="60" height="40"/>
+              <use href="#sym-resistor" x="210" y="50" width="60" height="40"/>
+              <use href="#sym-resistor" x="210" y="120" width="60" height="40"/>
+              <circle class="dot" cx="170" cy="70" r="5"/>
+              <circle class="dot" cx="310" cy="70" r="5"/>
+              <circle cx="20" cy="70" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="380" cy="70" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <g class="label" text-anchor="middle"><text x="20" y="50">X</text><text x="380" y="50">Y</text><text x="80" y="40">8 Ω</text><text x="240" y="40">24 Ω</text><text x="240" y="176">24 Ω</text></g>
+            </svg>
+          </figure>
+          <ol class="steps">
+            <li class="step" data-next="Work that out in your jotter. The pair now acts like one resistor.">
+              <span class="step-name">Parallel pair</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="The two 24 Ω resistors are side by side, on separate branches. That makes them parallel, not series."><span class="eq">R = 24 + 24</span></button>
+                <button type="button" class="option" data-correct><span class="eq"><span class="frac"><span>1</span><span>R</span></span> = <span class="frac"><span>1</span><span>24</span></span> + <span class="frac"><span>1</span><span>24</span></span></span></button>
+                <button type="button" class="option" data-feedback="The 8 Ω resistor isn't on a branch of its own. Which two resistors sit side by side?"><span class="eq"><span class="frac"><span>1</span><span>R</span></span> = <span class="frac"><span>1</span><span>8</span></span> + <span class="frac"><span>1</span><span>24</span></span></span></button>
+              </div>
+            </li>
+            <li class="step" data-next="Write that line underneath, then finish it off.">
+              <span class="step-name">Then series</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="That treats all three as if they were in series. Use your answer for the parallel pair instead of 24 + 24."><span class="eq">R<sub>T</sub> = 8 + 24 + 24</span></button>
+                <button type="button" class="option" data-feedback="The pair is in series with the 8 Ω resistor, one after the other, so the resistances just add."><span class="eq"><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>8</span></span> + <span class="frac"><span>1</span><span>12</span></span></span></button>
+                <button type="button" class="option" data-correct><span class="eq">R<sub>T</sub> = 8 + 12</span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-combo">R<sub>T</sub> =</label>
+                <input class="answer" id="eb-combo" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">Ω</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="56">You've added all three as if they were in series. The two 24 Ω resistors are in parallel with each other.</p>
+          <p class="mistake" data-value="4.8">You've treated all three as parallel. The 8 Ω resistor is in series with the pair.</p>
+          <p class="mistake" data-value="12">That's just the parallel pair. Now add the resistor that is in series with it.</p>
+          <p class="mistake" data-value="13.7">The 8 Ω resistor is in series with the whole pair, not with one of the 24 Ω resistors.</p>
+          <details class="hint"><summary>Hint</summary><p>Do it in two stages. First turn the two parallel resistors into one resistor. Then that one is in series with the 8 Ω.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li><span class="frac"><span>1</span><span>R</span></span> = <span class="frac"><span>1</span><span>24</span></span> + <span class="frac"><span>1</span><span>24</span></span>, so R = 12 Ω</li>
+              <li>R<sub>T</sub> = 8 + 12</li>
+              <li>R<sub>T</sub> = 20 Ω</li>
+            </ul>
+            Two equal resistors in parallel always come to half of one of them.
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 4: Potential dividers ============ -->
+    <section class="room deck" data-name="Sensor bay" data-short="Sensors" data-topic="Potential dividers" data-letter="T" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="800" height="240" fill="#0d1230"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <rect x="150" y="62" width="180" height="112" rx="10" fill="#071126" stroke="#8fb0ff" stroke-width="4"/>
+          <text class="scene-status when-broken" x="240" y="126" text-anchor="middle">- - -</text>
+          <g class="when-done" fill="#5eead4"><rect x="176" y="126" width="22" height="30"/><rect x="210" y="104" width="22" height="52"/><rect x="244" y="116" width="22" height="40"/><rect x="278" y="88" width="22" height="68"/></g>
+          <g stroke="#8b93c9" stroke-width="6" stroke-linecap="round"><path d="M430 126V190M520 126V190M610 126V190M410 190H450M500 190H540M590 190H630"/></g>
+          <g fill="none" stroke="#fbbf24" stroke-width="3"><circle class="alarm pulse" cx="430" cy="104" r="32"/><circle class="alarm pulse is-2" cx="520" cy="104" r="32"/><circle class="alarm pulse is-3" cx="610" cy="104" r="32"/></g>
+          <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="4"><circle cx="430" cy="104" r="22"/><circle cx="520" cy="104" r="22"/><circle cx="610" cy="104" r="22"/></g>
+          <g class="when-broken" fill="#fbbf24"><circle cx="430" cy="104" r="8"/><circle cx="520" cy="104" r="8"/><circle cx="610" cy="104" r="8"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="430" cy="104" r="8"/><circle cx="520" cy="104" r="8"/><circle cx="610" cy="104" r="8"/></g>
+          <text class="scene-status when-broken" x="520" y="54" text-anchor="middle">NO READINGS</text>
+          <text class="scene-status is-good when-done" x="520" y="54" text-anchor="middle">SENSORS LIVE</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 4 of 5 · Potential dividers</p>
+          <h2>Sensor bay</h2>
+          <p class="room-story">The station's temperature and light sensors are giving no readings. Each one is a potential divider: get them working again.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-input" data-answer="3">
+          <p class="q-prompt"><span class="q-num">1.</span>A sensor circuit uses two resistors as a potential divider, connected to a 12 V supply. Calculate the reading on the voltmeter.</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 0 300 260" role="img" aria-label="A potential divider between a plus 12 volt rail and a 0 volt rail. The top resistor, R1, is 300 ohms and the bottom resistor, R2, is 100 ohms. A voltmeter is connected across the bottom resistor, R2.">
+              <path class="wire" d="M76 20H130V40M130 100V160M130 220V240M76 240H220V220M130 130H220V160"/>
+              <use href="#sym-resistor" x="100" y="50" width="60" height="40" transform="rotate(90 130 70)"/>
+              <use href="#sym-resistor" x="100" y="170" width="60" height="40" transform="rotate(90 130 190)"/>
+              <use href="#sym-ring" x="190" y="170" width="60" height="40" transform="rotate(90 220 190)"/>
+              <circle class="dot" cx="130" cy="130" r="5"/>
+              <circle class="dot" cx="130" cy="240" r="5"/>
+              <circle cx="72" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="72" cy="240" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <text class="label" x="220" y="196" text-anchor="middle" style="font-size:16px">V</text>
+              <g class="label" text-anchor="end"><text x="62" y="26">+12 V</text><text x="62" y="246">0 V</text><text x="108" y="64">R<tspan dy="5" style="font-size:13px">1</tspan></text><text x="108" y="86">300 Ω</text><text x="108" y="184">R<tspan dy="5" style="font-size:13px">2</tspan></text><text x="108" y="206">100 Ω</text></g>
+            </svg>
+          </figure>
+          <ol class="steps">
+            <li class="step" data-next="Write it in your jotter, then put the numbers in.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="Check the fraction against your relationships sheet. What goes on the bottom?"><span class="eq">V<sub>2</sub> = <span class="frac"><span>R<sub>1</sub></span><span>R<sub>2</sub></span></span> × V<sub>S</sub></span></button>
+                <button type="button" class="option" data-correct><span class="eq">V<sub>2</sub> = <span class="frac"><span>R<sub>2</sub></span><span>R<sub>1</sub> + R<sub>2</sub></span></span> × V<sub>S</sub></span></button>
+                <button type="button" class="option" data-feedback="That's Ohm's law. It would work in two stages, but there is a relationship that does this in one."><span class="eq">V = IR</span></button>
+              </div>
+            </li>
+            <li class="step" data-next="Write that line underneath, then solve it. Don't forget the unit.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-correct><span class="eq">V<sub>2</sub> = <span class="frac"><span>100</span><span>300 + 100</span></span> × 12</span></button>
+                <button type="button" class="option" data-feedback="That gives the voltage across R₁. The voltmeter is across R₂, so R₂ goes on top."><span class="eq">V<sub>2</sub> = <span class="frac"><span>300</span><span>300 + 100</span></span> × 12</span></button>
+                <button type="button" class="option" data-feedback="The bottom of the fraction is both resistances added together."><span class="eq">V<sub>2</sub> = <span class="frac"><span>100</span><span>300</span></span> × 12</span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-divider">V<sub>2</sub> =</label>
+                <input class="answer" id="eb-divider" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">V</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="9">That's the voltage across R<sub>1</sub>. The voltmeter is across R<sub>2</sub>.</p>
+          <p class="mistake" data-value="4">The bottom of the fraction is both resistances added together: 300 + 100.</p>
+          <p class="mistake" data-value="36">You've divided R<sub>1</sub> by R<sub>2</sub>. Use the line you just chose.</p>
+          <p class="mistake" data-value="12">That's the supply voltage. The two resistors share it between them.</p>
+          <details class="hint"><summary>Hint</summary><p>On your calculator, work out the bottom of the fraction first: 300 + 100. Then 100 ÷ 400 × 12.</p></details>
+          <div class="q-explain">
+            <ul class="working">
+              <li>V<sub>2</sub> = <span class="frac"><span>R<sub>2</sub></span><span>R<sub>1</sub> + R<sub>2</sub></span></span> × V<sub>S</sub></li>
+              <li>V<sub>2</sub> = <span class="frac"><span>100</span><span>300 + 100</span></span> × 12</li>
+              <li>V<sub>2</sub> = 3.0 V</li>
+            </ul>
+            R<sub>2</sub> has a quarter of the total resistance, so it gets a quarter of the voltage. The other 9.0 V is across R<sub>1</sub>.
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-mcq">
+          <p class="q-prompt"><span class="q-num">2.</span>The temperature sensor is a thermistor and a resistor in a potential divider. The resistance of the thermistor decreases as its temperature increases. The thermistor gets hotter. What happens to the two voltages?</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 0 300 260" role="img" aria-label="A potential divider between a plus 5.0 volt rail and a 0 volt rail. The thermistor is at the top and a fixed resistor is at the bottom.">
+              <path class="wire" d="M82 20H130V40M130 100V160M130 220V240H82"/>
+              <use href="#sym-thermistor" x="100" y="50" width="60" height="40" transform="rotate(90 130 70)"/>
+              <use href="#sym-resistor" x="100" y="170" width="60" height="40" transform="rotate(90 130 190)"/>
+              <circle cx="78" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="78" cy="240" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <g class="label" text-anchor="end"><text x="68" y="26">+5.0 V</text><text x="68" y="246">0 V</text></g>
+              <g class="label"><text x="160" y="76">thermistor</text><text x="160" y="196">resistor</text></g>
+            </svg>
+          </figure>
+          <div class="options">
+            <button type="button" class="option" data-feedback="The thermistor's resistance has gone down, so it now takes a smaller share of the 5.0 V.">Across the thermistor it increases, and across the resistor it decreases</button>
+            <button type="button" class="option" data-feedback="The two voltages always add up to 5.0 V, so they can't both go down.">Both voltages decrease</button>
+            <button type="button" class="option" data-feedback="The thermistor's resistance has changed, so the way the 5.0 V is shared changes too.">Both voltages stay the same</button>
+            <button type="button" class="option" data-correct>Across the thermistor it decreases, and across the resistor it increases</button>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>In a potential divider, the bigger resistance takes the bigger share of the supply voltage. Whose resistance has just got smaller?</p></details>
+          <div class="q-explain">The thermistor's resistance goes down, so it takes a smaller share of the supply voltage. The two voltages must still add up to 5.0 V, so the voltage across the resistor goes up.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="1.5">
+          <p class="q-prompt"><span class="q-num">3.</span>The light sensor is an LDR and a 7.0 kΩ resistor, connected to a 5.0 V supply. In the dark tunnel, the resistance of the LDR is 3.0 kΩ. Calculate the voltage across the LDR.</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 0 300 260" role="img" aria-label="A potential divider between a plus 5.0 volt rail and a 0 volt rail. A 7.0 kilohm resistor is at the top and the LDR is at the bottom. A voltmeter is connected across the LDR.">
+              <path class="wire" d="M82 20H130V40M130 100V160M130 220V240M82 240H220V220M130 130H220V160"/>
+              <use href="#sym-resistor" x="100" y="50" width="60" height="40" transform="rotate(90 130 70)"/>
+              <use href="#sym-ldr" x="100" y="170" width="60" height="40" transform="rotate(90 130 190)"/>
+              <use href="#sym-ring" x="190" y="170" width="60" height="40" transform="rotate(90 220 190)"/>
+              <circle class="dot" cx="130" cy="130" r="5"/>
+              <circle class="dot" cx="130" cy="240" r="5"/>
+              <circle cx="78" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="78" cy="240" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <text class="label" x="220" y="196" text-anchor="middle" style="font-size:16px">V</text>
+              <g class="label" text-anchor="end"><text x="68" y="26">+5.0 V</text><text x="68" y="246">0 V</text><text x="104" y="76">7.0 kΩ</text><text x="100" y="176">LDR</text></g>
+            </svg>
+          </figure>
+          <ol class="steps">
+            <li class="step" data-next="Write it in your jotter, then put the numbers in. The LDR is R₂ here.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-correct><span class="eq">V<sub>2</sub> = <span class="frac"><span>R<sub>2</sub></span><span>R<sub>1</sub> + R<sub>2</sub></span></span> × V<sub>S</sub></span></button>
+                <button type="button" class="option" data-feedback="That's for the total resistance of resistors in series. You need the voltage across one of them."><span class="eq">R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub></span></button>
+                <button type="button" class="option" data-feedback="Check the fraction against your relationships sheet. What goes on the bottom?"><span class="eq">V<sub>2</sub> = <span class="frac"><span>R<sub>2</sub></span><span>R<sub>1</sub></span></span> × V<sub>S</sub></span></button>
+              </div>
+            </li>
+            <li class="step" data-next="Write that line underneath, then solve it. Don't forget the unit.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="That gives the voltage across the 7.0 kΩ resistor. You want the LDR, so its resistance goes on top."><span class="eq">V<sub>2</sub> = <span class="frac"><span>7.0</span><span>7.0 + 3.0</span></span> × 5.0</span></button>
+                <button type="button" class="option" data-feedback="The bottom of the fraction is both resistances added together."><span class="eq">V<sub>2</sub> = <span class="frac"><span>3.0</span><span>7.0</span></span> × 5.0</span></button>
+                <button type="button" class="option" data-correct><span class="eq">V<sub>2</sub> = <span class="frac"><span>3.0</span><span>7.0 + 3.0</span></span> × 5.0</span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-ldr">V<sub>2</sub> =</label>
+                <input class="answer" id="eb-ldr" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">V</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="3.5">That's the voltage across the 7.0 kΩ resistor. The question asks for the LDR.</p>
+          <p class="mistake" data-value="2.14">The bottom of the fraction is both resistances added together: 7.0 + 3.0.</p>
+          <p class="mistake" data-value="11.7">You've divided the wrong way up, and the answer can't be bigger than the 5.0 V supply.</p>
+          <p class="mistake" data-value="5">That's the supply voltage. The resistor and the LDR share it between them.</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>V<sub>2</sub> = <span class="frac"><span>R<sub>2</sub></span><span>R<sub>1</sub> + R<sub>2</sub></span></span> × V<sub>S</sub></li>
+              <li>V<sub>2</sub> = <span class="frac"><span>3.0</span><span>7.0 + 3.0</span></span> × 5.0</li>
+              <li>V<sub>2</sub> = 1.5 V</li>
+            </ul>
+            Both resistances are in kΩ, so they can stay in kΩ: the units cancel in the fraction. And 1.5 V is more than the 0.7 V an npn transistor needs to switch on, which is exactly what the last room is about.
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ Room 5: Transistor switching and power ============ -->
+    <section class="room deck" data-name="Tunnel gate" data-short="Gate" data-topic="Transistor switching and power" data-letter="S" hidden>
+      <div class="room-head">
+        <svg class="scene" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <pattern id="eb-hazard-b" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="20" fill="#fbbf24"/><rect x="10" width="10" height="20" fill="#1d1442"/></pattern>
+          </defs>
+          <rect width="800" height="240" fill="#0d1230"/>
+          <path d="M0 206H800" stroke="#2c3a7a" stroke-width="3"/>
+          <rect x="300" y="54" width="200" height="152" fill="#060920"/>
+          <circle cx="452" cy="96" r="16" fill="#cfd3e6"/>
+          <g fill="#fff"><circle cx="330" cy="84" r="1.6"/><circle cx="372" cy="118" r="1.3"/><circle cx="398" cy="76" r="1.8"/><circle cx="350" cy="150" r="1.2"/><circle cx="474" cy="146" r="1.5"/><circle cx="420" cy="132" r="1.2"/></g>
+          <path d="M300 206L360 168L410 190L450 160L500 196V206Z" fill="#182057"/>
+          <g class="when-broken">
+            <rect x="300" y="54" width="200" height="152" fill="#4a5390"/>
+            <path d="M300 84H500M300 114H500M300 144H500M300 174H500" stroke="#2c3a7a" stroke-width="3"/>
+            <rect x="300" y="188" width="200" height="18" fill="url(#eb-hazard-b)"/>
+          </g>
+          <g class="when-done">
+            <rect x="300" y="54" width="200" height="22" fill="#4a5390"/>
+            <rect x="300" y="76" width="200" height="10" fill="url(#eb-hazard-b)"/>
+          </g>
+          <rect x="294" y="48" width="212" height="158" fill="none" stroke="#8b93c9" stroke-width="8"/>
+          <g class="alarm blink" fill="#fbbf24"><circle cx="258" cy="84" r="10"/><circle cx="542" cy="84" r="10"/></g>
+          <g class="when-done" fill="#5eead4"><circle cx="258" cy="84" r="10"/><circle cx="542" cy="84" r="10"/></g>
+          <rect x="566" y="122" width="96" height="64" rx="8" fill="#3a3f75" stroke="#8b93c9" stroke-width="3"/>
+          <circle cx="614" cy="154" r="20" fill="#071126" stroke="#8fb0ff" stroke-width="3"/>
+          <text class="scene-status" x="614" y="160" text-anchor="middle">M</text>
+          <path class="when-done flow" d="M566 154H510" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/>
+          <text class="scene-status when-broken" x="200" y="150" text-anchor="middle">GATE LOCKED</text>
+          <text class="scene-status is-good when-done" x="200" y="150" text-anchor="middle">GATE OPEN</text>
+        </svg>
+        <div class="console-text">
+          <p class="console-tag">Room 5 of 5 · Transistor switching and power</p>
+          <h2>Tunnel gate</h2>
+          <p class="room-story">Only the tunnel gate stands between you and the way out. Its motor is controlled by a transistor switching circuit: get it working and switch the power back on.</p>
+        </div>
+      </div>
+      <div class="room-body">
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">1.</span>The gate's control board has three components that work as switches. Match each symbol to its name.</p>
+          <div class="match">
+            <p class="match-hint">Drag each symbol onto its name, or tap a symbol and then its name.</p>
+            <div class="match-items">
+              <button type="button" class="match-item" data-key="mosfet" data-label="MOSFET" aria-label="Symbol 1">
+                <svg viewBox="0 0 60 60" aria-hidden="true"><use href="#sym-mosfet"/></svg>
+              </button>
+              <button type="button" class="match-item" data-key="relay" data-label="Relay" aria-label="Symbol 2">
+                <svg viewBox="0 -15 60 90" aria-hidden="true"><use href="#sym-relay-open"/></svg>
+              </button>
+              <button type="button" class="match-item" data-key="npn" data-label="npn transistor" aria-label="Symbol 3">
+                <svg viewBox="0 0 60 60" aria-hidden="true"><use href="#sym-transistor-npn"/></svg>
+              </button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="npn">npn transistor</button>
+              <button type="button" class="match-target" data-key="mosfet">MOSFET</button>
+              <button type="button" class="match-target" data-key="relay">Relay</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>The relay has a switch above a coil. The npn transistor has an arrow on one slanted leg. The MOSFET has a broken line inside its circle.</p></details>
+          <div class="q-explain">Both transistors are switches with no moving parts: they switch on when the voltage at their input is high enough (about 0.7 V for an npn transistor, about 2 V for a MOSFET). A relay is a switch worked by an electromagnet, so a low-voltage circuit can switch on a high-voltage one.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-match">
+          <p class="q-prompt"><span class="q-num">2.</span>The gate motor has a cooling fan that switches on when the motor gets hot. As the temperature of the thermistor increases, its resistance decreases. Explain how the circuit switches on the fan. Put the sentences in order. Two of them are wrong: put those in "Not needed".</p>
+          <figure class="figure">
+            <svg class="circuit" viewBox="0 0 380 270" role="img" aria-label="A switching circuit between a plus 5.0 volt rail and a 0 volt rail. On the left, a thermistor at the top and a resistor at the bottom form a potential divider. The point between them is connected to the gate of a MOSFET. The fan motor is connected between the plus 5.0 volt rail and the MOSFET, and the MOSFET is connected to the 0 volt rail.">
+              <path class="wire" d="M82 20H280V30M110 20V40M110 100V160M110 220V250M82 250H280V160M280 90V100M110 130H250"/>
+              <use href="#sym-thermistor" x="80" y="50" width="60" height="40" transform="rotate(90 110 70)"/>
+              <use href="#sym-resistor" x="80" y="170" width="60" height="40" transform="rotate(90 110 190)"/>
+              <use href="#sym-mosfet" x="250" y="100" width="60" height="60"/>
+              <use href="#sym-ring" x="250" y="40" width="60" height="40" transform="rotate(90 280 60)"/>
+              <circle class="dot" cx="110" cy="20" r="5"/>
+              <circle class="dot" cx="110" cy="130" r="5"/>
+              <circle class="dot" cx="110" cy="250" r="5"/>
+              <circle cx="78" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="78" cy="250" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <text class="label" x="280" y="66" text-anchor="middle" style="font-size:16px">M</text>
+              <g class="label" text-anchor="end"><text x="68" y="26">+5.0 V</text><text x="68" y="256">0 V</text></g>
+              <g class="label"><text x="138" y="76">thermistor</text><text x="138" y="196">resistor</text><text x="304" y="66">fan</text></g>
+            </svg>
+          </figure>
+          <div class="match is-order">
+            <p class="match-hint">Drag each sentence to its place, or tap a sentence and then its place.</p>
+            <div class="match-items">
+              <button type="button" class="match-item is-text" data-key="3" data-label="Third">So the voltage across the resistor increases.</button>
+              <button type="button" class="match-item is-text" data-key="x" data-label="Not needed" data-feedback="A smaller resistance takes a smaller share of the supply voltage.">The voltage across the thermistor increases.</button>
+              <button type="button" class="match-item is-text" data-key="1" data-label="First">As the motor heats up, the resistance of the thermistor decreases.</button>
+              <button type="button" class="match-item is-text" data-key="4" data-label="Fourth">The MOSFET switches on, so the fan runs.</button>
+              <button type="button" class="match-item is-text" data-key="x" data-label="Not needed" data-feedback="The two voltages add up to 5.0 V. If one goes down, the other must go up.">So the voltage across the resistor decreases.</button>
+              <button type="button" class="match-item is-text" data-key="2" data-label="Second">The voltage across the thermistor decreases.</button>
+            </div>
+            <div class="match-targets">
+              <button type="button" class="match-target" data-key="1">1 First</button>
+              <button type="button" class="match-target" data-key="2">2</button>
+              <button type="button" class="match-target" data-key="3">3</button>
+              <button type="button" class="match-target" data-key="4">4 Last</button>
+              <button type="button" class="match-target" data-key="x">Not needed</button>
+            </div>
+          </div>
+          <details class="hint"><summary>Hint</summary><p>Follow the chain: resistance of the thermistor, then its voltage, then the voltage across the other resistor (which is what the MOSFET sees), then the MOSFET.</p></details>
+          <div class="q-explain">In the exam this "explain" is worth 3 marks: the voltage across the thermistor decreases, the voltage across the resistor increases, and the MOSFET switches on. Write it as a chain like this every time, one link per mark.</div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="q q-input" data-answer="60000">
+          <p class="q-prompt"><span class="q-num">3.</span>The motor that lifts the tunnel gate has a power of 1.5 kW. It takes 40 s to open the gate. Calculate the energy the motor uses.</p>
+          <ol class="steps">
+            <li class="step" data-next="Write it in your jotter, then put the numbers in. Watch the units.">
+              <span class="step-name">Formula</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="That's Ohm's law: voltage, current and resistance. You need the one with power, energy and time."><span class="eq">V = IR</span></button>
+                <button type="button" class="option" data-feedback="Nearly. Check which way up it is on your relationships sheet."><span class="eq">P = <span class="frac"><span>t</span><span>E</span></span></span></button>
+                <button type="button" class="option" data-correct><span class="eq">P = <span class="frac"><span>E</span><span>t</span></span></span></button>
+              </div>
+            </li>
+            <li class="step" data-next="Write that line underneath, then solve it. Don't forget the unit.">
+              <span class="step-name">Substitute</span>
+              <div class="options">
+                <button type="button" class="option" data-feedback="Check the prefix: kilo (k) means × 1000."><span class="eq">1.5 = <span class="frac"><span>E</span><span>40</span></span></span></button>
+                <button type="button" class="option" data-correct><span class="eq">1500 = <span class="frac"><span>E</span><span>40</span></span></span></button>
+                <button type="button" class="option" data-feedback="P is the power and t is the time. Check which number is which."><span class="eq">40 = <span class="frac"><span>E</span><span>1500</span></span></span></button>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-name">Solve</span>
+              <div class="answer-row">
+                <label class="answer-label" for="eb-energy">E =</label>
+                <input class="answer" id="eb-energy" type="text" inputmode="decimal" autocomplete="off">
+                <span class="answer-unit">J</span>
+                <button type="button" class="tool q-check">Check</button>
+              </div>
+            </li>
+          </ol>
+          <p class="mistake" data-value="60">Check the prefix: 1.5 kW is 1500 W.</p>
+          <p class="mistake" data-value="37.5">You've divided the power by the time. To get E on its own, multiply both sides by 40.</p>
+          <p class="mistake" data-value="0.0375">You've divided, and the power is still in kW. To get E on its own, multiply both sides by 40.</p>
+          <div class="q-explain">
+            <ul class="working">
+              <li>P = <span class="frac"><span>E</span><span>t</span></span></li>
+              <li>1500 = <span class="frac"><span>E</span><span>40</span></span></li>
+              <li>E = 60 000 J</li>
+            </ul>
+          </div>
+          <div class="q-feedback" aria-live="polite"></div>
+        </div>
+
+      </div>
+      <div class="door"></div>
+    </section>
+
+    <!-- ============ The end ============ -->
+    <section class="escape-end" data-end hidden>
+      <div class="deck end-card">
+        <div class="end-scene">
+          <svg class="scene is-win" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="eb-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#060920"/><stop offset="1" stop-color="#1d1454"/></linearGradient>
+              <radialGradient id="eb-glow"><stop offset="0" stop-color="#fbbf24" stop-opacity="0.5"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></radialGradient>
+              <radialGradient id="eb-mouth" cx="0.5" cy="0.8" r="0.8"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#0f766e"/></radialGradient>
+            </defs>
+            <rect width="800" height="300" fill="url(#eb-sky)"/>
+            <g fill="#fff"><circle cx="150" cy="40" r="1.6"/><circle cx="210" cy="86" r="1.2"/><circle cx="262" cy="30" r="1.4"/><circle cx="330" cy="58" r="1.8"/><circle cx="398" cy="26" r="1.2"/><circle cx="452" cy="72" r="1.5"/><circle cx="520" cy="38" r="1.3"/><circle cx="580" cy="92" r="1.6"/><circle cx="700" cy="118" r="1.2"/><circle cx="486" cy="112" r="1.1"/><circle cx="180" cy="130" r="1.3"/></g>
+            <circle cx="640" cy="62" r="24" fill="#cfd3e6"/>
+            <g fill="#aab0cc"><circle cx="632" cy="56" r="5"/><circle cx="648" cy="70" r="4"/><circle cx="646" cy="52" r="2.5"/></g>
+            <path d="M0 240L110 150L200 210L330 110L440 215L560 160L700 225L800 180V300H0Z" fill="#141a4a"/>
+            <path d="M40 300L290 96L400 180L470 300Z" fill="#1b2360" stroke="#2c3a7a" stroke-width="3"/>
+            <path d="M290 96L262 130L282 124L296 140L316 126Z" fill="#d8dcef" opacity="0.5"/>
+            <circle class="pulse" cx="250" cy="270" r="70" fill="url(#eb-glow)"/>
+            <path d="M214 300V266a36 36 0 0 1 72 0V300Z" fill="url(#eb-mouth)" stroke="#8b93c9" stroke-width="4"/>
+            <g fill="#0b1030"><circle cx="250" cy="266" r="6"/><path d="M243 274H257L260 300H240Z"/></g>
+            <rect x="320" y="246" width="120" height="54" fill="#2a2f5e" stroke="#8b93c9" stroke-width="3"/>
+            <g fill="#fbbf24"><rect x="334" y="258" width="20" height="16"/><rect x="370" y="258" width="20" height="16"/><rect x="406" y="258" width="20" height="16"/></g>
+            <g fill="none" stroke="#8b93c9" stroke-width="3" stroke-linecap="round">
+              <path d="M490 300L508 196L526 300M497 262H519M501 236H515M484 214H532"/>
+              <path d="M590 300L604 222L618 300M596 270H612M586 238H622"/>
+            </g>
+            <g fill="none" stroke="#5eead4" stroke-width="2.5" stroke-linecap="round">
+              <path class="flow" d="M440 250Q466 238 484 214"/><path class="flow" d="M532 214Q560 240 586 238"/><path class="flow" d="M622 238Q646 262 668 262"/>
+            </g>
+            <circle class="pulse is-2" cx="672" cy="276" r="60" fill="url(#eb-glow)"/>
+            <g fill="#2a2f5e" stroke="#8b93c9" stroke-width="2.5">
+              <path d="M640 300V274L658 260L676 274V300Z"/><path d="M684 300V268L704 252L724 268V300Z"/>
+            </g>
+            <g fill="#fbbf24"><rect x="652" y="280" width="12" height="12"/><rect x="696" y="276" width="12" height="12"/></g>
+            <rect class="end-flash" width="800" height="300" fill="#fff" opacity="0"/>
+          </svg>
+          <div class="sparks" aria-hidden="true"></div>
+        </div>
+        <div class="console-text">
+          <p class="console-tag is-good end-tag">Power restored</p>
+          <h2 class="end-title">The lights are back on. You're out!</h2>
+          <p class="end-label">Restart code</p>
+          <p class="end-code" data-end-code></p>
+          <dl class="end-stats">
+            <div><dt>Escape time</dt><dd data-end-time></dd></div>
+            <div><dt>Overrides used</dt><dd data-end-overrides></dd></div>
+          </dl>
+          <p>Show this screen and your jotter to your teacher: every calculation should have its three lines (formula, substitution, answer with unit). Then copy the restart code, your time and the table below into your jotter.</p>
+        </div>
+      </div>
+
+      <section class="topic-check end-topics">
+        <h2>What to revise</h2>
+        <p>How many locks you opened first time in each room. Anything marked <strong>Work on this</strong> or <strong>Nearly there</strong> is what to revise before your prelim.</p>
+        <ul class="topic-list" data-end-topics></ul>
+      </section>
+
+      <div class="q q-input q-challenge" data-answer="3">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">Bonus.</span>The glen's emergency lights are two 8.0 Ω lamps, connected in parallel across a 12 V battery. Calculate the current from the battery.</p>
+        <ol class="steps">
+          <li class="step" data-next="Work that out in your jotter. Now use the total resistance to find the current.">
+            <span class="step-name">Total resistance</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="That's for resistors in series. The lamps are in parallel."><span class="eq">R<sub>T</sub> = 8.0 + 8.0</span></button>
+              <button type="button" class="option" data-correct><span class="eq"><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>8.0</span></span> + <span class="frac"><span>1</span><span>8.0</span></span></span></button>
+              <button type="button" class="option" data-feedback="That gives the current in one lamp, not a resistance. Find the total resistance first."><span class="eq">12 = I × 8.0</span></button>
+            </div>
+          </li>
+          <li class="step" data-next="Write that line underneath, then solve it. Don't forget the unit.">
+            <span class="step-name">Then Ohm's law</span>
+            <div class="options">
+              <button type="button" class="option" data-correct><span class="eq">12 = I × 4.0</span></button>
+              <button type="button" class="option" data-feedback="16 Ω would be the total if the lamps were in series. Use your total for the parallel pair."><span class="eq">12 = I × 16</span></button>
+              <button type="button" class="option" data-feedback="V is the voltage and R is the resistance. Check which number is which."><span class="eq">4.0 = I × 12</span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="eb-bonus">I =</label>
+              <input class="answer" id="eb-bonus" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">A</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="1.5">That's the current in one lamp. The battery supplies both.</p>
+        <p class="mistake" data-value="0.75">That's the current if the lamps were in series. They are in parallel.</p>
+        <p class="mistake" data-value="48">You've multiplied. Rearrange 12 = I × 4.0 to get I on its own.</p>
+        <p class="mistake" data-value="0.333">You've divided the resistance by the voltage. It's the other way round.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li><span class="frac"><span>1</span><span>R<sub>T</sub></span></span> = <span class="frac"><span>1</span><span>8.0</span></span> + <span class="frac"><span>1</span><span>8.0</span></span>, so R<sub>T</sub> = 4.0 Ω</li>
+            <li>V = IR</li>
+            <li>12 = I × 4.0</li>
+            <li>I = 3.0 A</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <div class="toolbar escape-tools" data-tools hidden>
+      <button type="button" class="tool" data-restart>Start again</button>
+      <button type="button" data-reset hidden>Reset</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

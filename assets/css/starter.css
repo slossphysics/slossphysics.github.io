@@ -360,6 +360,38 @@
 .q-check { min-height: 52px; }
 .mistake { display: none; }
 
+/* Working steps on a calculation (.steps in a .q-input): formula, substitute, solve.
+   Each step's name sits beside it; a finished step keeps only the line that was right. */
+.steps { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.step { display: grid; grid-template-columns: 7em minmax(0, 1fr); gap: 6px 12px; align-items: start; }
+.step[hidden] { display: none; }
+.step-name {
+  padding-top: 16px;
+  color: var(--level-colour, var(--muted));
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.step .options { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.step .option { font-variant-numeric: tabular-nums; }
+.step.is-done .option:not(.is-correct) { display: none; }
+.step.is-done .options { grid-template-columns: minmax(0, 1fr); }
+.step.is-done .option { min-height: 48px; padding: 8px 16px; box-shadow: none; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+@media (max-width: 600px) {
+  .step { grid-template-columns: minmax(0, 1fr); }
+  .step-name { padding-top: 0; }
+}
+/* A relationship set out as on the relationships sheet. Wrap the whole line in .eq (a button lays
+   its children out in a column, so loose text and fractions would stack), and build each fraction
+   as <span class="frac"><span>top</span><span>bottom</span></span>. */
+.eq { display: inline-block; line-height: 1.3; }
+.frac { display: inline-flex; flex-direction: column; margin: 0 2px; vertical-align: middle; text-align: center; line-height: 1.2; }
+.frac > span { padding: 1px 5px; }
+.frac > span:first-child { border-bottom: 2px solid currentColor; }
+.working .frac { font-size: 0.92em; }
+
 /* Working laid out the SQA way: relationship, substitution, answer */
 .working { margin: 0; padding: 0; list-style: none; font-variant-numeric: tabular-nums; }
 .working li + li { margin-top: 2px; }

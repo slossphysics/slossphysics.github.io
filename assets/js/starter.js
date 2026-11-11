@@ -25,6 +25,11 @@
 //                data-answer and optional data-tol (fraction allowed either way, default 0.02).
 //                Optional hidden <p class="mistake" data-value="…"> elements give targeted
 //                feedback for common wrong answers.
+//                Optional working steps: an <ol class="steps"> of <li class="step">, each with a
+//                .step-name ("Formula", "Substitute", "Solve"). The first steps hold .option buttons
+//                (one data-correct, data-feedback on the others); the last holds the .answer-row.
+//                Each step appears once the one before it is right. data-next on a .step replaces
+//                the message shown when it is done.
 //   .q.q-truth   truth table: .truth-cell buttons with data-answer="0" or "1". Tapping a cell
 //                cycles ? → 0 → 1; the .q-check button marks the whole table.
 //                Give the .q data-options="BB Bb bb" to cycle through other choices instead,
@@ -359,6 +364,32 @@
     const answer = Number(q.dataset.answer);
     const tol = Number(q.dataset.tol || 0.02);
     const near = (x, target) => Math.abs(x - target) <= Math.abs(target) * tol + 1e-9;
+
+    // Optional steps before the answer (formula, then substitution). Each choice step is tapped,
+    // not typed; a step stays hidden until the one before it is done, so the answer box only
+    // appears once the working is set out.
+    const steps = [...q.querySelectorAll('.step')];
+    steps.forEach((step, i) => {
+      step.hidden = i > 0;
+      const options = step.querySelectorAll('.option');
+      options.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          if (!btn.hasAttribute('data-correct')) {
+            btn.classList.add('is-wrong');
+            btn.disabled = true;
+            slip(q);
+            say(q, 'bad', 'Not quite.', btn.dataset.feedback || 'Have another go.');
+            return;
+          }
+          btn.classList.add('is-correct');
+          options.forEach((b) => { b.disabled = true; });
+          step.classList.add('is-done');
+          if (steps[i + 1]) steps[i + 1].hidden = false;
+          say(q, 'good', 'Correct!', step.dataset.next || 'Write that line in your jotter, then do the next step.');
+        });
+      });
+    });
 
     function mark() {
       if (input.disabled) return;

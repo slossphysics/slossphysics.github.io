@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equivalent dose rate · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics starter (Radiation · Nuclear radiation): equivalent dose rate calculations and the annual dose limits.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Radiation</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Equivalent dose rate</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning to calculate equivalent dose rate and compare doses with the safety limits.</p>
+      <p><strong>SC:</strong> I can use Ḣ = H/t to find a dose rate, a dose or a time · I can state the annual dose limits · I can decide whether a dose is within a limit.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5">5 min</option>
+          <option value="8" selected>8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">8:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>What does equivalent dose rate tell you?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>The equivalent dose received in each unit of time, such as each hour or each year</button>
+          <button type="button" class="option" data-feedback="That is a total, not a rate. A rate tells you how quickly something builds up.">The total equivalent dose a person receives in their lifetime</button>
+          <button type="button" class="option" data-feedback="That is the <strong>activity</strong> of a source, measured in becquerels.">The number of nuclei that decay each second</button>
+          <button type="button" class="option" data-feedback="That is <strong>absorbed dose</strong>, measured in grays.">The energy absorbed by each kilogram of tissue</button>
+        </div>
+        <div class="q-explain">Equivalent dose rate is the <strong>equivalent dose per unit time</strong>. Its unit depends on the time used: Sv s⁻¹, mSv h⁻¹ or mSv y⁻¹, for example.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.015">
+        <p class="q-prompt"><span class="q-num">2.</span>A hospital radiographer receives an equivalent dose of 0.60 mSv during 40 hours of work. Calculate the equivalent dose rate.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="That one needs a weighting factor. You are given an equivalent dose and a time."><span class="eq">H = Dw<sub>R</sub></span></button>
+              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>H</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one needs an energy and a mass. You are given an equivalent dose and a time."><span class="eq">D = <span class="frac"><span>E</span><span>m</span></span></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="H is the equivalent dose and t is the time. Check which number is which."><span class="eq">Ḣ = <span class="frac"><span>40</span><span>0.60</span></span></span></button>
+              <button type="button" class="option" data-feedback="In Ḣ = H/t the dose is <strong>divided</strong> by the time."><span class="eq">Ḣ = 0.60 × 40</span></button>
+              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>0.60</span><span>40</span></span></span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="dr-rate">Ḣ =</label>
+              <input class="answer" id="dr-rate" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">mSv h⁻¹</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="24">You've multiplied. The dose is divided by the time.</p>
+        <p class="mistake" data-value="66.7">You've divided the time by the dose. It's the other way round.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
+            <li>Ḣ = <span class="frac"><span>0.60</span><span>40</span></span></li>
+            <li>Ḣ = 0.015 mSv h⁻¹</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="40">
+        <p class="q-prompt"><span class="q-num">3.</span>On a long flight, cosmic rays give the passengers an equivalent dose rate of 5.0 µSv h⁻¹. The flight lasts 8.0 hours. Calculate the equivalent dose a passenger receives.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>H</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one is for activity. You are given a dose rate and a time."><span class="eq">A = <span class="frac"><span>N</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one needs a weighting factor. You are given a dose rate and a time."><span class="eq">H = Dw<sub>R</sub></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then rearrange it to find H.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="5.0 µSv h⁻¹ is the dose <strong>rate</strong>, Ḣ. H is what you are trying to find."><span class="eq">Ḣ = <span class="frac"><span>5.0</span><span>8.0</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">5.0 = <span class="frac"><span>H</span><span>8.0</span></span></span></button>
+              <button type="button" class="option" data-feedback="Ḣ is the dose rate and t is the time. Check which number is which."><span class="eq">8.0 = <span class="frac"><span>H</span><span>5.0</span></span></span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="dr-flight">H =</label>
+              <input class="answer" id="dr-flight" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">µSv</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="0.625">You've divided the dose rate by the time. Rearrange 5.0 = H / 8.0 to get H on its own.</p>
+        <p class="mistake" data-value="1.6">You've divided the time by the dose rate. Rearrange 5.0 = H / 8.0 to get H on its own.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
+            <li>5.0 = <span class="frac"><span>H</span><span>8.0</span></span></li>
+            <li>H = 5.0 × 8.0</li>
+            <li>H = 40 µSv</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">4.</span>Match each description to its annual equivalent dose.</p>
+        <div class="match">
+          <p class="match-hint">Drag each description onto its value, or tap a description and then its value.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="worker" data-label="20 mSv">Dose limit for a radiation worker</button>
+            <button type="button" class="match-item is-text" data-key="background" data-label="2.2 mSv">Average background radiation in the UK</button>
+            <button type="button" class="match-item is-text" data-key="public" data-label="1 mSv">Dose limit for a member of the public</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="public">1 mSv</button>
+            <button type="button" class="match-target" data-key="background">2.2 mSv</button>
+            <button type="button" class="match-target" data-key="worker">20 mSv</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The limits are for doses <strong>on top of</strong> background radiation. People who choose to work with radiation, and are monitored, are allowed a higher limit than everyone else.</p></details>
+        <div class="q-explain">In the UK the average annual background radiation is <strong>2.2 mSv</strong>. On top of that, the annual limit is <strong>1 mSv</strong> for a member of the public and <strong>20 mSv</strong> for a radiation worker.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>An engineer at a nuclear power station receives an equivalent dose of 12 mSv from her work in one year. The annual limits are 1 mSv for the public and 20 mSv for radiation workers. Which statement is correct?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="She is a radiation worker, so the public limit is not the one that applies to her.">She has broken the limit, because 12 mSv is more than 1 mSv</button>
+          <button type="button" class="option" data-feedback="Compare the numbers again: is 12 mSv more or less than 20 mSv?">She has broken the limit for radiation workers</button>
+          <button type="button" class="option" data-correct>She is within the limit for radiation workers</button>
+          <button type="button" class="option" data-feedback="12 mSv is much more than the 2.2 mSv average background.">Her dose is less than the average background radiation</button>
+        </div>
+        <div class="q-explain">She is a radiation worker, so her limit is <strong>20 mSv</strong> a year. 12 mSv is within it, although it is far more than a member of the public is allowed.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="80">
+        <p class="q-prompt"><span class="q-num">6.</span>A technician works in a room where the equivalent dose rate is 0.025 mSv h⁻¹. Her employer allows her to receive an equivalent dose of 2.0 mSv from this job. Calculate the longest time she can work in the room.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="dr-time">t =</label>
+          <input class="answer" id="dr-time" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">hours</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.05">You've multiplied. Rearrange 0.025 = 2.0 / t to get t on its own.</p>
+        <p class="mistake" data-value="0.0125">You've divided the dose rate by the dose. It's the other way round.</p>
+        <details class="hint"><summary>Hint</summary><p>Write Ḣ = H/t and put in the two numbers you know. Every hour adds another 0.025 mSv: how many hours until that reaches 2.0 mSv?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
+            <li>0.025 = <span class="frac"><span>2.0</span><span>t</span></span></li>
+            <li>t = <span class="frac"><span>2.0</span><span>0.025</span></span></li>
+            <li>t = 80 hours</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="18">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">7.</span>A radiation worker receives an equivalent dose rate of 0.010 mSv h⁻¹ while at work. He works 40 hours a week for 45 weeks of the year. Calculate the equivalent dose he receives from his work in one year. Is it within the 20 mSv limit for radiation workers?</p>
+        <div class="answer-row">
+          <label class="answer-label" for="dr-year">H =</label>
+          <input class="answer" id="dr-year" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">mSv</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.4">That's the dose from one week. He works 45 weeks in the year.</p>
+        <p class="mistake" data-value="0.45">You've used 45 as the time. How many <strong>hours</strong> does he work in the whole year?</p>
+        <p class="mistake" data-value="180000">You've divided the time by the dose rate. Rearrange 0.010 = H / t to get H on its own.</p>
+        <details class="hint"><summary>Hint</summary><p>The dose rate is per hour, so you need the time in hours. How many hours are there in 45 weeks of 40 hours?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>t = 40 × 45 = 1800 hours</li>
+            <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
+            <li>0.010 = <span class="frac"><span>H</span><span>1800</span></span></li>
+            <li>H = 18 mSv</li>
+          </ul>
+          <p>18 mSv is less than 20 mSv, so he is within the limit for radiation workers, but only just.</p>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Absorbed dose · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics starter (Radiation · Nuclear radiation): what absorbed dose means and calculations with D = E/m.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Radiation</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Absorbed dose</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning to calculate absorbed dose.</p>
+      <p><strong>SC:</strong> I can say what absorbed dose measures · I can use D = E/m to find a dose or an energy · I can change mJ into J.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5">5 min</option>
+          <option value="8" selected>8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">8:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>What does absorbed dose measure?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="That is the <strong>activity</strong> of a source, measured in becquerels.">The number of nuclei that decay each second</button>
+          <button type="button" class="option" data-feedback="Nearly, but two people can absorb the same total energy and get different doses. What else matters?">The total energy the whole body absorbs</button>
+          <button type="button" class="option" data-correct>The energy absorbed by each kilogram of tissue</button>
+          <button type="button" class="option" data-feedback="That depends on the type of radiation too. Absorbed dose only looks at energy and mass.">How much harm the radiation does to the body</button>
+        </div>
+        <div class="q-explain">Absorbed dose is the <strong>energy absorbed per kilogram</strong> of the tissue (or other material) that absorbs it. One gray is one joule absorbed by each kilogram.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">2.</span>Match each quantity in D = E/m to its unit.</p>
+        <div class="match">
+          <p class="match-hint">Drag each quantity onto its unit, or tap a quantity and then its unit.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="j" data-label="joule (J)">Energy, E</button>
+            <button type="button" class="match-item is-text" data-key="gy" data-label="gray (Gy)">Absorbed dose, D</button>
+            <button type="button" class="match-item is-text" data-key="kg" data-label="kilogram (kg)">Mass, m</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="kg">kilogram (kg)</button>
+            <button type="button" class="match-target" data-key="gy">gray (Gy)</button>
+            <button type="button" class="match-target" data-key="j">joule (J)</button>
+          </div>
+        </div>
+        <div class="q-explain">Absorbed dose is measured in <strong>grays (Gy)</strong>, energy in <strong>joules (J)</strong> and mass in <strong>kilograms (kg)</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.4">
+        <p class="q-prompt"><span class="q-num">3.</span>A sample of tissue has a mass of 0.50 kg. It absorbs 0.20 J of energy from a radioactive source. Calculate the absorbed dose.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="That one is for activity. You need the one with dose, energy and mass."><span class="eq">A = <span class="frac"><span>N</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">D = <span class="frac"><span>E</span><span>m</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one needs a weighting factor. You are given an energy and a mass."><span class="eq">H = Dw<sub>R</sub></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="E is the energy and m is the mass. Check which number is which."><span class="eq">D = <span class="frac"><span>0.50</span><span>0.20</span></span></span></button>
+              <button type="button" class="option" data-feedback="In D = E/m the energy is <strong>divided</strong> by the mass."><span class="eq">D = 0.20 × 0.50</span></button>
+              <button type="button" class="option" data-correct><span class="eq">D = <span class="frac"><span>0.20</span><span>0.50</span></span></span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="ad-dose">D =</label>
+              <input class="answer" id="ad-dose" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">Gy</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="0.1">You've multiplied. The energy is divided by the mass.</p>
+        <p class="mistake" data-value="2.5">You've divided the mass by the energy. It's the other way round.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>D = <span class="frac"><span>E</span><span>m</span></span></li>
+            <li>D = <span class="frac"><span>0.20</span><span>0.50</span></span></li>
+            <li>D = 0.40 Gy</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.5">
+        <p class="q-prompt"><span class="q-num">4.</span>A tumour has a mass of 0.25 kg. During one treatment it receives an absorbed dose of 2.0 Gy. Calculate the energy the tumour absorbs.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-correct><span class="eq">D = <span class="frac"><span>E</span><span>m</span></span></span></button>
+              <button type="button" class="option" data-feedback="That links power, energy and time. Here you have a dose and a mass."><span class="eq">P = <span class="frac"><span>E</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one is for activity. You need the one with dose, energy and mass."><span class="eq">A = <span class="frac"><span>N</span><span>t</span></span></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then rearrange it to find E.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="D is the absorbed dose and m is the mass. Check which number is which."><span class="eq">0.25 = <span class="frac"><span>E</span><span>2.0</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">2.0 = <span class="frac"><span>E</span><span>0.25</span></span></span></button>
+              <button type="button" class="option" data-feedback="2.0 Gy is the dose, D, not the energy. Put each number where its letter is in D = E/m."><span class="eq">D = <span class="frac"><span>2.0</span><span>0.25</span></span></span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="ad-energy">E =</label>
+              <input class="answer" id="ad-energy" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">J</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="8">You've divided the dose by the mass. Rearrange 2.0 = E / 0.25 to get E on its own.</p>
+        <p class="mistake" data-value="0.125">You've divided the mass by the dose. Rearrange 2.0 = E / 0.25 to get E on its own.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>D = <span class="frac"><span>E</span><span>m</span></span></li>
+            <li>2.0 = <span class="frac"><span>E</span><span>0.25</span></span></li>
+            <li>E = 2.0 × 0.25</li>
+            <li>E = 0.50 J</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Two workers each absorb 0.30 J of energy from radiation. Worker A absorbs it all in one hand, of mass 0.50 kg. Worker B absorbs it spread evenly over their whole body, of mass 75 kg. Which tissue receives the greater absorbed dose?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>Worker A's hand</button>
+          <button type="button" class="option" data-feedback="The same energy is shared out over far more kilograms. What does that do to the energy in each kilogram?">Worker B's body</button>
+          <button type="button" class="option" data-feedback="The energy is the same, but the mass is not. Absorbed dose is energy <strong>per kilogram</strong>.">Both the same</button>
+        </div>
+        <div class="q-explain">Absorbed dose is energy <strong>per kilogram</strong>. The same 0.30 J in a smaller mass gives a bigger dose: 0.60 Gy to the hand, but only 0.0040 Gy to the whole body.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="15">
+        <p class="q-prompt"><span class="q-num">6.</span>During an X-ray, a hand of mass 0.40 kg absorbs 6.0 mJ of energy. Calculate the absorbed dose, in milligrays.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="ad-milli">D =</label>
+          <input class="answer" id="ad-milli" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">mGy</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.015">That's the answer in Gy. The unit box says mGy.</p>
+        <p class="mistake" data-value="2.4">You've multiplied. The energy is divided by the mass.</p>
+        <p class="mistake" data-value="0.0024">You've multiplied. The energy is divided by the mass.</p>
+        <p class="mistake" data-value="0.0667">You've divided the mass by the energy. It's the other way round.</p>
+        <p class="mistake" data-value="66.7">You've divided the mass by the energy. It's the other way round.</p>
+        <details class="hint"><summary>Hint</summary><p>Milli means one thousandth. Change 6.0 mJ into joules first, then change your answer from Gy into mGy at the end.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>D = <span class="frac"><span>E</span><span>m</span></span></li>
+            <li>D = <span class="frac"><span>0.0060</span><span>0.40</span></span></li>
+            <li>D = 0.015 Gy = 15 mGy</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="8">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">7.</span>A tumour of mass 0.20 kg absorbs 0.050 J of energy in each radiotherapy session. The doctors want the tumour to receive a total absorbed dose of 2.0 Gy. How many sessions are needed?</p>
+        <div class="answer-row">
+          <label class="answer-label" for="ad-sessions">number of sessions =</label>
+          <input class="answer" id="ad-sessions" type="text" inputmode="decimal" autocomplete="off">
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.25">That's the absorbed dose from one session, in Gy. How many of those add up to 2.0 Gy?</p>
+        <p class="mistake" data-value="40">You've divided the total dose by the energy. Find the absorbed dose from one session first.</p>
+        <p class="mistake" data-value="0.4">That's the total energy needed, in J. How many sessions of 0.050 J is that?</p>
+        <details class="hint"><summary>Hint</summary><p>Start with one session: what absorbed dose does 0.050 J give to 0.20 kg?</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>D = <span class="frac"><span>E</span><span>m</span></span> = <span class="frac"><span>0.050</span><span>0.20</span></span> = 0.25 Gy in each session</li>
+            <li>number of sessions = <span class="frac"><span>2.0</span><span>0.25</span></span> = 8</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

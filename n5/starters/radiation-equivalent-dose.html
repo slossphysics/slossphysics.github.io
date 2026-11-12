@@ -84,8 +84,8 @@
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input" data-answer="40">
-        <p class="q-prompt"><span class="q-num">3.</span>A sample of tissue receives an absorbed dose of 2.0 mGy from alpha radiation. The radiation weighting factor for alpha is 20. Calculate the equivalent dose.</p>
+      <div class="q q-input" data-answer="0.04">
+        <p class="q-prompt"><span class="q-num">3.</span>A sample of tissue receives an absorbed dose of 2.0 mGy from alpha radiation. The radiation weighting factor for alpha is 20. Calculate the equivalent dose. Type powers of ten like this: 2.5x10-4.</p>
         <ol class="steps">
           <li class="step" data-then="Write it in your jotter, then put the numbers in.">
             <span class="step-name">Formula</span>
@@ -98,9 +98,9 @@
           <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
             <span class="step-name">Substitute</span>
             <div class="options">
-              <button type="button" class="option" data-correct><span class="eq">H = 2.0 × 20</span></button>
-              <button type="button" class="option" data-feedback="D and w<sub>R</sub> are written side by side, which means they are multiplied."><span class="eq">H = <span class="frac"><span>2.0</span><span>20</span></span></span></button>
-              <button type="button" class="option" data-feedback="2.0 mGy is the absorbed dose, D. H is what you are trying to find."><span class="eq">2.0 = H × 20</span></button>
+              <button type="button" class="option" data-correct><span class="eq">H = 2.0 × 10⁻³ × 20</span></button>
+              <button type="button" class="option" data-feedback="D and w<sub>R</sub> are written side by side, which means they are multiplied."><span class="eq">H = <span class="frac"><span>2.0 × 10⁻³</span><span>20</span></span></span></button>
+              <button type="button" class="option" data-feedback="The absorbed dose is 2.0 <strong>milli</strong>grays. Change it into grays before you substitute."><span class="eq">H = 2.0 × 20</span></button>
             </div>
           </li>
           <li class="step">
@@ -108,26 +108,27 @@
             <div class="answer-row">
               <label class="answer-label" for="ed-alpha">H =</label>
               <input class="answer" id="ed-alpha" type="text" inputmode="decimal" autocomplete="off">
-              <span class="answer-unit">mSv</span>
+              <span class="answer-unit">Sv</span>
               <button type="button" class="tool q-check">Check</button>
             </div>
           </li>
         </ol>
-        <p class="mistake" data-value="0.1">You've divided. Equivalent dose is absorbed dose <strong>multiplied</strong> by the weighting factor.</p>
-        <p class="mistake" data-value="10">You've divided. Equivalent dose is absorbed dose <strong>multiplied</strong> by the weighting factor.</p>
-        <p class="mistake" data-value="0.04">That's the answer in Sv. The unit box says mSv.</p>
+        <p class="mistake" data-value="40">Have you changed mGy into Gy? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.0001">You've divided. Equivalent dose is absorbed dose <strong>multiplied</strong> by the weighting factor.</p>
+        <p class="mistake" data-value="0.1">You've divided. Equivalent dose is absorbed dose <strong>multiplied</strong> by the weighting factor, and mGy needs changing into Gy.</p>
+        <p class="mistake" data-value="0.002">That's the absorbed dose from the question. Multiply it by the weighting factor.</p>
         <div class="q-explain">
           <ul class="working">
             <li>H = Dw<sub>R</sub></li>
-            <li>H = 2.0 × 20</li>
-            <li>H = 40 mSv</li>
+            <li>H = 2.0 × 10⁻³ × 20</li>
+            <li>H = 4.0 × 10⁻² Sv</li>
           </ul>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input" data-answer="15">
-        <p class="q-prompt"><span class="q-num">4.</span>A worker receives an absorbed dose of 5.0 mGy from slow neutrons. Use the table to calculate the equivalent dose.</p>
+      <div class="q q-input" data-answer="0.015">
+        <p class="q-prompt"><span class="q-num">4.</span>A worker receives an absorbed dose of 5.0 mGy from slow neutrons. Use the table to calculate the equivalent dose. Type powers of ten like this: 2.5x10-4.</p>
         <table class="data-table">
           <tr><th>Type of radiation</th><th>Radiation weighting factor</th></tr>
           <tr><td>alpha</td><td>20</td></tr>
@@ -139,19 +140,19 @@
         <div class="answer-row">
           <label class="answer-label" for="ed-neutron">H =</label>
           <input class="answer" id="ed-neutron" type="text" inputmode="decimal" autocomplete="off">
-          <span class="answer-unit">mSv</span>
+          <span class="answer-unit">Sv</span>
           <button type="button" class="tool q-check">Check</button>
         </div>
-        <p class="mistake" data-value="50">That's the weighting factor for <strong>fast</strong> neutrons. Check the table again.</p>
-        <p class="mistake" data-value="5">You haven't used the weighting factor. Find slow neutrons in the table.</p>
-        <p class="mistake" data-value="1.67">You've divided. Equivalent dose is absorbed dose <strong>multiplied</strong> by the weighting factor.</p>
-        <p class="mistake" data-value="100">That's the weighting factor for alpha. Find slow neutrons in the table.</p>
-        <p class="mistake" data-value="0.015">That's the answer in Sv. The unit box says mSv.</p>
+        <p class="mistake" data-value="15">Have you changed mGy into Gy? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.05">That's the weighting factor for <strong>fast</strong> neutrons. Check the table again.</p>
+        <p class="mistake" data-value="0.005">You haven't used the weighting factor. Find slow neutrons in the table.</p>
+        <p class="mistake" data-value="0.00167">You've divided. Equivalent dose is absorbed dose <strong>multiplied</strong> by the weighting factor.</p>
+        <p class="mistake" data-value="0.1">That's the weighting factor for alpha. Find slow neutrons in the table.</p>
         <div class="q-explain">
           <ul class="working">
             <li>H = Dw<sub>R</sub></li>
-            <li>H = 5.0 × 3</li>
-            <li>H = 15 mSv</li>
+            <li>H = 5.0 × 10⁻³ × 3</li>
+            <li>H = 1.5 × 10⁻² Sv</li>
           </ul>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
@@ -165,7 +166,7 @@
           <button type="button" class="option" data-feedback="Right radiation, wrong reason. The same absorbed dose means the same energy per kilogram. Compare the weighting factors.">The alpha does more harm, because the tissue absorbs more energy from it</button>
           <button type="button" class="option" data-correct>The alpha does more harm, because its equivalent dose is 20 times bigger</button>
         </div>
-        <div class="q-explain">Both samples absorb the <strong>same energy per kilogram</strong>, but alpha is far more ionising, so it does more biological harm. Its equivalent dose is 1 × 20 = 20 mSv, compared with 1 × 1 = 1 mSv for gamma.</div>
+        <div class="q-explain">Both samples absorb the <strong>same energy per kilogram</strong>, but alpha is far more ionising, so it does more biological harm. Its equivalent dose is 20 × 10⁻³ Sv, compared with 1 × 10⁻³ Sv for gamma.</div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
@@ -194,8 +195,8 @@
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input q-challenge" data-answer="4">
-        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">7.</span>In one year a worker receives an absorbed dose of 2.0 mGy from gamma radiation and 0.10 mGy from alpha radiation. Use the table to calculate the worker's total equivalent dose.</p>
+      <div class="q q-input q-challenge" data-answer="0.004">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">7.</span>In one year a worker receives an absorbed dose of 2.0 mGy from gamma radiation and 0.10 mGy from alpha radiation. Use the table to calculate the worker's total equivalent dose. Type powers of ten like this: 2.5x10-4.</p>
         <table class="data-table">
           <tr><th>Type of radiation</th><th>Radiation weighting factor</th></tr>
           <tr><td>alpha</td><td>20</td></tr>
@@ -207,19 +208,20 @@
         <div class="answer-row">
           <label class="answer-label" for="ed-total">total H =</label>
           <input class="answer" id="ed-total" type="text" inputmode="decimal" autocomplete="off">
-          <span class="answer-unit">mSv</span>
+          <span class="answer-unit">Sv</span>
           <button type="button" class="tool q-check">Check</button>
         </div>
-        <p class="mistake" data-value="2.1">You've added the absorbed doses. Find the equivalent dose from each radiation first, then add those.</p>
-        <p class="mistake" data-value="2">That's the equivalent dose from just one of the radiations. Find the other one and add them together.</p>
-        <p class="mistake" data-value="42">You've added the absorbed doses, then used the alpha weighting factor for both. Work out each radiation separately.</p>
-        <p class="mistake" data-value="40.1">You've swapped the weighting factors. Check which one belongs to alpha and which to gamma.</p>
+        <p class="mistake" data-value="4">Have you changed mGy into Gy? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.0021">You've added the absorbed doses. Find the equivalent dose from each radiation first, then add those.</p>
+        <p class="mistake" data-value="0.002">That's the equivalent dose from just one of the radiations. Find the other one and add them together.</p>
+        <p class="mistake" data-value="0.042">You've added the absorbed doses, then used the alpha weighting factor for both. Work out each radiation separately.</p>
+        <p class="mistake" data-value="0.0401">You've swapped the weighting factors. Check which one belongs to alpha and which to gamma.</p>
         <details class="hint"><summary>Hint</summary><p>Each radiation has its own weighting factor, so work out two equivalent doses. Only then add.</p></details>
         <div class="q-explain">
           <ul class="working">
-            <li>gamma: H = Dw<sub>R</sub> = 2.0 × 1 = 2.0 mSv</li>
-            <li>alpha: H = Dw<sub>R</sub> = 0.10 × 20 = 2.0 mSv</li>
-            <li>total H = 2.0 + 2.0 = 4.0 mSv</li>
+            <li>gamma: H = Dw<sub>R</sub> = 2.0 × 10⁻³ × 1 = 2.0 × 10⁻³ Sv</li>
+            <li>alpha: H = Dw<sub>R</sub> = 0.10 × 10⁻³ × 20 = 2.0 × 10⁻³ Sv</li>
+            <li>total H = 2.0 × 10⁻³ + 2.0 × 10⁻³ = 4.0 × 10⁻³ Sv</li>
           </ul>
           <p>The alpha dose looked tiny, but it does as much harm as the gamma dose.</p>
         </div>

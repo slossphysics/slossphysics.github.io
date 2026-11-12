@@ -65,8 +65,8 @@
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input" data-answer="0.015">
-        <p class="q-prompt"><span class="q-num">2.</span>A hospital radiographer receives an equivalent dose of 0.60 mSv during 40 hours of work. Calculate the equivalent dose rate.</p>
+      <div class="q q-input" data-answer="1.5e-5">
+        <p class="q-prompt"><span class="q-num">2.</span>A hospital radiographer receives an equivalent dose of 0.60 mSv during 40 hours of work. Calculate the equivalent dose rate. Type powers of ten like this: 2.5x10-4.</p>
         <ol class="steps">
           <li class="step" data-then="Write it in your jotter, then put the numbers in.">
             <span class="step-name">Formula</span>
@@ -79,9 +79,9 @@
           <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
             <span class="step-name">Substitute</span>
             <div class="options">
-              <button type="button" class="option" data-feedback="H is the equivalent dose and t is the time. Check which number is which."><span class="eq">Ḣ = <span class="frac"><span>40</span><span>0.60</span></span></span></button>
-              <button type="button" class="option" data-feedback="In Ḣ = H/t the dose is <strong>divided</strong> by the time."><span class="eq">Ḣ = 0.60 × 40</span></button>
-              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>0.60</span><span>40</span></span></span></button>
+              <button type="button" class="option" data-feedback="H is the equivalent dose and t is the time. Check which number is which."><span class="eq">Ḣ = <span class="frac"><span>40</span><span>0.60 × 10⁻³</span></span></span></button>
+              <button type="button" class="option" data-feedback="The dose is 0.60 <strong>milli</strong>sieverts. Change it into sieverts before you substitute."><span class="eq">Ḣ = <span class="frac"><span>0.60</span><span>40</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>0.60 × 10⁻³</span><span>40</span></span></span></button>
             </div>
           </li>
           <li class="step">
@@ -89,25 +89,28 @@
             <div class="answer-row">
               <label class="answer-label" for="dr-rate">Ḣ =</label>
               <input class="answer" id="dr-rate" type="text" inputmode="decimal" autocomplete="off">
-              <span class="answer-unit">mSv h⁻¹</span>
+              <span class="answer-unit">Sv h⁻¹</span>
               <button type="button" class="tool q-check">Check</button>
             </div>
           </li>
         </ol>
-        <p class="mistake" data-value="24">You've multiplied. The dose is divided by the time.</p>
-        <p class="mistake" data-value="66.7">You've divided the time by the dose. It's the other way round.</p>
+        <p class="mistake" data-value="0.015">Have you changed mSv into Sv? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.024">You've multiplied. The dose is divided by the time.</p>
+        <p class="mistake" data-value="24">You've multiplied. The dose is divided by the time, and mSv needs changing into Sv.</p>
+        <p class="mistake" data-value="66667">You've divided the time by the dose. It's the other way round.</p>
+        <p class="mistake" data-value="66.7">You've divided the time by the dose. It's the other way round, and mSv needs changing into Sv.</p>
         <div class="q-explain">
           <ul class="working">
             <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
-            <li>Ḣ = <span class="frac"><span>0.60</span><span>40</span></span></li>
-            <li>Ḣ = 0.015 mSv h⁻¹</li>
+            <li>Ḣ = <span class="frac"><span>0.60 × 10⁻³</span><span>40</span></span></li>
+            <li>Ḣ = 1.5 × 10⁻⁵ Sv h⁻¹</li>
           </ul>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input" data-answer="40">
-        <p class="q-prompt"><span class="q-num">3.</span>On a long flight, cosmic rays give the passengers an equivalent dose rate of 5.0 µSv h⁻¹. The flight lasts 8.0 hours. Calculate the equivalent dose a passenger receives.</p>
+      <div class="q q-input" data-answer="4e-5">
+        <p class="q-prompt"><span class="q-num">3.</span>On a long flight, cosmic rays give the passengers an equivalent dose rate of 5.0 µSv h⁻¹. The flight lasts 8.0 hours. Calculate the equivalent dose a passenger receives. Type powers of ten like this: 2.5x10-4.</p>
         <ol class="steps">
           <li class="step" data-then="Write it in your jotter, then put the numbers in.">
             <span class="step-name">Formula</span>
@@ -120,9 +123,9 @@
           <li class="step" data-then="Write that line underneath, then rearrange it to find H.">
             <span class="step-name">Substitute</span>
             <div class="options">
-              <button type="button" class="option" data-feedback="5.0 µSv h⁻¹ is the dose <strong>rate</strong>, Ḣ. H is what you are trying to find."><span class="eq">Ḣ = <span class="frac"><span>5.0</span><span>8.0</span></span></span></button>
-              <button type="button" class="option" data-correct><span class="eq">5.0 = <span class="frac"><span>H</span><span>8.0</span></span></span></button>
-              <button type="button" class="option" data-feedback="Ḣ is the dose rate and t is the time. Check which number is which."><span class="eq">8.0 = <span class="frac"><span>H</span><span>5.0</span></span></span></button>
+              <button type="button" class="option" data-feedback="5.0 µSv h⁻¹ is the dose <strong>rate</strong>, Ḣ. H is what you are trying to find."><span class="eq">Ḣ = <span class="frac"><span>5.0 × 10⁻⁶</span><span>8.0</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">5.0 × 10⁻⁶ = <span class="frac"><span>H</span><span>8.0</span></span></span></button>
+              <button type="button" class="option" data-feedback="The dose rate is 5.0 <strong>micro</strong>sieverts per hour. Change it into sieverts per hour before you substitute."><span class="eq">5.0 = <span class="frac"><span>H</span><span>8.0</span></span></span></button>
             </div>
           </li>
           <li class="step">
@@ -130,19 +133,23 @@
             <div class="answer-row">
               <label class="answer-label" for="dr-flight">H =</label>
               <input class="answer" id="dr-flight" type="text" inputmode="decimal" autocomplete="off">
-              <span class="answer-unit">µSv</span>
+              <span class="answer-unit">Sv</span>
               <button type="button" class="tool q-check">Check</button>
             </div>
           </li>
         </ol>
-        <p class="mistake" data-value="0.625">You've divided the dose rate by the time. Rearrange 5.0 = H / 8.0 to get H on its own.</p>
-        <p class="mistake" data-value="1.6">You've divided the time by the dose rate. Rearrange 5.0 = H / 8.0 to get H on its own.</p>
+        <p class="mistake" data-value="40">Have you changed µSv into Sv? Micro means × 10⁻⁶.</p>
+        <p class="mistake" data-value="0.04">You've used × 10⁻³, which is milli. Micro means × 10⁻⁶.</p>
+        <p class="mistake" data-value="6.25e-7">You've divided the dose rate by the time. Rearrange Ḣ = H/t to get H on its own.</p>
+        <p class="mistake" data-value="0.625">You've divided the dose rate by the time. Rearrange Ḣ = H/t to get H on its own, and change µSv into Sv.</p>
+        <p class="mistake" data-value="1600000">You've divided the time by the dose rate. Rearrange Ḣ = H/t to get H on its own.</p>
+        <p class="mistake" data-value="1.6">You've divided the time by the dose rate. Rearrange Ḣ = H/t to get H on its own, and change µSv into Sv.</p>
         <div class="q-explain">
           <ul class="working">
             <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
-            <li>5.0 = <span class="frac"><span>H</span><span>8.0</span></span></li>
-            <li>H = 5.0 × 8.0</li>
-            <li>H = 40 µSv</li>
+            <li>5.0 × 10⁻⁶ = <span class="frac"><span>H</span><span>8.0</span></span></li>
+            <li>H = 5.0 × 10⁻⁶ × 8.0</li>
+            <li>H = 4.0 × 10⁻⁵ Sv</li>
           </ul>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
@@ -188,40 +195,46 @@
           <span class="answer-unit">hours</span>
           <button type="button" class="tool q-check">Check</button>
         </div>
-        <p class="mistake" data-value="0.05">You've multiplied. Rearrange 0.025 = 2.0 / t to get t on its own.</p>
+        <p class="mistake" data-value="5e-8">You've multiplied. Rearrange Ḣ = H/t to get t on its own.</p>
+        <p class="mistake" data-value="0.05">You've multiplied. Rearrange Ḣ = H/t to get t on its own.</p>
         <p class="mistake" data-value="0.0125">You've divided the dose rate by the dose. It's the other way round.</p>
+        <p class="mistake" data-value="80000">You've changed only one of the two values out of milli. Both the dose rate and the dose need × 10⁻³.</p>
+        <p class="mistake" data-value="0.08">You've changed only one of the two values out of milli. Both the dose rate and the dose need × 10⁻³.</p>
         <details class="hint"><summary>Hint</summary><p>Write Ḣ = H/t and put in the two numbers you know. Every hour adds another 0.025 mSv: how many hours until that reaches 2.0 mSv?</p></details>
         <div class="q-explain">
           <ul class="working">
             <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
-            <li>0.025 = <span class="frac"><span>2.0</span><span>t</span></span></li>
-            <li>t = <span class="frac"><span>2.0</span><span>0.025</span></span></li>
+            <li>0.025 × 10⁻³ = <span class="frac"><span>2.0 × 10⁻³</span><span>t</span></span></li>
+            <li>t = <span class="frac"><span>2.0 × 10⁻³</span><span>0.025 × 10⁻³</span></span></li>
             <li>t = 80 hours</li>
           </ul>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input q-challenge" data-answer="18">
-        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">7.</span>A radiation worker receives an equivalent dose rate of 0.010 mSv h⁻¹ while at work. He works 40 hours a week for 45 weeks of the year. Calculate the equivalent dose he receives from his work in one year. Is it within the 20 mSv limit for radiation workers?</p>
+      <div class="q q-input q-challenge" data-answer="0.018">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">7.</span>A radiation worker receives an equivalent dose rate of 0.010 mSv h⁻¹ while at work. He works 40 hours a week for 45 weeks of the year. Calculate the equivalent dose he receives from his work in one year. Is it within the 20 mSv limit for radiation workers? Type powers of ten like this: 2.5x10-4.</p>
         <div class="answer-row">
           <label class="answer-label" for="dr-year">H =</label>
           <input class="answer" id="dr-year" type="text" inputmode="decimal" autocomplete="off">
-          <span class="answer-unit">mSv</span>
+          <span class="answer-unit">Sv</span>
           <button type="button" class="tool q-check">Check</button>
         </div>
-        <p class="mistake" data-value="0.4">That's the dose from one week. He works 45 weeks in the year.</p>
-        <p class="mistake" data-value="0.45">You've used 45 as the time. How many <strong>hours</strong> does he work in the whole year?</p>
-        <p class="mistake" data-value="180000">You've divided the time by the dose rate. Rearrange 0.010 = H / t to get H on its own.</p>
+        <p class="mistake" data-value="18">Have you changed mSv into Sv? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.0004">That's the dose from one week. He works 45 weeks in the year.</p>
+        <p class="mistake" data-value="0.4">That's the dose from one week, without changing mSv into Sv. He works 45 weeks in the year.</p>
+        <p class="mistake" data-value="0.00045">You've used 45 as the time. How many <strong>hours</strong> does he work in the whole year?</p>
+        <p class="mistake" data-value="0.45">You've used 45 as the time, and mSv needs changing into Sv. How many <strong>hours</strong> does he work in the whole year?</p>
+        <p class="mistake" data-value="1.8e8">You've divided the time by the dose rate. Rearrange Ḣ = H/t to get H on its own.</p>
         <details class="hint"><summary>Hint</summary><p>The dose rate is per hour, so you need the time in hours. How many hours are there in 45 weeks of 40 hours?</p></details>
         <div class="q-explain">
           <ul class="working">
             <li>t = 40 × 45 = 1800 hours</li>
             <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
-            <li>0.010 = <span class="frac"><span>H</span><span>1800</span></span></li>
-            <li>H = 18 mSv</li>
+            <li>0.010 × 10⁻³ = <span class="frac"><span>H</span><span>1800</span></span></li>
+            <li>H = 1.8 × 10⁻² Sv</li>
           </ul>
-          <p>18 mSv is less than 20 mSv, so he is within the limit for radiation workers, but only just.</p>
+          <p>1.8 × 10⁻² Sv is 18 mSv, which is less than 20 mSv, so he is within the limit for radiation workers, but only just.</p>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>

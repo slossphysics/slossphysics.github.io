@@ -157,8 +157,8 @@
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input" data-answer="6">
-        <p class="q-prompt"><span class="q-num">6.</span>A worker's hand receives an absorbed dose of 0.30 mGy from alpha radiation. The radiation weighting factor for alpha is 20. Calculate the equivalent dose.</p>
+      <div class="q q-input" data-answer="0.006">
+        <p class="q-prompt"><span class="q-num">6.</span>A worker's hand receives an absorbed dose of 0.30 mGy from alpha radiation. The radiation weighting factor for alpha is 20. Calculate the equivalent dose. Type powers of ten like this: 2.5x10-4.</p>
         <ol class="steps">
           <li class="step" data-then="Write it in your jotter, then put the numbers in.">
             <span class="step-name">Formula</span>
@@ -171,9 +171,9 @@
           <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
             <span class="step-name">Substitute</span>
             <div class="options">
-              <button type="button" class="option" data-feedback="In H = Dw<sub>R</sub> the absorbed dose is <strong>multiplied</strong> by the weighting factor."><span class="eq">H = <span class="frac"><span>0.30</span><span>20</span></span></span></button>
-              <button type="button" class="option" data-feedback="In H = Dw<sub>R</sub> the absorbed dose is <strong>multiplied</strong> by the weighting factor."><span class="eq">H = <span class="frac"><span>20</span><span>0.30</span></span></span></button>
-              <button type="button" class="option" data-correct><span class="eq">H = 0.30 × 20</span></button>
+              <button type="button" class="option" data-feedback="In H = Dw<sub>R</sub> the absorbed dose is <strong>multiplied</strong> by the weighting factor."><span class="eq">H = <span class="frac"><span>0.30 × 10⁻³</span><span>20</span></span></span></button>
+              <button type="button" class="option" data-feedback="The absorbed dose is 0.30 <strong>milli</strong>grays. Change it into grays before you substitute."><span class="eq">H = 0.30 × 20</span></button>
+              <button type="button" class="option" data-correct><span class="eq">H = 0.30 × 10⁻³ × 20</span></button>
             </div>
           </li>
           <li class="step">
@@ -181,68 +181,73 @@
             <div class="answer-row">
               <label class="answer-label" for="rr-h">H =</label>
               <input class="answer" id="rr-h" type="text" inputmode="decimal" autocomplete="off">
-              <span class="answer-unit">mSv</span>
+              <span class="answer-unit">Sv</span>
               <button type="button" class="tool q-check">Check</button>
             </div>
           </li>
         </ol>
-        <p class="mistake" data-value="0.015">You've divided. The absorbed dose is multiplied by the weighting factor.</p>
-        <p class="mistake" data-value="66.7">You've divided the weighting factor by the absorbed dose. They are multiplied.</p>
-        <p class="mistake" data-value="0.3">That's the absorbed dose from the question. Multiply it by the weighting factor.</p>
+        <p class="mistake" data-value="6">Have you changed mGy into Gy? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="1.5e-5">You've divided. The absorbed dose is multiplied by the weighting factor.</p>
+        <p class="mistake" data-value="0.015">You've divided. The absorbed dose is multiplied by the weighting factor, and mGy needs changing into Gy.</p>
+        <p class="mistake" data-value="0.0003">That's the absorbed dose from the question. Multiply it by the weighting factor.</p>
         <div class="q-explain">
           <ul class="working">
             <li>H = Dw<sub>R</sub></li>
-            <li>H = 0.30 × 20</li>
-            <li>H = 6.0 mSv</li>
+            <li>H = 0.30 × 10⁻³ × 20</li>
+            <li>H = 6.0 × 10⁻³ Sv</li>
           </ul>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input" data-answer="0.06">
-        <p class="q-prompt"><span class="q-num">7.</span>A dentist receives an equivalent dose of 0.48 mSv from X-rays during 8.0 hours of work. Calculate the equivalent dose rate.</p>
+      <div class="q q-input" data-answer="0.00006">
+        <p class="q-prompt"><span class="q-num">7.</span>A dentist receives an equivalent dose of 0.48 mSv from X-rays during 8.0 hours of work. Calculate the equivalent dose rate. Type powers of ten like this: 2.5x10-4.</p>
         <div class="answer-row">
           <label class="answer-label" for="rr-rate">Ḣ =</label>
           <input class="answer" id="rr-rate" type="text" inputmode="decimal" autocomplete="off">
-          <span class="answer-unit">mSv h⁻¹</span>
+          <span class="answer-unit">Sv h⁻¹</span>
           <button type="button" class="tool q-check">Check</button>
         </div>
-        <p class="mistake" data-value="3.84">You've multiplied. The dose is divided by the time.</p>
-        <p class="mistake" data-value="16.7">You've divided the time by the dose. It's the other way round.</p>
-        <details class="hint"><summary>Hint</summary><p>A rate is an amount in each unit of time. Use Ḣ = H/t: how much dose does the dentist receive in each hour?</p></details>
+        <p class="mistake" data-value="0.06">Have you changed mSv into Sv? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.00384">You've multiplied. The dose is divided by the time.</p>
+        <p class="mistake" data-value="3.84">You've multiplied. The dose is divided by the time, and mSv needs changing into Sv.</p>
+        <p class="mistake" data-value="16667">You've divided the time by the dose. It's the other way round.</p>
+        <p class="mistake" data-value="16.7">You've divided the time by the dose. It's the other way round, and mSv needs changing into Sv.</p>
+        <details class="hint"><summary>Hint</summary><p>A rate is an amount in each unit of time. Use Ḣ = H/t: how much dose does the dentist receive in each hour? Change mSv into Sv first.</p></details>
         <div class="q-explain">
           <ul class="working">
             <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
-            <li>Ḣ = <span class="frac"><span>0.48</span><span>8.0</span></span></li>
-            <li>Ḣ = 0.060 mSv h⁻¹</li>
+            <li>Ḣ = <span class="frac"><span>0.48 × 10⁻³</span><span>8.0</span></span></li>
+            <li>Ḣ = 6.0 × 10⁻⁵ Sv h⁻¹</li>
           </ul>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input q-challenge" data-answer="40">
-        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">8.</span>A sample of tissue of mass 0.15 kg absorbs 0.30 mJ of energy from alpha radiation. The radiation weighting factor for alpha is 20. Calculate the equivalent dose received by the tissue.</p>
+      <div class="q q-input q-challenge" data-answer="0.04">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">8.</span>A sample of tissue of mass 0.15 kg absorbs 0.30 mJ of energy from alpha radiation. The radiation weighting factor for alpha is 20. Calculate the equivalent dose received by the tissue. Type powers of ten like this: 2.5x10-4.</p>
         <div class="answer-row">
           <label class="answer-label" for="rr-ch">H =</label>
           <input class="answer" id="rr-ch" type="text" inputmode="decimal" autocomplete="off">
-          <span class="answer-unit">mSv</span>
+          <span class="answer-unit">Sv</span>
           <button type="button" class="tool q-check">Check</button>
         </div>
-        <p class="mistake" data-value="2">That's the absorbed dose in mGy. The question asks for the <strong>equivalent</strong> dose.</p>
-        <p class="mistake" data-value="0.04">That's in sieverts. The question asks for millisieverts.</p>
-        <p class="mistake" data-value="0.9">You've multiplied the energy by the mass. In D = E/m the energy is divided by the mass.</p>
-        <p class="mistake" data-value="10">You've divided the mass by the energy. It's the other way round.</p>
-        <p class="mistake" data-value="0.1">You've divided by the weighting factor. The absorbed dose is multiplied by it.</p>
-        <p class="mistake" data-value="6">You've multiplied the energy by the weighting factor. Find the absorbed dose first: you need the mass for that.</p>
-        <details class="hint"><summary>Hint</summary><p>This takes two steps. You can't use H = Dw<sub>R</sub> until you know D. Which relationship gives D from an energy and a mass? Energy in mJ gives a dose in mGy.</p></details>
+        <p class="mistake" data-value="40">Have you changed mJ into J? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.002">That's the absorbed dose in Gy. The question asks for the <strong>equivalent</strong> dose.</p>
+        <p class="mistake" data-value="2">That's the absorbed dose, without changing mJ into J. The question asks for the <strong>equivalent</strong> dose.</p>
+        <p class="mistake" data-value="0.0009">You've multiplied the energy by the mass. In D = E/m the energy is divided by the mass.</p>
+        <p class="mistake" data-value="10000">You've divided the mass by the energy. It's the other way round.</p>
+        <p class="mistake" data-value="0.0001">You've divided by the weighting factor. The absorbed dose is multiplied by it.</p>
+        <p class="mistake" data-value="0.006">You've multiplied the energy by the weighting factor. Find the absorbed dose first: you need the mass for that.</p>
+        <details class="hint"><summary>Hint</summary><p>This takes two steps. You can't use H = Dw<sub>R</sub> until you know D. Which relationship gives D from an energy and a mass? Change 0.30 mJ into joules before you start.</p></details>
         <div class="q-explain">
           <ul class="working">
-            <li>D = <span class="frac"><span>E</span><span>m</span></span> = <span class="frac"><span>0.30</span><span>0.15</span></span> = 2.0 mGy</li>
+            <li>D = <span class="frac"><span>E</span><span>m</span></span> = <span class="frac"><span>0.30 × 10⁻³</span><span>0.15</span></span> = 2.0 × 10⁻³ Gy</li>
             <li>H = Dw<sub>R</sub></li>
-            <li>H = 2.0 × 20</li>
-            <li>H = 40 mSv</li>
+            <li>H = 2.0 × 10⁻³ × 20</li>
+            <li>H = 4.0 × 10⁻² Sv</li>
           </ul>
-          <p>The energy is in millijoules, so the absorbed dose comes out in milligrays and the equivalent dose in millisieverts.</p>
+          <p>Milli means × 10⁻³, so 0.30 mJ is 0.30 × 10⁻³ J.</p>
         </div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>

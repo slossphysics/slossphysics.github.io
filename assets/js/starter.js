@@ -23,6 +23,7 @@
 //                Any .match-item can have data-feedback, shown when it is put in the wrong place.
 //   .q.q-input   type-in number: an <input class="answer"> and a .q-check button; the .q has
 //                data-answer and optional data-tol (fraction allowed either way, default 0.02).
+//                Pupils can type scientific notation: 2x10-3, 2×10^-3 or 2e-3 are all read as 0.002.
 //                Optional hidden <p class="mistake" data-value="…"> elements give targeted
 //                feedback for common wrong answers.
 //                Optional working steps: an <ol class="steps"> of <li class="step">, each with a
@@ -353,8 +354,15 @@
 
   // Read a typed number, forgiving spaces, a comma for the decimal point and a unit on the end
   function readNumber(text) {
-    const m = text.replace(/\s/g, '').replace(',', '.').match(/^[-+]?(\d+\.?\d*|\.\d+)/);
-    return m ? Number(m[0]) : NaN;
+    // Also reads scientific notation the way pupils type it: 2x10-3, 2×10^-3, 2*10⁻³ or 2e-3.
+    const sup = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁻': '-', '⁺': '+' };
+    const s = text.replace(/\s/g, '').replace(',', '.').replace(/[−–]/g, '-')
+      .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g, (c) => sup[c]);
+    const m = s.match(/^([-+]?(?:\d+\.?\d*|\.\d+))(?:([x×*·]10|e)\^?([-+]?\d+)?)?/i);
+    if (!m) return NaN;
+    if (m[2] && m[3] !== undefined) return Number(m[1] + 'e' + m[3]);
+    if (m[2] && m[2].toLowerCase() !== 'e') return Number(m[1]) * 10;
+    return Number(m[1]);
   }
 
   function initInput(q) {

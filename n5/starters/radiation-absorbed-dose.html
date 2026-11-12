@@ -178,25 +178,25 @@
         <div class="q-feedback" aria-live="polite"></div>
       </div>
 
-      <div class="q q-input" data-answer="15">
-        <p class="q-prompt"><span class="q-num">6.</span>During an X-ray, a hand of mass 0.40 kg absorbs 6.0 mJ of energy. Calculate the absorbed dose, in milligrays.</p>
+      <div class="q q-input" data-answer="0.015">
+        <p class="q-prompt"><span class="q-num">6.</span>During an X-ray, a hand of mass 0.40 kg absorbs 6.0 mJ of energy. Calculate the absorbed dose. Type powers of ten like this: 2.5x10-4.</p>
         <div class="answer-row">
           <label class="answer-label" for="ad-milli">D =</label>
           <input class="answer" id="ad-milli" type="text" inputmode="decimal" autocomplete="off">
-          <span class="answer-unit">mGy</span>
+          <span class="answer-unit">Gy</span>
           <button type="button" class="tool q-check">Check</button>
         </div>
-        <p class="mistake" data-value="0.015">That's the answer in Gy. The unit box says mGy.</p>
-        <p class="mistake" data-value="2.4">You've multiplied. The energy is divided by the mass.</p>
+        <p class="mistake" data-value="15">Have you changed mJ into J? Milli means × 10⁻³.</p>
         <p class="mistake" data-value="0.0024">You've multiplied. The energy is divided by the mass.</p>
-        <p class="mistake" data-value="0.0667">You've divided the mass by the energy. It's the other way round.</p>
+        <p class="mistake" data-value="2.4">You've multiplied. The energy is divided by the mass, and mJ needs changing into J.</p>
         <p class="mistake" data-value="66.7">You've divided the mass by the energy. It's the other way round.</p>
-        <details class="hint"><summary>Hint</summary><p>Milli means one thousandth. Change 6.0 mJ into joules first, then change your answer from Gy into mGy at the end.</p></details>
+        <p class="mistake" data-value="0.0667">You've divided the mass by the energy. It's the other way round, and mJ needs changing into J.</p>
+        <details class="hint"><summary>Hint</summary><p>Milli means × 10⁻³. Write 6.0 mJ as 6.0 × 10⁻³ J before you substitute.</p></details>
         <div class="q-explain">
           <ul class="working">
             <li>D = <span class="frac"><span>E</span><span>m</span></span></li>
-            <li>D = <span class="frac"><span>0.0060</span><span>0.40</span></span></li>
-            <li>D = 0.015 Gy = 15 mGy</li>
+            <li>D = <span class="frac"><span>6.0 × 10⁻³</span><span>0.40</span></span></li>
+            <li>D = 1.5 × 10⁻² Gy</li>
           </ul>
         </div>
         <div class="q-feedback" aria-live="polite"></div>

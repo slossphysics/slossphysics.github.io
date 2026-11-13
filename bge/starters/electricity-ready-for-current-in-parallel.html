@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ready for current in parallel · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Third level starter (SCN 3-09a): a 5 minute recap of circuit symbols, series and parallel circuits, adding cells and lamps, and current in a series circuit, before measuring current in parallel.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/circuit-symbols.js" defer></script>
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Third level · Forces, electricity and waves · SCN 3-09a</p>
+    <h1>Ready for current in parallel</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am recalling what I know about circuits, ready to measure current in a parallel circuit.</p>
+      <p><strong>SC:</strong> I can name circuit symbols · I can tell a series circuit from a parallel circuit · I can say what adding cells or lamps does to the current · I can use the rule for current in a series circuit.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">1.</span>Match each symbol to its name.</p>
+        <div class="match">
+          <p class="match-hint">Drag each symbol onto its name, or tap a symbol and then its name.</p>
+          <div class="match-items">
+            <button type="button" class="match-item" data-key="ammeter" data-label="Ammeter" aria-label="Symbol 1">
+              <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ammeter"/></svg>
+            </button>
+            <button type="button" class="match-item" data-key="cell" data-label="Cell" aria-label="Symbol 2">
+              <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-cell"/></svg>
+            </button>
+            <button type="button" class="match-item" data-key="switch" data-label="Switch (open)" aria-label="Symbol 3">
+              <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-switch-open"/></svg>
+            </button>
+            <button type="button" class="match-item" data-key="lamp" data-label="Lamp" aria-label="Symbol 4">
+              <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-lamp"/></svg>
+            </button>
+            <button type="button" class="match-item" data-key="battery" data-label="Battery" aria-label="Symbol 5">
+              <svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-battery"/></svg>
+            </button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="lamp">Lamp (bulb)</button>
+            <button type="button" class="match-target" data-key="battery">Battery</button>
+            <button type="button" class="match-target" data-key="ammeter">Ammeter</button>
+            <button type="button" class="match-target" data-key="switch">Switch</button>
+            <button type="button" class="match-target" data-key="cell">Cell</button>
+          </div>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>A <strong>cell</strong> has one long line and one short, thick line. A <strong>battery</strong> is more than one cell joined together, so look for more lines.</p></details>
+        <div class="q-explain">The <strong>ammeter</strong> is the circle with an A: it measures current in amps. A <strong>battery</strong> is two or more cells joined together.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">2.</span>Is this circuit series or parallel?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 380 220" role="img" aria-label="A cell at the bottom. Above it are two wires joined at a junction on each side: the top wire has a closed switch and a lamp, and the middle wire has a lamp.">
+            <path class="wire" d="M30 40V180H130M190 180H350V40H270M210 40H150M90 40H30M30 110H150M210 110H350"/>
+            <use href="#sym-switch-closed" x="90" y="20" width="60" height="40"/>
+            <use href="#sym-lamp" x="210" y="20" width="60" height="40"/>
+            <use href="#sym-lamp" x="150" y="90" width="60" height="40"/>
+            <use href="#sym-cell" x="130" y="160" width="60" height="40"/>
+            <circle class="dot" cx="30" cy="110" r="5"/>
+            <circle class="dot" cx="350" cy="110" r="5"/>
+          </svg>
+        </figure>
+        <div class="options is-pair">
+          <button type="button" class="option" data-feedback="Put your finger on the cell and follow the wire to the first dot. How many ways can the current go from there?">Series</button>
+          <button type="button" class="option" data-correct>Parallel</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Follow the wire from the cell. <strong>One path</strong> with no splits means <strong>series</strong>. If the wire <strong>splits</strong> at a junction (a dot), there are branches.</p></details>
+        <div class="q-explain">At the dot the current can go two ways, so there is <strong>more than one path</strong>. Each lamp is on its own <strong>branch</strong>: this is a <strong>parallel</strong> circuit.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">3.</span>Both lamps are lit. Lamp X is then unscrewed. What happens to lamp Y?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 380 220" role="img" aria-label="A cell at the bottom, with lamp X and lamp Y on two separate branches above it">
+            <path class="wire" d="M30 40V180H130M190 180H350V40H210M150 40H30M30 110H150M210 110H350"/>
+            <use href="#sym-lamp" x="150" y="20" width="60" height="40"/>
+            <use href="#sym-lamp" x="150" y="90" width="60" height="40"/>
+            <use href="#sym-cell" x="130" y="160" width="60" height="40"/>
+            <circle class="dot" cx="30" cy="110" r="5"/>
+            <circle class="dot" cx="350" cy="110" r="5"/>
+            <text class="label" x="180" y="18" text-anchor="middle">X</text>
+            <text class="label" x="180" y="88" text-anchor="middle">Y</text>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="That is what happens in a series circuit, where there is only one path. Trace lamp Y’s loop from the cell and back: does it go through lamp X?">It goes out as well</button>
+          <button type="button" class="option" data-feedback="Lamp Y isn’t sharing a loop with lamp X. Trace lamp Y’s loop from the cell and back: has anything in it changed?">It gets much dimmer</button>
+          <button type="button" class="option" data-correct>It stays lit</button>
+          <button type="button" class="option" data-feedback="A lamp only lights while it is in a complete loop with the cell. Is lamp Y still in a complete loop?">It flashes on and off</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Think back to the circuit you built where one bulb “piggybacked” the other. What happened when you unscrewed one?</p></details>
+        <div class="q-explain">In a <strong>parallel</strong> circuit each lamp has its <strong>own path</strong> to the cell. Unscrewing X only breaks X’s branch, so lamp Y <strong>stays lit</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">4.</span>Fill in the blanks about a series circuit. One of the words is not needed.</p>
+        <div class="match is-blanks">
+          <p class="match-hint">Drag each word into its gap, or tap a word and then the gap.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="decreases" data-label="Gap 2">decreases</button>
+            <button type="button" class="match-item is-text" data-key="spare" data-feedback="Think back to your experiment: as you added each lamp to the loop, what did you see?">brighter</button>
+            <button type="button" class="match-item is-text" data-key="increases" data-label="Gap 1">increases</button>
+            <button type="button" class="match-item is-text" data-key="dimmer" data-label="Gap 3">dimmer</button>
+          </div>
+          <div class="match-targets">
+            <p>If we add more cells to a series circuit, the current <button type="button" class="match-target" data-key="increases" aria-label="Gap 1"></button>.</p>
+            <p>If we add more lamps to a series circuit, the current <button type="button" class="match-target" data-key="decreases" aria-label="Gap 2"></button> and the lamps get <button type="button" class="match-target" data-key="dimmer" aria-label="Gap 3"></button>.</p>
+          </div>
+        </div>
+        <div class="q-explain">More <strong>cells</strong> give a bigger push, so the current <strong>increases</strong>. More <strong>lamps</strong> in the same loop make it harder for the current to get round, so the current <strong>decreases</strong> and the lamps are <strong>dimmer</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.25">
+        <p class="q-prompt"><span class="q-num">5.</span>Ammeter A<sub>1</sub> reads 0.25 A. What does ammeter A<sub>2</sub> read?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 380 180" role="img" aria-label="A cell, ammeter A1, a lamp, ammeter A2 and a second lamp, all in one loop">
+            <path class="wire" d="M160 150H20V40H50M110 40H130M190 40H210M270 40H290M350 40H360V150H220"/>
+            <use href="#sym-ammeter" x="50" y="20" width="60" height="40"/>
+            <use href="#sym-lamp" x="130" y="20" width="60" height="40"/>
+            <use href="#sym-ammeter" x="210" y="20" width="60" height="40"/>
+            <use href="#sym-lamp" x="290" y="20" width="60" height="40"/>
+            <use href="#sym-cell" x="160" y="130" width="60" height="40"/>
+            <text class="label" x="80" y="18" text-anchor="middle">A₁</text>
+            <text class="label" x="240" y="18" text-anchor="middle">A₂</text>
+          </svg>
+        </figure>
+        <div class="answer-row">
+          <label class="answer-label" for="rcp-q5">A<sub>2</sub> =</label>
+          <input class="answer" id="rcp-q5" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">A</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.125">The current isn’t shared out between the lamps. Lamps don’t use up current: is there anywhere else for it to go?</p>
+        <p class="mistake" data-value="0.5">Current doesn’t build up as it goes round a single loop. Is there anywhere for extra current to come from?</p>
+        <p class="mistake" data-value="0">If no current reached A<sub>2</sub>, none could flow through the lamps either: it’s all one loop.</p>
+        <details class="hint"><summary>Hint</summary><p>Last lesson you moved the ammeter to three different positions in a series circuit. What did you notice about the three readings?</p></details>
+        <div class="q-explain">In a <strong>series</strong> circuit the current is the <strong>same at all points</strong>, so A<sub>2</sub> also reads <strong>0.25 A</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq q-challenge">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">6.</span>Make a prediction for today’s experiment. The two lamps are identical. Which ammeter will have the bigger reading?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 380 220" role="img" aria-label="A parallel circuit with two lamps on separate branches. Ammeter P is next to the cell. Ammeter Q is on the top branch, beside one of the lamps.">
+            <path class="wire" d="M30 40V180H90M150 180H210M270 180H350V40H270M210 40H150M90 40H30M30 110H210M270 110H350"/>
+            <use href="#sym-ammeter" x="90" y="20" width="60" height="40"/>
+            <use href="#sym-lamp" x="210" y="20" width="60" height="40"/>
+            <use href="#sym-lamp" x="210" y="90" width="60" height="40"/>
+            <use href="#sym-cell" x="90" y="160" width="60" height="40"/>
+            <use href="#sym-ammeter" x="210" y="160" width="60" height="40"/>
+            <circle class="dot" cx="30" cy="110" r="5"/>
+            <circle class="dot" cx="350" cy="110" r="5"/>
+            <text class="label" x="120" y="18" text-anchor="middle">Q</text>
+            <text class="label" x="240" y="214" text-anchor="middle">P</text>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-correct>P</button>
+          <button type="button" class="option" data-feedback="Q is on the top lamp’s branch. Does the current for the bottom lamp flow through Q as well?">Q</button>
+          <button type="button" class="option" data-feedback="That is the rule for a series circuit, with one path. Here the wire splits at the dots. What might the current do there?">They will read the same</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>For each ammeter, ask: does the current for the top lamp flow through it, the current for the bottom lamp, or both?</p></details>
+        <div class="q-explain"><strong>P</strong> is next to the cell, so the current for <strong>both</strong> lamps flows through it. At the dot that current splits, and Q only carries the current for one lamp. Today you will measure it to check.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

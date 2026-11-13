@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experiment: current in parallel · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE virtual experiment (SCN 3-09a, SCN 4-09a): add branches to a circuit one at a time, measure the current from the cell and in each branch, and work out the rule for current in a parallel circuit.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/starter.css">
+  <link rel="stylesheet" href="../assets/css/circuit-builder.css">
+  <script src="../assets/js/circuit-symbols.js" defer></script>
+  <script src="../assets/js/starter.js" defer></script>
+  <script src="../assets/js/circuit-builder.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../index.html">All levels</a></li>
+      <li><a href="index.html">BGE Science</a></li>
+      <li>Tools</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Third and Fourth level · Forces, electricity and waves · SCN 3-09a, SCN 4-09a</p>
+    <h1>Experiment: current in parallel</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning the rule for current in a parallel circuit.</p>
+      <p><strong>SC:</strong> I can add a branch to a circuit · I can measure the current from the cell and in each branch · I can state the rule for current in a parallel circuit.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="10">10 min</option>
+          <option value="15" selected>15 min</option>
+          <option value="20">20 min</option>
+        </select>
+        <output class="timer-display">15:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+    <div class="exp-setup">
+      <h2>Before you start</h2>
+      <p>Copy this results table into your jotter. You will fill in one row at each step.</p>
+      <table class="data-table">
+        <thead><tr><th>Number of lamps</th><th>Current from the cell, A1 (A)</th><th>Current in each branch (A)</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td></td><td></td></tr>
+          <tr><td>2</td><td></td><td></td></tr>
+          <tr><td>3</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cb" data-circuit-builder data-key="bge-current-in-parallel" data-preset="exp-parallel" data-ideal>
+      <div class="cb-task-nav">
+        <span class="cb-task-nav-label">Steps</span>
+        <button type="button" class="tool cb-example" data-cb="example">Build an example</button>
+      </div>
+
+      <div class="q cb-task" data-check="exp-series">
+        <p class="q-prompt"><span class="q-num">1.</span>This circuit has one lamp, so there is only <strong>one path</strong> for the current. Tap the switch to close it. Write the readings on A1 and A2 in the first row of your table.</p>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The lamp is lit. Write the reading on A1, then the reading on A2, in the <strong>first row</strong> of your table.</div>
+      </div>
+
+      <div class="q cb-task" data-check="exp-two" hidden>
+        <p class="q-prompt"><span class="q-num">2.</span>Add a <strong>second lamp</strong> in a branch of its own, so it is in parallel with lamp 1. Put an ammeter in the new branch too.</p>
+        <details class="hint"><summary>Hint</summary><p>Drag a lamp into the space below lamp 1. Draw a wire from each end of it to the long wires at the sides. Then drop an ammeter onto the wire beside your new lamp.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Two lamps in parallel. In the <strong>second row</strong> of your table, write the reading on A1, then the reading on the ammeter in <strong>each</strong> branch.</div>
+      </div>
+
+      <div class="q cb-task" data-check="exp-three" hidden>
+        <p class="q-prompt"><span class="q-num">3.</span>Add a <strong>third lamp</strong> in another branch of its own, with its own ammeter.</p>
+        <details class="hint"><summary>Hint</summary><p>Build it the same way as the second branch, in the space below it: a lamp, a wire from each end to the long wires at the sides, then an ammeter dropped onto the new wire.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Three lamps in parallel. In the <strong>third row</strong>, write the reading on A1, then the reading in <strong>each</strong> branch. Your table is now complete: scroll down to the Conclusion.</div>
+      </div>
+
+      <div class="q cb-task q-challenge" data-check="exp-resistor" hidden>
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">4.</span>A resistor lets less current through than a lamp. Predict what A1 will read with a <strong>resistor</strong> in a fourth branch. Then add one, with its own ammeter, to test your prediction.</p>
+        <details class="hint"><summary>Hint</summary><p>Keep all three lamps. Build the resistor's branch in the space below them, the same way as the others.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The resistor’s branch carries 0.15 A and A1 goes up by exactly that, to 1.05 A. The branches do <strong>not</strong> have to carry the same current, but A1 always reads the branch currents added together.</div>
+      </div>
+
+      <div class="cb-workspace">
+        <ul class="cb-palette" aria-label="Components">
+          <li><button type="button" data-type="lamp"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-lamp"/></svg>Lamp</button></li>
+          <li><button type="button" data-type="ammeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ammeter"/></svg>Ammeter</button></li>
+          <li><button type="button" data-type="resistor"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor</button></li>
+        </ul>
+
+        <div class="cb-bar">
+          <p class="cb-status" aria-live="polite"></p>
+          <button type="button" class="tool" data-cb="flow" aria-pressed="true">Show current</button>
+          <button type="button" class="tool" data-cb="undo">Undo</button>
+          <button type="button" class="tool" data-cb="restart">Start the circuit again</button>
+          <p class="cb-warning" role="alert" hidden><strong>Short circuit!</strong> The current has a path with almost no resistance, so it is far too big. A real cell would get hot and go flat quickly.</p>
+        </div>
+
+        <div class="cb-stage">
+          <svg class="cb-board" role="img" aria-label="Circuit building grid"></svg>
+          <div class="cb-pop" hidden>
+            <button type="button" class="tool" data-act="turn">Turn</button>
+            <button type="button" class="tool" data-act="delete">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="cb-help">
+        <li><strong>Add a lamp:</strong> drag it onto the grid, or tap it.</li>
+        <li><strong>Add a wire:</strong> drag from the end of a component to where the wire should go. Or tap the end, then tap where it should go.</li>
+        <li><strong>Add an ammeter:</strong> drop it onto a straight part of a wire and it joins in. Or tap the wire, then tap Ammeter.</li>
+        <li><strong>Change your mind:</strong> tap a part or wire you added for Delete, or use Undo. The parts that were there at the start are fixed in place.</li>
+        <li><strong>The moving dots</strong> show the current. Faster dots mean a bigger current. Watch what they do where the wire splits.</li>
+      </ul>
+    </div>
+
+    <h2 class="exp-heading">Conclusion</h2>
+    <p class="exp-lead">Answer these when your results table is complete.</p>
+
+    <div class="q q-mcq">
+      <p class="q-prompt"><span class="q-num">5.</span>Look at each row of your table. How does the current from the cell (A1) compare with the currents in the branches?</p>
+      <div class="options">
+        <button type="button" class="option" data-feedback="That is true in your first row, where there is only one path. Check the rows with two and three lamps.">It is the same as the current in one branch</button>
+        <button type="button" class="option" data-feedback="No current is used up. Look at your last row: is the reading on A1 bigger or smaller than the reading in one branch?">It is smaller, because each lamp uses up some current</button>
+        <button type="button" class="option" data-correct>It is the currents in the branches added together</button>
+        <button type="button" class="option" data-feedback="Read down the A1 column of your table. Does the reading change when you add a branch?">It stays the same however many branches there are</button>
+      </div>
+      <details class="hint"><summary>Hint</summary><p>In your last row, add up the three branch readings. Compare your total with the reading on A1.</p></details>
+      <div class="q-explain">With three lamps, each branch carries 0.30 A and A1 reads 0.90 A: 0.30 + 0.30 + 0.30 = 0.90. The current from the cell is the branch currents <strong>added together</strong>.</div>
+      <div class="q-feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="q q-match">
+      <p class="q-prompt"><span class="q-num">6.</span>Finish the rule for current in a parallel circuit. Two of the words are not needed.</p>
+      <div class="match is-blanks">
+        <p class="match-hint">Drag each word into its gap, or tap a word and then the gap.</p>
+        <div class="match-items">
+          <button type="button" class="match-item is-text" data-key="spare" data-feedback="No current is used up: all of the current that leaves the cell comes back to it.">used up</button>
+          <button type="button" class="match-item is-text" data-key="sum" data-label="Gap 2">sum</button>
+          <button type="button" class="match-item is-text" data-key="spare" data-feedback="Check your table: was A1 the same as one branch once there were two or three lamps?">same</button>
+          <button type="button" class="match-item is-text" data-key="splits" data-label="Gap 1">splits</button>
+        </div>
+        <div class="match-targets">
+          <p>In a parallel circuit, the current from the cell <button type="button" class="match-target" data-key="splits" aria-label="Gap 1"></button> between the branches.</p>
+          <p>The current from the cell is equal to the <button type="button" class="match-target" data-key="sum" aria-label="Gap 2"></button> of the currents in the branches.</p>
+        </div>
+      </div>
+      <div class="q-explain"><strong>Write this rule in your jotter:</strong> In a parallel circuit, the current from the cell splits between the branches. The current from the cell is equal to the sum of the currents in the branches. <br>In your real experiment the readings may not have added up exactly. Real wires, meters and connections all have a little resistance of their own, which changes the readings slightly. This experiment shows what happens without that.</div>
+      <div class="q-feedback" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

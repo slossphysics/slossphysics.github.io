@@ -7,6 +7,8 @@
 //       data-key="…"         localStorage key, so each level's builder keeps its own circuit
 //       data-adjust="…"      component types whose value pupils can change (resistor battery fuse capacitor)
 //       data-prefixes        show small currents in mA and big resistances in kΩ
+//       data-ideal           cells with next to no internal resistance, so readings add up exactly
+//                            (0.30 A + 0.30 A + 0.30 A reads 0.90 A): for the virtual experiments
 //     .cb-task[data-check]   one task each; the builder ticks it off when the circuit does the job.
 //                            Each has a .q-feedback, an optional .hint and a .q-explain (the answer).
 //     .cb-palette button[data-type]   one button per component; optional data-value sets its starting value
@@ -130,6 +132,7 @@
     }
     const ADJUST = new Set((root.dataset.adjust || '').split(/\s+/).filter(Boolean));
     const PREFIX = root.hasAttribute('data-prefixes');
+    const IDEAL = root.hasAttribute('data-ideal');
     const fromPalette = {};
     root.querySelectorAll('.cb-palette [data-value]').forEach((b) => { fromPalette[b.dataset.type] = +b.dataset.value; });
     const newComp = (type, x, y) =>
@@ -223,6 +226,29 @@
         return f;
       },
     };
+    // The "current in parallel" experiment (bge/current-in-parallel.html): cell, switch S and ammeter A1
+    // along the bottom, long wires up each side, and a branch on every second row: an ammeter then
+    // a lamp (or, in the last branch, a resistor). Pupils add every branch after the first.
+    function expCircuit(lamps, resistor, closed) {
+      const f = {
+        comps: [fixed('ammeter', 6, 9, 'A1'), fixed('cell', 9, 9, 'cell'), fixed('switch', 12, 9, 'S', { closed }),
+          fixed('ammeter', 6, 1, 'A2'), fixed('lamp', 12, 1, 'L1')],
+        wires: [W([5, 9], [3, 9], [3, 1], [5, 1]), W([7, 9], [8, 9]), W([10, 9], [11, 9]), W([13, 9], [15, 9], [15, 1], [13, 1]),
+          W([7, 1], [11, 1])].flat(),
+        // Names sit beside each reading and above the lamp, clear of the rows where pupils build
+        notes: [{ x: 4.7, y: 8.05, text: 'A1', anchor: 'end' }, { x: 4.7, y: 0.05, text: 'A2', anchor: 'end' },
+          { x: 12, y: 0.1, text: 'Lamp 1' }, { x: 12, y: 9.85, text: 'Switch' }],
+      };
+      const branch = (type, y) => {
+        f.comps.push(C('ammeter', 6, y), C(type, 12, y));
+        f.wires = f.wires.concat(W([3, y], [5, y]), W([7, y], [11, y]), W([13, y], [15, y]));
+      };
+      for (let i = 1; i < lamps; i++) branch('lamp', 1 + 2 * i);
+      if (resistor) branch('resistor', 1 + 2 * lamps);
+      return f;
+    }
+    PRESETS['exp-parallel'] = (more) => expCircuit(1, false, more);
+
     const PRESET = PRESETS[root.dataset.preset];
     function startState() {
       if (!PRESET) return { comps: [], wires: [], next: 1 };
@@ -413,7 +439,7 @@
           ({ c, k, pa: pins[i], pb: pins[j], a: nodes[i], b: nodes[j], G: 0, E: 0 }));
         const el = list[0];
         const t = TYPES[c.type];
-        if (t.emf) { el.G = 1 / t.r; el.E = test ? 0 : emfOf(c, light, sound); }
+        if (t.emf) { el.G = (IDEAL ? 100 : 1) / t.r; el.E = test ? 0 : emfOf(c, light, sound); }
         else if (c.type === 'switch') {
           const closed = switches.has(c.id) ? switches.get(c.id) : c.closed;
           el.G = closed ? 1 / SWITCH_R : 0;
@@ -695,6 +721,29 @@
       })),
     };
 
+    // ----- The "current in parallel" experiment: each step wants so many lamps, every one in a branch
+    // of its own with its own ammeter, and A1 reading everything that comes from the cell -----
+    const expLoads = (st, res) => st.comps.filter((c) => (c.type === 'lamp' || c.type === 'resistor') && current(res, c.id) > 0.02);
+    // An ammeter that this component's current goes through, and no other component's
+    const ownMeter = (st, res, c) => liveAmmeters(st, res).some((m) => {
+      const r = without(st, [m.id]);
+      return current(r, c.id) < 0.02 && expLoads(st, res).every((o) => o === c || current(r, o.id) > 0.02);
+    });
+    const expTotal = (res) => current(res, 'A1') > 0.02 && close(current(res, 'A1'), current(res, 'cell'), 0.02);
+    // Lamps at full brightness and resistors with the whole cell voltage: each is in a branch of its own
+    const expAlone = (res, c) => (c.type === 'lamp' ? full(res, c.id) : close(current(res, c.id) * val(c), 1.5, 0.1));
+    const expCount = (st, res, lamps, resistor) => {
+      const loads = expLoads(st, res);
+      return loads.filter((c) => c.type === 'lamp').length === lamps &&
+        loads.filter((c) => c.type === 'resistor').length === (resistor ? 1 : 0) && loads.every((c) => expAlone(res, c));
+    };
+    const expStep = (lamps, resistor) => (st, res) =>
+      expCount(st, res, lamps, resistor) && expTotal(res) && expLoads(st, res).every((c) => ownMeter(st, res, c));
+    CHECKS['exp-series'] = expStep(1, false);
+    CHECKS['exp-two'] = expStep(2, false);
+    CHECKS['exp-three'] = expStep(3, false);
+    CHECKS['exp-resistor'] = expStep(3, true);
+
     // Which of lamps P and Q go out when this part is taken out: 0 neither, 1 P, 2 Q, 3 both
     const stops = (st, id) => {
       const r = without(st, [id]);
@@ -745,6 +794,24 @@
           msg: 'Both lamps are at full brightness, so they are in parallel. Now add a switch that turns off only the new lamp.' },
       ],
     };
+
+    const expHints = (lamps, resistor) => [
+      { slip: true, when: (st, res) => ofType(st, 'ammeter').some((m) => current(res, m.id) > 5),
+        msg: 'That ammeter joins one side wire straight to the other. It has almost no resistance, so this is a short circuit. Use Undo, then put the ammeter <strong>in the branch</strong> with its lamp.' },
+      { slip: true, when: (st, res) => expLoads(st, res).some((c) => !expAlone(res, c)),
+        msg: 'Two components are sharing one branch, so they are <strong>in series</strong> and the lamp is dimmer. Use Undo, then give each one a branch of its own, joined to both side wires.' },
+      { slip: true, when: (st, res) => current(res, 'cell') > 0.02 && !expTotal(res),
+        msg: 'Some current gets back to the cell <strong>without going through A1</strong>, so A1 is not reading all of it. Join each branch to the long wires at the sides.' },
+      { slip: true, when: (st, res) => !resistor && expLoads(st, res).some((c) => c.type === 'resistor'),
+        msg: 'That is a resistor. This step needs a <strong>lamp</strong> in the new branch: tap the resistor, then Delete, and put a lamp there.' },
+      { when: (st, res) => !st.comps.find((c) => c.id === 'S').closed && st.comps.length > 5,
+        msg: 'Tap the switch to close it, so the current can flow.' },
+      { when: (st, res) => expCount(st, res, lamps, resistor) && expTotal(res) && !expLoads(st, res).every((c) => ownMeter(st, res, c)),
+        msg: 'The new branch is working. Now put an <strong>ammeter</strong> in that branch: drop it onto the wire beside the ' + (resistor ? 'resistor' : 'new lamp') + '.' },
+    ];
+    HINTS['exp-two'] = expHints(2, false);
+    HINTS['exp-three'] = expHints(3, false);
+    HINTS['exp-resistor'] = expHints(3, true);
 
     // Example circuits for each task (teacher only, under Show answers)
     const loop = [W([8, 8], [5, 8], [5, 3], [8, 3]), W([10, 8], [13, 8], [13, 3], [10, 3])].flat();
@@ -810,6 +877,8 @@
         }),
     };
     Object.keys(PRESETS).forEach((k) => { EXAMPLES[k] = PRESETS[k](true); });
+    Object.assign(EXAMPLES, { 'exp-series': expCircuit(1, false, true), 'exp-two': expCircuit(2, false, true),
+      'exp-three': expCircuit(3, false, true), 'exp-resistor': expCircuit(3, true, true) });
 
     // ---------- Elements ----------
     const NS = 'http://www.w3.org/2000/svg';

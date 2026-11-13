@@ -509,3 +509,10 @@
 
 /* Messages about a wrong circuit have bold words inside the sentence: only the first one is a title */
 .cb-task .q-feedback strong ~ strong { margin-right: 0; }
+
+/* Virtual experiments (bge/current-in-parallel.html): the results table to copy, and the conclusion */
+.exp-setup { margin: 0 0 20px; }
+.exp-setup h2, .exp-heading { margin: 0 0 6px; font-size: 1.3rem; }
+.exp-setup p, .exp-lead { margin: 0 0 12px; }
+.exp-setup .data-table td { min-width: 5em; height: 2.4em; }
+.exp-heading { margin-top: 32px; }

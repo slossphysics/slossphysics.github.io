@@ -235,6 +235,7 @@
 .cb-reading rect { fill: var(--surface); stroke: var(--text); stroke-width: 2; }
 .cb-reading text { fill: var(--text); font-size: 19px; font-weight: 700; font-family: var(--font); }
 .cb-value { fill: var(--muted); font-size: 17px; font-weight: 700; font-family: var(--font); }
+.cb-name { fill: var(--text); font-size: 20px; }
 
 /* Pop-up next to the selected component or wire */
 .cb-pop {

@@ -57,6 +57,12 @@
       lamp:      { name: 'Lamp', R: 5 },
       switch:    { name: 'Switch' },
       resistor:  { name: 'Resistor', R: 10, unit: 'Ω', choices: OHMS },
+      // Mystery resistors: drawn as a resistor with a letter instead of its value, for pupils to measure
+      'resistor-a': { name: 'Resistor A', R: 15, sym: 'resistor', label: 'A' },
+      'resistor-b': { name: 'Resistor B', R: 6, sym: 'resistor', label: 'B' },
+      'resistor-c': { name: 'Resistor C', R: 40, sym: 'resistor', label: 'C' },
+      'resistor-d': { name: 'Resistor D', R: 22, sym: 'resistor', label: 'D' },
+      'resistor-e': { name: 'Resistor E', R: 8, sym: 'resistor', label: 'E' },
       'variable-resistor': { name: 'Variable resistor', R: 1000, unit: 'Ω',
         slider: [0, 10, 20, 50, 100, 150, 220, 330, 470, 680, 1000, 1500, 2200, 3300, 4700, 6800, 10000] },
       ldr:       { name: 'LDR' },
@@ -685,6 +691,13 @@
 
       'fuse-blows': (st) => ofType(st, 'fuse').some((f) => f.blown),
 
+      // An ohmmeter across one mystery resistor (A to E), reading its resistance
+      'mystery-resistors': (st, res) => ofType(st, 'ohmmeter').some((m) => {
+        const o = res.ohm.get(m.id);
+        return !!o && o.R != null && st.comps.some((c) =>
+          TYPES[c.type].label && across(res, m, c) && close(o.R, TYPES[c.type].R, 0.01));
+      }),
+
       // A voltmeter across a 20 Ω resistor reading 4.00 V (a 6 V supply shared with a 10 Ω resistor)
       divider: (st, res) => ofType(st, 'voltmeter').some((m) => ofType(st, 'resistor').some((r) =>
         val(r) === 20 && across(res, m, r) && Math.abs(Math.abs(res.byId.get(m.id).V) - 4) < 0.03)),
@@ -849,6 +862,8 @@
       },
       'current-split': ladder('ammeter', 'ammeter'),
       'two-switches': ladder('switch', null),
+      // Shows the method on an ordinary resistor, so the example gives none of the five answers away
+      'mystery-resistors': { comps: [C('ohmmeter', 9, 8), C('resistor', 9, 3)], wires: loop },
 
       'series-resistance': { comps: [C('ohmmeter', 9, 8), C('resistor', 7, 3), C('resistor', 11, 3)], wires: seriesWires },
       'parallel-resistance': { comps: [C('ohmmeter', 9, 9), C('resistor', 9, 2), C('resistor', 9, 5)], wires: parallelWires },
@@ -1031,7 +1046,7 @@
         const contacts = res.parts.has(c.id) && res.parts.get(c.id)[1];
         return contacts && contacts.on ? 'relay-closed' : 'relay-open';
       }
-      return t.letter ? 'ring' : c.type;
+      return t.letter ? 'ring' : t.sym || c.type;
     }
 
     function symbolSvg(c, res) {
@@ -1182,9 +1197,11 @@
         if (el && c.type === 'voltmeter') labels += pill(fmt(el.V, 'V'));
         if (el && c.type === 'ohmmeter' && res.ohm.has(c.id)) labels += pill(res.ohm.get(c.id).show);
         // Set values: above a component, or starting just to the right of an upright one
-        if (labelled(c)) {
-          labels += `<text class="cb-value" x="${vertical ? x + S * (GUIDED ? 0.85 : 0.6) : x}" y="${ly + 6}"` +
-            ` text-anchor="${vertical ? 'start' : 'middle'}">${fmtVal(c.type, val(c))}</text>`;
+        // A mystery resistor shows its letter there instead
+        const name = TYPES[c.type].label;
+        if (name || labelled(c)) {
+          labels += `<text class="cb-value${name ? ' cb-name' : ''}" x="${vertical ? x + S * (GUIDED ? 0.85 : 0.6) : x}" y="${ly + 6}"` +
+            ` text-anchor="${vertical ? 'start' : 'middle'}">${name || fmtVal(c.type, val(c))}</text>`;
         }
         return s;
       };

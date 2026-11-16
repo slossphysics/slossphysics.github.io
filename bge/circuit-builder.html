@@ -139,7 +139,10 @@
 
         <div class="cb-bar">
           <p class="cb-status" aria-live="polite"></p>
-          <button type="button" class="tool" data-cb="flow" aria-pressed="true">Show current</button>
+          <div class="cb-flow-pick">
+            <button type="button" class="tool" data-cb="flow-electron" aria-pressed="true">Show electron flow</button>
+            <button type="button" class="tool" data-cb="flow-conventional" aria-pressed="false">Show conventional flow</button>
+          </div>
           <button type="button" class="tool" data-cb="undo">Undo</button>
           <button type="button" class="tool" data-cb="clear">Clear</button>
           <p class="cb-warning" role="alert" hidden><strong>Short circuit!</strong> The current has a path with almost no resistance, so it is far too big. A real cell would get hot and go flat quickly.</p>
@@ -162,7 +165,7 @@
         <li><strong>Change a resistor:</strong> tap a resistor and choose its value. A bigger resistance means a smaller current. Resistors A to E have fixed resistances for you to measure.</li>
         <li><strong>Switches:</strong> tap a switch to open or close it.</li>
         <li><strong>Ohmmeter:</strong> an ohmmeter measures resistance. It only works with no cell or battery connected: join one end of the ohmmeter to each end of the component.</li>
-        <li><strong>The moving dots</strong> show the current, from the positive end of the cell (the long line) round to the negative end. Faster dots mean a bigger current.</li>
+        <li><strong>The moving dots</strong> show the electrons, which flow from the negative end of the cell (the short line) round to the positive end. Faster dots mean a bigger current. <strong>Show conventional flow</strong> turns the dots round, positive to negative: the direction used for current in later courses.</li>
       </ul>
     </div>
   </main>

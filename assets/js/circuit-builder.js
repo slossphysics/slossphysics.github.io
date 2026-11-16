@@ -159,6 +159,9 @@
     let drag = null;       // the drag in progress on the board
     let preview = null;    // { comp, bad } or { wire: edges, bad } drawn on top while dragging
     let showFlow = true;
+    // Pages with a "Show electron flow" button start with the dots as electrons (see flowBtns)
+    const electronBtn = root.querySelector('[data-cb="flow-electron"]');
+    let electrons = !!electronBtn;
     const capV = new Map(); // capacitor id → voltage across it (not saved: capacitors start empty)
     let clock = 0;          // seconds of simulated time, for the microphone's AC
     let focus = new Set();  // walkthrough: components to pick out
@@ -1120,9 +1123,10 @@
         wires += `<line class="${cls}" x1="${at(x1)}" y1="${at(y1)}" x2="${at(x2)}" y2="${at(y2)}"/>`;
         const I = flows.get(e) || 0;
         if (showFlow && Math.abs(I) > 0.002) {
-          const [p, q] = I > 0 ? [[x1, y1], [x2, y2]] : [[x2, y2], [x1, y1]];
+          // Electrons go the opposite way to conventional current
+          const [p, q] = (I > 0) !== electrons ? [[x1, y1], [x2, y2]] : [[x2, y2], [x1, y1]];
           const speed = Math.min(240, 200 * Math.abs(I));
-          flow += `<line class="cb-flow" data-speed="${speed}" data-period="40" x1="${at(p[0])}" y1="${at(p[1])}"` +
+          flow += `<line class="cb-flow${electronBtn && !electrons ? ' is-conventional' : ''}" data-speed="${speed}" data-period="40" x1="${at(p[0])}" y1="${at(p[1])}"` +
             ` x2="${at(q[0])}" y2="${at(q[1])}"/>`;
         }
       });
@@ -1746,6 +1750,20 @@
       say('The circuit is back to how it started. Undo brings your changes back.');
       draw();
     });
+    // Two buttons in place of "Show current": the dots as electrons (negative to positive) or as
+    // conventional current (positive to negative). One is on at a time; tapping it again hides the dots.
+    const flowBtns = [[electronBtn, true], [root.querySelector('[data-cb="flow-conventional"]'), false]];
+    const syncFlow = () => flowBtns.forEach(([b, e]) => { if (b) b.setAttribute('aria-pressed', String(showFlow && electrons === e)); });
+    flowBtns.forEach(([b, e]) => {
+      if (!b) return;
+      b.addEventListener('click', () => {
+        if (showFlow && electrons === e) showFlow = false;
+        else { showFlow = true; electrons = e; }
+        syncFlow();
+        draw();
+      });
+    });
+    if (electronBtn) syncFlow();
     const flowBtn = root.querySelector('[data-cb="flow"]');
     if (flowBtn) flowBtn.addEventListener('click', () => {
       showFlow = !showFlow;

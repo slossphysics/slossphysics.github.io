@@ -4,10 +4,11 @@
   --cb-glow: #facc15;          /* lamp light */
   --cb-led: #f472b6;           /* LED light */
   --cb-flow: #1f4fd1;          /* moving current dots */
+  --cb-flow-conv: #c2410c;     /* the dots as conventional current, where a page offers both directions */
   --cb-heat: #f97316;          /* heating element glowing */
 }
 @media (prefers-color-scheme: dark) {
-  :root { --cb-flow: #8fb0ff; }
+  :root { --cb-flow: #8fb0ff; --cb-flow-conv: #fb923c; }
 }
 
 .cb { margin-top: 20px; }
@@ -120,6 +121,9 @@
   font-size: 1rem;
 }
 .cb-bar .tool { padding: 6px 14px; }
+/* "Show electron flow" with "Show conventional flow" underneath */
+.cb-flow-pick { display: grid; gap: 6px; }
+.cb-flow.is-conventional { stroke: var(--cb-flow-conv); }
 .cb-warning {
   margin: 0;
   padding: 10px 14px;

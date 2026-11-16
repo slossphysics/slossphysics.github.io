@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uses of nuclear radiation · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics starter (Radiation · Nuclear radiation): medical and industrial uses of nuclear radiation, choosing the right source, equivalent dose rate, and a first look at half-life.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Radiation</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Uses of nuclear radiation</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am recalling how nuclear radiation is used in medicine and industry, before we start half-life.</p>
+      <p><strong>SC:</strong> I can give medical and industrial uses of radiation · I can explain which type of radiation suits a tracer and a thickness gauge · I can calculate an equivalent dose rate.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5">5 min</option>
+          <option value="8" selected>8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">8:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">1.</span>Sort each use of nuclear radiation: medical or industrial?</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each use into its group, or tap it and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="ind" data-label="Industrial">Measuring the thickness of aluminium foil</button>
+            <button type="button" class="match-item is-text" data-key="med" data-label="Medical">Destroying cancer cells</button>
+            <button type="button" class="match-item is-text" data-key="med" data-label="Medical">A tracer to check how well the kidneys work</button>
+            <button type="button" class="match-item is-text" data-key="ind" data-label="Industrial">Generating electricity</button>
+            <button type="button" class="match-item is-text" data-key="ind" data-label="Industrial">Finding a leak in an underground pipe</button>
+            <button type="button" class="match-item is-text" data-key="med" data-label="Medical">Sterilising surgical instruments</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="med">Medical</button>
+            <button type="button" class="match-target" data-key="ind">Industrial</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>Medical</strong> uses diagnose or treat patients, or keep equipment free of germs. <strong>Industrial</strong> uses help to make, check and power things.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">2.</span>A radioactive tracer is injected into a patient. A detector outside the body follows where it goes. Which type of radiation should the tracer give out, and why?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>Gamma, because it can pass out of the body to reach the detector</button>
+          <button type="button" class="option" data-feedback="Alpha is absorbed by a sheet of paper, so it could never get out of the body to the detector. Causing a lot of ionisation inside the patient is also the last thing doctors want.">Alpha, because it causes the most ionisation</button>
+          <button type="button" class="option" data-feedback="Beta is absorbed by a few millimetres of aluminium, and by a few centimetres of body tissue. Most of it would never reach the detector.">Beta, because it is absorbed by the body</button>
+          <button type="button" class="option" data-feedback="Alpha is the biggest particle, which is why it is absorbed so easily. It could not get out of the body to the detector.">Alpha, because it is the biggest particle</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The detector is <strong>outside</strong> the body. Which radiation is penetrating enough to get out through the patient's tissue?</p></details>
+        <div class="q-explain">A tracer gives out <strong>gamma</strong> radiation. It is penetrating enough to pass out of the body to the detector, and it causes the least ionisation on the way, so it does the least harm to the patient.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">3.</span>A paper mill checks the thickness of its paper with this gauge. Radiation from the source passes through the paper to the detector. Which type of radiation should the source give out?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 360 210" role="img" aria-label="A sheet of paper moves between rollers, then between a radioactive source above it and a detector below it. The detector is connected to a reading display.">
+            <rect x="20" y="100" width="320" height="10" fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="70" cy="86" r="14" fill="var(--bg)" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="70" cy="124" r="14" fill="var(--bg)" stroke="currentColor" stroke-width="2.5"/>
+            <path class="wire" d="M270 85H320M310 79L320 85L310 91"/>
+            <rect x="170" y="25" width="60" height="30" rx="4" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="2.5"/>
+            <rect x="170" y="155" width="60" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M190 58V152M200 58V152M210 58V152" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 5"/>
+            <path class="wire" d="M230 170H260"/>
+            <rect x="260" y="155" width="80" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <g class="label" style="font-size:15px">
+              <text x="162" y="45" text-anchor="end">Source</text>
+              <text x="162" y="175" text-anchor="end">Detector</text>
+              <text x="300" y="175" text-anchor="middle">Reading</text>
+              <text x="70" y="160" text-anchor="middle">Rollers</text>
+              <text x="295" y="72" text-anchor="middle">Paper</text>
+            </g>
+          </svg>
+        </figure>
+        <div class="options is-row">
+          <button type="button" class="option" data-feedback="Paper absorbs <strong>all</strong> of the alpha radiation. The detector would read nothing, however thick or thin the paper was.">Alpha</button>
+          <button type="button" class="option" data-correct>Beta</button>
+          <button type="button" class="option" data-feedback="Nearly all of the gamma radiation would pass straight through paper. The reading would hardly change when the thickness changed.">Gamma</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The gauge only works if <strong>some</strong> of the radiation gets through the paper, and the amount changes when the thickness changes. Think about what a sheet of paper does to each type.</p></details>
+        <div class="q-explain"><strong>Beta</strong>: the paper absorbs some of it, and how much gets through depends on the thickness. Alpha would all be absorbed, and nearly all the gamma would pass through whatever the thickness.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">4.</span>A factory rolls aluminium foil and checks it with this gauge, which uses a beta source. The detector reading suddenly goes <strong>up</strong>. What has happened to the foil?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 360 210" role="img" aria-label="A sheet of aluminium foil moves between rollers, then between a beta source above it and a detector below it. The detector is connected to a reading display.">
+            <rect x="20" y="100" width="320" height="10" fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="70" cy="86" r="14" fill="var(--bg)" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="70" cy="124" r="14" fill="var(--bg)" stroke="currentColor" stroke-width="2.5"/>
+            <path class="wire" d="M270 85H320M310 79L320 85L310 91"/>
+            <rect x="170" y="25" width="60" height="30" rx="4" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="2.5"/>
+            <rect x="170" y="155" width="60" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M190 58V152M200 58V152M210 58V152" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 5"/>
+            <path class="wire" d="M230 170H260"/>
+            <rect x="260" y="155" width="80" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <g class="label" style="font-size:15px">
+              <text x="162" y="45" text-anchor="end">Beta source</text>
+              <text x="162" y="175" text-anchor="end">Detector</text>
+              <text x="300" y="175" text-anchor="middle">Reading</text>
+              <text x="70" y="160" text-anchor="middle">Rollers</text>
+              <text x="295" y="72" text-anchor="middle">Foil</text>
+            </g>
+          </svg>
+        </figure>
+        <div class="options is-row">
+          <button type="button" class="option" data-feedback="Thicker foil would absorb <strong>more</strong> of the beta radiation, so the reading would go down.">It has got thicker</button>
+          <button type="button" class="option" data-correct>It has got thinner</button>
+          <button type="button" class="option" data-feedback="Something has changed how much radiation gets through. What could the foil have done?">It has stayed the same</button>
+        </div>
+        <div class="q-explain">Thinner foil <strong>absorbs less</strong> beta radiation, so <strong>more</strong> reaches the detector and the reading goes up. The rollers then move apart to make the foil thicker again.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>How is nuclear radiation used to treat a cancer tumour?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="That describes a <strong>tracer</strong>, which is used to find a problem. This question is about treating it.">A small amount is injected so a detector can follow it around the body</button>
+          <button type="button" class="option" data-feedback="Being hit by radiation does not make cells radioactive. Think about what ionisation does to living cells.">It makes the tumour radioactive, so the body gets rid of it</button>
+          <button type="button" class="option" data-feedback="Radiation does not shield anything. Think about what a high dose does to living cells.">It forms a shield round the tumour to stop it growing</button>
+          <button type="button" class="option" data-correct>A high dose is aimed at the tumour to kill the cancer cells</button>
+        </div>
+        <div class="q-explain">Radiation ionises atoms in living cells, and a high enough dose <strong>kills the cells</strong>. In radiotherapy, beams are aimed at the tumour from several directions, so the tumour receives a high dose and the healthy tissue around it receives a much lower one.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.000015">
+        <p class="q-prompt"><span class="q-num">6.</span>A hospital worker who prepares radioactive tracers receives an equivalent dose of 0.12 mSv during 8.0 hours of work. Calculate the equivalent dose rate. Type powers of ten like this: 2.5x10-4.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="That one needs an absorbed dose and a weighting factor. You are given an equivalent dose and a time."><span class="eq">H = Dw<sub>R</sub></span></button>
+              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>H</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one needs an energy and a mass. You are given an equivalent dose and a time."><span class="eq">D = <span class="frac"><span>E</span><span>m</span></span></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="The equivalent dose is 0.12 <strong>milli</strong>sieverts. Change it into sieverts before you substitute."><span class="eq">Ḣ = <span class="frac"><span>0.12</span><span>8.0</span></span></span></button>
+              <button type="button" class="option" data-feedback="H is the equivalent dose and t is the time. Check which number is which."><span class="eq">Ḣ = <span class="frac"><span>8.0</span><span>0.12 × 10⁻³</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>0.12 × 10⁻³</span><span>8.0</span></span></span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="ru-rate">Ḣ =</label>
+              <input class="answer" id="ru-rate" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">Sv h⁻¹</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="0.015">Have you changed mSv into Sv? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.00096">You've multiplied. The dose is divided by the time.</p>
+        <p class="mistake" data-value="0.96">You've multiplied. The dose is divided by the time, and mSv needs changing into Sv.</p>
+        <p class="mistake" data-value="66667">You've divided the time by the dose. It's the other way round.</p>
+        <p class="mistake" data-value="66.7">You've divided the time by the dose. It's the other way round, and mSv needs changing into Sv.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
+            <li>Ḣ = <span class="frac"><span>0.12 × 10⁻³</span><span>8.0</span></span></li>
+            <li>Ḣ = 1.5 × 10⁻⁵ Sv h⁻¹</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="200">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">7.</span>A new idea for today: the <strong>half-life</strong> of a radioactive source is the time taken for its activity to halve. A tracer has a half-life of 6 hours. When it is injected, its activity is 800 Bq. Work out its activity 12 hours later.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="ru-hl">Activity =</label>
+          <input class="answer" id="ru-hl" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Bq</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="400">That's the activity after 6 hours, which is one half-life. How many half-lives are there in 12 hours?</p>
+        <p class="mistake" data-value="0">The activity doesn't fall by the same amount each time. It halves, and then what is left halves again.</p>
+        <p class="mistake" data-value="100">That's three halvings. How many lots of 6 hours are there in 12 hours?</p>
+        <p class="mistake" data-value="66.7">You've divided by the number of hours. The activity <strong>halves</strong> every 6 hours.</p>
+        <p class="mistake" data-value="133">You've divided by the half-life. The activity <strong>halves</strong> every 6 hours.</p>
+        <p class="mistake" data-value="1600">The activity of a source goes down as time passes, not up.</p>
+        <p class="mistake" data-value="3200">The activity of a source goes down as time passes, not up.</p>
+        <details class="hint"><summary>Hint</summary><p>Take it 6 hours at a time. What is the activity after the first 6 hours? Then what happens in the next 6 hours?</p></details>
+        <div class="q-explain">
+          <p>12 hours is two half-lives, so the activity halves twice.</p>
+          <ul class="working">
+            <li>Start: 800 Bq</li>
+            <li>After 6 hours: 400 Bq</li>
+            <li>After 12 hours: 200 Bq</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq q-challenge">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">8.</span>The half-life of a source is the time taken for its activity to halve. A hospital needs a tracer for a scan that takes about an hour. Which source is the most suitable?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="The half-life is fine, but alpha radiation would be absorbed inside the body. It could not reach the detector, and it would cause a lot of ionisation in the patient's cells.">Gives out alpha · half-life 6 hours</button>
+          <button type="button" class="option" data-feedback="The right radiation, but its activity would take 30 years to halve. The patient would keep receiving a dose long after the scan was over.">Gives out gamma · half-life 30 years</button>
+          <button type="button" class="option" data-correct>Gives out gamma · half-life 6 hours</button>
+          <button type="button" class="option" data-feedback="The right radiation, but its activity would halve every 2 seconds. There would be almost none left by the time the scan started.">Gives out gamma · half-life 2 seconds</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Two things to get right. The radiation has to get out of the body to the detector. And the tracer has to last long enough for the scan, without staying active in the patient for longer than it needs to.</p></details>
+        <div class="q-explain"><strong>Gamma</strong> can pass out of the body to the detector. A half-life of <strong>6 hours</strong> is long enough for the scan, and short enough that the activity soon falls away, which keeps the patient's dose small.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

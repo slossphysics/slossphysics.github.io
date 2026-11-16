@@ -1,0 +1,113 @@
+/* Virtual half-life experiment (n5/half-life-experiment.html): a source, a Geiger-Müller tube
+   and a counter. The script is assets/js/half-life.js. */
+
+.hl-section { margin: 0 0 24px; }
+.hl-section h2 { margin: 0 0 6px; font-size: 1.3rem; }
+.hl-section p { margin: 0 0 12px; }
+.hl-section ol { margin: 0 0 12px; padding-left: 1.4em; }
+.hl-section li { margin: 0 0 8px; }
+.hl-section .data-table td { min-width: 6em; height: 2.2em; }
+
+.hl {
+  margin: 0 0 28px;
+  padding: 20px 22px;
+  background: var(--surface);
+  border: var(--edge-w) solid var(--edge);
+  border-radius: var(--radius);
+  box-shadow: var(--pop);
+}
+
+/* Source, tube and counter side by side */
+.hl-bench {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+.hl-label { margin: 0 0 8px; font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; }
+
+.hl-source {
+  padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+.hl-nuclei { display: grid; grid-template-columns: repeat(20, 1fr); gap: 3px; }
+.hl-nucleus {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid var(--level-colour, var(--accent));
+  background: var(--level-colour, var(--accent));
+  transition: background-color 0.4s, border-color 0.4s, transform 0.4s;
+}
+.hl-nucleus.is-decayed { background: transparent; border-color: var(--muted); transform: scale(0.8); }
+.hl-key { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 10px 0 0; font-size: 0.95rem; }
+.hl-key span { display: inline-flex; align-items: center; gap: 6px; }
+.hl-key .hl-nucleus { width: 14px; flex: none; }
+
+.hl-tube { text-align: center; }
+.hl-tube svg { display: block; width: 100%; height: auto; color: var(--text); }
+.hl-tube .hl-label { margin: 6px 0 0; }
+
+/* The counter looks like a piece of lab equipment in both light and dark themes */
+.hl-counter {
+  padding: 14px;
+  border: var(--edge-w) solid var(--edge);
+  border-radius: 12px;
+  background: #2b2a3a;
+  color: #f3efff;
+}
+.hl-counter .hl-label { color: #f3efff; }
+.hl-readout {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #0d1512;
+  color: #8dffc0;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.hl-readout:last-child { margin-bottom: 0; }
+.hl-readout-name { font-family: var(--font); font-size: 0.95rem; color: #d7d2ea; }
+.hl-readout-value { font-size: 2rem; font-weight: 700; line-height: 1.1; white-space: nowrap; }
+.hl-readout-value small { font-size: 1.1rem; font-weight: 400; margin-left: 4px; }
+
+/* The reading to write down: held on screen until the next one */
+.hl-hold {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin: 16px 0 0;
+  padding: 14px 18px;
+  border: 2px solid var(--level-colour, var(--accent));
+  border-radius: 12px;
+  background: var(--bg);
+}
+.hl-hold-main { margin: 0; font-size: 1.35rem; font-weight: 600; }
+.hl-hold-main strong { font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.hl-hold-next { margin: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.hl-hold.is-new { animation: hl-flash 0.9s ease-out; }
+@keyframes hl-flash {
+  from { background: var(--level-colour, var(--accent)); }
+  to { background: var(--bg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hl-hold.is-new { animation: none; }
+  .hl-nucleus { transition: none; }
+}
+
+.hl-controls { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0 0; }
+.hl-controls .tool { min-width: 120px; font-size: 1.1rem; }
+.hl-controls .tool:disabled { opacity: 0.5; cursor: default; }
+.hl-go { background: var(--level-colour, var(--accent)); color: var(--on-level, #fff); }
+
+@media (max-width: 700px) {
+  .hl-bench { grid-template-columns: 1fr; }
+  .hl-tube svg { max-width: 260px; margin: 0 auto; }
+}

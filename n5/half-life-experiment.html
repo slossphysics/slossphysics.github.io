@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experiment: half-life · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics virtual experiment (Radiation · Nuclear radiation): record the activity of a radioactive source every 10 seconds with a Geiger-Müller tube and counter, plot activity against time, and find the half-life from the graph.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/starter.css">
+  <link rel="stylesheet" href="../assets/css/half-life.css">
+  <script src="../assets/js/half-life.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../index.html">All levels</a></li>
+      <li><a href="index.html">National 5 Physics</a></li>
+      <li>Tools</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Experiment: half-life</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning how the activity of a radioactive source changes as time passes.</p>
+      <p><strong>SC:</strong> I can record the activity of a source every 10 seconds · I can draw a graph of activity against time · I can use my graph to find how long the activity takes to halve.</p>
+    </div>
+
+    <div class="hl-section">
+      <h2>Before you start</h2>
+      <p>A radioactive source is placed in front of a Geiger-Müller tube. The counter shows the <strong>activity</strong> of the source: the number of nuclei that decay each second, measured in becquerels (Bq).</p>
+      <p>Draw this results table in your jotter. It needs 13 rows, for 0 s, 10 s, 20 s and so on, up to 120 s.</p>
+      <table class="data-table">
+        <thead><tr><th>Time (s)</th><th>Activity (Bq)</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td></td></tr>
+          <tr><td>10</td><td></td></tr>
+          <tr><td>20</td><td></td></tr>
+          <tr><td>…</td><td></td></tr>
+          <tr><td>120</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="hl" data-half-life="25" data-activity="800" data-run="120" data-step="10">
+      <div class="hl-bench">
+        <div class="hl-source">
+          <p class="hl-label">Radioactive source</p>
+          <div class="hl-nuclei" aria-hidden="true"></div>
+          <p class="hl-key"><span><span class="hl-nucleus"></span>Nucleus that has not decayed</span><span><span class="hl-nucleus is-decayed"></span>Decayed nucleus</span></p>
+        </div>
+        <div class="hl-tube">
+          <svg viewBox="0 0 220 90" role="img" aria-label="A Geiger-Müller tube pointing at the source, with a cable running to the counter.">
+            <path d="M4 25H44M4 45H44M4 65H44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 6"/>
+            <path d="M36 19L46 25L36 31M36 39L46 45L36 51M36 59L46 65L36 71" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="56" y="20" width="110" height="50" rx="8" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="3"/>
+            <path d="M68 20V70" stroke="currentColor" stroke-width="3"/>
+            <path d="M68 45H150" stroke="currentColor" stroke-width="2"/>
+            <rect x="166" y="36" width="14" height="18" fill="currentColor"/>
+            <path d="M180 45H218" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <p class="hl-label">Geiger-Müller tube</p>
+        </div>
+        <div class="hl-counter">
+          <p class="hl-label">Counter</p>
+          <p class="hl-readout"><span class="hl-readout-name">Activity</span><span class="hl-readout-value"><span data-hl="activity">800</span><small>Bq</small></span></p>
+          <p class="hl-readout"><span class="hl-readout-name">Time</span><span class="hl-readout-value"><span data-hl="time">0</span><small>s</small></span></p>
+        </div>
+      </div>
+
+      <div class="hl-hold" aria-live="polite">
+        <p class="hl-hold-main" data-hl="hold">Press Start, then write down each reading as it appears here.</p>
+        <p class="hl-hold-next" data-hl="next"></p>
+      </div>
+
+      <div class="hl-controls">
+        <button type="button" class="tool hl-go" data-hl="start">Start</button>
+        <button type="button" class="tool" data-hl="reset">Reset</button>
+      </div>
+    </div>
+
+    <div class="hl-section">
+      <h2>Take your readings</h2>
+      <ol>
+        <li>Press <strong>Start</strong>. The stopwatch runs for 120 seconds.</li>
+        <li>Every 10 seconds, the reading to write down appears in the box under the counter. It stays there until the next one.</li>
+        <li>Watch the source as well. Each dot stands for a nucleus. Nobody can say when any one nucleus will decay: it happens at random.</li>
+      </ol>
+    </div>
+
+    <div class="hl-section">
+      <h2>Draw your graph</h2>
+      <ol>
+        <li>Put <strong>time (s)</strong> along the bottom, from 0 to 120.</li>
+        <li>Put <strong>activity (Bq)</strong> up the side, from 0 to 800.</li>
+        <li>Plot your 13 points, then draw a smooth curve through them. Don't join them with a ruler.</li>
+      </ol>
+    </div>
+
+    <div class="hl-section">
+      <h2>Use your graph</h2>
+      <p>Answer these in your jotter, reading the times from your curve.</p>
+      <ol>
+        <li>How long does the activity take to fall from 800 Bq to 400 Bq?</li>
+        <li>How long does it take to fall from 400 Bq to 200 Bq?</li>
+        <li>How long does it take to fall from 200 Bq to 100 Bq?</li>
+        <li>What do you notice about your three answers? Compare them with the person next to you.</li>
+        <li>Your readings are not exactly the same as your neighbour's. Why not?</li>
+      </ol>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

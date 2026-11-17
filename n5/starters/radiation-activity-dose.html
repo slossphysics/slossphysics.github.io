@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Activity and dose · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics starter (Radiation · Nuclear radiation): activity (A = N/t), absorbed dose, equivalent dose and equivalent dose rate, before half-life calculations.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Radiation</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Activity and dose</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am recalling how to calculate activity, absorbed dose, equivalent dose and equivalent dose rate.</p>
+      <p><strong>SC:</strong> I can use A = N/t to find an activity or a number of decays · I can use D = E/m, H = Dw<sub>R</sub> and Ḣ = H/t · I can set out my working in my jotter.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5">5 min</option>
+          <option value="8" selected>8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">8:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>What is the unit of activity?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="The gray is the unit of <strong>absorbed dose</strong>.">gray (Gy)</button>
+          <button type="button" class="option" data-feedback="The sievert is the unit of <strong>equivalent dose</strong>.">sievert (Sv)</button>
+          <button type="button" class="option" data-correct>becquerel (Bq)</button>
+          <button type="button" class="option" data-feedback="The hertz is the unit of <strong>frequency</strong>, from the Waves unit.">hertz (Hz)</button>
+        </div>
+        <div class="q-explain">Activity is measured in <strong>becquerels (Bq)</strong>. An activity of 1 Bq means that one nucleus decays each second.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="20">
+        <p class="q-prompt"><span class="q-num">2.</span>1200 nuclei in a radioactive source decay in 60 s. Calculate the activity of the source.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="That one is for absorbed dose. You are given a number of decays and a time."><span class="eq">D = <span class="frac"><span>E</span><span>m</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">A = <span class="frac"><span>N</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one is for equivalent dose rate. You are given a number of decays and a time."><span class="eq">Ḣ = <span class="frac"><span>H</span><span>t</span></span></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-correct><span class="eq">A = <span class="frac"><span>1200</span><span>60</span></span></span></button>
+              <button type="button" class="option" data-feedback="N is the number of nuclei that decay and t is the time. Check which number is which."><span class="eq">A = <span class="frac"><span>60</span><span>1200</span></span></span></button>
+              <button type="button" class="option" data-feedback="The relationship divides the number of decays by the time."><span class="eq">A = 1200 × 60</span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="ad-activity">A =</label>
+              <input class="answer" id="ad-activity" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">Bq</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="72000">You've multiplied. The number of decays is divided by the time.</p>
+        <p class="mistake" data-value="0.05">You've divided the time by the number of decays. It's the other way round.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>A = <span class="frac"><span>N</span><span>t</span></span></li>
+            <li>A = <span class="frac"><span>1200</span><span>60</span></span></li>
+            <li>A = 20 Bq</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="60000">
+        <p class="q-prompt"><span class="q-num">3.</span>A radioactive source has an activity of 500 Bq. Calculate the number of nuclei that decay in 2 minutes.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="ad-number">N =</label>
+          <input class="answer" id="ad-number" type="text" inputmode="decimal" autocomplete="off">
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="1000">Have you changed the minutes into seconds? Activity is the number of decays each <strong>second</strong>.</p>
+        <p class="mistake" data-value="250">You've divided, and the time is still in minutes. Rearrange A = N/t to get N on its own, and change the minutes into seconds.</p>
+        <p class="mistake" data-value="4.17">You've divided the activity by the time. Rearrange A = N/t to get N on its own.</p>
+        <p class="mistake" data-value="0.24">You've divided the time by the activity. Rearrange A = N/t to get N on its own.</p>
+        <p class="mistake" data-value="0.004">You've divided the time by the activity, and the time is still in minutes. Rearrange A = N/t to get N on its own.</p>
+        <details class="hint"><summary>Hint</summary><p>Write A = N/t and put in the two numbers you know. 500 Bq means 500 nuclei decay every second, so the time has to be in seconds.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>t = 2 × 60 = 120 s</li>
+            <li>A = <span class="frac"><span>N</span><span>t</span></span></li>
+            <li>500 = <span class="frac"><span>N</span><span>120</span></span></li>
+            <li>N = 500 × 120</li>
+            <li>N = 60 000</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.05">
+        <p class="q-prompt"><span class="q-num">4.</span>0.40 kg of tissue absorbs 0.020 J of energy from radiation. Calculate the absorbed dose.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="That one is for activity. You are given an energy and a mass."><span class="eq">A = <span class="frac"><span>N</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one needs a weighting factor. You are given an energy and a mass."><span class="eq">H = Dw<sub>R</sub></span></button>
+              <button type="button" class="option" data-correct><span class="eq">D = <span class="frac"><span>E</span><span>m</span></span></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="E is the energy absorbed and m is the mass of the tissue. Check which number is which."><span class="eq">D = <span class="frac"><span>0.40</span><span>0.020</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">D = <span class="frac"><span>0.020</span><span>0.40</span></span></span></button>
+              <button type="button" class="option" data-feedback="The relationship divides the energy by the mass."><span class="eq">D = 0.020 × 0.40</span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="ad-dose">D =</label>
+              <input class="answer" id="ad-dose" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">Gy</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="0.008">You've multiplied. The energy is divided by the mass.</p>
+        <p class="mistake" data-value="20">You've divided the mass by the energy. It's the other way round.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>D = <span class="frac"><span>E</span><span>m</span></span></li>
+            <li>D = <span class="frac"><span>0.020</span><span>0.40</span></span></li>
+            <li>D = 0.050 Gy</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="0.04">
+        <p class="q-prompt"><span class="q-num">5.</span>Tissue receives an absorbed dose of 2.0 mGy from alpha radiation. The radiation weighting factor for alpha is 20. Calculate the equivalent dose. Type powers of ten like this: 2.5x10-4.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-correct><span class="eq">H = Dw<sub>R</sub></span></button>
+              <button type="button" class="option" data-feedback="That one needs an energy and a mass. You are given an absorbed dose and a weighting factor."><span class="eq">D = <span class="frac"><span>E</span><span>m</span></span></span></button>
+              <button type="button" class="option" data-feedback="That one needs a time. You are given an absorbed dose and a weighting factor."><span class="eq">Ḣ = <span class="frac"><span>H</span><span>t</span></span></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="The absorbed dose is 2.0 <strong>milli</strong>grays. Change it into grays before you substitute."><span class="eq">H = 2.0 × 20</span></button>
+              <button type="button" class="option" data-feedback="The absorbed dose is multiplied by the weighting factor, not divided by it."><span class="eq">H = <span class="frac"><span>2.0 × 10⁻³</span><span>20</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">H = 2.0 × 10⁻³ × 20</span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="ad-equiv">H =</label>
+              <input class="answer" id="ad-equiv" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">Sv</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="40">Have you changed mGy into Gy? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.0001">You've divided. The absorbed dose is multiplied by the weighting factor.</p>
+        <p class="mistake" data-value="0.1">You've divided, and mGy needs changing into Gy. The absorbed dose is multiplied by the weighting factor.</p>
+        <p class="mistake" data-value="0.002">That's the absorbed dose in grays. Multiply it by the weighting factor.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>H = Dw<sub>R</sub></li>
+            <li>H = 2.0 × 10⁻³ × 20</li>
+            <li>H = 0.040 Sv</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="1.5e-4">
+        <p class="q-prompt"><span class="q-num">6.</span>A worker receives an equivalent dose of 0.60 mSv in 4.0 hours. Calculate the equivalent dose rate. Type powers of ten like this: 2.5x10-4.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write it in your jotter, then put the numbers in.">
+            <span class="step-name">Formula</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="That one needs a weighting factor. You are given an equivalent dose and a time."><span class="eq">H = Dw<sub>R</sub></span></button>
+              <button type="button" class="option" data-feedback="That one is for activity. You are given an equivalent dose and a time."><span class="eq">A = <span class="frac"><span>N</span><span>t</span></span></span></button>
+              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>H</span><span>t</span></span></span></button>
+            </div>
+          </li>
+          <li class="step" data-then="Write that line underneath, then solve it. Don't forget the unit.">
+            <span class="step-name">Substitute</span>
+            <div class="options">
+              <button type="button" class="option" data-correct><span class="eq">Ḣ = <span class="frac"><span>0.60 × 10⁻³</span><span>4.0</span></span></span></button>
+              <button type="button" class="option" data-feedback="The dose is 0.60 <strong>milli</strong>sieverts. Change it into sieverts before you substitute."><span class="eq">Ḣ = <span class="frac"><span>0.60</span><span>4.0</span></span></span></button>
+              <button type="button" class="option" data-feedback="H is the equivalent dose and t is the time. Check which number is which."><span class="eq">Ḣ = <span class="frac"><span>4.0</span><span>0.60 × 10⁻³</span></span></span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Solve</span>
+            <div class="answer-row">
+              <label class="answer-label" for="ad-rate">Ḣ =</label>
+              <input class="answer" id="ad-rate" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">Sv h⁻¹</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="0.15">Have you changed mSv into Sv? Milli means × 10⁻³.</p>
+        <p class="mistake" data-value="0.0024">You've multiplied. The dose is divided by the time.</p>
+        <p class="mistake" data-value="2.4">You've multiplied. The dose is divided by the time, and mSv needs changing into Sv.</p>
+        <p class="mistake" data-value="6667">You've divided the time by the dose. It's the other way round.</p>
+        <p class="mistake" data-value="6.67">You've divided the time by the dose. It's the other way round, and mSv needs changing into Sv.</p>
+        <div class="q-explain">
+          <ul class="working">
+            <li>Ḣ = <span class="frac"><span>H</span><span>t</span></span></li>
+            <li>Ḣ = <span class="frac"><span>0.60 × 10⁻³</span><span>4.0</span></span></li>
+            <li>Ḣ = 1.5 × 10⁻⁴ Sv h⁻¹</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">7.</span>A radioactive tracer is injected into a patient. A detector outside the body follows where it goes. Which type of radiation should the tracer give out, and why?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Alpha is absorbed by a few centimetres of air or a sheet of paper, so it could not get out of the body. Causing the most ionisation would also do the most harm.">Alpha, because it causes the most ionisation</button>
+          <button type="button" class="option" data-correct>Gamma, because it can pass out of the body to reach the detector</button>
+          <button type="button" class="option" data-feedback="If the radiation is absorbed by the body, none of it reaches the detector outside.">Beta, because it is absorbed by the body</button>
+          <button type="button" class="option" data-feedback="Gamma is the right radiation, but it causes the <strong>least</strong> ionisation of the three.">Gamma, because it causes the most ionisation</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>The detector is <strong>outside</strong> the body. Which radiation is penetrating enough to get out through the patient's tissue?</p></details>
+        <div class="q-explain">A tracer gives out <strong>gamma</strong> radiation. It is penetrating enough to pass out of the body to the detector, and it causes the least ionisation on the way, so it does the least harm to the patient.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="100">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">8.</span>The half-life of a radioactive source is the time taken for its activity to halve. A source has an activity of 400 Bq and a half-life of 2 hours. Calculate its activity after 4 hours.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="ad-half">Activity =</label>
+          <input class="answer" id="ad-half" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Bq</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="200">That's the activity after 2 hours, which is one half-life. How many half-lives are there in 4 hours?</p>
+        <p class="mistake" data-value="0">The activity doesn't fall by the same amount each time. It halves, and then what is left halves again.</p>
+        <p class="mistake" data-value="50">That's three halvings. How many lots of 2 hours are there in 4 hours?</p>
+        <p class="mistake" data-value="800">The activity of a source goes down as time passes, not up.</p>
+        <p class="mistake" data-value="1600">The activity of a source goes down as time passes, not up.</p>
+        <details class="hint"><summary>Hint</summary><p>Take it 2 hours at a time. What is the activity after the first 2 hours? Then what happens in the next 2 hours?</p></details>
+        <div class="q-explain">
+          <p>4 hours is two half-lives, so the activity halves twice.</p>
+          <ul class="working">
+            <li>Start: 400 Bq</li>
+            <li>After 2 hours: 200 Bq</li>
+            <li>After 4 hours: 100 Bq</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

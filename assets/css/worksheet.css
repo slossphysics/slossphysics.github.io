@@ -1,0 +1,93 @@
+/* Styles for worksheet pages (site/<level>/worksheets/). Load after main.css and starter.css.
+   A worksheet is a page of questions answered in jotters: easy to read on an iPad,
+   and it prints on A4 (the Print button, or the browser's own print). */
+
+.worksheet { padding-bottom: 56px; }
+.ws-lead { margin: 14px 0 0; font-size: 1.1rem; color: var(--muted); }
+
+.ws-card {
+  margin: 18px 0 0;
+  padding: 16px 20px;
+  border: var(--edge-w) solid var(--edge);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--pop-sm);
+}
+
+/* The method: numbered steps beside a worked line of arrows */
+.ws-method { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; border-left: 8px solid var(--level-colour, var(--accent)); }
+.ws-method ol { flex: 1 1 300px; margin: 0; padding-left: 1.3em; font-size: 1.1rem; line-height: 1.5; }
+.ws-method svg { flex: 0 1 380px; width: 100%; max-width: 380px; height: auto; }
+.ws-method svg .ws-val { fill: var(--text); font-weight: 700; font-size: 17px; }
+.ws-method svg .ws-time { fill: var(--bad); font-weight: 700; font-size: 13px; }
+.ws-method svg path { stroke: var(--bad); }
+.ws-method svg marker path { fill: var(--bad); stroke: none; }
+
+/* Sections A, B, C… */
+.ws-section { margin-top: 30px; }
+.ws-section > h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 0 0 12px; font-size: 1.6rem; line-height: 1.2; }
+.ws-letter {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--level-colour, var(--accent)); color: var(--on-level); font-size: 1.3rem;
+}
+.ws-section > h2 small { flex-basis: 100%; font-size: 1.05rem; font-weight: 400; color: var(--muted); }
+.ws-note { margin: 10px 0 0; color: var(--muted); }
+
+/* Question tables: one question per row */
+.ws-scroll { overflow-x: auto; border: var(--edge-w) solid var(--edge); border-radius: var(--radius); background: var(--surface); box-shadow: var(--pop-sm); }
+.ws-table { width: 100%; border-collapse: collapse; font-size: 1.1rem; }
+.ws-table th { padding: 10px 12px; background: var(--level-colour, var(--accent)); color: var(--on-level); font-size: 0.95rem; text-align: center; }
+.ws-table td { padding: 11px 12px; border-top: 1px solid var(--border); text-align: center; }
+.ws-table td + td, .ws-table th + th { border-left: 1px solid var(--border); }
+.ws-table .ws-n { width: 44px; font-weight: 700; color: var(--level-colour, var(--accent)); }
+.ws-table .ws-src { text-align: left; font-weight: 700; white-space: nowrap; }
+.ws-table .ws-use { text-align: left; color: var(--muted); font-size: 1rem; }
+.ws-table .ws-use ~ td { white-space: nowrap; }
+.ws-table tr.ws-more td { background: color-mix(in srgb, var(--level-colour, var(--accent)) 8%, var(--surface)); }
+
+/* Questions in words */
+.ws-qs { margin: 0; padding: 0; list-style: none; }
+.ws-qs li { display: flex; gap: 14px; padding: 12px 0; font-size: 1.1rem; line-height: 1.45; }
+.ws-qs li + li { border-top: 1px solid var(--border); }
+.ws-qs li > b { flex: none; width: 1.4em; color: var(--level-colour, var(--accent)); }
+.ws-card > h3 { margin: 0 0 4px; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bad); }
+
+/* The relationships pupils need for the recall section */
+.ws-sheet { display: flex; flex-wrap: wrap; gap: 8px 34px; align-items: center; margin: 0 0 12px; font-size: 1.15rem; font-weight: 600; }
+
+@media print {
+  @page { size: A4; margin: 13mm 14mm 12mm; }
+  :root {
+    --bg: #fff; --surface: #fff; --text: #111; --muted: #444; --border: #b9c0cb; --edge: #222;
+    --edge-w: 1px; --pop-sm: none; --pop: none; --bad: #b45309; --on-level: #fff;
+  }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #fff; font-size: 11.5pt; line-height: 1.3; }
+  .wrap { padding: 0; }
+  .site-header, .site-footer, .crumbs, .toolbar { display: none !important; }
+  .worksheet { padding: 0; max-width: none; }
+  .spec-ref { margin: 0 0 4px; font-size: 9.5pt; padding: 2px 8px; }
+  .worksheet h1 { font-size: 21pt; margin: 0 0 4px; }
+  .ws-lead { margin: 0; font-size: 11pt; }
+  .ws-card { margin-top: 8px; padding: 6px 12px; border-radius: 8px; }
+  .ws-method { gap: 4px 20px; flex-wrap: nowrap; }
+  .ws-method ol { font-size: 11pt; line-height: 1.35; flex: 1 1 auto; }
+  .ws-method svg { flex: 0 0 82mm; max-width: 82mm; }
+  .ws-section { margin-top: 12px; }
+  .ws-section.ws-break { break-before: page; margin-top: 0; }
+  .ws-section > h2 { font-size: 14pt; margin-bottom: 5px; gap: 2px 8px; }
+  .ws-section > h2 small { flex-basis: auto; font-size: 10.5pt; }
+  .ws-letter { width: 7.5mm; height: 7.5mm; font-size: 12pt; }
+  .ws-scroll { overflow: visible; border-radius: 0; }
+  .ws-table { font-size: 11.5pt; }
+  .ws-table th { padding: 4px 5px; font-size: 9.5pt; }
+  .ws-table td { padding: 4.5px 5px; }
+  .ws-table .ws-use { font-size: 9.5pt; }
+  .ws-table tr.ws-more td { background: #eef2f7; }
+  .ws-note { margin-top: 3px; font-size: 10.5pt; }
+  .ws-qs li { padding: 3.5px 0; font-size: 11.5pt; line-height: 1.32; break-inside: avoid; gap: 8px; }
+  .ws-qs li + li { border-top: 0; }
+  .ws-sheet { font-size: 11.5pt; margin-bottom: 4px; }
+  .ws-break .ws-qs li, .ws-break ~ .ws-section .ws-qs li { padding: 6px 0; font-size: 12.5pt; }
+}

@@ -782,6 +782,20 @@
       const lamps = dimsLamps(st, res, v);
       return ofType(st, 'ammeter').some((m) => dimsLamps(st, res, m).some((l) => lamps.includes(l)));
     };
+    // Ammeters in the same loop as a variable resistor and a lamp
+    const vrMeters = (st, res) => ofType(st, 'ammeter').filter((m) => {
+      const lamps = dimsLamps(st, res, m);
+      return vrs(st).some((v) => dimsLamps(st, res, v).some((l) => lamps.includes(l)));
+    });
+    const metered = (st, res, lamp) => ofType(st, 'ammeter').some((m) => dimsLamps(st, res, m).includes(lamp));
+    // Pairs of resistors that a lamp's current has to get through: [a, b, lamp], where a.alone says
+    // whether taking that one resistor away is enough to put the lamp out (true in series, false in parallel)
+    const resistorPairs = (st, res) => pairs(ofType(st, 'resistor').filter((r) => carries(res, r.id)))
+      .flatMap(([r1, r2]) => {
+        const no1 = without(st, [r1.id]), no2 = without(st, [r2.id]), none = without(st, [r1.id, r2.id]);
+        return ofType(st, 'lamp').filter((l) => carries(res, l.id) && !carries(none, l.id))
+          .map((l) => [{ alone: !carries(no1, l.id) }, { alone: !carries(no2, l.id) }, l]);
+      });
     // The slider has to be taken to both ends, so these remember which ends have been seen
     // (until the page is reloaded)
     const seen = { dimmer: new Set(), meter: new Set() };
@@ -802,6 +816,17 @@
         vrs(st).forEach((v) => { if (vrWithMeter(st, res, v)) noteEnds(seen.meter, v); });
         return seen.meter.size === 2;
       },
+
+      // Extras: the ammeter in a variable resistor's loop reads 0.10 A (10 Ω with one lamp and one cell)
+      'vr-target': (st, res) => vrMeters(st, res).some((m) => close(current(res, m.id), 0.1, 0.03)),
+
+      // Two fixed resistors and an ammeter, all in one loop with a lamp
+      'two-resistors-series': (st, res) => resistorPairs(st, res).some(([a, b, lamp]) => a.alone && b.alone &&
+        metered(st, res, lamp)),
+
+      // Two fixed resistors side by side: the lamp only goes out with both taken away
+      'two-resistors-parallel': (st, res) => resistorPairs(st, res).some(([a, b, lamp]) => !a.alone && !b.alone &&
+        metered(st, res, lamp)),
 
       // Two lamps in parallel, with a variable resistor that dims one and leaves the other alone
       'vr-one-lamp': (st, res) => parallelPairs(st, res).some((pair) => vrs(st).some((v) => {
@@ -903,6 +928,29 @@
         { when: (st, res) => vrs(st).some((v) => dimsLamps(st, res, v).length) && !ofType(st, 'ammeter').length,
           msg: 'Now drop an <strong>ammeter</strong> onto the wire, so it is in the same loop.' },
       ],
+      'vr-target': [
+        shortedMeter,
+        { when: (st, res) => vrMeters(st, res).some((m) => current(res, m.id) > 0.103),
+          msg: 'The ammeter reads more than 0.10 A. Do you need <strong>more</strong> resistance or <strong>less</strong> to make the current smaller?' },
+        { when: (st, res) => vrMeters(st, res).some((m) => current(res, m.id) < 0.097),
+          msg: 'The ammeter reads less than 0.10 A. Do you need <strong>more</strong> resistance or <strong>less</strong> to make the current bigger?' },
+      ],
+      'two-resistors-series': [
+        shortedMeter,
+        { slip: true, when: (st, res) => resistorPairs(st, res).some(([a, b]) => !a.alone && !b.alone),
+          msg: 'Those resistors are side by side, on separate branches: that is <strong>parallel</strong>. For series, put both in the one loop, one after the other.' },
+        { when: (st, res) => resistorPairs(st, res).some(([a, b, lamp]) => a.alone && b.alone && !metered(st, res, lamp)),
+          msg: 'Both resistors are in the loop. Now drop an <strong>ammeter</strong> onto the wire.' },
+        { when: (st, res) => ofType(st, 'resistor').filter((r) => dimsLamps(st, res, r).length).length === 1,
+          msg: 'That is one resistor in the loop. Drop a <strong>second</strong> resistor onto the wire.' },
+      ],
+      'two-resistors-parallel': [
+        shortedMeter,
+        { slip: true, when: (st, res) => resistorPairs(st, res).some(([a, b]) => a.alone && b.alone),
+          msg: 'Those resistors are one after the other: that is <strong>series</strong>. Give the second resistor a branch of its own, with a wire from each of its ends to the ends of the first resistor.' },
+        { when: (st, res) => resistorPairs(st, res).some(([a, b, lamp]) => !a.alone && !b.alone && !metered(st, res, lamp)),
+          msg: 'The resistors are in parallel. Now put an <strong>ammeter</strong> in the main loop, beside the lamp.' },
+      ],
       'vr-one-lamp': [
         { slip: true, when: (st, res) => vrs(st).some((v) => dimsLamps(st, res, v).length > 1) && seriesPair(st, res),
           msg: 'Those lamps are <strong>in series</strong>: there is only one loop, so the variable resistor changes both. Give each lamp a branch of its own.' },
@@ -993,6 +1041,21 @@
         comps: [C('cell', 7, 8), C('variable-resistor', 11, 8), C('ammeter', 7, 3), C('lamp', 11, 3)],
         wires: [W([6, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([8, 8], [10, 8]),
           W([12, 8], [14, 8], [14, 3], [12, 3])].flat(),
+      },
+      'vr-target': {
+        comps: [C('cell', 7, 8), C('variable-resistor', 11, 8, { value: 10 }), C('ammeter', 7, 3), C('lamp', 11, 3)],
+        wires: [W([6, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([8, 8], [10, 8]),
+          W([12, 8], [14, 8], [14, 3], [12, 3])].flat(),
+      },
+      'two-resistors-series': {
+        comps: [C('cell', 6, 8), C('resistor', 9, 8), C('resistor', 12, 8), C('ammeter', 7, 3), C('lamp', 11, 3)],
+        wires: [W([5, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([12, 3], [14, 3], [14, 8], [13, 8]),
+          W([7, 8], [8, 8]), W([10, 8], [11, 8])].flat(),
+      },
+      'two-resistors-parallel': {
+        comps: [C('cell', 6, 8), C('resistor', 11, 8), C('resistor', 11, 10), C('ammeter', 7, 3), C('lamp', 11, 3)],
+        wires: [W([5, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([12, 3], [14, 3], [14, 8], [12, 8]),
+          W([7, 8], [10, 8]), W([9, 8], [9, 10], [10, 10]), W([12, 10], [13, 10], [13, 8])].flat(),
       },
       'vr-one-lamp': {
         comps: [C('variable-resistor', 6, 2), C('lamp', 11, 2), C('lamp', 11, 5), C('cell', 6, 9)],
@@ -1879,7 +1942,8 @@
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'cb-chip';
-      b.textContent = t.classList.contains('q-challenge') ? 'Challenge' : String(i + 1);
+      // data-chip names a task's chip ("Extra 1"), for tasks after the Challenge
+      b.textContent = t.dataset.chip || (t.classList.contains('q-challenge') ? 'Challenge' : String(i + 1));
       b.addEventListener('click', () => { task = i; save(); showTask(); });
       taskNav.insertBefore(b, taskNav.querySelector('.cb-example'));
       return b;
@@ -2004,7 +2068,8 @@
       if (!fresh.length) return;
       save();
       showTask();
-      const names = fresh.map((i) => (i === tasks.length - 1 ? 'the Challenge' : 'task ' + (i + 1)));
+      const names = fresh.map((i) => tasks[i].dataset.chip ||
+        (i === tasks.length - 1 || tasks[i].classList.contains('q-challenge') ? 'the Challenge' : 'task ' + (i + 1)));
       say(tasks.length === 1 ? 'Well done: that circuit does the job.' : 'Well done: you have finished ' + names.join(' and ') + '.');
     }
 

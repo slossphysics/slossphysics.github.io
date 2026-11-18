@@ -87,6 +87,13 @@
       'ac-supply': { name: 'a.c. supply', emf: 230, r: 0.5 },   // reverses every second, so the dots go back and forth
       heater:    { name: 'Heating element', R: 26 },              // about 2 kW on 230 V
     };
+    // A page can give its variable resistor a gentler range (data-vr="0 1 2 5 10 20"). The usual
+    // one is for transistor circuits: on one cell it takes a lamp from full brightness to off in two steps.
+    if (root.dataset.vr) {
+      const steps = root.dataset.vr.trim().split(/\s+/).map(Number);
+      TYPES['variable-resistor'] = Object.assign({}, TYPES['variable-resistor'],
+        { slider: steps, R: steps[Math.floor(steps.length / 2)] });
+    }
     const SWITCH_R = 1e-4;
     const TRANSISTOR_R = 0.1;           // collector–emitter (drain–source) when switched on
     const FUSE_R = 0.01;
@@ -760,6 +767,50 @@
     CHECKS['exp-three'] = expStep(3, false);
     CHECKS['exp-resistor'] = expStep(3, true);
 
+    // ---------- Resistance tasks (bge/circuit-builder-resistance.html) ----------
+    // "Carrying current" is looser than working(): a lamp turned right down by a variable resistor still counts
+    const carries = (res, id) => current(res, id) > 0.01;
+    // The lamps this part is in series with: they carry current now, and none with the part taken out
+    const dimsLamps = (st, res, c) => {
+      const gone = without(st, [c.id]);
+      return ofType(st, 'lamp').filter((l) => carries(res, l.id) && !carries(gone, l.id));
+    };
+    const vrs = (st) => ofType(st, 'variable-resistor');
+    const vrEnds = () => { const s = TYPES['variable-resistor'].slider; return [s[0], s[s.length - 1]]; };
+    // A variable resistor and an ammeter that are both in series with the same lamp
+    const vrWithMeter = (st, res, v) => {
+      const lamps = dimsLamps(st, res, v);
+      return ofType(st, 'ammeter').some((m) => dimsLamps(st, res, m).some((l) => lamps.includes(l)));
+    };
+    // The slider has to be taken to both ends, so these remember which ends have been seen
+    // (until the page is reloaded)
+    const seen = { dimmer: new Set(), meter: new Set() };
+    const noteEnds = (set, v) => { vrEnds().forEach((end, i) => { if (val(v) === end) set.add(i); }); };
+    Object.assign(CHECKS, {
+      // A fixed resistor in the same loop as a lamp, which is dimmer for it but still on
+      'resistor-dims': (st, res) => ofType(st, 'resistor').some((r) =>
+        dimsLamps(st, res, r).some((l) => working(res, l.id) && current(res, l.id) < 0.27)),
+
+      // A variable resistor in a lamp's loop, slid to its smallest and its biggest resistance
+      'vr-dimmer': (st, res) => {
+        vrs(st).forEach((v) => { if (dimsLamps(st, res, v).length) noteEnds(seen.dimmer, v); });
+        return seen.dimmer.size === 2;
+      },
+
+      // The same with an ammeter in the loop, so there is a reading at each end
+      'vr-ammeter': (st, res) => {
+        vrs(st).forEach((v) => { if (vrWithMeter(st, res, v)) noteEnds(seen.meter, v); });
+        return seen.meter.size === 2;
+      },
+
+      // Two lamps in parallel, with a variable resistor that dims one and leaves the other alone
+      'vr-one-lamp': (st, res) => parallelPairs(st, res).some((pair) => vrs(st).some((v) => {
+        const gone = without(st, [v.id]);
+        return [pair, pair.slice().reverse()].some(([a, b]) =>
+          !carries(gone, a.id) && working(gone, b.id) && current(res, a.id) < 0.8 * current(res, b.id));
+      })),
+    });
+
     // Which of lamps P and Q go out when this part is taken out: 0 neither, 1 P, 2 Q, 3 both
     const stops = (st, id) => {
       const r = without(st, [id]);
@@ -829,6 +880,39 @@
     HINTS['exp-three'] = expHints(3, false);
     HINTS['exp-resistor'] = expHints(3, true);
 
+    // Resistance tasks. A part "on a branch of its own" carries current but no lamp depends on it.
+    const litLamps = (st, res) => ofType(st, 'lamp').filter((l) => carries(res, l.id));
+    const ownBranch = (st, res, c) => carries(res, c.id) && litLamps(st, res).length > 0 && !dimsLamps(st, res, c).length;
+    const shortedMeter = { slip: true, when: (st, res) => ofType(st, 'ammeter').some((m) => current(res, m.id) > 2),
+      msg: 'That ammeter is joined <strong>across</strong> part of the circuit, which makes a short circuit. Use Undo, then drop the ammeter onto a wire so that it is <strong>in the loop</strong>.' };
+    Object.assign(HINTS, {
+      'resistor-dims': [
+        { slip: true, when: (st, res) => ofType(st, 'resistor').some((r) => ownBranch(st, res, r)),
+          msg: 'That resistor is on a branch of its own, so the lamp is just as bright as before. Put the resistor in the <strong>same loop</strong> as the lamp: drop it onto the wire.' },
+      ],
+      'vr-dimmer': [
+        { slip: true, when: (st, res) => vrs(st).some((v) => ownBranch(st, res, v)),
+          msg: 'That variable resistor is on a branch of its own, so it can’t change the lamp. Put it in the <strong>same loop</strong> as the lamp: drop it onto the wire.' },
+        { when: (st, res) => vrs(st).some((v) => dimsLamps(st, res, v).length),
+          msg: 'Tap the variable resistor, then drag its slider all the way one way and all the way the other. Watch the lamp.' },
+      ],
+      'vr-ammeter': [
+        shortedMeter,
+        { when: (st, res) => vrs(st).some((v) => vrWithMeter(st, res, v)),
+          msg: 'Tap the variable resistor and slide it to its <strong>smallest</strong> resistance, then its <strong>biggest</strong>. Write down the ammeter reading each time.' },
+        { when: (st, res) => vrs(st).some((v) => dimsLamps(st, res, v).length) && !ofType(st, 'ammeter').length,
+          msg: 'Now drop an <strong>ammeter</strong> onto the wire, so it is in the same loop.' },
+      ],
+      'vr-one-lamp': [
+        { slip: true, when: (st, res) => vrs(st).some((v) => dimsLamps(st, res, v).length > 1) && seriesPair(st, res),
+          msg: 'Those lamps are <strong>in series</strong>: there is only one loop, so the variable resistor changes both. Give each lamp a branch of its own.' },
+        { slip: true, when: (st, res) => vrs(st).some((v) => dimsLamps(st, res, v).length > 1),
+          msg: 'The variable resistor is in a part of the circuit that both lamps share, so it dims <strong>both</strong>. Move it into one lamp’s own branch.' },
+        { when: (st, res) => parallelPairs(st, res).length > 0 && !vrs(st).length,
+          msg: 'Both lamps are in parallel. Now add a variable resistor to <strong>one</strong> lamp’s branch.' },
+      ],
+    });
+
     // Example circuits for each task (teacher only, under Show answers)
     const loop = [W([8, 8], [5, 8], [5, 3], [8, 3]), W([10, 8], [13, 8], [13, 3], [10, 3])].flat();
     const seriesWires = [W([8, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([10, 8], [14, 8], [14, 3], [12, 3])].flat();
@@ -897,6 +981,25 @@
     Object.keys(PRESETS).forEach((k) => { EXAMPLES[k] = PRESETS[k](true); });
     Object.assign(EXAMPLES, { 'exp-series': expCircuit(1, false, true), 'exp-two': expCircuit(2, false, true),
       'exp-three': expCircuit(3, false, true), 'exp-resistor': expCircuit(3, true, true) });
+    // Resistance tasks: a part beside the cell, in the same loop as the lamp
+    const withCell = (type, extra) => ({
+      comps: [C('cell', 7, 8), C(type, 11, 8, extra), C('lamp', 9, 3)],
+      wires: [W([6, 8], [4, 8], [4, 3], [8, 3]), W([8, 8], [10, 8]), W([12, 8], [14, 8], [14, 3], [10, 3])].flat(),
+    });
+    Object.assign(EXAMPLES, {
+      'resistor-dims': withCell('resistor'),
+      'vr-dimmer': withCell('variable-resistor'),
+      'vr-ammeter': {
+        comps: [C('cell', 7, 8), C('variable-resistor', 11, 8), C('ammeter', 7, 3), C('lamp', 11, 3)],
+        wires: [W([6, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([8, 8], [10, 8]),
+          W([12, 8], [14, 8], [14, 3], [12, 3])].flat(),
+      },
+      'vr-one-lamp': {
+        comps: [C('variable-resistor', 6, 2), C('lamp', 11, 2), C('lamp', 11, 5), C('cell', 6, 9)],
+        wires: [W([3, 2], [5, 2]), W([7, 2], [10, 2]), W([12, 2], [15, 2]), W([3, 5], [10, 5]), W([12, 5], [15, 5]),
+          W([3, 2], [3, 9], [5, 9]), W([7, 9], [15, 9], [15, 2])].flat(),
+      },
+    });
 
     // ---------- Elements ----------
     const NS = 'http://www.w3.org/2000/svg';

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circuit builder: resistance · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE circuit builder tasks (SCN 3-09a, SCN 4-09a): build series and parallel circuits, then add a resistor and a variable resistor to see how resistance changes the current and the brightness of a lamp.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/starter.css">
+  <link rel="stylesheet" href="../assets/css/circuit-builder.css">
+  <script src="../assets/js/circuit-symbols.js" defer></script>
+  <script src="../assets/js/starter.js" defer></script>
+  <script src="../assets/js/circuit-builder.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../index.html">All levels</a></li>
+      <li><a href="index.html">BGE Science</a></li>
+      <li>Tools</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Third and Fourth level · Forces, electricity and waves · SCN 3-09a, SCN 4-09a</p>
+    <h1>Circuit builder: resistance</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning what resistance does to the current in a circuit.</p>
+      <p><strong>SC:</strong> I can build series and parallel circuits · I can use a resistor to make a lamp dimmer · I can use a variable resistor to change the current.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="10">10 min</option>
+          <option value="15" selected>15 min</option>
+          <option value="20">20 min</option>
+        </select>
+        <output class="timer-display">15:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+    <div class="cb" data-circuit-builder data-key="bge-circuit-builder-resistance" data-vr="0 1 2 3 4 5 6 8 10 12 15 20">
+      <div class="cb-task-nav">
+        <span class="cb-task-nav-label">Tasks</span>
+        <button type="button" class="tool cb-example" data-cb="example">Build an example</button>
+      </div>
+
+      <div class="q cb-task" data-check="one-lamp">
+        <p class="q-prompt"><span class="q-num">1.</span>Build a circuit that makes a lamp light.</p>
+        <details class="hint"><summary>Hint</summary><p>Current needs a complete loop: from one end of the cell, through the lamp, and back to the other end of the cell.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The lamp lights because there is a <strong>complete circuit</strong>: one unbroken loop from the cell, through the lamp and back.</div>
+      </div>
+
+      <div class="q cb-task" data-check="switch-lamp" hidden>
+        <p class="q-prompt"><span class="q-num">2.</span>Add a switch so that you can turn the lamp on and off. Tap the switch to test it.</p>
+        <details class="hint"><summary>Hint</summary><p>The switch has to be in the same loop as the lamp. A new switch starts open.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">An open switch makes a <strong>gap</strong> in the loop, so no current can flow anywhere in that loop.</div>
+      </div>
+
+      <div class="q cb-task" data-check="series" hidden>
+        <p class="q-prompt"><span class="q-num">3.</span>Build a circuit with one cell and two lamps in <strong>series</strong>. Are the lamps brighter or dimmer than one lamp on its own?</p>
+        <details class="hint"><summary>Hint</summary><p>Series means there is only one loop. The current goes through one lamp and then the other.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">In series the lamps are <strong>dimmer</strong> than one lamp on its own: the cell has to push the current through both. Take one lamp out and the other goes off too.</div>
+      </div>
+
+      <div class="q cb-task" data-check="parallel" hidden>
+        <p class="q-prompt"><span class="q-num">4.</span>Build a circuit with one cell and two lamps in <strong>parallel</strong>. How bright are they this time?</p>
+        <details class="hint"><summary>Hint</summary><p>Parallel means each lamp has its own branch. Both ends of each lamp are joined to the cell.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">In parallel each lamp is <strong>as bright as one lamp on its own</strong>, and if one is taken out the other stays on. That is why the lights in a house are wired in parallel.</div>
+      </div>
+
+      <div class="q cb-task" data-check="resistor-dims" hidden>
+        <p class="q-prompt"><span class="q-num">5.</span>Press Clear. Light one lamp with one cell, then add a <strong>resistor</strong> to the same loop. What happens to the lamp?</p>
+        <details class="hint"><summary>Hint</summary><p>Drop the resistor onto one of the wires and it joins into the loop.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The lamp gets <strong>dimmer</strong>. The resistor makes it harder for current to flow, so the current is smaller.</div>
+      </div>
+
+      <div class="q cb-task" data-check="vr-dimmer" hidden>
+        <p class="q-prompt"><span class="q-num">6.</span>Delete the resistor and put a <strong>variable resistor</strong> in its place. Tap it and move its slider. Make the lamp as bright as you can, then as dim as you can.</p>
+        <details class="hint"><summary>Hint</summary><p>Tap the resistor and press Delete. Then drop a variable resistor onto the wire. When you tap it, a slider appears.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The lamp is <strong>brightest</strong> when the resistance is smallest (0 Ω) and <strong>dimmest</strong> when the resistance is biggest (20 Ω). This is how a dimmer switch works.</div>
+      </div>
+
+      <div class="q cb-task" data-check="vr-ammeter" hidden>
+        <p class="q-prompt"><span class="q-num">7.</span>Add an <strong>ammeter</strong> to the loop. In your jotter, write the current when the resistance is smallest and when it is biggest.</p>
+        <details class="hint"><summary>Hint</summary><p>An ammeter goes in series: drop it onto a wire and it joins into the loop.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">At 0 Ω the ammeter reads 0.30 A. At 20 Ω it reads 0.06 A. When the resistance goes <strong>up</strong>, the current goes <strong>down</strong>.</div>
+      </div>
+
+      <div class="q cb-task q-challenge" data-check="vr-one-lamp" hidden>
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">8.</span>Use one cell, two lamps and a variable resistor. Build a circuit where the variable resistor dims <strong>one</strong> lamp and leaves the other lamp bright.</p>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Put the lamps in parallel, with the variable resistor in one lamp's branch. It only changes the current in its own branch, so the other lamp stays just as bright.</div>
+      </div>
+
+      <div class="cb-workspace">
+        <ul class="cb-palette" aria-label="Components">
+          <li><button type="button" data-type="cell"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-cell"/></svg>Cell</button></li>
+          <li><button type="button" data-type="lamp"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-lamp"/></svg>Lamp</button></li>
+          <li><button type="button" data-type="switch"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-switch-open"/></svg>Switch</button></li>
+          <li><button type="button" data-type="resistor"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor</button></li>
+          <li><button type="button" data-type="variable-resistor"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-variable-resistor"/></svg>Variable resistor</button></li>
+          <li><button type="button" data-type="ammeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ammeter"/></svg>Ammeter</button></li>
+        </ul>
+
+        <div class="cb-bar">
+          <p class="cb-status" aria-live="polite"></p>
+          <div class="cb-flow-pick">
+            <button type="button" class="tool" data-cb="flow-electron" aria-pressed="true">Show electron flow</button>
+            <button type="button" class="tool" data-cb="flow-conventional" aria-pressed="false">Show conventional flow</button>
+          </div>
+          <button type="button" class="tool" data-cb="undo">Undo</button>
+          <button type="button" class="tool" data-cb="clear">Clear</button>
+          <p class="cb-warning" role="alert" hidden><strong>Short circuit!</strong> The current has a path with almost no resistance, so it is far too big. A real cell would get hot and go flat quickly.</p>
+        </div>
+
+        <div class="cb-stage">
+          <svg class="cb-board" role="img" aria-label="Circuit building grid"></svg>
+          <div class="cb-pop" hidden>
+            <button type="button" class="tool" data-act="turn">Turn</button>
+            <button type="button" class="tool" data-act="delete">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="cb-help">
+        <li><strong>Add a component:</strong> drag it onto the grid, or tap it.</li>
+        <li><strong>Put a component into a wire:</strong> drop it onto a straight part of the wire and it joins in. Or tap the wire, then tap the component.</li>
+        <li><strong>Add a wire:</strong> drag from the end of a component to where the wire should go. Or tap the end, then tap where it should go.</li>
+        <li><strong>Move, turn or delete:</strong> drag a component to move it. Tap it for Turn and Delete, or drag it off the grid.</li>
+        <li><strong>Variable resistor:</strong> tap it, then drag the slider to change its resistance. A bigger resistance means a smaller current.</li>
+        <li><strong>Switches:</strong> tap a switch to open or close it.</li>
+        <li><strong>The moving dots</strong> show the electrons, which flow from the negative end of the cell (the short line) round to the positive end. Faster dots mean a bigger current. <strong>Show conventional flow</strong> turns the dots round, positive to negative: the direction used for current in later courses.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

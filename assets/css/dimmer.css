@@ -1,0 +1,71 @@
+/* Slide-it variable resistor (bge/starters/electricity-variable-resistor.html).
+   The picture is one SVG; dimmer.js moves the slider and updates the lamp and readings. */
+.dimmer {
+  margin: 28px 0 0;
+  padding: 14px 16px 16px;
+  background: var(--surface);
+  border: var(--edge-w) solid var(--edge);
+  border-radius: var(--radius);
+  box-shadow: var(--pop);
+}
+.dimmer-title { margin: 0 0 4px; font-family: var(--font-head); font-size: 1.3rem; font-weight: 800; }
+.dimmer-intro { margin: 0 0 6px; font-size: 1.1rem; }
+.dimmer-svg {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--text);
+  /* Sideways drags move the slider; up and down still scrolls the page */
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.dimmer-svg .dm-wire { fill: none; stroke: currentColor; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.dimmer-svg .dm-flow { fill: none; stroke: var(--accent); stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0.1 26; }
+.dimmer-svg .dm-label { fill: currentColor; font-size: 20px; font-weight: 700; font-family: var(--font); }
+.dimmer-svg .dm-small { fill: var(--muted); font-size: 16px; font-weight: 700; font-family: var(--font); }
+.dimmer-svg .dm-meter { fill: var(--surface); }
+.dimmer-svg .dm-glow { fill: #ffc400; }
+.dimmer-svg .dm-glass { stroke: currentColor; stroke-width: 3; }
+.dimmer-svg .dm-filament { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.dimmer-svg .dm-base { fill: #8a84a3; stroke: currentColor; stroke-width: 3; }
+.dimmer-svg .dm-rod { fill: #b9b4cc; stroke: currentColor; stroke-width: 3; }
+.dimmer-svg .dm-post { fill: #554a7a; stroke: currentColor; stroke-width: 3; }
+.dimmer-svg .dm-coil { fill: #e9e5f3; stroke: currentColor; stroke-width: 3; }
+.dimmer-svg .dm-coil-on { fill: #ff9d1c; }
+.dimmer-svg .dm-wind { fill: url(#dm-wind); stroke: currentColor; stroke-width: 3; }
+.dimmer-svg .dm-rheo { cursor: ew-resize; }
+.dimmer-svg .dm-hit { fill: transparent; }
+.dimmer-svg .dm-knob-body { fill: var(--accent); stroke: currentColor; stroke-width: 3; }
+.dimmer-svg .dm-knob-grip { stroke: #fff; stroke-width: 3; stroke-linecap: round; }
+.dimmer-svg .dm-knob-stem { fill: currentColor; }
+.dimmer-svg .dm-knob:focus { outline: none; }
+.dimmer-svg .dm-knob:focus-visible .dm-knob-body { stroke: #ff9d1c; stroke-width: 5; }
+.dimmer-svg .dm-nudge { fill: var(--accent); font-size: 18px; font-weight: 800; font-family: var(--font); }
+.dimmer.is-used .dm-nudge { display: none; }
+
+.dimmer-readouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 8px 0 0;
+}
+.dimmer-readout {
+  margin: 0;
+  padding: 8px 10px;
+  text-align: center;
+  background: var(--bg);
+  border: 2px solid var(--edge);
+  border-radius: 12px;
+}
+.dimmer-readout span { display: block; font-size: 0.95rem; font-weight: 700; color: var(--muted); }
+.dimmer-readout output { display: block; font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.dimmer-note { margin: 10px 0 0; color: var(--muted); font-weight: 600; }
+.dimmer-note i { display: inline-block; width: 22px; height: 12px; margin-right: 6px; background: #ff9d1c; border: 2px solid var(--edge); border-radius: 3px; vertical-align: -1px; }
+.dimmer + .q { margin-top: 28px; }
+
+@media (max-width: 560px) {
+  .dimmer-readout output { font-size: 1.2rem; }
+  .dimmer-readout span { font-size: 0.85rem; }
+}

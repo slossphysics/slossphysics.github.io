@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variable resistors · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE Third and Fourth level starter (SCN 3-09a, 4-09a): slide a variable resistor to dim a lamp, see what it does to the current, sort where variable resistors are used, and recap current and voltage in series and parallel.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <link rel="stylesheet" href="../../assets/css/dimmer.css">
+  <script src="../../assets/js/circuit-symbols.js" defer></script>
+  <script src="../../assets/js/starter.js" defer></script>
+  <script src="../../assets/js/dimmer.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">BGE Science</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Forces, electricity and waves</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Third and Fourth level · Forces, electricity and waves · SCN 3-09a, 4-09a</p>
+    <h1>Variable resistors</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am learning what changing the resistance does to a circuit.</p>
+      <p><strong>SC:</strong> I can say what happens to the current and the lamp when the resistance changes · I can name things that use a variable resistor.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="8">8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+    <section class="dimmer" data-dimmer aria-label="Variable resistor you can slide">
+      <h2 class="dimmer-title">Try it: slide the variable resistor</h2>
+      <p class="dimmer-intro">Drag the purple slider along the coil. Watch the lamp, the ammeter and the dots on the wire.</p>
+      <svg class="dimmer-svg" viewBox="0 0 720 385" role="group" aria-label="A 6 volt battery, an ammeter, a lamp and a slider variable resistor connected in one loop">
+        <defs>
+          <pattern id="dm-wind" width="9" height="44" patternUnits="userSpaceOnUse" x="150" y="308">
+            <path d="M2.5 0L6.5 44" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+          </pattern>
+        </defs>
+
+        <path class="dm-wire" d="M60 190V110H170M230 110H400M460 110H660V270H600M150 330H60V250"/>
+        <use href="#sym-battery" x="30" y="200" width="60" height="40" transform="rotate(90 60 220)"/>
+        <text class="dm-label" x="92" y="227">6 V</text>
+
+        <g class="dm-rheo">
+          <rect class="dm-hit" x="110" y="222" width="520" height="150"/>
+          <rect class="dm-base" x="126" y="352" width="468" height="14" rx="4"/>
+          <rect class="dm-post" x="136" y="258" width="14" height="96" rx="3"/>
+          <rect class="dm-post" x="570" y="258" width="14" height="96" rx="3"/>
+          <rect class="dm-rod" x="136" y="264" width="464" height="12" rx="6"/>
+          <rect class="dm-coil" x="150" y="308" width="420" height="44"/>
+          <rect class="dm-coil-on" x="150" y="308" width="210" height="44"/>
+          <rect class="dm-wind" x="150" y="308" width="420" height="44"/>
+          <path class="dm-wire dm-tap" d="M360 270V330"/>
+          <path class="dm-flow" d="M60 190V110H660V270H360V330H60V250"/>
+          <g class="dm-knob" tabindex="0" role="slider" aria-label="Variable resistor slider" aria-valuemin="0" aria-valuemax="50" aria-valuenow="25" transform="translate(360 0)">
+            <text class="dm-nudge" x="0" y="234" text-anchor="middle">Slide me</text>
+            <rect class="dm-knob-stem" x="-5" y="296" width="10" height="14" rx="2"/>
+            <rect class="dm-knob-body" x="-30" y="242" width="60" height="56" rx="12"/>
+            <path class="dm-knob-grip" d="M-10 258V282M0 258V282M10 258V282"/>
+          </g>
+        </g>
+
+        <circle class="dm-meter" cx="200" cy="110" r="12"/>
+        <use href="#sym-ammeter" x="170" y="90" width="60" height="40"/>
+        <text class="dm-label dm-reading" x="200" y="156" text-anchor="middle">0.17 A</text>
+
+        <circle class="dm-glow" cx="430" cy="110" r="50" opacity="0.4"/>
+        <circle class="dm-glass" cx="430" cy="110" r="30" fill="#fff8e0"/>
+        <path class="dm-filament" d="M400 110H414L419 98L425 122L431 98L437 122L442 110H460"/>
+        <text class="dm-small" x="534" y="96">lamp</text>
+        <text class="dm-small" x="200" y="80" text-anchor="middle">ammeter</text>
+        <text class="dm-small" x="360" y="382" text-anchor="middle">variable resistor: a long coil of thin wire</text>
+      </svg>
+      <div class="dimmer-readouts">
+        <p class="dimmer-readout"><span>Resistance</span><output data-dm="r">25 Ω</output></p>
+        <p class="dimmer-readout"><span>Current</span><output data-dm="i">0.17 A</output></p>
+        <p class="dimmer-readout"><span>Lamp</span><output data-dm="lamp">Dim</output></p>
+      </div>
+      <p class="dimmer-note"><i></i>The orange part of the coil is the wire the current has to get through.</p>
+    </section>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">1.</span>Slide the variable resistor above from one end to the other, then fill in the gaps.</p>
+        <div class="match is-blanks">
+          <p class="match-hint">Drag each word into its gap, or tap a word and then the gap. Three words are not needed.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="dimmer" data-label="Gap 2">dimmer</button>
+            <button type="button" class="match-item is-text" data-key="spare" data-feedback="Slide the resistance up to 50 Ω and watch the ammeter. Does the reading get bigger or smaller?">up</button>
+            <button type="button" class="match-item is-text" data-key="low" data-label="Gap 3">low</button>
+            <button type="button" class="match-item is-text" data-key="spare" data-feedback="Try it: slide to the biggest resistance and look at the lamp.">brighter</button>
+            <button type="button" class="match-item is-text" data-key="down" data-label="Gap 1">down</button>
+            <button type="button" class="match-item is-text" data-key="spare" data-feedback="Try it: where is the slider when the lamp is at its brightest? Read the resistance there.">high</button>
+          </div>
+          <div class="match-targets">
+            <p>When the resistance goes up, the current goes <button type="button" class="match-target" data-key="down" aria-label="Gap 1"></button>.</p>
+            <p>When the current gets smaller, the lamp gets <button type="button" class="match-target" data-key="dimmer" aria-label="Gap 2"></button>.</p>
+            <p>For the brightest lamp, the resistance should be <button type="button" class="match-target" data-key="low" aria-label="Gap 3"></button>.</p>
+          </div>
+        </div>
+        <div class="q-explain">Resistance makes it <strong>harder for current to flow</strong>. More resistance means a <strong>smaller current</strong> and a <strong>dimmer</strong> lamp. Less resistance means a bigger current and a brighter lamp.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">2.</span>A variable resistor lets you turn something up and down <strong>smoothly</strong>. A switch can only turn it on or off. Sort these.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each one into its group, or tap it and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="var" data-label="Variable resistor">Volume knob on a speaker</button>
+            <button type="button" class="match-item is-text" data-key="sw" data-label="Switch" data-feedback="A doorbell is either ringing or it isn't. Is there anything in between?">Doorbell button</button>
+            <button type="button" class="match-item is-text" data-key="var" data-label="Variable resistor" data-feedback="Push the stick a little and your character walks. Push it all the way and they run. Is that just on or off?">Joystick on a games controller</button>
+            <button type="button" class="match-item is-text" data-key="sw" data-label="Switch" data-feedback="A kettle is either heating or it isn't. Is there anything in between?">On button of a kettle</button>
+            <button type="button" class="match-item is-text" data-key="var" data-label="Variable resistor" data-feedback="A dimmer lets you pick any brightness, not just on or off.">Dimmer for a bedroom light</button>
+            <button type="button" class="match-item is-text" data-key="var" data-label="Variable resistor" data-feedback="Squeeze the trigger a little and the car crawls. Squeeze it fully and it flies off the track.">Trigger on a toy racing car controller</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="var">Variable resistor: turn it up and down</button>
+            <button type="button" class="match-target" data-key="sw">Switch: only on or off</button>
+          </div>
+        </div>
+        <div class="q-explain">Anything you can turn up and down <strong>a little at a time</strong> needs a way to change the current smoothly: volume knobs, dimmers, joysticks and speed triggers. A doorbell and a kettle only need <strong>on or off</strong>, so a switch will do.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">3.</span>You turn a dimmer and the lamp gets <strong>brighter</strong>. What has happened in the circuit?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>The resistance went down, so the current went up</button>
+          <button type="button" class="option" data-feedback="More resistance makes it harder for current to flow, so the current can't go up.">The resistance went up, so the current went up</button>
+          <button type="button" class="option" data-feedback="A brighter lamp needs a bigger current, not a smaller one.">The resistance went down, so the current went down</button>
+          <button type="button" class="option" data-feedback="Turning a dimmer doesn't change the supply. It changes how hard it is for current to flow.">The supply voltage went up</button>
+        </div>
+        <div class="q-explain">A dimmer is a variable resistor. Turning it up makes the resistance <strong>smaller</strong>, so a <strong>bigger current</strong> flows and the lamp is brighter.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">4.</span>A variable resistor and a lamp are in <strong>series</strong>. The first ammeter reads 0.2 A. What does the second ammeter read?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 210" role="img" aria-label="A battery, an ammeter reading 0.2 amperes, a variable resistor, a lamp and a second ammeter, all in one loop">
+            <path class="wire" d="M80 170H30V80H50M110 80H140M200 80H230M290 80H310V170H260M200 170H140"/>
+            <use href="#sym-ammeter" x="50" y="60" width="60" height="40"/>
+            <use href="#sym-variable-resistor" x="140" y="60" width="60" height="40"/>
+            <use href="#sym-lamp" x="230" y="60" width="60" height="40"/>
+            <use href="#sym-battery" x="80" y="150" width="60" height="40"/>
+            <use href="#sym-ammeter" x="200" y="150" width="60" height="40"/>
+            <text class="label" x="80" y="48" text-anchor="middle">0.2 A</text>
+            <text class="label" x="230" y="142" text-anchor="middle">?</text>
+          </svg>
+        </figure>
+        <div class="options is-row">
+          <button type="button" class="option" data-feedback="Current isn't used up by the lamp or the resistor. What goes in must come out.">0 A</button>
+          <button type="button" class="option" data-correct>0.2 A</button>
+          <button type="button" class="option" data-feedback="There is only one loop, so nothing is added together.">0.4 A</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Follow the wire round with your finger. Is there anywhere the current could split off?</p></details>
+        <div class="q-explain">In a <strong>series</strong> circuit there is only one path, so the current is the <strong>same everywhere</strong>: 0.2 A.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Two lamps are connected in <strong>parallel</strong> with a 9 V battery. What is the voltage across each lamp?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 210" role="img" aria-label="A 9 volt battery with two lamps on separate parallel branches">
+            <path class="wire" d="M140 190H30V70H140M200 70H310V190H200M30 130H140M200 130H310"/>
+            <use href="#sym-lamp" x="140" y="50" width="60" height="40"/>
+            <use href="#sym-lamp" x="140" y="110" width="60" height="40"/>
+            <use href="#sym-battery" x="140" y="170" width="60" height="40"/>
+            <circle class="dot" cx="30" cy="130" r="5"/>
+            <circle class="dot" cx="310" cy="130" r="5"/>
+            <text class="label" x="170" y="168" text-anchor="middle">9 V</text>
+          </svg>
+        </figure>
+        <div class="options is-row">
+          <button type="button" class="option" data-feedback="Check the battery: nothing here adds up to 3 V.">3 V</button>
+          <button type="button" class="option" data-feedback="The voltage is shared out in a <strong>series</strong> circuit. These lamps are on separate branches.">4.5 V</button>
+          <button type="button" class="option" data-correct>9 V</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Each lamp is on its own branch, joined straight to the two ends of the battery.</p></details>
+        <div class="q-explain">In a <strong>parallel</strong> circuit every branch gets the <strong>full supply voltage</strong>: 9 V across each lamp.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq q-challenge">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">6.</span>Lamp X has a variable resistor on its branch. Lamp Y is on a branch of its own. The resistance is turned <strong>up</strong>. What happens to the lamps?</p>
+        <figure class="figure">
+          <svg class="circuit" viewBox="0 0 340 210" role="img" aria-label="A battery with two parallel branches. The top branch has a variable resistor and lamp X in series. The second branch has lamp Y only.">
+            <path class="wire" d="M140 190H30V70H80M140 70H200M260 70H310V190H200M30 130H140M200 130H310"/>
+            <use href="#sym-variable-resistor" x="80" y="50" width="60" height="40"/>
+            <use href="#sym-lamp" x="200" y="50" width="60" height="40"/>
+            <use href="#sym-lamp" x="140" y="110" width="60" height="40"/>
+            <use href="#sym-battery" x="140" y="170" width="60" height="40"/>
+            <circle class="dot" cx="30" cy="130" r="5"/>
+            <circle class="dot" cx="310" cy="130" r="5"/>
+            <text class="label" x="230" y="42" text-anchor="middle">X</text>
+            <text class="label" x="216" y="118">Y</text>
+          </svg>
+        </figure>
+        <div class="options">
+          <button type="button" class="option" data-feedback="The variable resistor is only on X's branch. Has anything changed on Y's branch?">Both lamps get dimmer</button>
+          <button type="button" class="option" data-feedback="Y's branch still has the same voltage and the same lamp, so nothing pushes more current through it.">X gets dimmer and Y gets brighter</button>
+          <button type="button" class="option" data-feedback="Which lamp shares its branch with the variable resistor?">X stays the same and Y gets dimmer</button>
+          <button type="button" class="option" data-correct>X gets dimmer and Y stays the same</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Take one branch at a time. Each branch is joined straight to the battery, so ask: has anything on this branch changed?</p></details>
+        <div class="q-explain">More resistance on X's branch means a <strong>smaller current</strong> through X, so X gets dimmer. Y's branch still has the full battery voltage and nothing on it has changed, so Y <strong>stays the same</strong>. This is why dimming one light at home doesn't dim the rest.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

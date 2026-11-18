@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Half-life calculations · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics starter (Radiation · Nuclear radiation): half-life calculations set out with arrows, finding a half-life, and reading an activity-time graph.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Radiation</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Half-life calculations</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am recalling how to use half-life to find an activity or a half-life.</p>
+      <p><strong>SC:</strong> I can set out a half-life calculation with arrows · I can find a half-life from two activities and a time · I can read values from a graph of activity against time.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5">5 min</option>
+          <option value="7" selected>7 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">7:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-input" data-answer="120">
+        <p class="q-prompt"><span class="q-num">1.</span>Fluorine-18 is used in hospital cancer scans. Its half-life is 110 minutes. A sample has an activity of 960 Bq. Calculate its activity after 330 minutes.</p>
+        <ol class="steps">
+          <li class="step" data-then="Write that line in your jotter. Then write 960 Bq and draw one arrow for each half-life.">
+            <span class="step-name">Number of half-lives</span>
+            <div class="options">
+              <button type="button" class="option" data-feedback="That divides the activity by the half-life. How many lots of 110 minutes fit into 330 minutes?"><span class="eq">960 ÷ 110</span></button>
+              <button type="button" class="option" data-correct><span class="eq">330 ÷ 110 = 3</span></button>
+              <button type="button" class="option" data-feedback="Taking away tells you how much time is left over. How many lots of 110 minutes fit into 330 minutes?"><span class="eq">330 − 110 = 220</span></button>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-name">Halve along the arrows</span>
+            <div class="answer-row">
+              <label class="answer-label" for="hl-f18">Activity =</label>
+              <input class="answer" id="hl-f18" type="text" inputmode="decimal" autocomplete="off">
+              <span class="answer-unit">Bq</span>
+              <button type="button" class="tool q-check">Check</button>
+            </div>
+          </li>
+        </ol>
+        <p class="mistake" data-value="320">You've divided by 3. The activity halves three times: halve it, halve the answer, then halve again.</p>
+        <p class="mistake" data-value="480">That's the activity after one half-life. There are three half-lives in 330 minutes.</p>
+        <p class="mistake" data-value="240">That's the activity after two half-lives. There are three half-lives in 330 minutes.</p>
+        <p class="mistake" data-value="60">That's four halvings. How many lots of 110 minutes fit into 330 minutes?</p>
+        <p class="mistake" data-value="7680">The activity of a source goes down as time passes, not up.</p>
+        <div class="q-explain">
+          <p>Number of half-lives = 330 ÷ 110 = 3</p>
+          <ul class="working">
+            <li>960 Bq → 480 Bq → 240 Bq → 120 Bq</li>
+            <li>Activity after 330 minutes = 120 Bq</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="100">
+        <p class="q-prompt"><span class="q-num">2.</span>Cobalt-60 is used in radiotherapy machines. Its half-life is 5 years. A source has an activity of 1600 Bq. Calculate its activity after 20 years.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="hl-co60">Activity =</label>
+          <input class="answer" id="hl-co60" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Bq</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="400">You've divided by 4. The activity halves four times: 1600, then 800, and keep going.</p>
+        <p class="mistake" data-value="800">That's the activity after one half-life. How many half-lives are there in 20 years?</p>
+        <p class="mistake" data-value="200">That's three halvings. How many lots of 5 years fit into 20 years?</p>
+        <p class="mistake" data-value="50">That's five halvings. How many lots of 5 years fit into 20 years?</p>
+        <p class="mistake" data-value="320">You've divided the activity by the half-life. Work out the number of half-lives first, then halve that many times.</p>
+        <p class="mistake" data-value="80">You've divided the activity by the time. Work out the number of half-lives first, then halve that many times.</p>
+        <details class="hint"><summary>Hint</summary><p>Start with the number of half-lives: how many lots of 5 years fit into 20 years? Then write 1600 Bq and draw that many arrows.</p></details>
+        <div class="q-explain">
+          <p>Number of half-lives = 20 ÷ 5 = 4</p>
+          <ul class="working">
+            <li>1600 Bq → 800 Bq → 400 Bq → 200 Bq → 100 Bq</li>
+            <li>Activity after 20 years = 100 Bq</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="15">
+        <p class="q-prompt"><span class="q-num">3.</span>Sodium-24 is used to find leaks in underground pipes. The activity of a sample falls from 480 Bq to 60 Bq in 45 hours. Calculate the half-life of sodium-24.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="hl-na24">Half-life =</label>
+          <input class="answer" id="hl-na24" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">hours</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="3">That's the number of half-lives. Now share the 45 hours between them.</p>
+        <p class="mistake" data-value="5.625">480 ÷ 60 = 8 is not the number of half-lives. Keep halving 480 until you reach 60, and count the arrows.</p>
+        <p class="mistake" data-value="22.5">You've counted two half-lives. Keep halving 480 until you reach 60, and count the arrows again.</p>
+        <p class="mistake" data-value="11.25">You've counted four half-lives. Keep halving 480 until you reach 60, and count the arrows again.</p>
+        <p class="mistake" data-value="135">You've multiplied. The 45 hours is shared between the half-lives.</p>
+        <details class="hint"><summary>Hint</summary><p>Write 480 Bq and keep halving until you reach 60 Bq. Count the arrows. That many half-lives took 45 hours.</p></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>480 Bq → 240 Bq → 120 Bq → 60 Bq</li>
+            <li>3 half-lives = 45 hours</li>
+            <li>Half-life = 45 ÷ 3 = 15 hours</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="100">
+        <p class="q-prompt"><span class="q-num">4.</span>Nitrogen-13 is used in hospital heart scans. The graph shows how the activity of a sample of nitrogen-13 changes with time. Use the graph to find the activity of the sample after 20 minutes.</p>
+        <div class="figure" style="max-width:520px"><svg class="decay-graph" viewBox="0 0 420 300" role="img" aria-label="Graph of activity in becquerels against time in minutes. The curve starts at 400 Bq and falls more and more slowly, reaching 200 Bq at 10 minutes, 100 Bq at 20 minutes and 50 Bq at 30 minutes." font-family="inherit"><rect width="420" height="300" rx="8" fill="#fff"/><path d="M75.76 10V252M89.52 10V252M103.28 10V252M117.04 10V252M144.56 10V252M158.32 10V252M172.08 10V252M185.84 10V252M213.36 10V252M227.12 10V252M240.88 10V252M254.64 10V252M282.16 10V252M295.92 10V252M309.68 10V252M323.44 10V252M350.96 10V252M364.72 10V252M378.48 10V252M392.24 10V252M62 239.9H406M62 227.8H406M62 215.7H406M62 203.6H406M62 179.4H406M62 167.3H406M62 155.2H406M62 143.1H406M62 118.9H406M62 106.8H406M62 94.7H406M62 82.6H406M62 58.4H406M62 46.3H406M62 34.2H406M62 22.1H406" style="stroke:#c9d6e2;stroke-width:0.6;fill:none"/><path d="M62 10V252M130.8 10V252M199.6 10V252M268.4 10V252M337.2 10V252M406 10V252M62 252H406M62 191.5H406M62 131H406M62 70.5H406M62 10H406" style="stroke:#8fa3b8;stroke-width:1;fill:none"/><path d="M62 10V252H406" style="stroke:#1D3557;stroke-width:2;fill:none"/><g font-size="13" fill="#1D3557"><text x="62" y="269" text-anchor="middle">0</text><text x="130.8" y="269" text-anchor="middle">10</text><text x="199.6" y="269" text-anchor="middle">20</text><text x="268.4" y="269" text-anchor="middle">30</text><text x="337.2" y="269" text-anchor="middle">40</text><text x="406" y="269" text-anchor="middle">50</text><text x="55" y="256.55" text-anchor="end">0</text><text x="55" y="196.05" text-anchor="end">100</text><text x="55" y="135.55" text-anchor="end">200</text><text x="55" y="75.05" text-anchor="end">300</text><text x="55" y="14.55" text-anchor="end">400</text></g><g font-size="14" font-weight="700" fill="#1D3557"><text x="234" y="294" text-anchor="middle">time (minutes)</text><text transform="translate(15 131) rotate(-90)" text-anchor="middle">activity (Bq)</text></g><path d="M62 10L66.3 20.26L70.6 30.09L74.9 39.49L79.2 48.5L83.5 57.13L87.8 65.39L92.1 73.3L96.4 80.88L100.7 88.14L105 95.08L109.3 101.74L113.6 108.11L117.9 114.21L122.2 120.05L126.5 125.64L130.8 131L135.1 136.13L139.4 141.04L143.7 145.75L148 150.25L152.3 154.57L156.6 158.7L160.9 162.65L165.2 166.44L169.5 170.07L173.8 173.54L178.1 176.87L182.4 180.05L186.7 183.1L191 186.02L195.3 188.82L199.6 191.5L203.9 194.07L208.2 196.52L212.5 198.87L216.8 201.13L221.1 203.28L225.4 205.35L229.7 207.33L234 209.22L238.3 211.03L242.6 212.77L246.9 214.43L251.2 216.03L255.5 217.55L259.8 219.01L264.1 220.41L268.4 221.75L272.7 223.03L277 224.26L281.3 225.44L285.6 226.56L289.9 227.64L294.2 228.67L298.5 229.66L302.8 230.61L307.1 231.52L311.4 232.39L315.7 233.22L320 234.01L324.3 234.78L328.6 235.51L332.9 236.21L337.2 236.88L341.5 237.52L345.8 238.13L350.1 238.72L354.4 239.28L358.7 239.82L363 240.34L367.3 240.83L371.6 241.31L375.9 241.76L380.2 242.19L384.5 242.61L388.8 243.01L393.1 243.39L397.4 243.75L401.7 244.1L406 244.44" style="stroke:#D9480F;stroke-width:2.6;fill:none;stroke-linejoin:round"/></svg></div>
+        <div class="answer-row">
+          <label class="answer-label" for="hl-read">Activity =</label>
+          <input class="answer" id="hl-read" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Bq</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="200">That's the activity after 10 minutes. Find 20 on the time axis.</p>
+        <p class="mistake" data-value="50">That's the activity after 30 minutes. Find 20 on the time axis.</p>
+        <p class="mistake" data-value="400">That's the activity at the start. Find 20 on the time axis and go up to the curve.</p>
+        <p class="mistake" data-value="20">That's the time. Go up from 20 minutes to the curve, then across to the activity axis.</p>
+        <details class="hint"><summary>Hint</summary><p>Find 20 on the time axis. Go straight up to the curve, then straight across to the activity axis.</p></details>
+        <div class="q-explain">Go up from 20 minutes to the curve, then across to the activity axis: the activity is <strong>100 Bq</strong>.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="10">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">5.</span>The half-life of a source is the time taken for its activity to halve. The graph shows how the activity of a sample of nitrogen-13 changes with time. Use the graph to find the half-life of nitrogen-13.</p>
+        <div class="figure" style="max-width:520px"><svg class="decay-graph" viewBox="0 0 420 300" role="img" aria-label="Graph of activity in becquerels against time in minutes. The curve starts at 400 Bq and falls more and more slowly, reaching 200 Bq at 10 minutes, 100 Bq at 20 minutes and 50 Bq at 30 minutes." font-family="inherit"><rect width="420" height="300" rx="8" fill="#fff"/><path d="M75.76 10V252M89.52 10V252M103.28 10V252M117.04 10V252M144.56 10V252M158.32 10V252M172.08 10V252M185.84 10V252M213.36 10V252M227.12 10V252M240.88 10V252M254.64 10V252M282.16 10V252M295.92 10V252M309.68 10V252M323.44 10V252M350.96 10V252M364.72 10V252M378.48 10V252M392.24 10V252M62 239.9H406M62 227.8H406M62 215.7H406M62 203.6H406M62 179.4H406M62 167.3H406M62 155.2H406M62 143.1H406M62 118.9H406M62 106.8H406M62 94.7H406M62 82.6H406M62 58.4H406M62 46.3H406M62 34.2H406M62 22.1H406" style="stroke:#c9d6e2;stroke-width:0.6;fill:none"/><path d="M62 10V252M130.8 10V252M199.6 10V252M268.4 10V252M337.2 10V252M406 10V252M62 252H406M62 191.5H406M62 131H406M62 70.5H406M62 10H406" style="stroke:#8fa3b8;stroke-width:1;fill:none"/><path d="M62 10V252H406" style="stroke:#1D3557;stroke-width:2;fill:none"/><g font-size="13" fill="#1D3557"><text x="62" y="269" text-anchor="middle">0</text><text x="130.8" y="269" text-anchor="middle">10</text><text x="199.6" y="269" text-anchor="middle">20</text><text x="268.4" y="269" text-anchor="middle">30</text><text x="337.2" y="269" text-anchor="middle">40</text><text x="406" y="269" text-anchor="middle">50</text><text x="55" y="256.55" text-anchor="end">0</text><text x="55" y="196.05" text-anchor="end">100</text><text x="55" y="135.55" text-anchor="end">200</text><text x="55" y="75.05" text-anchor="end">300</text><text x="55" y="14.55" text-anchor="end">400</text></g><g font-size="14" font-weight="700" fill="#1D3557"><text x="234" y="294" text-anchor="middle">time (minutes)</text><text transform="translate(15 131) rotate(-90)" text-anchor="middle">activity (Bq)</text></g><path d="M62 10L66.3 20.26L70.6 30.09L74.9 39.49L79.2 48.5L83.5 57.13L87.8 65.39L92.1 73.3L96.4 80.88L100.7 88.14L105 95.08L109.3 101.74L113.6 108.11L117.9 114.21L122.2 120.05L126.5 125.64L130.8 131L135.1 136.13L139.4 141.04L143.7 145.75L148 150.25L152.3 154.57L156.6 158.7L160.9 162.65L165.2 166.44L169.5 170.07L173.8 173.54L178.1 176.87L182.4 180.05L186.7 183.1L191 186.02L195.3 188.82L199.6 191.5L203.9 194.07L208.2 196.52L212.5 198.87L216.8 201.13L221.1 203.28L225.4 205.35L229.7 207.33L234 209.22L238.3 211.03L242.6 212.77L246.9 214.43L251.2 216.03L255.5 217.55L259.8 219.01L264.1 220.41L268.4 221.75L272.7 223.03L277 224.26L281.3 225.44L285.6 226.56L289.9 227.64L294.2 228.67L298.5 229.66L302.8 230.61L307.1 231.52L311.4 232.39L315.7 233.22L320 234.01L324.3 234.78L328.6 235.51L332.9 236.21L337.2 236.88L341.5 237.52L345.8 238.13L350.1 238.72L354.4 239.28L358.7 239.82L363 240.34L367.3 240.83L371.6 241.31L375.9 241.76L380.2 242.19L384.5 242.61L388.8 243.01L393.1 243.39L397.4 243.75L401.7 244.1L406 244.44" style="stroke:#D9480F;stroke-width:2.6;fill:none;stroke-linejoin:round"/></svg></div>
+        <div class="answer-row">
+          <label class="answer-label" for="hl-graph">Half-life =</label>
+          <input class="answer" id="hl-graph" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">minutes</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="200">That's half of the starting activity, in becquerels. The half-life is the <strong>time</strong> the activity takes to fall to that.</p>
+        <p class="mistake" data-value="20">That's the time taken for the activity to fall to a quarter. How long does it take to fall to half?</p>
+        <p class="mistake" data-value="25">That's half of the time axis. Half-life is about the activity halving: what is half of 400 Bq?</p>
+        <p class="mistake" data-value="50">That's where the time axis ends. How long does the activity take to fall from 400 Bq to half of that?</p>
+        <details class="hint"><summary>Hint</summary><p>Read the activity at the start and halve it. Go across from that activity to the curve, then down to the time axis.</p></details>
+        <div class="q-explain">The activity starts at 400 Bq. Half of that is 200 Bq, and the curve reaches 200 Bq after <strong>10 minutes</strong>. Check: it falls from 200 Bq to 100 Bq in another 10 minutes.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

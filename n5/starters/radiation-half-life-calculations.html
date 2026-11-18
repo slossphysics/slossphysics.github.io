@@ -37,7 +37,7 @@
     <h1>Half-life calculations</h1>
     <div class="lisc">
       <p><strong>LI:</strong> I am recalling how to use half-life to find an activity or a half-life.</p>
-      <p><strong>SC:</strong> I can set out a half-life calculation with arrows · I can find a half-life from two activities and a time · I can read values from a graph of activity against time.</p>
+      <p><strong>SC:</strong> I can set out a half-life calculation with arrows · I can find a half-life from two activities and a time · I can read values from a graph of activity against time · I can set out my working in my jotter.</p>
     </div>
 
     <div class="toolbar">
@@ -55,30 +55,18 @@
 
       <div class="q q-input" data-answer="120">
         <p class="q-prompt"><span class="q-num">1.</span>Fluorine-18 is used in hospital cancer scans. Its half-life is 110 minutes. A sample has an activity of 960 Bq. Calculate its activity after 330 minutes.</p>
-        <ol class="steps">
-          <li class="step" data-then="Write that line in your jotter. Then write 960 Bq and draw one arrow for each half-life.">
-            <span class="step-name">Number of half-lives</span>
-            <div class="options">
-              <button type="button" class="option" data-feedback="That divides the activity by the half-life. How many lots of 110 minutes fit into 330 minutes?"><span class="eq">960 ÷ 110</span></button>
-              <button type="button" class="option" data-correct><span class="eq">330 ÷ 110 = 3</span></button>
-              <button type="button" class="option" data-feedback="Taking away tells you how much time is left over. How many lots of 110 minutes fit into 330 minutes?"><span class="eq">330 − 110 = 220</span></button>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-name">Halve along the arrows</span>
-            <div class="answer-row">
-              <label class="answer-label" for="hl-f18">Activity =</label>
-              <input class="answer" id="hl-f18" type="text" inputmode="decimal" autocomplete="off">
-              <span class="answer-unit">Bq</span>
-              <button type="button" class="tool q-check">Check</button>
-            </div>
-          </li>
-        </ol>
+        <div class="answer-row">
+          <label class="answer-label" for="hl-f18">Activity =</label>
+          <input class="answer" id="hl-f18" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Bq</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
         <p class="mistake" data-value="320">You've divided by 3. The activity halves three times: halve it, halve the answer, then halve again.</p>
         <p class="mistake" data-value="480">That's the activity after one half-life. There are three half-lives in 330 minutes.</p>
         <p class="mistake" data-value="240">That's the activity after two half-lives. There are three half-lives in 330 minutes.</p>
         <p class="mistake" data-value="60">That's four halvings. How many lots of 110 minutes fit into 330 minutes?</p>
         <p class="mistake" data-value="7680">The activity of a source goes down as time passes, not up.</p>
+        <details class="hint"><summary>Hint</summary><p>Start with the number of half-lives. How many lots of 110 minutes fit into 330 minutes?</p><details class="hint"><summary>Another hint</summary><p>330 ÷ 110 = 3 half-lives. Write 960 Bq in your jotter and draw three arrows after it.</p><details class="hint"><summary>Another hint</summary><p>Halve at each arrow: 960 Bq, then 480 Bq, then keep going until you have used all three arrows.</p></details></details></details>
         <div class="q-explain">
           <p>Number of half-lives = 330 ÷ 110 = 3</p>
           <ul class="working">
@@ -103,7 +91,7 @@
         <p class="mistake" data-value="50">That's five halvings. How many lots of 5 years fit into 20 years?</p>
         <p class="mistake" data-value="320">You've divided the activity by the half-life. Work out the number of half-lives first, then halve that many times.</p>
         <p class="mistake" data-value="80">You've divided the activity by the time. Work out the number of half-lives first, then halve that many times.</p>
-        <details class="hint"><summary>Hint</summary><p>Start with the number of half-lives: how many lots of 5 years fit into 20 years? Then write 1600 Bq and draw that many arrows.</p></details>
+        <details class="hint"><summary>Hint</summary><p>Start with the number of half-lives. How many lots of 5 years fit into 20 years?</p><details class="hint"><summary>Another hint</summary><p>20 ÷ 5 = 4 half-lives. Write 1600 Bq in your jotter and draw four arrows after it.</p><details class="hint"><summary>Another hint</summary><p>Halve at each arrow: 1600 Bq, then 800 Bq, then keep going until you have used all four arrows.</p></details></details></details>
         <div class="q-explain">
           <p>Number of half-lives = 20 ÷ 5 = 4</p>
           <ul class="working">
@@ -127,7 +115,7 @@
         <p class="mistake" data-value="22.5">You've counted two half-lives. Keep halving 480 until you reach 60, and count the arrows again.</p>
         <p class="mistake" data-value="11.25">You've counted four half-lives. Keep halving 480 until you reach 60, and count the arrows again.</p>
         <p class="mistake" data-value="135">You've multiplied. The 45 hours is shared between the half-lives.</p>
-        <details class="hint"><summary>Hint</summary><p>Write 480 Bq and keep halving until you reach 60 Bq. Count the arrows. That many half-lives took 45 hours.</p></details>
+        <details class="hint"><summary>Hint</summary><p>This one works backwards. Write 480 Bq and keep halving until you reach 60 Bq.</p><details class="hint"><summary>Another hint</summary><p>480 Bq, then 240 Bq, then 120 Bq, then 60 Bq. Count the arrows: that is the number of half-lives.</p><details class="hint"><summary>Another hint</summary><p>Those half-lives took 45 hours altogether. Share the 45 hours equally between them.</p></details></details></details>
         <div class="q-explain">
           <ul class="working">
             <li>480 Bq → 240 Bq → 120 Bq → 60 Bq</li>
@@ -151,7 +139,7 @@
         <p class="mistake" data-value="50">That's the activity after 30 minutes. Find 20 on the time axis.</p>
         <p class="mistake" data-value="400">That's the activity at the start. Find 20 on the time axis and go up to the curve.</p>
         <p class="mistake" data-value="20">That's the time. Go up from 20 minutes to the curve, then across to the activity axis.</p>
-        <details class="hint"><summary>Hint</summary><p>Find 20 on the time axis. Go straight up to the curve, then straight across to the activity axis.</p></details>
+        <details class="hint"><summary>Hint</summary><p>Find 20 on the time axis.</p><details class="hint"><summary>Another hint</summary><p>Go straight up from 20 minutes until you meet the curve.</p><details class="hint"><summary>Another hint</summary><p>From that point on the curve, go straight across to the activity axis and read the number.</p></details></details></details>
         <div class="q-explain">Go up from 20 minutes to the curve, then across to the activity axis: the activity is <strong>100 Bq</strong>.</div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>
@@ -169,7 +157,7 @@
         <p class="mistake" data-value="20">That's the time taken for the activity to fall to a quarter. How long does it take to fall to half?</p>
         <p class="mistake" data-value="25">That's half of the time axis. Half-life is about the activity halving: what is half of 400 Bq?</p>
         <p class="mistake" data-value="50">That's where the time axis ends. How long does the activity take to fall from 400 Bq to half of that?</p>
-        <details class="hint"><summary>Hint</summary><p>Read the activity at the start and halve it. Go across from that activity to the curve, then down to the time axis.</p></details>
+        <details class="hint"><summary>Hint</summary><p>Read the activity at the start, then halve it.</p><details class="hint"><summary>Another hint</summary><p>The activity starts at 400 Bq, and half of that is 200 Bq. Find 200 on the activity axis.</p><details class="hint"><summary>Another hint</summary><p>Go straight across from 200 Bq to the curve, then straight down to the time axis. That time is the half-life.</p></details></details></details>
         <div class="q-explain">The activity starts at 400 Bq. Half of that is 200 Bq, and the curve reaches 200 Bq after <strong>10 minutes</strong>. Check: it falls from 200 Bq to 100 Bq in another 10 minutes.</div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>

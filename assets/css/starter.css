@@ -123,7 +123,8 @@
   -webkit-tap-highlight-color: transparent;
 }
 .hint summary::-webkit-details-marker { display: none; }
-.hint[open] summary { background: var(--accent); border-color: var(--accent); box-shadow: none; color: var(--accent-text); }
+.hint[open] > summary { background: var(--accent); border-color: var(--accent); box-shadow: none; color: var(--accent-text); }
+.hint .hint { margin-top: 10px; }
 .hint p {
   margin: 10px 0 0;
   padding: 12px 16px;

@@ -39,7 +39,7 @@
     <h1>Circuit builder: resistance</h1>
     <div class="lisc">
       <p><strong>LI:</strong> I am learning what resistance does to the current in a circuit.</p>
-      <p><strong>SC:</strong> I can build series and parallel circuits · I can use a resistor to make a lamp dimmer · I can use a variable resistor to change the current.</p>
+      <p><strong>SC:</strong> I can build series and parallel circuits · I can measure resistance with an ohmmeter · I can use a resistor to make a lamp dimmer · I can use a variable resistor to change the current.</p>
     </div>
 
     <div class="toolbar">
@@ -56,7 +56,7 @@
       <button type="button" class="tool" data-reset>Reset</button>
     </div>
 
-    <div class="cb" data-circuit-builder data-key="bge-circuit-builder-resistance" data-vr="0 1 2 3 4 5 6 8 10 12 15 20">
+    <div class="cb" data-circuit-builder data-key="bge-circuit-builder-resistance-2" data-vr="0 1 2 3 4 5 6 8 10 12 15 20">
       <div class="cb-task-nav">
         <span class="cb-task-nav-label">Tasks</span>
         <button type="button" class="tool cb-example" data-cb="example">Build an example</button>
@@ -90,42 +90,57 @@
         <div class="q-explain">In parallel each lamp is <strong>as bright as one lamp on its own</strong>, and if one is taken out the other stays on. That is why the lights in a house are wired in parallel.</div>
       </div>
 
+      <div class="q cb-task" data-check="mystery-values" data-retry="Measure again: join the ohmmeter across one resistor at a time, with no cell in the circuit." hidden>
+        <p class="q-prompt"><span class="q-num">5.</span>Press Clear. Resistors A, B, C, D and E each have a different resistance. Use the <strong>ohmmeter</strong> to measure each one, and type the five resistances in the boxes.</p>
+        <div class="cb-answers">
+          <label>A = <input class="answer cb-answer" data-answer="15" data-name="A" type="text" inputmode="decimal" autocomplete="off" aria-label="Resistance of resistor A in ohms"> Ω</label>
+          <label>B = <input class="answer cb-answer" data-answer="6" data-name="B" type="text" inputmode="decimal" autocomplete="off" aria-label="Resistance of resistor B in ohms"> Ω</label>
+          <label>C = <input class="answer cb-answer" data-answer="40" data-name="C" type="text" inputmode="decimal" autocomplete="off" aria-label="Resistance of resistor C in ohms"> Ω</label>
+          <label>D = <input class="answer cb-answer" data-answer="22" data-name="D" type="text" inputmode="decimal" autocomplete="off" aria-label="Resistance of resistor D in ohms"> Ω</label>
+          <label>E = <input class="answer cb-answer" data-answer="8" data-name="E" type="text" inputmode="decimal" autocomplete="off" aria-label="Resistance of resistor E in ohms"> Ω</label>
+          <button type="button" class="tool cb-answers-check">Check</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>An ohmmeter only works with no cell or battery in the circuit. Join one end of the ohmmeter to each end of the resistor, and measure one resistor at a time.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">A = 15 Ω, B = 6 Ω, C = 40 Ω, D = 22 Ω, E = 8 Ω. An ohmmeter goes <strong>across</strong> the component, with no cell connected. C has the most resistance, so it is the hardest for current to get through.</div>
+      </div>
+
       <div class="q cb-task" data-check="resistor-dims" hidden>
-        <p class="q-prompt"><span class="q-num">5.</span>Press Clear. Light one lamp with one cell, then add a <strong>resistor</strong> to the same loop. What happens to the lamp?</p>
+        <p class="q-prompt"><span class="q-num">6.</span>Press Clear. Light one lamp with one cell, then add a <strong>resistor</strong> to the same loop. What happens to the lamp?</p>
         <details class="hint"><summary>Hint</summary><p>Drop the resistor onto one of the wires and it joins into the loop.</p></details>
         <div class="q-feedback" aria-live="polite"></div>
         <div class="q-explain">The lamp gets <strong>dimmer</strong>. The resistor makes it harder for current to flow, so the current is smaller.</div>
       </div>
 
       <div class="q cb-task" data-check="vr-dimmer" hidden>
-        <p class="q-prompt"><span class="q-num">6.</span>Delete the resistor and put a <strong>variable resistor</strong> in its place. Tap it and move its slider. Make the lamp as bright as you can, then as dim as you can.</p>
+        <p class="q-prompt"><span class="q-num">7.</span>Delete the resistor and put a <strong>variable resistor</strong> in its place. Tap it and move its slider. Make the lamp as bright as you can, then as dim as you can.</p>
         <details class="hint"><summary>Hint</summary><p>Tap the resistor and press Delete. Then drop a variable resistor onto the wire. When you tap it, a slider appears.</p></details>
         <div class="q-feedback" aria-live="polite"></div>
         <div class="q-explain">The lamp is <strong>brightest</strong> when the resistance is smallest (0 Ω) and <strong>dimmest</strong> when the resistance is biggest (20 Ω). This is how a dimmer switch works.</div>
       </div>
 
       <div class="q cb-task" data-check="vr-ammeter" hidden>
-        <p class="q-prompt"><span class="q-num">7.</span>Add an <strong>ammeter</strong> to the loop. In your jotter, write the current when the resistance is smallest and when it is biggest.</p>
+        <p class="q-prompt"><span class="q-num">8.</span>Add an <strong>ammeter</strong> to the loop. In your jotter, write the current when the resistance is smallest and when it is biggest.</p>
         <details class="hint"><summary>Hint</summary><p>An ammeter goes in series: drop it onto a wire and it joins into the loop.</p></details>
         <div class="q-feedback" aria-live="polite"></div>
         <div class="q-explain">At 0 Ω the ammeter reads 0.30 A. At 20 Ω it reads 0.06 A. When the resistance goes <strong>up</strong>, the current goes <strong>down</strong>.</div>
       </div>
 
       <div class="q cb-task q-challenge" data-check="vr-one-lamp" hidden>
-        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">8.</span>Use one cell, two lamps and a variable resistor. Build a circuit where the variable resistor dims <strong>one</strong> lamp and leaves the other lamp bright.</p>
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">9.</span>Use one cell, two lamps and a variable resistor. Build a circuit where the variable resistor dims <strong>one</strong> lamp and leaves the other lamp bright.</p>
         <div class="q-feedback" aria-live="polite"></div>
         <div class="q-explain">Put the lamps in parallel, with the variable resistor in one lamp's branch. It only changes the current in its own branch, so the other lamp stays just as bright.</div>
       </div>
 
       <div class="q cb-task q-challenge" data-check="vr-target" data-chip="Extra 1" hidden>
-        <p class="q-prompt"><span class="q-tag">Extra</span><span class="q-num">9.</span>Press Clear. Build one loop with a cell, a lamp, a variable resistor and an ammeter. Slide the variable resistor until the ammeter reads exactly <strong>0.10 A</strong>. Write the resistance in your jotter.</p>
+        <p class="q-prompt"><span class="q-tag">Extra</span><span class="q-num">10.</span>Press Clear. Build one loop with a cell, a lamp, a variable resistor and an ammeter. Slide the variable resistor until the ammeter reads exactly <strong>0.10 A</strong>. Write the resistance in your jotter.</p>
         <details class="hint"><summary>Hint</summary><p>Look at the reading. If the current is too big, the resistance needs to change. Which way?</p></details>
         <div class="q-feedback" aria-live="polite"></div>
-        <div class="q-explain"><strong>10 Ω</strong> gives 0.10 A. That is the same resistance as the fixed resistor in task 5, so the lamp is just as bright as it was then.</div>
+        <div class="q-explain"><strong>10 Ω</strong> gives 0.10 A. That is the same resistance as the fixed resistor in task 6, so the lamp is just as bright as it was then.</div>
       </div>
 
       <div class="q cb-task q-challenge" data-check="two-resistors-series" data-chip="Extra 2" hidden>
-        <p class="q-prompt"><span class="q-tag">Extra</span><span class="q-num">10.</span>Press Clear. Build one loop with a cell, a lamp, an ammeter and <strong>two resistors in series</strong>. With one resistor the current was 0.10 A. Is it bigger or smaller with two?</p>
+        <p class="q-prompt"><span class="q-tag">Extra</span><span class="q-num">11.</span>Press Clear. Build one loop with a cell, a lamp, an ammeter and <strong>two resistors in series</strong>. With one resistor the current was 0.10 A. Is it bigger or smaller with two?</p>
         <details class="hint"><summary>Hint</summary><p>Build the loop with one resistor first.</p>
           <details class="hint"><summary>Another hint</summary><p>Drop the second resistor onto a wire in the same loop, so the current has to go through one resistor and then the other.</p></details>
         </details>
@@ -134,8 +149,8 @@
       </div>
 
       <div class="q cb-task q-challenge" data-check="two-resistors-parallel" data-chip="Extra 3" hidden>
-        <p class="q-prompt"><span class="q-tag">Extra</span><span class="q-num">11.</span>Now put the two resistors in <strong>parallel</strong> with each other, side by side. Keep the lamp and the ammeter in the main loop. First predict: will the current be bigger or smaller than 0.10 A?</p>
-        <details class="hint"><summary>Hint</summary><p>Start with the loop from task 10, then delete one resistor and join the gap with a wire.</p>
+        <p class="q-prompt"><span class="q-tag">Extra</span><span class="q-num">12.</span>Now put the two resistors in <strong>parallel</strong> with each other, side by side. Keep the lamp and the ammeter in the main loop. First predict: will the current be bigger or smaller than 0.10 A?</p>
+        <details class="hint"><summary>Hint</summary><p>Start with the loop from task 11, then delete one resistor and join the gap with a wire.</p>
           <details class="hint"><summary>Another hint</summary><p>Put the second resistor on the row below the first one.</p>
             <details class="hint"><summary>Another hint</summary><p>Join the left end of the new resistor to the left end of the first one, and the right end to the right end. Now the current has two ways through.</p></details>
           </details>
@@ -149,6 +164,12 @@
           <li><button type="button" data-type="cell"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-cell"/></svg>Cell</button></li>
           <li><button type="button" data-type="lamp"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-lamp"/></svg>Lamp</button></li>
           <li><button type="button" data-type="switch"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-switch-open"/></svg>Switch</button></li>
+          <li><button type="button" data-type="ohmmeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ohmmeter"/></svg>Ohmmeter</button></li>
+          <li><button type="button" data-type="resistor-a"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor A</button></li>
+          <li><button type="button" data-type="resistor-b"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor B</button></li>
+          <li><button type="button" data-type="resistor-c"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor C</button></li>
+          <li><button type="button" data-type="resistor-d"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor D</button></li>
+          <li><button type="button" data-type="resistor-e"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor E</button></li>
           <li><button type="button" data-type="resistor"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor</button></li>
           <li><button type="button" data-type="variable-resistor"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-variable-resistor"/></svg>Variable resistor</button></li>
           <li><button type="button" data-type="ammeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ammeter"/></svg>Ammeter</button></li>
@@ -180,6 +201,7 @@
         <li><strong>Add a wire:</strong> drag from the end of a component to where the wire should go. Or tap the end, then tap where it should go.</li>
         <li><strong>Move, turn or delete:</strong> drag a component to move it. Tap it for Turn and Delete, or drag it off the grid.</li>
         <li><strong>Variable resistor:</strong> tap it, then drag the slider to change its resistance. A bigger resistance means a smaller current.</li>
+        <li><strong>Ohmmeter:</strong> an ohmmeter measures resistance. It only works with no cell connected: join one end of the ohmmeter to each end of the component. Resistors A to E have fixed resistances for you to measure.</li>
         <li><strong>Switches:</strong> tap a switch to open or close it.</li>
         <li><strong>The moving dots</strong> show the electrons, which flow from the negative end of the cell (the short line) round to the positive end. Faster dots mean a bigger current. <strong>Show conventional flow</strong> turns the dots round, positive to negative: the direction used for current in later courses.</li>
       </ul>

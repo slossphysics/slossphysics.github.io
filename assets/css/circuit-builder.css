@@ -521,3 +521,9 @@
 .exp-setup p, .exp-lead { margin: 0 0 12px; }
 .exp-setup .data-table td { min-width: 5em; height: 2.4em; }
 .exp-heading { margin-top: 32px; }
+
+/* Tasks answered in boxes (.cb-answers): a row of small labelled number boxes and a Check button */
+.cb-answers { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 12px 0 4px; font-size: 1.15rem; }
+.cb-answers label { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; white-space: nowrap; }
+.cb-answers .answer { width: 3.6em; min-height: 46px; padding: 6px 8px; font-size: 1.2rem; text-align: center; }
+.cb-answers .answer:disabled { opacity: 1; -webkit-text-fill-color: currentColor; }

@@ -39,7 +39,7 @@
     <h1>Circuit builder</h1>
     <div class="lisc">
       <p><strong>LI:</strong> I am learning how current behaves in series and parallel circuits.</p>
-      <p><strong>SC:</strong> I can build a complete circuit · I can control a lamp with a switch · I can measure current and voltage · I can measure resistance with an ohmmeter ·I can describe how current splits in a parallel circuit.</p>
+      <p><strong>SC:</strong> I can build a complete circuit · I can control a lamp with a switch · I can measure current and voltage · I can describe how current splits in a parallel circuit.</p>
     </div>
 
     <div class="toolbar">
@@ -57,7 +57,7 @@
       <button type="button" class="tool" data-reset>Reset</button>
     </div>
 
-    <div class="cb" data-circuit-builder data-adjust="resistor">
+    <div class="cb" data-circuit-builder data-key="bge-circuit-builder-2" data-adjust="resistor">
       <div class="cb-task-nav">
         <span class="cb-task-nav-label">Tasks</span>
         <button type="button" class="tool cb-example" data-cb="example">Build an example</button>
@@ -105,15 +105,9 @@
         <div class="q-explain">The current <strong>splits</strong> at a junction and joins up again: the total current is the sum of the branch currents, 0.30 A + 0.30 A = 0.60 A. No current is used up.</div>
       </div>
 
-      <div class="q cb-task" data-check="mystery-resistors" hidden>
-        <p class="q-prompt"><span class="q-num">7.</span>Resistors A, B, C, D and E each have a different resistance. Use the ohmmeter to measure each one, and write the five resistances in your jotter.</p>
-        <details class="hint"><summary>Hint</summary><p>An ohmmeter only works with no cell or battery in the circuit. Join one end of the ohmmeter to each end of the resistor, and measure one resistor at a time.</p></details>
-        <div class="q-feedback" aria-live="polite"></div>
-        <div class="q-explain">An ohmmeter goes <strong>across</strong> the component, with no cell or battery connected. Your teacher has the five resistances: check yours against them.</div>
-      </div>
 
       <div class="q cb-task q-challenge" data-check="two-switches" hidden>
-        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">8.</span>Use one cell, two lamps and two switches. Build a circuit where each switch turns off <strong>one</strong> lamp and leaves the other lamp on.</p>
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">7.</span>Use one cell, two lamps and two switches. Build a circuit where each switch turns off <strong>one</strong> lamp and leaves the other lamp on.</p>
         <div class="q-feedback" aria-live="polite"></div>
         <div class="q-explain">Put the lamps in parallel with a switch in each branch. Opening a switch only breaks its own branch, so the other lamp stays on.</div>
       </div>
@@ -128,11 +122,6 @@
           <li><button type="button" data-type="voltmeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-voltmeter"/></svg>Voltmeter</button></li>
           <li><button type="button" data-type="ohmmeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ohmmeter"/></svg>Ohmmeter</button></li>
           <li><button type="button" data-type="resistor"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor</button></li>
-          <li><button type="button" data-type="resistor-a"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor A</button></li>
-          <li><button type="button" data-type="resistor-b"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor B</button></li>
-          <li><button type="button" data-type="resistor-c"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor C</button></li>
-          <li><button type="button" data-type="resistor-d"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor D</button></li>
-          <li><button type="button" data-type="resistor-e"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor E</button></li>
           <li><button type="button" data-type="motor"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-motor"/></svg>Motor</button></li>
           <li><button type="button" data-type="led"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-led"/></svg>LED</button></li>
         </ul>
@@ -162,7 +151,7 @@
         <li><strong>Put a component into a wire:</strong> drop it onto a straight part of the wire and it joins in. Or tap the wire, then tap the component.</li>
         <li><strong>Add a wire:</strong> drag from the end of a component to where the wire should go. Or tap the end, then tap where it should go.</li>
         <li><strong>Move, turn or delete:</strong> drag a component to move it. Tap it for Turn and Delete, or drag it off the grid.</li>
-        <li><strong>Change a resistor:</strong> tap a resistor and choose its value. A bigger resistance means a smaller current. Resistors A to E have fixed resistances for you to measure.</li>
+        <li><strong>Change a resistor:</strong> tap a resistor and choose its value. A bigger resistance means a smaller current.</li>
         <li><strong>Switches:</strong> tap a switch to open or close it.</li>
         <li><strong>Ohmmeter:</strong> an ohmmeter measures resistance. It only works with no cell or battery connected: join one end of the ohmmeter to each end of the component.</li>
         <li><strong>The moving dots</strong> show the electrons, which flow from the negative end of the cell (the short line) round to the positive end. Faster dots mean a bigger current. <strong>Show conventional flow</strong> turns the dots round, positive to negative: the direction used for current in later courses.</li>

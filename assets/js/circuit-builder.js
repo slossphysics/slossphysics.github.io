@@ -11,6 +11,10 @@
 //                            (0.30 A + 0.30 A + 0.30 A reads 0.90 A): for the virtual experiments
 //     .cb-task[data-check]   one task each; the builder ticks it off when the circuit does the job.
 //                            Each has a .q-feedback, an optional .hint and a .q-explain (the answer).
+//                            A task can instead be answered in boxes: give it a .cb-answers row of
+//                            <input class="answer cb-answer" data-answer="15" data-name="A"> and a
+//                            .cb-answers-check button. It is done when every box is right (its data-check
+//                            then only names the EXAMPLES circuit for Show answers).
 //     .cb-palette button[data-type]   one button per component; optional data-value sets its starting value
 //     .cb-board              the <svg> grid
 // The Light, Temperature and Sound sliders are added here, for pages whose palette needs them.
@@ -1000,6 +1004,7 @@
       // Shows the method on an ordinary resistor, so the example gives none of the five answers away
       'mystery-resistors': { comps: [C('ohmmeter', 9, 8), C('resistor', 9, 3)], wires: loop },
 
+      'mystery-values': { comps: [C('ohmmeter', 9, 8), C('resistor', 9, 3)], wires: loop },
       'series-resistance': { comps: [C('ohmmeter', 9, 8), C('resistor', 7, 3), C('resistor', 11, 3)], wires: seriesWires },
       'parallel-resistance': { comps: [C('ohmmeter', 9, 9), C('resistor', 9, 2), C('resistor', 9, 5)], wires: parallelWires },
       'fuse-blows': {
@@ -1958,6 +1963,7 @@
           (solved.has(i) ? ', done' : ''));
       });
       tasks.forEach((t, i) => feedback(t, i, solved.has(i)));
+      syncAnswers();
     }
 
     function feedback(t, i, done) {
@@ -1970,6 +1976,10 @@
         box.className = 'q-feedback is-good';
         box.innerHTML = '<strong>Correct!</strong> ' + (explain ? explain.innerHTML : '') +
           (last ? '' : ' <button type="button" class="tool cb-next">Next task</button>');
+      } else if (answerMsg.has(i)) {
+        const m = answerMsg.get(i);
+        box.className = 'q-feedback' + (m.slip ? ' is-bad' : '');
+        box.innerHTML = '<strong>' + (m.slip ? 'Not quite.' : 'Nearly there.') + '</strong> ' + m.msg;
       } else if (hintNow.has(i)) {
         const h = hintNow.get(i);
         box.className = 'q-feedback' + (h.slip ? ' is-bad' : '');
@@ -1981,6 +1991,59 @@
       if (slipped.has(i)) t.dataset.slipped = ''; else delete t.dataset.slipped;
     }
     const hintNow = new Map();   // task number → the HINTS entry showing on it
+    const answerMsg = new Map(); // task number → what Check said about its answer boxes
+
+    // ---------- Tasks answered in boxes (measure something, then type it in) ----------
+    const boxesOf = (t) => [...t.querySelectorAll('.cb-answer')];
+    const list = (names) => names.length < 2 ? names.join('') : names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1];
+    // A finished task shows its answers, locked; an unfinished one keeps whatever has been typed
+    function syncAnswers() {
+      tasks.forEach((t, i) => {
+        const done = solved.has(i);
+        boxesOf(t).forEach((b) => {
+          if (done) { b.value = b.dataset.answer; b.classList.remove('is-wrong'); b.classList.add('is-correct'); }
+          b.disabled = done;
+        });
+        const btn = t.querySelector('.cb-answers-check');
+        if (btn) btn.disabled = done;
+      });
+    }
+    function checkAnswers(t) {
+      const i = tasks.indexOf(t);
+      if (i < 0 || solved.has(i)) return;
+      const wrong = [], empty = [];
+      boxesOf(t).forEach((b) => {
+        const typed = b.value.replace(/[^0-9.,-]/g, '').replace(',', '.');
+        const ok = typed !== '' && Math.abs(Number(typed) - Number(b.dataset.answer)) < 0.05;
+        b.classList.toggle('is-correct', ok);
+        b.classList.toggle('is-wrong', !ok && typed !== '');
+        if (typed === '') empty.push(b.dataset.name); else if (!ok) wrong.push(b.dataset.name);
+      });
+      if (!wrong.length && !empty.length) {
+        answerMsg.delete(i);
+        solved.add(i);
+        save();
+        showTask();
+        say('Well done: you have finished ' + (t.dataset.chip || 'task ' + (i + 1)) + '.');
+        return;
+      }
+      if (wrong.length) {
+        slipped.add(i);
+        answerMsg.set(i, { slip: true, msg: list(wrong) + (wrong.length > 1 ? ' are' : ' is') + ' not right yet. ' +
+          (t.dataset.retry || 'Measure again.') });
+      } else {
+        answerMsg.set(i, { msg: 'Right so far. Now fill in ' + list(empty) + '.' });
+      }
+      save();
+      showTask();
+    }
+    root.addEventListener('click', (e) => {
+      const btn = e.target.closest('.cb-answers-check');
+      if (btn) checkAnswers(btn.closest('.cb-task'));
+    });
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.target.closest('.cb-answer')) checkAnswers(e.target.closest('.cb-task'));
+    });
     const slips = new Map();     // task number → how many "Not quite." messages it has had
 
     // Fix the task box's height to fit the tallest task with its "Correct!" message showing, so
@@ -2004,6 +2067,14 @@
           h = Math.max(h, hOf(taskBox));
         });
         hintNow.delete(i);
+        const names = boxesOf(t).map((b) => b.dataset.name);
+        if (names.length) {
+          const was = answerMsg.get(i);
+          answerMsg.set(i, { slip: true, msg: list(names) + ' are not right yet. ' + (t.dataset.retry || 'Measure again.') });
+          feedback(t, i, false);
+          h = Math.max(h, hOf(taskBox));
+          if (was) answerMsg.set(i, was); else answerMsg.delete(i);
+        }
       });
       shown.forEach((hint, i) => hintNow.set(i, hint));
       open.forEach((d) => { d.open = true; });
@@ -2107,6 +2178,8 @@
         history = [];
         state = startState();
         slipped = new Set();
+        answerMsg.clear();
+        tasks.forEach((t) => boxesOf(t).forEach((b) => { b.value = ''; b.classList.remove('is-correct', 'is-wrong'); }));
         hintNow.clear();
         slips.clear();
         env = Object.assign({}, ENV_START);

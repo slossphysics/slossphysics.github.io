@@ -1,0 +1,56 @@
+/* One-screen starters (<main class="wrap starter onescreen">): everything fits an iPad in landscape
+   and a classroom board without scrolling, so the teacher can show the whole starter at once.
+   Load after starter.css. The questions sit in two columns (.os-grid > .os-col). */
+.onescreen { padding-bottom: 12px; }
+.onescreen .crumbs { display: none; }
+.onescreen .spec-ref { margin: 10px 0 6px; padding: 2px 10px; font-size: 0.85rem; }
+.os-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; margin-bottom: 8px; }
+.onescreen .os-top h1 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); }
+.onescreen .toolbar { margin: 0; }
+.onescreen .lisc { padding: 6px 12px; font-size: 0.98rem; }
+
+.os-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 16px; margin-top: 12px; align-items: start; }
+.os-col { display: grid; gap: 12px; align-content: start; }
+.onescreen .q { margin: 0; padding: 12px 14px; }
+.onescreen .q-prompt { margin-bottom: 8px; font-size: 1.08rem; line-height: 1.3; }
+.onescreen .q-tag { display: inline-block; margin: 0 8px 0 0; vertical-align: 1px; }
+.onescreen .match-hint { font-size: 0.88rem; }
+.onescreen .q-feedback { margin-top: 8px; padding: 6px 10px; font-size: 0.95rem; line-height: 1.3; }
+.onescreen .hint { margin-top: 8px; }
+.onescreen .hint summary { min-height: 40px; padding: 4px 14px; font-size: 0.95rem; }
+.onescreen .hint p { margin-top: 6px; padding: 6px 10px; font-size: 0.95rem; }
+
+.onescreen .options { gap: 8px; }
+.onescreen .option { min-height: 44px; padding: 8px 12px; font-size: 1rem; line-height: 1.25; }
+.onescreen .options.is-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.onescreen .match { gap: 8px; }
+.onescreen .match-items, .onescreen .match-targets { gap: 8px; }
+.onescreen .match.is-blanks .match-item { min-height: 44px; padding: 4px 10px; font-size: 1rem; }
+.onescreen .match.is-blanks .match-items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.onescreen .match.is-blanks .match-targets { font-size: 1.1rem; line-height: 1.35; }
+.onescreen .match.is-blanks .match-targets > * { margin-bottom: 6px; }
+.onescreen .match.is-order.is-strip .match-items { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.onescreen .match.is-order.is-strip .match-item { min-height: 44px; font-size: 1.15rem; font-weight: 700; }
+.onescreen .match.is-order.is-strip .match-target { min-height: 36px; padding: 2px; font-size: 0.85rem; }
+.onescreen .match.is-order.is-strip .match-slot { min-height: 52px; }
+.onescreen .match.is-order.is-strip .match-slot .match-item { min-height: 44px; font-size: 1.15rem; }
+
+/* The results from last lesson, laid on its side so it is only three rows tall */
+.os-results { width: 100%; margin: 0 0 8px; font-size: 1.05rem; }
+.os-results th, .os-results td { padding: 5px 6px; }
+.os-results th:first-child { text-align: left; white-space: nowrap; }
+.os-results .os-jotter { color: var(--muted); font-weight: 600; font-style: italic; }
+
+/* Phones and narrow windows: one column, and it scrolls like any other starter */
+@media (max-width: 760px) {
+  .os-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* To stay on one screen once answered, a finished question swaps its choices for the feedback */
+.onescreen .q-mcq.is-solved .options,
+.onescreen .q-match.is-solved .match-items { display: none; }
+.onescreen .match.is-blanks .match-target:empty { min-width: 6.5em; min-height: 40px; }
+.onescreen .options.is-row .option { padding: 6px 8px; font-size: 0.95rem; }
+.onescreen .os-results th, .onescreen .os-results td { padding: 3px 6px; }
+.onescreen .os-top { margin-bottom: 0; }
+.onescreen .os-grid { margin-top: 10px; }

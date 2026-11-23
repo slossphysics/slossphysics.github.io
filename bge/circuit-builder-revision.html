@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circuit builder: revision · BGE · Sloss Physics</title>
+  <meta name="description" content="BGE electricity revision on the circuit builder (SCN 3-09a, SCN 4-09a): build series and parallel circuits, measure the current and voltage in each, see what a resistor does, and add cells in series.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/starter.css">
+  <link rel="stylesheet" href="../assets/css/circuit-builder.css">
+  <script src="../assets/js/circuit-symbols.js" defer></script>
+  <script src="../assets/js/starter.js" defer></script>
+  <script src="../assets/js/circuit-builder.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="index.html" aria-current="true">BGE</a></li>
+          <li><a data-level="n4" href="../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../n5/index.html">N5</a></li>
+          <li><a data-level="higher" href="../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="bge">
+    <ol class="crumbs">
+      <li><a href="../index.html">All levels</a></li>
+      <li><a href="index.html">BGE Science</a></li>
+      <li>Tools</li>
+    </ol>
+
+    <p class="spec-ref">BGE · Third and Fourth level · Forces, electricity and waves · SCN 3-09a, SCN 4-09a</p>
+    <h1>Circuit builder: revision</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am revising how current and voltage behave in series and parallel circuits.</p>
+      <p><strong>SC:</strong> I can measure current with an ammeter and voltage with a voltmeter · I can say how current and voltage share out in series and parallel circuits · I can explain what a resistor and an extra cell do to the current.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="10">10 min</option>
+          <option value="15" selected>15 min</option>
+          <option value="20">20 min</option>
+        </select>
+        <output class="timer-display">15:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-show-answers aria-pressed="false">Show answers</button>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+    <div class="cb" data-circuit-builder data-key="bge-circuit-builder-revision-1" data-ideal>
+      <div class="cb-task-nav">
+        <span class="cb-task-nav-label">Tasks</span>
+        <button type="button" class="tool cb-example" data-cb="example">Build an example</button>
+      </div>
+
+      <div class="q cb-task" data-check="series">
+        <p class="q-prompt"><span class="q-num">1.</span>Build a circuit with one cell and two lamps in <strong>series</strong>. Then drag one lamp off the grid. What happens to the other lamp?</p>
+        <details class="hint"><summary>Hint</summary><p>Series means there is only one loop. The current goes through one lamp and then the other.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">In series there is only <strong>one path</strong>, so taking one lamp out breaks the loop and the other lamp goes off too. Old strings of Christmas lights were wired like this: one bulb blows and they all go out.</div>
+      </div>
+
+      <div class="q cb-task" data-check="parallel" hidden>
+        <p class="q-prompt"><span class="q-num">2.</span>Press Clear. Build a circuit with one cell and two lamps in <strong>parallel</strong>. Take one lamp out. What happens this time?</p>
+        <details class="hint"><summary>Hint</summary><p>Parallel means each lamp has its own branch. Both ends of each lamp are joined to the cell.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Each lamp has its <strong>own branch</strong>, so taking one out leaves the other one lit, and just as bright. That is why the lights in a house are wired in parallel.</div>
+      </div>
+
+      <div class="q cb-task" data-check="rev-series-current" data-retry="Check that there is one cell, two lamps in series, and an ammeter on each side of the lamps. Then read the ammeters again." hidden>
+        <p class="q-prompt"><span class="q-num">3.</span>Press Clear. Build one cell and two lamps in <strong>series</strong>, with an <strong>ammeter</strong> on each side of the lamps. Type both readings.</p>
+        <div class="cb-answers">
+          <label>A<sub>1</sub> = <input class="answer cb-answer" data-answer="0.15" data-name="A1" type="text" inputmode="decimal" autocomplete="off" aria-label="Reading on the first ammeter in amps"> A</label>
+          <label>A<sub>2</sub> = <input class="answer cb-answer" data-answer="0.15" data-name="A2" type="text" inputmode="decimal" autocomplete="off" aria-label="Reading on the second ammeter in amps"> A</label>
+          <button type="button" class="tool cb-answers-check">Check</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>An ammeter goes <strong>in series</strong>: drop it onto a wire and it joins into the loop.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Both read <strong>0.15 A</strong>. In a series circuit the current is <strong>the same everywhere</strong>: no current is used up by the lamps.</div>
+      </div>
+
+      <div class="q cb-task" data-check="rev-series-voltage" data-retry="Check that the two lamps are in series on one cell, and that each voltmeter has one lead on each side of its lamp." hidden>
+        <p class="q-prompt"><span class="q-num">4.</span>Keep the two lamps in series. Put a <strong>voltmeter</strong> across lamp 1, then across lamp 2. Type both readings.</p>
+        <div class="cb-answers">
+          <label>Lamp 1 = <input class="answer cb-answer" data-answer="0.75" data-name="Lamp 1" type="text" inputmode="decimal" autocomplete="off" aria-label="Voltage across lamp 1 in volts"> V</label>
+          <label>Lamp 2 = <input class="answer cb-answer" data-answer="0.75" data-name="Lamp 2" type="text" inputmode="decimal" autocomplete="off" aria-label="Voltage across lamp 2 in volts"> V</label>
+          <button type="button" class="tool cb-answers-check">Check</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>A voltmeter goes <strong>across</strong> a component: join one end of the voltmeter to one side of the lamp, and the other end to the other side.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Each lamp has <strong>0.75 V</strong>. In a series circuit the voltage is <strong>shared</strong> between the components, and the shares add up to the cell’s voltage: 0.75 V + 0.75 V = 1.5 V.</div>
+      </div>
+
+      <div class="q cb-task" data-check="current-split" hidden>
+        <p class="q-prompt"><span class="q-num">5.</span>Press Clear. Build two lamps in <strong>parallel</strong> on one cell. Put an ammeter in each lamp’s branch and one beside the cell. Write the three readings in your jotter. What do you notice?</p>
+        <details class="hint"><summary>Hint</summary><p>Drop each ammeter onto a wire. Put one in each lamp’s branch, and one in the wire next to the cell.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Each branch has <strong>0.30 A</strong> and the cell gives <strong>0.60 A</strong>. In a parallel circuit the current <strong>splits</strong> between the branches: 0.30 A + 0.30 A = 0.60 A.</div>
+      </div>
+
+      <div class="q cb-task" data-check="rev-parallel-voltage" data-retry="Check that the two lamps are in parallel on one cell, and that each voltmeter has one lead on each side of its lamp." hidden>
+        <p class="q-prompt"><span class="q-num">6.</span>Keep the two lamps in parallel. Put a <strong>voltmeter</strong> across lamp 1, then across lamp 2. Type both readings.</p>
+        <div class="cb-answers">
+          <label>Lamp 1 = <input class="answer cb-answer" data-answer="1.5" data-name="Lamp 1" type="text" inputmode="decimal" autocomplete="off" aria-label="Voltage across lamp 1 in volts"> V</label>
+          <label>Lamp 2 = <input class="answer cb-answer" data-answer="1.5" data-name="Lamp 2" type="text" inputmode="decimal" autocomplete="off" aria-label="Voltage across lamp 2 in volts"> V</label>
+          <button type="button" class="tool cb-answers-check">Check</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Leave the circuit as it is. Join one end of the voltmeter to one side of a lamp, and the other end to its other side.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Each lamp has <strong>1.50 V</strong>, the full voltage of the cell. In a parallel circuit the voltage is <strong>the same</strong> across every branch, so each lamp is as bright as one lamp on its own.</div>
+      </div>
+
+      <div class="q cb-task" data-check="resistor-dims" hidden>
+        <p class="q-prompt"><span class="q-num">7.</span>Press Clear. Light one lamp with one cell, then add a <strong>resistor</strong> to the same loop. What happens to the lamp?</p>
+        <details class="hint"><summary>Hint</summary><p>Drop the resistor onto one of the wires and it joins into the loop.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The lamp gets <strong>dimmer</strong>. The resistor makes it harder for the current to flow, so the current is smaller.</div>
+      </div>
+
+      <div class="q cb-task" data-check="rev-resistor-current" data-retry="Check the loop: one cell, one lamp, the 10 Ω resistor and an ammeter. For the second box, take the resistor out and join the gap with a wire." hidden>
+        <p class="q-prompt"><span class="q-num">8.</span>Add an <strong>ammeter</strong> to the loop and read the current. Then take the resistor out, join the gap with a wire, and read it again. Type both currents.</p>
+        <div class="cb-answers">
+          <label>With the resistor = <input class="answer cb-answer" data-answer="0.10" data-name="The current with the resistor" type="text" inputmode="decimal" autocomplete="off" aria-label="Current with the resistor in amps"> A</label>
+          <label>Without it = <input class="answer cb-answer" data-answer="0.30" data-name="The current without it" type="text" inputmode="decimal" autocomplete="off" aria-label="Current without the resistor in amps"> A</label>
+          <button type="button" class="tool cb-answers-check">Check</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>To take the resistor out, tap it and press Delete. Then drag a wire across the gap it leaves.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">With the 10 Ω resistor the current is <strong>0.10 A</strong>; without it, <strong>0.30 A</strong>. The bigger the resistance, the <strong>smaller</strong> the current, and it is smaller everywhere in the loop.</div>
+      </div>
+
+      <div class="q cb-task" data-check="rev-cells-series" hidden>
+        <p class="q-prompt"><span class="q-num">9.</span>Press Clear. Light one lamp using <strong>two cells in series</strong>. How bright is the lamp compared with one cell?</p>
+        <details class="hint"><summary>Hint</summary><p>Put the cells one after the other in the loop, with the long line of one cell joined to the short line of the next.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The lamp is <strong>brighter</strong>. Cells in series add their voltages: 1.5 V + 1.5 V = 3 V, so the current doubles to 0.60 A. That is how you would get enough voltage from fruit cells.</div>
+      </div>
+
+      <div class="q cb-task q-challenge" data-check="two-switches" hidden>
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">10.</span>Wire it like the lights in a house. Use one cell, two lamps and two switches. Build a circuit where each switch turns off <strong>one</strong> lamp and leaves the other lamp on.</p>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">Put the lamps in parallel with a switch in each branch. Opening a switch only breaks its own branch, so the other lamp stays on.</div>
+      </div>
+
+      <div class="q cb-task q-challenge" data-check="rev-three-parallel" data-chip="Extra 1" data-retry="Check that the three lamps are each on a branch of their own, and that the ammeter is in the wire next to the cell." hidden>
+        <p class="q-prompt"><span class="q-tag">Extra</span><span class="q-num">11.</span>Press Clear. First predict: three lamps in <strong>parallel</strong> on one cell. What will an ammeter beside the cell read? Then build it and type the reading.</p>
+        <div class="cb-answers">
+          <label>Ammeter = <input class="answer cb-answer" data-answer="0.90" data-name="The reading" type="text" inputmode="decimal" autocomplete="off" aria-label="Current from the cell in amps"> A</label>
+          <button type="button" class="tool cb-answers-check">Check</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Each lamp on a branch of its own takes the same current as one lamp on its own.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The cell gives <strong>0.90 A</strong>: 0.30 A for each of the three branches. Every lamp you add in parallel takes more current from the cell, which is why a cell runs flat faster.</div>
+      </div>
+
+      <div class="q cb-task q-challenge" data-check="rev-three-series" data-chip="Extra 2" data-retry="Check that the three lamps are in one loop with the cell, the ammeter is in the loop, and the voltmeter is across one lamp." hidden>
+        <p class="q-prompt"><span class="q-tag">Extra</span><span class="q-num">12.</span>Press Clear. A string of Christmas lights: build <strong>three lamps in series</strong> on one cell, with an ammeter in the loop and a voltmeter across one lamp. Predict first, then type both readings.</p>
+        <div class="cb-answers">
+          <label>Current = <input class="answer cb-answer" data-answer="0.10" data-name="The current" type="text" inputmode="decimal" autocomplete="off" aria-label="Current in amps"> A</label>
+          <label>Voltage = <input class="answer cb-answer" data-answer="0.50" data-name="The voltage" type="text" inputmode="decimal" autocomplete="off" aria-label="Voltage across one lamp in volts"> V</label>
+          <button type="button" class="tool cb-answers-check">Check</button>
+        </div>
+        <details class="hint"><summary>Hint</summary><p>Three lamps share the cell’s 1.5 V equally.</p></details>
+        <div class="q-feedback" aria-live="polite"></div>
+        <div class="q-explain">The current is <strong>0.10 A</strong> and each lamp has <strong>0.50 V</strong>: three equal shares of 1.5 V. More lamps in series means more resistance, so a smaller current and dimmer lamps.</div>
+      </div>
+
+      <div class="cb-workspace">
+        <ul class="cb-palette" aria-label="Components">
+          <li><button type="button" data-type="cell"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-cell"/></svg>Cell</button></li>
+          <li><button type="button" data-type="lamp"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-lamp"/></svg>Lamp</button></li>
+          <li><button type="button" data-type="switch"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-switch-open"/></svg>Switch</button></li>
+          <li><button type="button" data-type="ammeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-ammeter"/></svg>Ammeter</button></li>
+          <li><button type="button" data-type="voltmeter"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-voltmeter"/></svg>Voltmeter</button></li>
+          <li><button type="button" data-type="resistor"><svg viewBox="0 0 60 40" aria-hidden="true"><use href="#sym-resistor"/></svg>Resistor</button></li>
+        </ul>
+
+        <div class="cb-bar">
+          <p class="cb-status" aria-live="polite"></p>
+          <div class="cb-flow-pick">
+            <button type="button" class="tool" data-cb="flow-electron" aria-pressed="true">Show electron flow</button>
+            <button type="button" class="tool" data-cb="flow-conventional" aria-pressed="false">Show conventional flow</button>
+          </div>
+          <button type="button" class="tool" data-cb="undo">Undo</button>
+          <button type="button" class="tool" data-cb="clear">Clear</button>
+          <p class="cb-warning" role="alert" hidden><strong>Short circuit!</strong> The current has a path with almost no resistance, so it is far too big. A real cell would get hot and go flat quickly.</p>
+        </div>
+
+        <div class="cb-stage">
+          <svg class="cb-board" role="img" aria-label="Circuit building grid"></svg>
+          <div class="cb-pop" hidden>
+            <button type="button" class="tool" data-act="turn">Turn</button>
+            <button type="button" class="tool" data-act="delete">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="cb-help">
+        <li><strong>Add a component:</strong> drag it onto the grid, or tap it.</li>
+        <li><strong>Put a component into a wire:</strong> drop it onto a straight part of the wire and it joins in. Or tap the wire, then tap the component.</li>
+        <li><strong>Add a wire:</strong> drag from the end of a component to where the wire should go. Or tap the end, then tap where it should go.</li>
+        <li><strong>Move, turn or delete:</strong> drag a component to move it. Tap it for Turn and Delete, or drag it off the grid.</li>
+        <li><strong>Ammeter:</strong> measures current. It goes <strong>in series</strong>: drop it onto a wire so it is in the loop.</li>
+        <li><strong>Voltmeter:</strong> measures voltage. It goes <strong>across</strong> a component (in parallel): one lead to each side of it.</li>
+        <li><strong>Switches:</strong> tap a switch to open or close it.</li>
+        <li><strong>The cells</strong> on this page are perfect cells, with no resistance inside them, so the readings add up exactly.</li>
+        <li><strong>The moving dots</strong> show the electrons, which flow from the negative end of the cell (the short line) round to the positive end. Faster dots mean a bigger current. <strong>Show conventional flow</strong> turns the dots round, positive to negative: the direction used for current in later courses.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

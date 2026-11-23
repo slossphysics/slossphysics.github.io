@@ -965,6 +965,49 @@
       ],
     });
 
+    // ---------- Revision tasks (bge/circuit-builder-revision.html) ----------
+    // Most are answered in boxes (build it, then type the meter readings); these catch the usual
+    // wrong circuits while pupils build. The same circuit with one part given another type:
+    const swapType = (st, id, type) => Object.assign({}, st,
+      { comps: st.comps.map((c) => (c.id === id ? Object.assign({}, c, { type }) : c)) });
+    // A meter that puts a lamp out: a lamp that is off now would light if the meter were the other kind
+    const meterPutsOut = (st, res, type, other) => ofType(st, type).some((m) => {
+      const r = solve(swapType(st, m.id, other));
+      return ofType(st, 'lamp').some((l) => !working(res, l.id) && working(r, l.id));
+    });
+    const voltInSeries = { slip: true, when: (st, res) => meterPutsOut(st, res, 'voltmeter', 'ammeter'),
+      msg: 'A lamp has gone out. A voltmeter has a very high resistance, so <strong>in series</strong> it stops the current. Use Undo, then join the voltmeter <strong>across</strong> the lamp: one lead to each side of it.' };
+    const ammAcross = { slip: true, when: (st, res) => meterPutsOut(st, res, 'ammeter', 'voltmeter'),
+      msg: 'A lamp has gone out because an ammeter is joined <strong>across</strong> it. An ammeter has almost no resistance, so the current goes round the lamp instead of through it. Use Undo, then drop the ammeter onto a wire so it is <strong>in the loop</strong>.' };
+    const voltNotAmm = { slip: true, when: (st) => ofType(st, 'voltmeter').length > 0 && !ofType(st, 'ammeter').length,
+      msg: 'A voltmeter measures voltage. To measure a <strong>current</strong> you need an <strong>ammeter</strong>, dropped onto a wire so that it is in the loop.' };
+    // Two cells facing opposite ways cancel out: turning one round would light a lamp at double current
+    const cellsOpposed = { slip: true, when: (st, res) => ofType(st, 'cell').length >= 2 && !litLamps(st, res).length &&
+        ofType(st, 'cell').some((c) => {
+          const turned = Object.assign({}, st, { comps: st.comps.map((x) => (x.id === c.id ? Object.assign({}, x, { rot: (x.rot + 2) % 4 }) : x)) });
+          const r = solve(turned);
+          return ofType(st, 'lamp').some((l) => close(current(r, l.id), 0.6, 0.1));
+        }),
+      msg: 'The two cells are facing <strong>opposite ways</strong>, so they cancel out and nothing lights. Tap one cell and press Turn twice, so that the long line of one cell joins the short line of the other.' };
+    Object.assign(CHECKS, {
+      // Two cells and a lamp carrying twice the current of one lamp on one cell
+      'rev-cells-series': (st, res) => ofType(st, 'cell').length >= 2 &&
+        ofType(st, 'lamp').some((l) => close(current(res, l.id), 0.6, 0.1)),
+    });
+    Object.assign(HINTS, {
+      'rev-series-current': [shortedMeter, ammAcross, voltNotAmm],
+      'rev-series-voltage': [shortedMeter, ammAcross, voltInSeries],
+      'rev-parallel-voltage': [shortedMeter, ammAcross, voltInSeries],
+      'rev-resistor-current': [shortedMeter, ammAcross, voltNotAmm],
+      'rev-three-parallel': [shortedMeter, ammAcross, voltNotAmm],
+      'rev-three-series': [shortedMeter, ammAcross, voltInSeries],
+      'rev-cells-series': [
+        cellsOpposed,
+        { when: (st, res) => ofType(st, 'cell').length >= 2 && ofType(st, 'lamp').some((l) => close(current(res, l.id), 0.3, 0.1)),
+          msg: 'The lamp is only as bright as it is with one cell. Put both cells in the loop <strong>one after the other</strong> (in series), so their voltages add up.' },
+      ],
+    });
+
     // Example circuits for each task (teacher only, under Show answers)
     const loop = [W([8, 8], [5, 8], [5, 3], [8, 3]), W([10, 8], [13, 8], [13, 3], [10, 3])].flat();
     const seriesWires = [W([8, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([10, 8], [14, 8], [14, 3], [12, 3])].flat();
@@ -1066,6 +1109,48 @@
         comps: [C('variable-resistor', 6, 2), C('lamp', 11, 2), C('lamp', 11, 5), C('cell', 6, 9)],
         wires: [W([3, 2], [5, 2]), W([7, 2], [10, 2]), W([12, 2], [15, 2]), W([3, 5], [10, 5]), W([12, 5], [15, 5]),
           W([3, 2], [3, 9], [5, 9]), W([7, 9], [15, 9], [15, 2])].flat(),
+      },
+    });
+    // Revision tasks
+    const meterLoop = (type, extra) => ({
+      comps: [C('cell', 7, 8), C(type, 11, 8, extra), C('ammeter', 7, 3), C('lamp', 11, 3)],
+      wires: [W([6, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([8, 8], [10, 8]),
+        W([12, 8], [14, 8], [14, 3], [12, 3])].flat(),
+    });
+    Object.assign(EXAMPLES, {
+      // Two lamps in series with an ammeter on each side of them, beside the cell
+      'rev-series-current': {
+        comps: [C('cell', 9, 8), C('ammeter', 6, 8), C('ammeter', 12, 8), C('lamp', 7, 3), C('lamp', 11, 3)],
+        wires: [W([8, 8], [7, 8]), W([5, 8], [4, 8], [4, 3], [6, 3]), W([8, 3], [10, 3]), W([10, 8], [11, 8]),
+          W([13, 8], [14, 8], [14, 3], [12, 3])].flat(),
+      },
+      // A voltmeter across each of two lamps in series
+      'rev-series-voltage': {
+        comps: [C('cell', 9, 8), C('lamp', 7, 3), C('lamp', 11, 3), C('voltmeter', 7, 1), C('voltmeter', 11, 1)],
+        wires: seriesWires.concat(W([6, 1], [6, 3]), W([8, 1], [8, 3]), W([10, 1], [10, 3]), W([12, 1], [12, 3])),
+      },
+      // A voltmeter across each of two lamps in parallel
+      'rev-parallel-voltage': {
+        comps: [C('cell', 9, 9), C('lamp', 9, 2), C('lamp', 9, 5), C('voltmeter', 9, 0), C('voltmeter', 9, 7)],
+        wires: parallelWires.concat(W([8, 0], [8, 2]), W([10, 0], [10, 2]), W([8, 7], [8, 5]), W([10, 7], [10, 5])),
+      },
+      'rev-resistor-current': meterLoop('resistor'),
+      'rev-cells-series': {
+        comps: [C('cell', 7, 8), C('cell', 11, 8), C('lamp', 9, 3)],
+        wires: [W([6, 8], [4, 8], [4, 3], [8, 3]), W([8, 8], [10, 8]), W([12, 8], [14, 8], [14, 3], [10, 3])].flat(),
+      },
+      // Three lamps in parallel, with an ammeter in the main wire beside the cell
+      'rev-three-parallel': {
+        comps: [C('cell', 5, 9), C('ammeter', 9, 9), C('lamp', 9, 2), C('lamp', 9, 4), C('lamp', 9, 6)],
+        wires: [W([6, 9], [8, 9]), W([10, 9], [14, 9], [14, 2]), W([4, 9], [3, 9], [3, 2]),
+          W([3, 2], [8, 2]), W([10, 2], [14, 2]), W([3, 4], [8, 4]), W([10, 4], [14, 4]),
+          W([3, 6], [8, 6]), W([10, 6], [14, 6])].flat(),
+      },
+      // Three lamps in series (a string of Christmas lights), an ammeter, and a voltmeter across the middle lamp
+      'rev-three-series': {
+        comps: [C('cell', 9, 8), C('ammeter', 6, 8), C('lamp', 6, 3), C('lamp', 9, 3), C('lamp', 12, 3), C('voltmeter', 9, 1)],
+        wires: [W([8, 8], [7, 8]), W([5, 8], [4, 8], [4, 3], [5, 3]), W([7, 3], [8, 3]), W([10, 3], [11, 3]),
+          W([13, 3], [14, 3], [14, 8], [10, 8]), W([8, 1], [8, 3]), W([10, 1], [10, 3])].flat(),
       },
     });
 

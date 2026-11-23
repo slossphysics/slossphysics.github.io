@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Half-life and the nucleus · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics starter (Radiation · Nuclear radiation): two half-life calculations, the meaning of half-life, alpha absorption, and the particles in the nucleus, before a lesson on nuclear fission.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Radiation</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Half-life and the nucleus</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am recalling half-life and radiation before we learn about nuclear fission.</p>
+      <p><strong>SC:</strong> I can set out a half-life calculation with arrows · I can say what is meant by half-life · I can name the particles in the nucleus · I can set out my working in my jotter.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5" selected>5 min</option>
+          <option value="7">7 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">5:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-input" data-answer="80">
+        <p class="q-prompt"><span class="q-num">1.</span>Iodine-131 is used to treat thyroid cancer. Its half-life is 8 days. A sample has an activity of 640 Bq. Calculate its activity after 24 days.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="hn-i131">Activity =</label>
+          <input class="answer" id="hn-i131" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Bq</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="213.3">You've divided by 3. The activity halves three times: halve it, halve the answer, then halve again.</p>
+        <p class="mistake" data-value="320">That's the activity after one half-life. How many half-lives are there in 24 days?</p>
+        <p class="mistake" data-value="160">That's the activity after two half-lives. How many lots of 8 days fit into 24 days?</p>
+        <p class="mistake" data-value="40">That's four halvings. How many lots of 8 days fit into 24 days?</p>
+        <p class="mistake" data-value="26.67">You've divided the activity by the time. Work out the number of half-lives first, then halve that many times.</p>
+        <p class="mistake" data-value="5120">The activity of a source goes down as time passes, not up.</p>
+        <details class="hint"><summary>Hint</summary><p>Start with the number of half-lives. How many lots of 8 days fit into 24 days?</p><details class="hint"><summary>Another hint</summary><p>24 ÷ 8 = 3 half-lives. Write 640 Bq in your jotter and draw three arrows after it.</p><details class="hint"><summary>Another hint</summary><p>Halve at each arrow: 640 Bq, then 320 Bq, then keep going until you have used all three arrows.</p></details></details></details>
+        <div class="q-explain">
+          <p>Number of half-lives = 24 ÷ 8 = 3</p>
+          <ul class="working">
+            <li>640 Bq → 320 Bq → 160 Bq → 80 Bq</li>
+            <li>Activity after 24 days = 80 Bq</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="10">
+        <p class="q-prompt"><span class="q-num">2.</span>The activity of a radioactive source falls from 1200 Bq to 150 Bq in 30 minutes. Calculate its half-life.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="hn-find">Half-life =</label>
+          <input class="answer" id="hn-find" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">minutes</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="3">That's the number of half-lives. Now share the 30 minutes between them.</p>
+        <p class="mistake" data-value="15">That's half of the time. The half-life is the time for the activity to halve once: keep halving 1200 Bq until you reach 150 Bq, and count the arrows.</p>
+        <p class="mistake" data-value="3.75">1200 ÷ 150 = 8 is not the number of half-lives. Keep halving 1200 until you reach 150, and count the arrows.</p>
+        <p class="mistake" data-value="7.5">You've counted four half-lives. Keep halving 1200 until you reach 150, and count the arrows again.</p>
+        <p class="mistake" data-value="90">You've multiplied. The 30 minutes is shared between the half-lives.</p>
+        <p class="mistake" data-value="150">That's the activity at the end, in becquerels. The question asks for a time.</p>
+        <details class="hint"><summary>Hint</summary><p>This one works backwards. Write 1200 Bq and keep halving until you reach 150 Bq.</p><details class="hint"><summary>Another hint</summary><p>1200 Bq, then 600 Bq, then 300 Bq, then 150 Bq. Count the arrows: that is the number of half-lives.</p><details class="hint"><summary>Another hint</summary><p>Those half-lives took 30 minutes altogether. Share the 30 minutes equally between them.</p></details></details></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>1200 Bq → 600 Bq → 300 Bq → 150 Bq</li>
+            <li>3 half-lives = 30 minutes</li>
+            <li>Half-life = 30 ÷ 3 = 10 minutes</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">3.</span>What is meant by the term <strong>half-life</strong>?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="This is a very common mistake. A source does not stop after two half-lives: it keeps halving again and again.">Half of the time it takes for a source to stop being radioactive</button>
+          <button type="button" class="option" data-feedback="The exam does not give the mark for “the radiation” halving. Which quantity, measured in becquerels, halves?">The time it takes for the radiation to become half as strong</button>
+          <button type="button" class="option" data-correct>The time it takes for the activity of a source to fall to half</button>
+          <button type="button" class="option" data-feedback="The source does not shrink to half its size. Think about what a Geiger counter measures.">The time it takes for a source to shrink to half its mass</button>
+        </div>
+        <div class="q-explain">Half-life is the time taken for the <strong>activity</strong> of a source to fall to <strong>half</strong> (or for half of the radioactive nuclei to decay). In the exam, “the radiation halves” does not get the mark.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">4.</span>Which type of nuclear radiation is stopped by a sheet of paper?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>Alpha</button>
+          <button type="button" class="option" data-feedback="Beta goes through paper. It is stopped by a few millimetres of aluminium.">Beta</button>
+          <button type="button" class="option" data-feedback="Gamma goes through paper easily. It is only reduced by thick lead or concrete.">Gamma</button>
+        </div>
+        <div class="q-explain"><strong>Alpha</strong> is stopped by a sheet of paper (or a few centimetres of air). Beta is stopped by a few millimetres of aluminium, and gamma is reduced by thick lead.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>Tap the particles that are found in the <strong>nucleus</strong> of an atom. There are 2.</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Electrons are outside the nucleus, around it.">Electrons</button>
+          <button type="button" class="option" data-correct>Neutrons</button>
+          <button type="button" class="option" data-feedback="A nucleus can give out an alpha particle when it decays, but alpha particles are not one of the particles an atom is made from.">Alpha particles</button>
+          <button type="button" class="option" data-correct>Protons</button>
+        </div>
+        <div class="q-explain">The nucleus is made of <strong>protons and neutrons</strong>. Electrons are outside the nucleus. We need the nucleus today: in nuclear fission, a nucleus splits in two.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="96">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">6.</span>Some radioactive waste from a nuclear power station has a half-life of 32 years. Calculate how long it takes for the activity of the waste to fall to one eighth of its starting value.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="hn-waste">Time =</label>
+          <input class="answer" id="hn-waste" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">years</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="3">That's the number of half-lives. How long do they take altogether?</p>
+        <p class="mistake" data-value="4">You've divided the half-life by 8. Each halving takes 32 years: how many halvings take the activity to one eighth?</p>
+        <p class="mistake" data-value="256">You've multiplied by 8. How many times do you halve to get to one eighth?</p>
+        <p class="mistake" data-value="64">That's two half-lives, which takes the activity to one quarter. Keep halving until you reach one eighth.</p>
+        <p class="mistake" data-value="128">That's four half-lives, which takes the activity to one sixteenth. Count the halvings again.</p>
+        <p class="mistake" data-value="16">That's half of the half-life. How many half-lives does it take to reach one eighth?</p>
+        <details class="hint"><summary>Hint</summary><p>Start with 1 and keep halving: how many halvings until you reach one eighth?</p><details class="hint"><summary>Another hint</summary><p>1, then ½, then ¼, then ⅛. Count the halvings: each one takes 32 years.</p></details></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>1 → ½ → ¼ → ⅛: 3 half-lives</li>
+            <li>Time = 3 × 32 = 96 years</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>
+

@@ -133,6 +133,31 @@
         <div class="q-explain">A <strong>neutron</strong> splits the uranium nucleus, and the neutrons released <strong>cause further fission</strong>: a chain reaction. The reactor only makes heat; the generator makes the electricity.</div>
         <div class="q-feedback" aria-live="polite"></div>
       </div>
+
+      <div class="q q-input q-challenge" data-answer="8.0e8">
+        <p class="q-prompt"><span class="q-tag">Extension</span><span class="q-num">7.</span>Each fission of a uranium-235 nucleus releases 3.2 × 10<sup>−11</sup> J of energy. In one second, a reactor produces 2.5 × 10<sup>19</sup> fissions. Calculate the energy released by these fissions. Type powers of ten like this: 2.5x10-4.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="fr-energy">Energy =</label>
+          <input class="answer" id="fr-energy" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">J</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="7.8125e29">You've divided the number of fissions by the energy. Each fission releases the same energy, so multiply.</p>
+        <p class="mistake" data-value="1.28e-30">That's far too small. Did you divide, or make the 19 negative? Multiply the two values, and add the powers: 19 + (−11).</p>
+        <p class="mistake" data-value="8.0e30">Check the power of ten. When you multiply, add the powers: 19 + (−11).</p>
+        <p class="mistake" data-value="8.0e-8">Check the power of ten. When you multiply, add the powers: 19 + (−11) is +8, not −8.</p>
+        <p class="mistake" data-value="5.7e8">You've added 3.2 and 2.5. The number parts are multiplied: 3.2 × 2.5.</p>
+        <p class="mistake" data-value="8.0">Don't forget the powers of ten: 10<sup>19</sup> × 10<sup>−11</sup>.</p>
+        <details class="hint"><summary>Hint</summary><p>Every fission releases 3.2 × 10<sup>−11</sup> J. For lots of fissions, multiply the energy of one by the number of fissions.</p><details class="hint"><summary>Another hint</summary><p>Energy = 2.5 × 10<sup>19</sup> × 3.2 × 10<sup>−11</sup>. Multiply the number parts: 2.5 × 3.2.</p><details class="hint"><summary>Another hint</summary><p>Add the powers of ten: 10<sup>19</sup> × 10<sup>−11</sup> = 10<sup>19 + (−11)</sup>. Or type the whole sum into your calculator using the ×10<sup>x</sup> button.</p></details></details></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>Energy = number of fissions × energy per fission</li>
+            <li>Energy = 2.5 × 10<sup>19</sup> × 3.2 × 10<sup>−11</sup></li>
+            <li>Energy = 8.0 × 10<sup>8</sup> J</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
   </main>
 
   <footer class="site-footer">

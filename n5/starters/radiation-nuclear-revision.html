@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuclear revision · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics starter (Radiation · Nuclear radiation): revision of the whole nuclear topic with real exam-style questions on chain reactions, fusion, finding a half-life, half-life with prefixes and total equivalent dose.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Radiation</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Nuclear revision</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am revising the nuclear topic with exam-style questions.</p>
+      <p><strong>SC:</strong> I can explain a chain reaction · I can say why fusion is hard to keep going · I can do half-life calculations with prefixes · I can add up equivalent doses · I can set out my working in my jotter.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5">5 min</option>
+          <option value="7" selected>7 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">7:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>In a nuclear reactor, a neutron splits a uranium-235 nucleus. How can this single reaction lead to the continuous generation of energy?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="This answer gets 0 marks in the exam. A nucleus only splits once. What does the split give out that could split something else?">The same nucleus keeps splitting again and again</button>
+          <button type="button" class="option" data-feedback="The heat is what boils the water in the power station. It is not what splits the next nucleus.">The heat released warms other nuclei until they split</button>
+          <button type="button" class="option" data-correct>The neutrons released go on to split other nuclei</button>
+          <button type="button" class="option" data-feedback="The two smaller nuclei do not split again. Something else that the split gives out keeps the reaction going.">The two smaller nuclei split again into even smaller nuclei</button>
+        </div>
+        <div class="q-explain">Each fission releases <strong>neutrons</strong>, which go on to <strong>split other nuclei</strong> (1 mark). This keeps repeating: a <strong>chain reaction</strong> (1 mark). This is 2021 Q13(a)(ii), worth 2 marks.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">2.</span>Tap the reasons why nuclear fusion is hard to keep going in a reactor. There are 2.</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="That is fission: a neutron is fired at a uranium nucleus. Fusion is started by heating the fuel.">It needs a neutron to start each reaction</button>
+          <button type="button" class="option" data-correct>It needs a temperature of about 100 million °C</button>
+          <button type="button" class="option" data-feedback="The fuel is hydrogen, the most common element in the universe. The problem is getting the nuclei to join.">The fuel is too rare</button>
+          <button type="button" class="option" data-correct>The plasma is very hard to contain</button>
+        </div>
+        <div class="q-explain">Fusion needs <strong>extremely high temperatures</strong>, so the fuel is a <strong>plasma</strong>, which is very hard to contain: strong magnetic fields hold it away from the walls. In the exam (2022 Q14(b)(ii)), write <strong>one</strong> difficulty when it asks for one: “it costs too much” on its own gets no mark.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="4">
+        <p class="q-prompt"><span class="q-num">3.</span>The activity of a radioactive source falls from 200 kBq to 25 kBq in 12 days. Calculate the half-life of the source.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="nr-find">Half-life =</label>
+          <input class="answer" id="nr-find" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">days</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="3">That's the number of half-lives. Now share the 12 days between them.</p>
+        <p class="mistake" data-value="6">That's half of the time. Keep halving 200 kBq until you reach 25 kBq, and count the arrows.</p>
+        <p class="mistake" data-value="1.5">200 ÷ 25 = 8 is not the number of half-lives. Keep halving 200 until you reach 25, and count the arrows.</p>
+        <p class="mistake" data-value="36">You've multiplied. The 12 days are shared between the half-lives.</p>
+        <p class="mistake" data-value="25">That's the activity at the end. The question asks for a time.</p>
+        <details class="hint"><summary>Hint</summary><p>Work backwards: write 200 kBq and keep halving until you reach 25 kBq.</p><details class="hint"><summary>Another hint</summary><p>200 kBq, then 100 kBq, then 50 kBq, then 25 kBq. Count the arrows: that is the number of half-lives.</p><details class="hint"><summary>Another hint</summary><p>Those half-lives took 12 days altogether. Share the 12 days equally between them.</p></details></details></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>200 kBq → 100 kBq → 50 kBq → 25 kBq</li>
+            <li>3 half-lives = 12 days</li>
+            <li>Half-life = 12 ÷ 3 = 4 days</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="750">
+        <p class="q-prompt"><span class="q-num">4.</span>A beta source has an activity of 12 kBq. Its half-life is 36 hours. Calculate its activity 144 hours later. Give your answer in becquerels.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="nr-beta">Activity =</label>
+          <input class="answer" id="nr-beta" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Bq</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="0.75">That's right in kilobecquerels. The question asks for becquerels: 1 kBq = 1 × 10<sup>3</sup> Bq.</p>
+        <p class="mistake" data-value="1500">That's three halvings. How many lots of 36 hours fit into 144 hours?</p>
+        <p class="mistake" data-value="375">That's five halvings. How many lots of 36 hours fit into 144 hours?</p>
+        <p class="mistake" data-value="3000">That's two halvings, or 12 000 divided by 4. There are 4 half-lives: halve 4 times.</p>
+        <p class="mistake" data-value="83.33">You've divided the activity by the time. Work out the number of half-lives first, then halve that many times.</p>
+        <p class="mistake" data-value="192000">The activity of a source goes down as time passes, not up.</p>
+        <details class="hint"><summary>Hint</summary><p>Change 12 kBq into becquerels first: 12 × 10<sup>3</sup> Bq.</p><details class="hint"><summary>Another hint</summary><p>Number of half-lives = 144 ÷ 36. Draw that many arrows after 12 000 Bq.</p><details class="hint"><summary>Another hint</summary><p>Halve at each arrow: 12 000 Bq, then 6000 Bq, and keep going until you have used all four arrows.</p></details></details></details>
+        <div class="q-explain">
+          <p>Number of half-lives = 144 ÷ 36 = 4</p>
+          <ul class="working">
+            <li>12 × 10<sup>3</sup> Bq → 6000 Bq → 3000 Bq → 1500 Bq → 750 Bq</li>
+            <li>Activity after 144 hours = 750 Bq</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="1.0e-5">
+        <p class="q-prompt"><span class="q-num">5.</span>During one shift, a worker at a nuclear power station receives an absorbed dose of 2.2 µGy from slow neutrons (w<sub>R</sub> = 3) and 3.4 µGy from gamma rays (w<sub>R</sub> = 1). Calculate the worker's total equivalent dose. Type powers of ten like this: 2.5x10-4.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="nr-dose">Total H =</label>
+          <input class="answer" id="nr-dose" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Sv</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="10">That's right in microsieverts. The answer box is in sieverts: 1 µSv = 1 × 10<sup>−6</sup> Sv.</p>
+        <p class="mistake" data-value="5.6e-6">You've added the absorbed doses. Each one needs multiplying by its own weighting factor first.</p>
+        <p class="mistake" data-value="1.68e-5">You've multiplied both doses by 3. Gamma rays have a weighting factor of 1.</p>
+        <p class="mistake" data-value="6.6e-6">That's the equivalent dose from the neutrons only. Add on the gamma rays' equivalent dose.</p>
+        <p class="mistake" data-value="2.54e-5">That's the weighting factor for fast neutrons (10). These are slow neutrons: w<sub>R</sub> = 3.</p>
+        <p class="mistake" data-value="1.0e-2">Check the prefix: µ (micro) is × 10<sup>−6</sup>, not × 10<sup>−3</sup>.</p>
+        <details class="hint"><summary>Hint</summary><p>Work out an equivalent dose for each type of radiation with H = Dw<sub>R</sub>, then add them.</p><details class="hint"><summary>Another hint</summary><p>Neutrons: H = 2.2 × 10<sup>−6</sup> × 3. Gamma: H = 3.4 × 10<sup>−6</sup> × 1.</p><details class="hint"><summary>Another hint</summary><p>Add the two equivalent doses. Your answer should be in sieverts, so keep the × 10<sup>−6</sup>.</p></details></details></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>H = Dw<sub>R</sub></li>
+            <li>Neutrons: H = 2.2 × 10<sup>−6</sup> × 3 = 6.6 × 10<sup>−6</sup> Sv</li>
+            <li>Gamma: H = 3.4 × 10<sup>−6</sup> × 1 = 3.4 × 10<sup>−6</sup> Sv</li>
+            <li>Total H = 6.6 × 10<sup>−6</sup> + 3.4 × 10<sup>−6</sup> = 1.0 × 10<sup>−5</sup> Sv</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input q-challenge" data-answer="2000">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">6.</span>A worker at a nuclear power station receives an equivalent dose of 1.0 × 10<sup>−5</sup> Sv in each shift. The annual limit for this worker is 20 mSv. Calculate how many shifts it would take to reach the annual limit.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="nr-shifts">Shifts =</label>
+          <input class="answer" id="nr-shifts" type="text" inputmode="decimal" autocomplete="off">
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="2000000">Check the prefix on the limit: 20 mSv is 20 × 10<sup>−3</sup> Sv, not 20 Sv.</p>
+        <p class="mistake" data-value="2">Check the powers of ten. 20 mSv = 20 × 10<sup>−3</sup> Sv, and each shift is 1.0 × 10<sup>−5</sup> Sv.</p>
+        <p class="mistake" data-value="0.0005">You've divided the wrong way up. Divide the annual limit by the dose in one shift.</p>
+        <p class="mistake" data-value="200">Check the powers of ten: 10<sup>−3</sup> ÷ 10<sup>−5</sup> = 10<sup>2</sup>, so 20 × 10<sup>2</sup>.</p>
+        <details class="hint"><summary>Hint</summary><p>Change 20 mSv into sieverts: 20 × 10<sup>−3</sup> Sv.</p><details class="hint"><summary>Another hint</summary><p>Number of shifts = annual limit ÷ dose in one shift.</p></details></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>Number of shifts = annual limit ÷ dose per shift</li>
+            <li>= 20 × 10<sup>−3</sup> ÷ 1.0 × 10<sup>−5</sup></li>
+            <li>= 2000 shifts</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

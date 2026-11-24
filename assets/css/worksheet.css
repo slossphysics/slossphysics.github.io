@@ -135,3 +135,21 @@
   .ws-pages .ws-section { margin-top: 4mm; }
   .ws-pages .ws-section.ws-break { margin-top: 0; }
 }
+
+/* Circuit questions (BGE electricity revision): a grid of cards, each a question above its diagram.
+   Symbols come from assets/js/circuit-symbols.js. */
+.ws-circuits { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.ws-circuit {
+  display: flex; flex-direction: column; gap: 10px; padding: 14px 18px;
+  border: var(--edge-w) solid var(--edge); border-radius: var(--radius); background: var(--surface); box-shadow: var(--pop-sm);
+}
+.ws-circuit p { display: flex; gap: 12px; margin: 0; font-size: 1.1rem; line-height: 1.45; }
+.ws-circuit p > b { flex: none; width: 1.2em; color: var(--level-colour, var(--accent)); }
+.ws-circuit .circuit { max-width: 330px; margin: auto auto 0; }
+
+@media print {
+  .ws-circuits { grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .ws-circuit { gap: 2mm; padding: 2.5mm 3.5mm; border-radius: 8px; break-inside: avoid; }
+  .ws-circuit p { font-size: 11.5pt; line-height: 1.3; gap: 8px; }
+  .ws-circuit .circuit { max-width: 62mm; }
+}

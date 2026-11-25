@@ -292,17 +292,21 @@
       progressEl.textContent = 'All done';
       stage.hidden = true;
       end.hidden = false;
-      end.querySelector('.pg-final-score').textContent = score + ' out of ' + total;
-      end.querySelector('.pg-final-time').textContent = clock();
       const ranks = (end.dataset.ranks || '').split('|').map((s) => s.split(':'));
       const rank = ranks.find(([min]) => score >= Number(min));
-      end.querySelector('.pg-rank').textContent = rank ? rank[1] : '';
+      const fill = (sel, text) => game.querySelectorAll(sel).forEach((el) => { el.textContent = text; });
+      fill('.pg-final-score', score + ' out of ' + total);
+      fill('.pg-final-time', clock());
+      fill('.pg-rank', rank ? rank[1] : '');
       say('');
       planets.forEach((p) => p.classList.add('is-found'));
+      // The finale: the space panel grows to fill the screen and the planets go into orbit
+      if (orbits) later(() => orbits.open(), 1100);
     }
 
     function begin() {
       gen++;
+      if (orbits) orbits.close(true);
       if (stop) { const s = stop; stop = null; s(); }
       clearInterval(tick);
       score = 0;
@@ -321,8 +325,167 @@
       startRound(0);
     }
 
+    const orbits = makeOrbits(game, planets);
     game.querySelectorAll('[data-pg-restart]').forEach((b) => b.addEventListener('click', begin));
+    game.querySelectorAll('[data-pg-orbits]').forEach((b) => b.addEventListener('click', () => orbits && orbits.open()));
     begin();
+  }
+
+  // ---------- the finale: a full-screen view of the planets in orbit ----------
+  // .pg-orrery holds .pg-sky (filled in here), [data-pg-close], [data-pg-pause], [data-pg-slower], [data-pg-faster],
+  // [data-pg-full], .pg-speed and .pg-years. Each .pg-planet with data-au (distance from the Sun), data-year (time for
+  // one orbit, in Earth years) and data-l0 (where it was on 1 January 2000, degrees round from the same start line)
+  // goes into orbit. Periods are real; distances are squashed (log scale) so the inner planets still fit.
+  function makeOrbits(game, planets) {
+    const box = game.querySelector('.pg-orrery');
+    if (!box) return null;
+    const sky = box.querySelector('.pg-sky');
+    const list = planets.filter((p) => p.dataset.au);
+    const SPEEDS = [8, 4, 2, 1, 0.5, 0.2, 0.05]; // seconds for one Earth year
+    const NS = 'http://www.w3.org/2000/svg';
+    const J2000 = Date.UTC(2000, 0, 1, 12);
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'pg-orbit-lines');
+    svg.setAttribute('aria-hidden', 'true');
+    sky.appendChild(svg);
+    const sun = document.createElement('div');
+    sun.className = 'pg-o-sun';
+    sun.innerHTML = '<span>Sun</span>';
+    sky.appendChild(sun);
+    const lnA = list.map((p) => Math.log(Number(p.dataset.au)));
+    const lo = Math.min(...lnA), hi = Math.max(...lnA);
+    const bodies = list.map((p, i) => {
+      const el = document.createElement('div');
+      el.className = 'pg-o-planet' + (p.classList.contains('is-ringed') ? ' is-ringed' : '');
+      const img = p.querySelector('img').cloneNode();
+      img.alt = '';
+      const label = document.createElement('span');
+      label.textContent = p.querySelector('.pg-name').textContent;
+      el.append(img, label);
+      el.style.setProperty('--d', getComputedStyle(p).getPropertyValue('--d'));
+      sky.appendChild(el);
+      const line = document.createElementNS(NS, 'ellipse');
+      svg.appendChild(line);
+      return { p, el, line, T: Number(p.dataset.year), l0: Number(p.dataset.l0) * Math.PI / 180,
+        r: 0.21 + 0.79 * (lnA[i] - lo) / (hi - lo), from: null };
+    });
+
+    let speed = 1, playing = !reduceMotion, years = 0, raf = 0, last = 0, opened = 0, g = null;
+    const speedEl = box.querySelector('.pg-speed');
+    const yearsEl = box.querySelector('.pg-years');
+    const pauseBtn = box.querySelector('[data-pg-pause]');
+    const fullBtn = box.querySelector('[data-pg-full]');
+    const showSpeed = () => {
+      const s = SPEEDS[speed];
+      speedEl.textContent = '1 Earth year = ' + (s === 0.5 ? 'half a second' : s + (s === 1 ? ' second' : ' seconds'));
+      box.querySelector('[data-pg-slower]').disabled = speed === 0;
+      box.querySelector('[data-pg-faster]').disabled = speed === SPEEDS.length - 1;
+    };
+    const showPlay = () => { pauseBtn.textContent = playing ? 'Pause' : 'Play'; };
+
+    // Sizes of the view: a tilted ellipse, as if looking down at the orbits at an angle
+    function layout() {
+      const W = sky.clientWidth, H = sky.clientHeight;
+      // tilt more on wide screens, less on tall ones, so the orbits fill the space either way
+      const tilt = Math.max(0.56, Math.min(0.85, (H / 2 - 34) / (W / 2 - 50)));
+      const rx = Math.max(60, Math.min(W / 2 - 50, (H / 2 - 34) / tilt));
+      g = { cx: W / 2, cy: H / 2, rx, ry: rx * tilt, k: Math.max(0.55, Math.min(1.2, Math.min(W, H * 1.6) / 900)) };
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      sun.style.setProperty('--sun', 74 * g.k + 'px');
+      sun.style.left = g.cx + 'px';
+      sun.style.top = g.cy + 'px';
+      bodies.forEach((b) => {
+        b.line.setAttribute('cx', g.cx);
+        b.line.setAttribute('cy', g.cy);
+        b.line.setAttribute('rx', g.rx * b.r);
+        b.line.setAttribute('ry', g.ry * b.r);
+        b.el.style.setProperty('--k', g.k);
+      });
+    }
+    function place(b, t) {
+      const a = b.l0 + 2 * Math.PI * (b.start + years) / b.T;
+      let x = g.cx + g.rx * b.r * Math.cos(a);
+      let y = g.cy - g.ry * b.r * Math.sin(a);
+      if (b.from && t < 1) { // gliding in from the row of planets
+        const e = 1 - Math.pow(1 - t, 3);
+        x = b.from.x + (x - b.from.x) * e;
+        y = b.from.y + (y - b.from.y) * e;
+      }
+      const depth = (y - g.cy) / g.ry; // -1 at the back, +1 at the front
+      b.el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(${0.85 + 0.15 * (depth + 1) / 2})`;
+      b.el.style.zIndex = y < g.cy ? 1 : 3; // behind the Sun on the far side
+    }
+    function frame(now) {
+      const dt = last ? Math.min(0.1, (now - last) / 1000) : 0;
+      last = now;
+      if (playing) years += dt / SPEEDS[speed];
+      const t = reduceMotion ? 1 : (now - opened) / 1400;
+      bodies.forEach((b) => place(b, t));
+      yearsEl.textContent = years.toFixed(1);
+      raf = requestAnimationFrame(frame);
+    }
+
+    function open() {
+      if (!box.hidden) return;
+      const panel = game.querySelector('.pg-space').getBoundingClientRect();
+      box.hidden = false;
+      document.documentElement.classList.add('pg-locked');
+      layout();
+      const skyBox = sky.getBoundingClientRect();
+      const yearsNow = (Date.now() - J2000) / 3.15576e10; // years since 1 January 2000
+      bodies.forEach((b) => {
+        b.start = yearsNow;
+        const r = b.p.getBoundingClientRect();
+        b.from = r.width ? { x: r.left + r.width / 2 - skyBox.left, y: r.top + r.height / 2 - skyBox.top } : null;
+      });
+      years = 0;
+      last = 0;
+      playing = !reduceMotion;
+      showSpeed();
+      showPlay();
+      opened = performance.now();
+      // grow out of the space panel to fill the screen
+      if (!reduceMotion && box.animate) {
+        const W = innerWidth, H = innerHeight;
+        box.animate([
+          { clipPath: `inset(${panel.top}px ${W - panel.right}px ${H - panel.bottom}px ${panel.left}px round 16px)` },
+          { clipPath: 'inset(0 0 0 0 round 0)' }
+        ], { duration: 700, easing: 'cubic-bezier(.3,.7,.2,1)' });
+      }
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(frame);
+      box.querySelector('[data-pg-close]').focus({ preventScroll: true });
+    }
+    function close(quiet) {
+      if (box.hidden) return;
+      cancelAnimationFrame(raf);
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      }
+      box.hidden = true;
+      document.documentElement.classList.remove('pg-locked');
+      if (!quiet) game.scrollIntoView({ block: 'start' });
+    }
+
+    box.querySelector('[data-pg-close]').addEventListener('click', () => close());
+    pauseBtn.addEventListener('click', () => { playing = !playing; showPlay(); });
+    box.querySelector('[data-pg-slower]').addEventListener('click', () => { if (speed > 0) speed--; showSpeed(); });
+    box.querySelector('[data-pg-faster]').addEventListener('click', () => { if (speed < SPEEDS.length - 1) speed++; showSpeed(); });
+    box.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !document.fullscreenElement) close(); });
+    addEventListener('resize', () => { if (!box.hidden) layout(); });
+    // Real full screen where the browser allows it (iPad Safari does; a Google Sites box may not)
+    const canFull = (document.fullscreenEnabled || document.webkitFullscreenEnabled) && (box.requestFullscreen || box.webkitRequestFullscreen);
+    if (fullBtn && canFull) {
+      fullBtn.hidden = false;
+      fullBtn.addEventListener('click', () => {
+        if (document.fullscreenElement || document.webkitFullscreenElement) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        else (box.requestFullscreen || box.webkitRequestFullscreen).call(box);
+      });
+      const label = () => { fullBtn.textContent = (document.fullscreenElement || document.webkitFullscreenElement) ? 'Exit full screen' : 'Full screen'; };
+      document.addEventListener('fullscreenchange', label);
+      document.addEventListener('webkitfullscreenchange', label);
+    }
+    return { open, close };
   }
 
   function shuffle(a) {

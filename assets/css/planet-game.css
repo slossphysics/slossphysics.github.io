@@ -156,3 +156,60 @@
 .pg-planet.is-ringed.pg-drop:hover::before, .pg-planet.is-ringed.is-over::before { box-shadow: 0 0 0 3px #fff, 0 0 22px 6px rgba(255, 255, 255, .55); }
 .pg-planet.is-ringed.is-found::before { box-shadow: 0 0 0 4px #2dd4bf, 0 0 26px 8px rgba(45, 212, 191, .6); }
 .pg-planet.is-ringed.is-selected::before { box-shadow: 0 0 0 4px #fbbf24, 0 0 26px 8px rgba(251, 191, 36, .6); }
+
+/* ---------- finale: the planets in orbit, filling the screen ---------- */
+html.pg-locked, html.pg-locked body { overflow: hidden; }
+.pg-orrery {
+  position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; color: #fff;
+  background:
+    radial-gradient(1.5px 1.5px at 8% 18%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 18% 72%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 31% 34%, #ddd3ff 50%, transparent 51%),
+    radial-gradient(1px 1px at 44% 88%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 57% 12%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 66% 64%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 78% 26%, #ddd3ff 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 80%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 94% 44%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 24% 52%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 71% 94%, #ddd3ff 50%, transparent 51%),
+    radial-gradient(1px 1px at 4% 92%, #fff 50%, transparent 51%),
+    radial-gradient(ellipse at 50% 50%, #241a5c 0, #0d0b26 70%);
+}
+.pg-orrery[hidden] { display: none; }
+.pg-o-top, .pg-o-bottom {
+  position: relative; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem;
+  padding: .6rem 1rem; background: rgba(13, 11, 38, .72); font-family: var(--font-head); font-weight: 700;
+}
+.pg-o-title { font-size: 1.35rem; }
+.pg-orrery .pg-rank { margin: 0; font-size: 1.1rem; padding: .25rem .8rem; background: #fbbf24; color: #1d1442; }
+.pg-o-stat { color: #ddd3ff; }
+.pg-o-stat strong { color: #fff; }
+.pg-o-buttons { margin-left: auto; display: flex; gap: .5rem; }
+.pg-o-btn {
+  min-height: 44px; padding: .4rem .9rem; border-radius: 999px; border: 2px solid #b49cfc;
+  background: #2a1f6b; color: #fff; font: inherit; font-weight: 700; cursor: pointer;
+}
+.pg-o-btn:hover { background: #3a2c8f; }
+.pg-o-btn:disabled { opacity: .4; cursor: default; }
+.pg-o-btn:focus-visible { outline: 3px solid #fbbf24; outline-offset: 2px; }
+.pg-o-speed { display: flex; align-items: center; gap: .5rem; }
+.pg-speed { min-width: 13.5em; text-align: center; color: #fbbf24; }
+.pg-o-note { flex-basis: 100%; font-size: .85rem; font-weight: 600; color: #b7aee0; }
+.pg-sky { position: relative; flex: 1; overflow: hidden; }
+.pg-orbit-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pg-orbit-lines ellipse { fill: none; stroke: rgba(221, 211, 255, .28); stroke-width: 1.5; stroke-dasharray: 5 6; }
+.pg-o-sun {
+  position: absolute; z-index: 2; width: var(--sun); height: var(--sun); transform: translate(-50%, -50%); border-radius: 50%;
+  background: radial-gradient(circle, #fffbe0 0, #ffe066 45%, #ffb020 70%, #ff8a00 100%);
+  box-shadow: 0 0 40px 18px rgba(255, 170, 30, .55), 0 0 120px 50px rgba(255, 120, 0, .25);
+}
+.pg-o-sun span { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: .45rem; font-family: var(--font-head); font-weight: 700; font-size: .9rem; color: #fff3c4; }
+.pg-o-planet { position: absolute; left: 0; top: 0; display: grid; justify-items: center; will-change: transform; pointer-events: none; mix-blend-mode: screen; }
+.pg-o-planet img {
+  display: block; width: calc(var(--d) * .42 * var(--k)); height: calc(var(--d) * .42 * var(--k));
+  border-radius: 50%;
+}
+.pg-o-planet.is-ringed img { height: calc(var(--d) * .21 * var(--k)); border-radius: 0; }
+.pg-o-planet span { margin-top: .15rem; font-family: var(--font-head); font-weight: 700; font-size: calc(.85rem * max(var(--k), .9)); text-shadow: 0 1px 3px #000; white-space: nowrap; }
+@media (max-width: 700px) { .pg-o-note { display: none; } .pg-o-title { font-size: 1.1rem; } }

@@ -1,0 +1,161 @@
+/* Gravity drop tool (bge/gravity-drop.html). Scenes use fixed sky and ground colours per place,
+   the same in light and dark mode; everything around them uses the site tokens. */
+.gd { margin-top: 24px; }
+.gd-bar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  margin-bottom: 14px;
+}
+.gd-drop {
+  font: inherit; font-family: var(--font-head); font-weight: 800; font-size: 1.25rem;
+  min-height: 52px; padding: 8px 30px; border-radius: 14px; cursor: pointer;
+  background: var(--level-colour); color: var(--on-level);
+  border: var(--edge-w) solid var(--edge); box-shadow: var(--pop);
+}
+.gd-drop:active { transform: translate(4px, 4px); box-shadow: none; }
+.gd-height { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
+.gd select {
+  font: inherit; font-size: 16px; font-weight: 700; color: var(--text); background: var(--surface);
+  border: 2px solid var(--edge); border-radius: 10px; padding: 6px 8px; min-height: 40px; max-width: 100%;
+}
+.gd-presets { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 16px; }
+.gd-presets > span { font-weight: 700; color: var(--muted); margin-right: 4px; }
+.gd-presets .tool { font-size: 0.95rem; }
+
+.gd-lanes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.gd-lane {
+  display: flex; flex-direction: column; min-width: 0;
+  background: var(--surface); border: var(--edge-w) solid var(--edge); border-radius: var(--radius);
+  box-shadow: var(--pop); overflow: hidden;
+}
+.gd-head { padding: 10px 10px 8px; display: grid; gap: 6px; }
+.gd-pick { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.gd-pick select { flex: 1; min-width: 0; }
+.gd-badge, .gd-icon { flex: none; width: 36px; height: 36px; display: grid; place-items: center; }
+.gd-badge { border-radius: 50%; overflow: hidden; background: #0b0b1e; border: 2px solid var(--edge); }
+.gd-badge img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gd-icon svg { width: 34px; height: 34px; }
+.gd-g, .gd-mass { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.3; }
+.gd-g b, .gd-mass b { color: var(--text); }
+.gd-g b { font-size: 1.05rem; }
+
+/* ----- the scene ----- */
+.gd-scene {
+  position: relative; height: clamp(260px, calc(100vh - 420px), 560px); cursor: pointer; overflow: hidden;
+  border-top: var(--edge-w) solid var(--edge); border-bottom: var(--edge-w) solid var(--edge);
+  --sky: linear-gradient(#7cc6f7, #d9f0ff); --ground: #5aa846; --ground-top: #3f8a2f; --ink-on: #1d1442;
+  background: var(--sky);
+}
+.gd-scene:focus-visible { outline: 4px solid var(--level-bright); outline-offset: -6px; }
+.gd-ground {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 30px;
+  background: var(--ground); border-top: 5px solid var(--ground-top);
+}
+.gd-obj {
+  position: absolute; left: 50%; top: 0; z-index: 2; will-change: transform;
+  filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.35));
+}
+.gd-obj svg { width: 100%; height: 100%; display: block; }
+.gd-ruler { position: absolute; left: 0; top: 0; bottom: 0; width: 46px; z-index: 1; pointer-events: none; }
+.gd-ruler span {
+  position: absolute; left: 0; transform: translateY(-50%);
+  font-size: 0.72rem; font-weight: 800; color: var(--ink-on); opacity: 0.8;
+  padding-left: 16px; white-space: nowrap;
+}
+.gd-ruler span::before {
+  content: ""; position: absolute; left: 0; top: 50%; width: 11px; border-top: 2px solid currentColor;
+}
+.gd-note {
+  position: absolute; left: 8px; right: 8px; top: 6px; margin: 0; z-index: 3;
+  font-size: 0.75rem; font-weight: 700; color: var(--ink-on); text-align: center; opacity: 0.9;
+}
+.gd-airchip {
+  position: absolute; right: 8px; bottom: 42px; z-index: 3; display: none;
+  font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85); color: #1d1442;
+}
+.gd-airchip.on, .gd-airchip.none { display: block; }
+.gd-airchip.none { background: rgba(0, 0, 0, 0.55); color: #fff; }
+
+.gd-dust {
+  position: absolute; left: 50%; bottom: 22px; z-index: 3; pointer-events: none;
+  width: var(--size, 60px); height: calc(var(--size, 60px) * 0.45);
+  transform: translateX(-50%) scale(0); opacity: 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--dust, rgba(240, 225, 200, 0.95)), transparent);
+}
+.gd-dust.go { animation: gd-dust 1s ease-out forwards; }
+@keyframes gd-dust {
+  0% { transform: translateX(-50%) scale(0.2); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1.6, 1.2); opacity: 0; }
+}
+.gd-shake .gd-scene { animation: gd-shake 0.45s ease-out; }
+@keyframes gd-shake {
+  0%, 100% { transform: none; }
+  20% { transform: translate(-5px, 3px); }
+  40% { transform: translate(5px, -2px); }
+  60% { transform: translate(-3px, 2px); }
+  80% { transform: translate(2px, -1px); }
+}
+
+.gd-read { display: flex; flex-wrap: wrap; gap: 4px 12px; justify-content: space-between; padding: 8px 10px; font-size: 0.9rem; color: var(--muted); }
+.gd-read b { color: var(--text); font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.gd-landed .gd-read b { color: var(--good); }
+
+.gd-result {
+  margin-top: 16px; padding: 4px 16px; min-height: 0;
+  background: var(--surface); border: var(--edge-w) solid var(--edge); border-radius: var(--radius); box-shadow: var(--pop);
+}
+.gd-result:empty { display: none; }
+.gd-result p { margin: 12px 0; line-height: 1.45; }
+.gd-result strong { color: var(--level-colour); }
+
+.gd-try { margin-top: 28px; }
+.gd-try ol { padding-left: 1.4em; line-height: 1.6; }
+
+/* ----- places ----- */
+.gd-lane[data-place="moon"] .gd-scene,
+.gd-lane[data-place="mercury"] .gd-scene,
+.gd-lane[data-place="pluto"] .gd-scene,
+.gd-lane[data-place="space"] .gd-scene {
+  --sky: radial-gradient(1.5px 1.5px at 20% 15%, #fff 99%, transparent), radial-gradient(1px 1px at 70% 30%, #fff 99%, transparent),
+         radial-gradient(1.5px 1.5px at 45% 55%, #fff 99%, transparent), radial-gradient(1px 1px at 85% 70%, #fff 99%, transparent),
+         radial-gradient(1px 1px at 30% 80%, #fff 99%, transparent), radial-gradient(1.5px 1.5px at 60% 8%, #fff 99%, transparent),
+         linear-gradient(#05061a, #121433);
+  --ink-on: #e9e6ff;
+}
+.gd-lane[data-place="moon"] .gd-scene { --ground: #a3a3a3; --ground-top: #c9c9c9; --dust: rgba(200, 200, 200, 0.95); }
+.gd-lane[data-place="mercury"] .gd-scene { --ground: #8c7b6b; --ground-top: #a8978a; --dust: rgba(180, 165, 150, 0.95); }
+.gd-lane[data-place="pluto"] .gd-scene { --ground: #e6d3bb; --ground-top: #fff1dd; --dust: rgba(255, 245, 230, 0.95); }
+.gd-lane[data-place="space"] .gd-scene { --ground: transparent; --ground-top: transparent; }
+.gd-lane[data-place="space"] .gd-ground { display: none; }
+.gd-lane[data-place="earth"] .gd-scene { --dust: rgba(150, 110, 70, 0.85); }
+.gd-lane[data-place="venus"] .gd-scene { --sky: linear-gradient(#d99a3c, #f3d28d); --ground: #a8692a; --ground-top: #c98a45; --dust: rgba(230, 180, 110, 0.95); }
+.gd-lane[data-place="mars"] .gd-scene { --sky: linear-gradient(#cf8f5c, #f0c9a2); --ground: #b0502a; --ground-top: #cc6a3e; --dust: rgba(220, 120, 80, 0.95); }
+.gd-lane[data-place="jupiter"] .gd-scene { --sky: repeating-linear-gradient(#d8b48a 0 34px, #f1dfc3 34px 60px, #c08a5c 60px 78px, #ead2ae 78px 110px); }
+.gd-lane[data-place="saturn"] .gd-scene { --sky: repeating-linear-gradient(#e7d1a0 0 40px, #f6e8c8 40px 76px, #d9be86 76px 96px); }
+.gd-lane[data-place="uranus"] .gd-scene { --sky: linear-gradient(#93dde2, #d4f5f6); }
+.gd-lane[data-place="neptune"] .gd-scene { --sky: linear-gradient(#2f5fc9, #86a9f0); --ink-on: #fff; }
+.gd-lane[data-place="jupiter"] .gd-scene,
+.gd-lane[data-place="saturn"] .gd-scene,
+.gd-lane[data-place="uranus"] .gd-scene,
+.gd-lane[data-place="neptune"] .gd-scene {
+  --ground: repeating-linear-gradient(90deg, #5e6670 0 18px, #737c87 18px 36px); --ground-top: #3c434b; --dust: rgba(230, 230, 240, 0.9);
+}
+.gd-lane[data-place="sun"] .gd-scene {
+  --sky: radial-gradient(circle at 50% 120%, #fff3a0, #ffb300 40%, #ff6a00 75%, #c43c00);
+  --ground: repeating-linear-gradient(100deg, #ff4800 0 14px, #ffb000 14px 22px, #ff6a00 22px 40px); --ground-top: #ffe27a;
+  --dust: rgba(255, 240, 160, 0.95);
+}
+
+@media (max-width: 640px) {
+  .gd-lanes { gap: 6px; }
+  .gd-head { padding: 8px 6px 6px; }
+  .gd-badge, .gd-icon { display: none; }
+  .gd select { font-size: 16px; padding: 4px 4px; }
+  .gd-g, .gd-mass, .gd-read { font-size: 0.78rem; }
+  .gd-read { padding: 6px; }
+  .gd-ruler span { font-size: 0.62rem; padding-left: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gd-shake .gd-scene, .gd-dust.go { animation: none; }
+}

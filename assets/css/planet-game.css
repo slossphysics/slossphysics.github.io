@@ -201,6 +201,7 @@ html.pg-locked, html.pg-locked body { overflow: hidden; }
 .pg-orbit-lines ellipse { fill: none; stroke: rgba(221, 211, 255, .28); stroke-width: 1.5; stroke-dasharray: 5 6; }
 .pg-o-sun {
   position: absolute; z-index: 2; width: var(--sun); height: var(--sun); transform: translate(-50%, -50%); border-radius: 50%;
+  padding: 0; border: 0; cursor: pointer; font: inherit; -webkit-tap-highlight-color: transparent;
   background: radial-gradient(circle, #fffbe0 0, #ffe066 45%, #ffb020 70%, #ff8a00 100%);
   box-shadow: 0 0 40px 18px rgba(255, 170, 30, .55), 0 0 120px 50px rgba(255, 120, 0, .25);
 }
@@ -213,3 +214,87 @@ html.pg-locked, html.pg-locked body { overflow: hidden; }
 .pg-o-planet.is-ringed img { height: calc(var(--d) * .21 * var(--k)); border-radius: 0; }
 .pg-o-planet span { margin-top: .15rem; font-family: var(--font-head); font-weight: 700; font-size: calc(.85rem * max(var(--k), .9)); text-shadow: 0 1px 3px #000; white-space: nowrap; }
 @media (max-width: 700px) { .pg-o-note { display: none; } .pg-o-title { font-size: 1.1rem; } }
+
+/* ---------- the reward: planets light up, a banner, then the orbits open ---------- */
+.pg-banner {
+  position: absolute; left: 50%; top: 50%; z-index: 4; transform: translate(-50%, -50%);
+  padding: .6rem 1.6rem .7rem; text-align: center; pointer-events: none;
+  background: rgba(13, 11, 38, .85); border: 3px solid #fbbf24; border-radius: 18px;
+  box-shadow: 0 0 40px rgba(251, 191, 36, .45);
+  animation: pg-pop .6s cubic-bezier(.2, 1.5, .4, 1) 1s both;
+}
+.pg-banner strong { display: block; font-family: var(--font-head); font-size: 1.9rem; color: #fff; }
+.pg-banner span { display: block; margin-top: .1rem; font-family: var(--font-head); font-weight: 800; font-size: 1.2rem; color: #fbbf24; }
+@keyframes pg-pop { from { transform: translate(-50%, -50%) scale(.3); opacity: 0; } }
+.pg-planet.pg-cheer img { animation: pg-cheer .7s ease-out calc(var(--i, 0) * 110ms) both; }
+@keyframes pg-cheer {
+  0% { transform: none; filter: brightness(1); }
+  40% { transform: translateY(-16px) scale(1.18); filter: brightness(1.7); }
+  100% { transform: none; filter: brightness(1); }
+}
+.pg-orrery.is-intro .pg-o-top { animation: pg-from-top .7s cubic-bezier(.2, .8, .2, 1) 1.3s both; }
+.pg-orrery.is-intro .pg-o-bottom { animation: pg-from-bottom .7s cubic-bezier(.2, .8, .2, 1) 1.5s both; }
+.pg-orrery.is-intro .pg-orbit-lines { animation: pg-lines-in 1.4s ease-out .6s both; }
+@keyframes pg-from-top { from { transform: translateY(-110%); opacity: 0; } }
+@keyframes pg-from-bottom { from { transform: translateY(110%); opacity: 0; } }
+@keyframes pg-lines-in { from { opacity: 0; transform: scale(.55); } }
+.pg-orbit-lines { transform-origin: 50% 50%; transition: opacity .8s; }
+/* a ring of light rolls out from the Sun once everything is in place */
+.pg-o-sun::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  border: 3px solid rgba(255, 214, 102, .8); opacity: 0;
+}
+.pg-o-sun.is-pulse::after { animation: pg-pulse 1.2s ease-out; }
+@keyframes pg-pulse { from { transform: scale(1); opacity: .9; } to { transform: scale(9); opacity: 0; } }
+
+/* ---------- black hole (tap the Sun) ---------- */
+.pg-o-sun { transition: transform .6s, filter .6s, background .6s, box-shadow .6s; }
+.pg-o-sun:focus-visible { outline: 3px solid #fbbf24; outline-offset: 6px; }
+.pg-o-sun.is-collapsing {
+  animation: pg-collapse .65s ease-in forwards;
+  background: radial-gradient(circle, #ffd0a0 0, #ff6a2a 45%, #b3160f 100%);
+  box-shadow: 0 0 50px 22px rgba(255, 60, 20, .6);
+}
+@keyframes pg-collapse { 60% { transform: translate(-50%, -50%) scale(1.35); } to { transform: translate(-50%, -50%) scale(.35); } }
+.pg-o-sun.is-black-hole {
+  background: radial-gradient(circle, #000 0 56%, #1a0b00 62%, rgba(0, 0, 0, 0) 66%);
+  box-shadow: 0 0 0 2px rgba(255, 190, 90, .9), 0 0 30px 10px rgba(255, 140, 30, .55), 0 0 90px 40px rgba(120, 60, 255, .25);
+  animation: pg-hole-in .5s cubic-bezier(.2, 1.4, .4, 1);
+}
+@keyframes pg-hole-in { from { transform: translate(-50%, -50%) scale(.2); } }
+/* the glowing disc of gas spinning round it, seen at an angle */
+.pg-o-sun.is-black-hole::before {
+  content: ""; position: absolute; left: 50%; top: 50%; z-index: -1; width: 330%; height: 330%;
+  border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from 0deg, rgba(255, 200, 120, .0), #ffcf6b, #ff7a1a, rgba(255, 90, 20, .15), #ffe2a0, #ff8a2a, rgba(255, 200, 120, .0));
+  -webkit-mask: radial-gradient(circle, transparent 0 30%, #000 34%, #000 58%, transparent 70%);
+  mask: radial-gradient(circle, transparent 0 30%, #000 34%, #000 58%, transparent 70%);
+  filter: blur(2px);
+  animation: pg-disc 1.6s linear infinite;
+}
+@keyframes pg-disc { from { transform: translate(-50%, -50%) scaleY(.32) rotate(0deg); } to { transform: translate(-50%, -50%) scaleY(.32) rotate(360deg); } }
+.pg-orrery.is-hole .pg-orbit-lines { opacity: 0; }
+.pg-orrery.is-hole .pg-o-planet span, .pg-orrery.is-hole .pg-o-sun span { opacity: 0; transition: opacity .4s; }
+.pg-o-flash { position: absolute; inset: 0; z-index: 6; background: #fff; opacity: 0; pointer-events: none; }
+.pg-o-hole {
+  position: absolute; left: 50%; top: 50%; z-index: 7; transform: translate(-50%, -50%);
+  width: min(30rem, calc(100% - 2rem)); padding: 1.1rem 1.4rem 1.3rem; text-align: center;
+  background: rgba(13, 11, 38, .92); border: 3px solid #b49cfc; border-radius: 18px; color: #fff;
+  animation: pg-pop-centre .5s cubic-bezier(.2, 1.4, .4, 1);
+}
+.pg-o-hole[hidden] { display: none; }
+.pg-o-hole h3 { margin: 0 0 .4rem; font-size: 1.8rem; color: #fbbf24; }
+.pg-o-hole p { margin: .4rem 0; font-size: 1.05rem; line-height: 1.4; color: #ece6ff; }
+.pg-o-hole .pg-o-btn { margin-top: .6rem; background: #fbbf24; border-color: #fbbf24; color: #1d1442; }
+@keyframes pg-pop-centre { from { transform: translate(-50%, -50%) scale(.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .pg-banner, .pg-planet.pg-cheer img, .pg-orrery.is-intro .pg-o-top, .pg-orrery.is-intro .pg-o-bottom,
+  .pg-orrery.is-intro .pg-orbit-lines, .pg-o-sun.is-black-hole::before { animation: none; }
+}
+/* the black centre sits in front of the disc */
+.pg-o-sun.is-black-hole::after {
+  inset: 0; border: 0; opacity: 1; z-index: 1; animation: none;
+  background: radial-gradient(circle closest-side, #000 0 86%, rgba(0, 0, 0, .6) 94%, rgba(0, 0, 0, 0) 100%);
+  box-shadow: 0 0 0 2px rgba(255, 196, 110, .95), 0 0 18px 4px rgba(255, 150, 40, .7);
+}
+@media (max-width: 700px) { .pg-banner { padding: .4rem 1rem .5rem; white-space: nowrap; } .pg-banner strong { font-size: 1.3rem; } .pg-banner span { font-size: 1rem; } }

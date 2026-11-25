@@ -300,13 +300,21 @@
       fill('.pg-rank', rank ? rank[1] : '');
       say('');
       planets.forEach((p) => p.classList.add('is-found'));
-      // The finale: the space panel grows to fill the screen and the planets go into orbit
-      if (orbits) later(() => orbits.open(), 1100);
+      if (!orbits) return;
+      // The reward: the planets light up one by one, a banner pops up, then the space panel grows to fill the
+      // screen and the planets go into orbit. The results card shows once the orbits are closed.
+      end.hidden = true;
+      banner.querySelector('span').textContent = rank ? rank[1] : '';
+      banner.hidden = false;
+      planets.filter((p) => !homes.get(p).hidden).forEach((p, i) => { p.style.setProperty('--i', i); p.classList.add('pg-cheer'); });
+      later(() => orbits.open(true), reduceMotion ? 400 : 2300);
     }
 
     function begin() {
       gen++;
       if (orbits) orbits.close(true);
+      banner.hidden = true;
+      planets.forEach((p) => p.classList.remove('pg-cheer'));
       if (stop) { const s = stop; stop = null; s(); }
       clearInterval(tick);
       score = 0;
@@ -325,7 +333,12 @@
       startRound(0);
     }
 
-    const orbits = makeOrbits(game, planets);
+    const banner = document.createElement('div');
+    banner.className = 'pg-banner';
+    banner.hidden = true;
+    banner.innerHTML = '<strong>Mission complete!</strong><span></span>';
+    game.querySelector('.pg-space').appendChild(banner);
+    const orbits = makeOrbits(game, planets, () => { end.hidden = false; banner.hidden = true; });
     game.querySelectorAll('[data-pg-restart]').forEach((b) => b.addEventListener('click', begin));
     game.querySelectorAll('[data-pg-orbits]').forEach((b) => b.addEventListener('click', () => orbits && orbits.open()));
     begin();
@@ -336,7 +349,9 @@
   // [data-pg-full], .pg-speed and .pg-years. Each .pg-planet with data-au (distance from the Sun), data-year (time for
   // one orbit, in Earth years) and data-l0 (where it was on 1 January 2000, degrees round from the same start line)
   // goes into orbit. Periods are real; distances are squashed (log scale) so the inner planets still fit.
-  function makeOrbits(game, planets) {
+  // Tapping the Sun turns it into a black hole that swallows the planets (just for fun); .pg-o-hole is the message
+  // shown afterwards, with a [data-pg-unhole] button that brings everything back.
+  function makeOrbits(game, planets, onClose) {
     const box = game.querySelector('.pg-orrery');
     if (!box) return null;
     const sky = box.querySelector('.pg-sky');
@@ -348,10 +363,17 @@
     svg.setAttribute('class', 'pg-orbit-lines');
     svg.setAttribute('aria-hidden', 'true');
     sky.appendChild(svg);
-    const sun = document.createElement('div');
+    // The Sun is a button: tapping it is the black hole surprise
+    const sun = document.createElement('button');
+    sun.type = 'button';
     sun.className = 'pg-o-sun';
+    sun.setAttribute('aria-label', 'The Sun');
     sun.innerHTML = '<span>Sun</span>';
     sky.appendChild(sun);
+    const flash = document.createElement('div');
+    flash.className = 'pg-o-flash';
+    sky.appendChild(flash);
+    const holeMsg = box.querySelector('.pg-o-hole');
     const lnA = list.map((p) => Math.log(Number(p.dataset.au)));
     const lo = Math.min(...lnA), hi = Math.max(...lnA);
     const bodies = list.map((p, i) => {
@@ -366,11 +388,14 @@
       sky.appendChild(el);
       const line = document.createElementNS(NS, 'ellipse');
       svg.appendChild(line);
-      return { p, el, line, T: Number(p.dataset.year), l0: Number(p.dataset.l0) * Math.PI / 180,
-        r: 0.21 + 0.79 * (lnA[i] - lo) / (hi - lo), from: null };
+      return { p, el, line, i, T: Number(p.dataset.year), l0: Number(p.dataset.l0) * Math.PI / 180,
+        r: 0.21 + 0.79 * (lnA[i] - lo) / (hi - lo), from: null, spin: 0, gone: false };
     });
 
-    let speed = 1, playing = !reduceMotion, years = 0, raf = 0, last = 0, opened = 0, g = null;
+    let speed = 1, playing = !reduceMotion, years = 0, raf = 0, last = 0, opened = 0, glide = 1400, g = null;
+    let hole = null; // { t0, phase: 'collapse' | 'eat' | 'done' }
+    const timers = [];
+    const after = (fn, ms) => timers.push(setTimeout(fn, ms));
     const speedEl = box.querySelector('.pg-speed');
     const yearsEl = box.querySelector('.pg-years');
     const pauseBtn = box.querySelector('[data-pg-pause]');
@@ -402,32 +427,99 @@
         b.el.style.setProperty('--k', g.k);
       });
     }
-    function place(b, t) {
-      const a = b.l0 + 2 * Math.PI * (b.start + years) / b.T;
-      let x = g.cx + g.rx * b.r * Math.cos(a);
-      let y = g.cy - g.ry * b.r * Math.sin(a);
-      if (b.from && t < 1) { // gliding in from the row of planets
-        const e = 1 - Math.pow(1 - t, 3);
+
+    function place(b, t, now, dt) {
+      const a = b.l0 + 2 * Math.PI * (b.start + years) / b.T + b.spin;
+      let r = b.r, squash = 0, fade = 1;
+      if (hole && hole.phase !== 'collapse') {
+        // falling in: inner planets first, faster and faster, stretched along their path
+        const u = Math.max(0, Math.min(1, ((now - hole.t0) / 1000 - 0.15 - 0.32 * b.i) / 2.4));
+        const e = u * u;
+        const rh = (37 * g.k) / g.rx * 0.5; // the edge of the black hole
+        r = rh + (b.r - rh) * (1 - e);
+        b.spin += dt * 2 * Math.PI * (0.25 + 1.6 * e) * Math.min(6, b.r / r);
+        squash = e;
+        fade = u > 0.88 ? Math.max(0, (1 - u) / 0.12) : 1;
+        if (u >= 1) b.gone = true;
+      }
+      let x = g.cx + g.rx * r * Math.cos(a);
+      let y = g.cy - g.ry * r * Math.sin(a);
+      if (b.from && t < 1) { // gliding in from where it was
+        const e = t <= 0 ? 0 : 1 - Math.pow(1 - t, 3);
         x = b.from.x + (x - b.from.x) * e;
         y = b.from.y + (y - b.from.y) * e;
       }
-      const depth = (y - g.cy) / g.ry; // -1 at the back, +1 at the front
-      b.el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(${0.85 + 0.15 * (depth + 1) / 2})`;
+      const depth = (y - g.cy) / (g.ry || 1); // -1 at the back, +1 at the front
+      let size = 0.85 + 0.15 * (depth + 1) / 2;
+      let stretch = '';
+      if (squash > 0) {
+        const tan = Math.atan2(-g.ry * Math.cos(a), -g.rx * Math.sin(a)) * 180 / Math.PI;
+        stretch = ` rotate(${tan}deg) scale(${1 + 2.2 * squash}, ${Math.max(0.2, 1 - 0.75 * squash)}) rotate(${-tan}deg)`;
+        size *= 1 - 0.75 * squash;
+      }
+      b.el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(${size})${stretch}`;
+      b.el.style.opacity = b.gone ? 0 : fade;
       b.el.style.zIndex = y < g.cy ? 1 : 3; // behind the Sun on the far side
     }
+
     function frame(now) {
       const dt = last ? Math.min(0.1, (now - last) / 1000) : 0;
       last = now;
       if (playing) years += dt / SPEEDS[speed];
-      const t = reduceMotion ? 1 : (now - opened) / 1400;
-      bodies.forEach((b) => place(b, t));
+      const t = reduceMotion ? 1 : (now - opened) / glide;
+      bodies.forEach((b) => place(b, t, now, dt));
       yearsEl.textContent = years.toFixed(1);
+      if (hole && hole.phase === 'eat' && bodies.every((b) => b.gone)) {
+        hole.phase = 'done';
+        after(() => { holeMsg.hidden = false; holeMsg.querySelector('button').focus({ preventScroll: true }); }, 500);
+      }
       raf = requestAnimationFrame(frame);
     }
 
-    function open() {
+    // ---------- black hole ----------
+    function startHole() {
+      if (hole) return;
+      hole = { t0: 0, phase: 'collapse' };
+      box.classList.add('is-hole');
+      sun.classList.add('is-collapsing');
+      after(() => {
+        sun.classList.remove('is-collapsing');
+        sun.classList.add('is-black-hole');
+        hole.t0 = performance.now();
+        hole.phase = 'eat';
+      }, reduceMotion ? 50 : 650);
+    }
+    function endHole(animate) {
+      timers.forEach(clearTimeout);
+      timers.length = 0;
+      hole = null;
+      holeMsg.hidden = true;
+      box.classList.remove('is-hole');
+      sun.classList.remove('is-collapsing', 'is-black-hole');
+      bodies.forEach((b) => { b.spin = 0; b.gone = false; b.el.style.opacity = 1; });
+      if (animate) {
+        // the planets come flying back out from the middle
+        bodies.forEach((b) => { b.from = { x: g.cx, y: g.cy }; });
+        opened = performance.now();
+        glide = 1500;
+        sun.classList.add('is-pulse');
+        after(() => sun.classList.remove('is-pulse'), 1200);
+      }
+    }
+    sun.addEventListener('click', startHole);
+    holeMsg.querySelector('[data-pg-unhole]').addEventListener('click', () => {
+      if (reduceMotion || !flash.animate) { endHole(true); return; }
+      flash.animate([{ opacity: 0 }, { opacity: 1, offset: 0.35 }, { opacity: 0 }], { duration: 900, easing: 'ease-out' });
+      setTimeout(() => endHole(true), 300);
+      box.querySelector('[data-pg-close]').focus({ preventScroll: true });
+    });
+
+    // ---------- opening and closing ----------
+    // intro: the reward after the last answer (the panel grows, the Sun slides to the middle, orbits fade in)
+    function open(intro) {
       if (!box.hidden) return;
       const panel = game.querySelector('.pg-space').getBoundingClientRect();
+      endHole(false);
       box.hidden = false;
       document.documentElement.classList.add('pg-locked');
       layout();
@@ -443,14 +535,25 @@
       playing = !reduceMotion;
       showSpeed();
       showPlay();
-      opened = performance.now();
-      // grow out of the space panel to fill the screen
+      glide = intro ? 2200 : 1400;
+      opened = performance.now() + (intro ? 250 : 0);
       if (!reduceMotion && box.animate) {
         const W = innerWidth, H = innerHeight;
         box.animate([
           { clipPath: `inset(${panel.top}px ${W - panel.right}px ${H - panel.bottom}px ${panel.left}px round 16px)` },
           { clipPath: 'inset(0 0 0 0 round 0)' }
-        ], { duration: 700, easing: 'cubic-bezier(.3,.7,.2,1)' });
+        ], { duration: intro ? 1100 : 700, easing: 'cubic-bezier(.45,0,.2,1)' });
+        if (intro) {
+          // the Sun's glow on the left of the panel slides into the middle
+          const dx = panel.left + 6 - skyBox.left - g.cx, dy = panel.top + panel.height / 2 - skyBox.top - g.cy;
+          sun.animate([
+            { transform: `translate(${dx}px, ${dy}px) translate(-50%, -50%) scale(1.7)` },
+            { transform: 'translate(-50%, -50%) scale(1)' }
+          ], { duration: 1500, easing: 'cubic-bezier(.45,0,.2,1)' });
+          box.classList.add('is-intro');
+          after(() => { sun.classList.add('is-pulse'); }, 2000);
+          after(() => { box.classList.remove('is-intro'); sun.classList.remove('is-pulse'); }, 3400);
+        }
       }
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(frame);
@@ -459,12 +562,15 @@
     function close(quiet) {
       if (box.hidden) return;
       cancelAnimationFrame(raf);
+      endHole(false);
+      box.classList.remove('is-intro');
       if (document.fullscreenElement || document.webkitFullscreenElement) {
         (document.exitFullscreen || document.webkitExitFullscreen).call(document);
       }
       box.hidden = true;
       document.documentElement.classList.remove('pg-locked');
       if (!quiet) game.scrollIntoView({ block: 'start' });
+      if (onClose) onClose();
     }
 
     box.querySelector('[data-pg-close]').addEventListener('click', () => close());

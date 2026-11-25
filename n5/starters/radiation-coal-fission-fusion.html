@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coal, fission or fusion? · N5 · Sloss Physics</title>
+  <meta name="description" content="National 5 Physics starter (Radiation · Nuclear radiation): fission, a fusion difficulty, a half-life calculation, then match the downsides of coal, nuclear fission and nuclear fusion, including the surprise that coal puts more radioactivity into the air.">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/starter.css">
+  <script src="../../assets/js/starter.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><svg viewBox="0 0 34 22" aria-hidden="true"><path d="M2 11Q9.5-3 17 11T32 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Sloss<span>Physics</span></a>
+      <nav class="level-nav" aria-label="Levels">
+        <ul>
+          <li><a data-level="bge" href="../../bge/index.html">BGE</a></li>
+          <li><a data-level="n4" href="../../n4/index.html">N4</a></li>
+          <li><a data-level="n5" href="../index.html" aria-current="true">N5</a></li>
+          <li><a data-level="higher" href="../../higher/index.html">Higher</a></li>
+          <li><a data-level="ah" href="../../ah/index.html">AH</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap starter" data-level="n5">
+    <ol class="crumbs">
+      <li><a href="../../index.html">All levels</a></li>
+      <li><a href="../index.html">National 5 Physics</a></li>
+      <li><a href="index.html">Starters</a></li>
+      <li>Radiation</li>
+    </ol>
+
+    <p class="spec-ref">N5 · Radiation · Nuclear radiation</p>
+    <h1>Coal, fission or fusion?</h1>
+    <div class="lisc">
+      <p><strong>LI:</strong> I am recalling fission, fusion and half-life, and comparing the downsides of different energy sources.</p>
+      <p><strong>SC:</strong> I can say what nuclear fission is · I can give a difficulty with fusion · I can calculate an activity using half-life · I can match downsides to coal, fission and fusion · I can write my answers in my jotter.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="timer" data-timer>
+        <select aria-label="Timer length">
+          <option value="5">5 min</option>
+          <option value="8" selected>8 min</option>
+          <option value="10">10 min</option>
+        </select>
+        <output class="timer-display">8:00</output>
+        <button type="button" class="tool" data-timer-toggle>Start</button>
+      </div>
+      <button type="button" class="tool" data-reset>Reset</button>
+    </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">1.</span>What is meant by the term <strong>nuclear fission</strong>? Write your answer in your jotter first, then tap the best match.</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="That is joining together, not splitting: that is fusion.">Two small nuclei join together to form a larger nucleus</button>
+          <button type="button" class="option" data-correct>A large nucleus splits into two smaller nuclei, releasing energy</button>
+          <button type="button" class="option" data-feedback="Close, but the exam does not give the mark for “atom”. What is it that actually splits?">An atom splits into two smaller atoms</button>
+          <button type="button" class="option" data-feedback="That is burning, a chemical reaction. Nothing happens to the nucleus when coal burns.">Fuel reacts with oxygen, releasing heat</button>
+        </div>
+        <div class="q-explain">In nuclear fission, a large <strong>nucleus</strong> splits into two smaller nuclei, releasing energy and 2 or 3 neutrons. Always say <strong>nucleus</strong>: “an atom splits” gets no mark in the exam.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">2.</span>Tap the statements that are difficulties in keeping nuclear fusion going in a reactor. There are 2.</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Hydrogen is the most common element in the universe, and there is plenty in sea water. Fuel is not the problem.">The fuel is very rare</button>
+          <button type="button" class="option" data-correct>It needs a temperature of about 100 million °C</button>
+          <button type="button" class="option" data-feedback="Fusion does not burn anything, so it gives out no carbon dioxide.">It gives out a lot of carbon dioxide</button>
+          <button type="button" class="option" data-correct>The plasma is hard to contain: it would melt any container it touched</button>
+        </div>
+        <div class="q-explain">Fusion needs <strong>very high temperatures</strong> (about 100 million °C), so the fuel is a <strong>plasma</strong> that is hard to contain and has to be held away from the walls by strong magnetic fields. Any one of these gets the mark. “It costs too much” on its own gets no mark.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-input" data-answer="150">
+        <p class="q-prompt"><span class="q-num">3.</span>A radioactive source has an activity of 1200 Bq. Its half-life is 4 hours. Calculate its activity after 12 hours.</p>
+        <div class="answer-row">
+          <label class="answer-label" for="cff-activity">Activity =</label>
+          <input class="answer" id="cff-activity" type="text" inputmode="decimal" autocomplete="off">
+          <span class="answer-unit">Bq</span>
+          <button type="button" class="tool q-check">Check</button>
+        </div>
+        <p class="mistake" data-value="400">You've divided by 3. Each half-life halves the activity: halve it once for each half-life.</p>
+        <p class="mistake" data-value="600">That's after one half-life. How many half-lives are there in 12 hours?</p>
+        <p class="mistake" data-value="300">That's after two half-lives. How many half-lives are there in 12 hours?</p>
+        <p class="mistake" data-value="75">That's one halving too many. Count the half-lives again: 12 ÷ 4.</p>
+        <p class="mistake" data-value="3600">The activity goes down, not up. Halve it once for each half-life.</p>
+        <details class="hint"><summary>Hint</summary><p>First work out how many half-lives fit into 12 hours.</p><details class="hint"><summary>Another hint</summary><p>Number of half-lives = 12 ÷ 4. Now halve 1200 Bq that many times.</p></details></details>
+        <div class="q-explain">
+          <ul class="working">
+            <li>Number of half-lives = 12 ÷ 4 = 3</li>
+            <li>1200 Bq → 600 Bq → 300 Bq → 150 Bq</li>
+            <li>Activity = 150 Bq</li>
+          </ul>
+        </div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-match">
+        <p class="q-prompt"><span class="q-num">4.</span>Match each downside to its energy source. Each source is used twice.</p>
+        <div class="match is-sort">
+          <p class="match-hint">Drag each downside into its group, or tap it and then the group.</p>
+          <div class="match-items">
+            <button type="button" class="match-item is-text" data-key="coal" data-label="Coal" data-feedback="Which energy source burns a fuel made of carbon?">Gives out carbon dioxide</button>
+            <button type="button" class="match-item is-text" data-key="fusion" data-label="Fusion" data-feedback="Which one needs the conditions found in the middle of the Sun?">Needs a temperature of 100 million °C</button>
+            <button type="button" class="match-item is-text" data-key="fission" data-label="Fission" data-feedback="Which one leaves used fuel rods full of radioactive nuclei with long half-lives?">Waste stays radioactive for thousands of years</button>
+            <button type="button" class="match-item is-text" data-key="coal" data-label="Coal" data-feedback="Surprising, but no! Each source is used twice. Think about what goes up a power station's chimney.">Puts the most radioactivity into the air around it</button>
+            <button type="button" class="match-item is-text" data-key="fusion" data-label="Fusion" data-feedback="Which one is still only working in experiments, like JET and ITER?">No power station makes electricity from it yet</button>
+            <button type="button" class="match-item is-text" data-key="fission" data-label="Fission" data-feedback="Which one has a reactor core that can overheat and melt down, like Chernobyl?">A meltdown could spread radioactive material for miles</button>
+          </div>
+          <div class="match-targets">
+            <button type="button" class="match-target" data-key="coal">Coal</button>
+            <button type="button" class="match-target" data-key="fission">Fission</button>
+            <button type="button" class="match-target" data-key="fusion">Fusion</button>
+          </div>
+        </div>
+        <div class="q-explain"><strong>Coal:</strong> carbon dioxide, and (surprise!) the most radioactivity into the air. <strong>Fission:</strong> long-lasting radioactive waste, and the risk of a meltdown. <strong>Fusion:</strong> 100 million °C, and no power station makes electricity from it yet.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq">
+        <p class="q-prompt"><span class="q-num">5.</span>A coal power station puts more radioactivity into the air around it than a nuclear power station making the same amount of electricity. Why?</p>
+        <div class="options">
+          <button type="button" class="option" data-feedback="Heating something does not make it radioactive. The radioactive atoms must already be there.">The heat of the fire makes the coal radioactive</button>
+          <button type="button" class="option" data-feedback="Coal stations do not use any nuclear fuel. The fire is lit with gas or oil.">Coal stations use nuclear fuel to light the fire</button>
+          <button type="button" class="option" data-correct>Coal has tiny amounts of uranium and thorium in it, which go up the chimney in the ash</button>
+          <button type="button" class="option" data-feedback="Carbon dioxide from coal is not radioactive. Look for something else in the coal.">The carbon dioxide it gives out is radioactive</button>
+        </div>
+        <div class="q-explain">Coal is dug out of the ground, so it has tiny amounts of radioactive <strong>uranium</strong> and <strong>thorium</strong> in it. Burning coal leaves them in the ash, and some fine ash goes up the chimney. The dose to people nearby is still tiny: far less than background radiation.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+
+      <div class="q q-mcq q-challenge">
+        <p class="q-prompt"><span class="q-tag">Challenge</span><span class="q-num">6.</span>Which statement is correct?</p>
+        <div class="options">
+          <button type="button" class="option" data-correct>Nuclear waste is far more radioactive than coal ash, but it is sealed away. Coal ash is not.</button>
+          <button type="button" class="option" data-feedback="This was a famous headline, but it is wrong. Kilogram for kilogram, nuclear waste is far more radioactive than coal ash. The difference is where each one ends up.">Coal ash is more radioactive than nuclear waste.</button>
+          <button type="button" class="option" data-feedback="Not quite: a nuclear station does let out tiny amounts of radioactive gas, just less than the ash from a coal station.">A nuclear power station lets no radioactive material out at all.</button>
+          <button type="button" class="option" data-feedback="Fusion leaves no long-lasting waste like fission does, but the neutrons it gives out make the reactor walls radioactive.">A fusion reactor makes nothing radioactive at all.</button>
+        </div>
+        <div class="q-explain">Nuclear waste is <strong>far more radioactive</strong>, kilogram for kilogram, but it is <strong>sealed away</strong> and guarded. Coal ash is only weakly radioactive, but there is a lot of it, and some goes straight up the chimney. That is why a coal station puts more radioactivity into the air around it.</div>
+        <div class="q-feedback" aria-live="polite"></div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Free for teachers to use. No logins, no tracking.</div>
+  </footer>
+</body>
+</html>

@@ -157,3 +157,23 @@
 /* A one-row data table above the questions (g on each planet), with a formula line under it */
 .ws-gtable { overflow-x: auto; }
 .ws-formula { margin: 0.7rem 0 0; font-size: 1.05rem; text-align: center; }
+
+/* Speed, distance and time (N5 dynamics): a big equation and a worked example in the method card,
+   a question mark in the cell to find, and exam questions with a source tag and marks */
+.ws-big { flex: none; margin: 0; font-size: 2.6rem; font-weight: 800; line-height: 1; color: var(--level-colour, var(--accent)); }
+.ws-eg { flex: 0 1 240px; padding: 8px 14px; border-radius: 10px; background: color-mix(in srgb, var(--level-colour, var(--accent)) 8%, var(--surface)); }
+.ws-eg h3 { margin: 0 0 2px; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bad); }
+.ws-eg p { margin: 0; font-size: 1.1rem; line-height: 1.5; }
+.ws-eg b { color: var(--bad); }
+.ws-table .ws-q { font-size: 1.3rem; font-weight: 800; color: var(--bad); }
+.ws-tag { display: block; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--level-colour, var(--accent)); }
+.ws-mk { white-space: nowrap; color: var(--muted); }
+
+@media print {
+  .ws-big { font-size: 24pt; }
+  .ws-eg { flex: 0 0 52mm; padding: 2px 8px; border-radius: 6px; background: #eef2f7; }
+  .ws-eg h3 { font-size: 8.5pt; }
+  .ws-eg p { font-size: 10.5pt; line-height: 1.3; }
+  .ws-table .ws-q { font-size: 12.5pt; }
+  .ws-tag { font-size: 8.5pt; }
+}

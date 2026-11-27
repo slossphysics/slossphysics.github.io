@@ -10,21 +10,23 @@
 .act-section > h2 { margin: 0 0 12px; font-size: 1.5rem; }
 .act-credits { margin: 26px 0 0; font-size: 0.9rem; color: var(--muted); }
 
-/* ---------- Station card (planet stations) ---------- */
+/* ---------- Station card (planet stations) ----------
+   White all over so the cards are cheap to print: only the planets themselves are photos
+   (cropped tight to the planet; Saturn is a PNG with a see-through sky). */
 .ps-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 560px), 1fr)); gap: 20px; }
 .ps-card {
   display: grid; grid-template-columns: 38% 1fr; overflow: hidden;
   border: var(--edge-w) solid var(--edge); border-radius: var(--radius); background: #fff; color: #1f1d3d;
   box-shadow: var(--pop-sm); -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
-.ps-side { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 14px; background: #14133d; color: #fff; }
-.ps-station { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; color: #ffb81f; }
+.ps-side { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 14px; background: #fff; color: #2b2a72; border-right: 1px solid #d9d6f5; }
+.ps-station { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; color: #2b2a72; }
 .ps-num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffb81f; color: #14133d; font-size: 1.5rem; }
 .ps-photo { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
 .ps-photo img { width: 92%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
-.ps-photo img.ps-wide { width: 100%; aspect-ratio: 2; border-radius: 6px; }
-.ps-photo .ps-inset { position: absolute; right: 0; bottom: 0; width: 34%; border: 3px solid #fff; }
-.ps-label { position: absolute; font-size: 0.8rem; font-weight: 700; color: #fff; }
+.ps-photo img.ps-wide { width: 100%; aspect-ratio: auto; border-radius: 0; object-fit: contain; }
+.ps-photo .ps-inset { position: absolute; right: 0; bottom: 0; width: 30%; }
+.ps-label { position: absolute; font-size: 0.8rem; font-weight: 700; color: #2b2a72; }
 .ps-label-main { left: 4px; bottom: 4px; }
 .ps-label-inset { right: 4%; bottom: -18px; }
 .ps-main { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; }
@@ -72,7 +74,8 @@
   .ps-side { padding: 8mm; gap: 6mm; }
   .ps-station { font-size: 18pt; gap: 4mm; }
   .ps-num { width: 17mm; height: 17mm; font-size: 26pt; }
-  .ps-photo img { width: 86mm; }
+  .ps-photo img { width: 80mm; }
+  .ps-side { border-right: 0.3mm solid #b9b6f0; }
   .ps-photo img.ps-wide { width: 89mm; }
   .ps-label { font-size: 11pt; }
   .ps-label-inset { bottom: -7mm; }

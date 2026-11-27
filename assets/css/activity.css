@@ -1,0 +1,96 @@
+/* Styles for activity pages (site/<level>/activities/): printable resources for a whole-lesson
+   activity, such as station cards and the table pupils fill in. Load after main.css and starter.css.
+   On screen the cards are shown as a preview; in print each card is one A4 landscape page. */
+
+.activity { padding-bottom: 56px; }
+.act-lead { margin: 14px 0 0; font-size: 1.1rem; color: var(--muted); }
+.act-how { margin: 18px 0 0; padding: 14px 20px; border: var(--edge-w) solid var(--edge); border-left: 8px solid var(--level-colour, var(--accent)); border-radius: var(--radius); background: var(--surface); box-shadow: var(--pop-sm); }
+.act-how ol { margin: 0; padding-left: 1.3em; font-size: 1.05rem; line-height: 1.55; }
+.act-section { margin-top: 30px; }
+.act-section > h2 { margin: 0 0 12px; font-size: 1.5rem; }
+.act-credits { margin: 26px 0 0; font-size: 0.9rem; color: var(--muted); }
+
+/* ---------- Station card (planet stations) ---------- */
+.ps-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 560px), 1fr)); gap: 20px; }
+.ps-card {
+  display: grid; grid-template-columns: 38% 1fr; overflow: hidden;
+  border: var(--edge-w) solid var(--edge); border-radius: var(--radius); background: #fff; color: #1f1d3d;
+  box-shadow: var(--pop-sm); -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.ps-side { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 14px; background: #14133d; color: #fff; }
+.ps-station { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; color: #ffb81f; }
+.ps-num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffb81f; color: #14133d; font-size: 1.5rem; }
+.ps-photo { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+.ps-photo img { width: 92%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+.ps-photo img.ps-wide { width: 100%; aspect-ratio: 2; border-radius: 6px; }
+.ps-photo .ps-inset { position: absolute; right: 0; bottom: 0; width: 34%; border: 3px solid #fff; }
+.ps-label { position: absolute; font-size: 0.8rem; font-weight: 700; color: #fff; }
+.ps-label-main { left: 4px; bottom: 4px; }
+.ps-label-inset { right: 4%; bottom: -18px; }
+.ps-main { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; }
+.ps-main h3 { margin: 0; font-size: 2rem; line-height: 1.1; color: #2b2a72; }
+.ps-facts { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+.ps-facts th, .ps-facts td { padding: 6px 8px; border: 1px solid #b9b6f0; text-align: left; vertical-align: middle; }
+.ps-facts th { width: 34%; color: #6b3fd4; font-weight: 700; }
+.ps-facts tr:nth-child(odd) { background: #f1eeff; }
+.ps-facts tr.ps-surface { background: #ffefb8; }
+.ps-facts tr.ps-surface td { font-weight: 700; }
+.ps-au { margin: -4px 0 0; font-size: 0.78rem; font-style: italic; color: #5e5a7a; }
+.ps-know { padding: 10px 14px; border-radius: 12px; background: #d5f2ea; }
+.ps-know h4 { margin: 0 0 4px; font-size: 1rem; color: #1e7a5f; }
+.ps-know ul { margin: 0; padding-left: 1.2em; line-height: 1.4; }
+
+/* ---------- Pupil table ---------- */
+.ps-sheet { padding: 16px 20px; border: var(--edge-w) solid var(--edge); border-radius: var(--radius); background: var(--surface); box-shadow: var(--pop-sm); }
+.ps-sheet-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 20px; }
+.ps-sheet-head h3 { margin: 0; font-size: 1.4rem; }
+.ps-sheet .ws-scroll { margin-top: 12px; }
+.ps-table td { height: 2.6em; }
+.ps-table td:nth-child(2) { text-align: left; font-weight: 700; }
+.ps-table th:last-child { width: 40%; }
+
+/* Print one part only: the buttons set data-print on <body> */
+.print-only { display: none; }
+
+@media print {
+  @page { size: A4 landscape; margin: 10mm; }
+  :root { --bg: #fff; --surface: #fff; --text: #111; --muted: #444; --border: #8f8bc9; --edge: #222; --edge-w: 1px; --pop-sm: none; --pop: none; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #fff; }
+  .wrap { padding: 0; max-width: none; }
+  .site-header, .site-footer, .crumbs, .toolbar, .spec-ref, .activity > h1, .act-lead, .act-how, .act-section > h2, .act-credits { display: none !important; }
+  .print-only { display: block; }
+  .activity { padding: 0; }
+  .act-section { margin: 0; }
+  body[data-print="cards"] .act-sheet, body[data-print="table"] .act-cards { display: none !important; }
+
+  .ps-cards { display: block; }
+  .ps-card {
+    width: 277mm; height: 188mm; margin: 0; box-shadow: none; border: none; border-radius: 0;
+    grid-template-columns: 105mm 1fr; break-after: page; break-inside: avoid;
+  }
+  .ps-side { padding: 8mm; gap: 6mm; }
+  .ps-station { font-size: 18pt; gap: 4mm; }
+  .ps-num { width: 17mm; height: 17mm; font-size: 26pt; }
+  .ps-photo img { width: 86mm; }
+  .ps-photo img.ps-wide { width: 89mm; }
+  .ps-label { font-size: 11pt; }
+  .ps-label-inset { bottom: -7mm; }
+  .ps-main { padding: 6mm 0 0 9mm; gap: 4mm; }
+  .ps-main h3 { font-size: 40pt; }
+  .ps-facts { font-size: 15pt; }
+  .ps-facts th, .ps-facts td { padding: 2.6mm 3mm; }
+  .ps-au { font-size: 9.5pt; margin: -2mm 0 0; }
+  .ps-know { padding: 4mm 6mm; border-radius: 4mm; }
+  .ps-know h4 { font-size: 14pt; margin-bottom: 1.5mm; }
+  .ps-know ul { font-size: 14pt; line-height: 1.35; }
+
+  .ps-sheet { padding: 0; border: none; box-shadow: none; }
+  .ps-sheet-head h3 { font-size: 20pt; }
+  .ps-sheet-head span { font-size: 13pt; }
+  .ps-sheet .ws-scroll { border: 1px solid #222; border-radius: 0; overflow: visible; }
+  .ps-table { font-size: 13pt; }
+  .ps-table th { padding: 2.5mm 2mm; font-size: 11.5pt; }
+  .ps-table td { height: 16mm; padding: 1mm 2mm; }
+  .ps-sheet .ws-note { font-size: 10pt; margin-top: 2mm; }
+}
